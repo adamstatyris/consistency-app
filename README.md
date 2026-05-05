@@ -4,8 +4,7 @@ A habit and goal tracker built around weekly consistency, gentle scoring, and we
 
 ## Status
 
-Closed beta. Currently local-only (no accounts, data lives in `localStorage`).
-Cloud sync (auth + multi-device) is the next phase.
+Closed beta. **Auth:** Supabase (Google + email magic link). App data still lives in `localStorage` on each device until cloud sync (Phase D) ships.
 
 ## Repository layout
 
@@ -63,6 +62,10 @@ git push
 - All UI strings have an adult voice and a kid voice (ages 0–8) — keep both in sync when editing.
 - Onboarding follows "Approach D": short intro → milestone steppers triggered by user actions.
 
-## License
+## Auth notes (Supabase)
+
+- **Sign-in** uses [Supabase Auth](https://supabase.com/docs/guides/auth) with `flowType: 'implicit'` so **magic-link emails work when opened from another device or mail app** (PKCE requires the same browser session that requested the link).
+- **Email “From” (e.g. “Supabase Auth”)** — On the default host, Supabase sends from their infrastructure. To show **“Consistency”** or **“S-Sence Labs”** as the sender, add **custom SMTP** in the Supabase dashboard (**Project → Settings → Auth → SMTP Settings**), then set your **sender name** and **from address** (use a domain you control, e.g. `noreply@yourdomain.com`, with SPF/DKIM as your provider requires). You can also edit **Authentication → Email Templates** for subject/body copy.
+- **Redirect URLs** must include your production site and local dev (e.g. `https://your-project.pages.dev/**` and `http://localhost:*/**`).
 
 All rights reserved. Personal beta — please do not redistribute.
