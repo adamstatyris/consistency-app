@@ -417,7 +417,7 @@ select#hTier.habit-tier-select-expanded{min-height:4.25rem;border-radius:var(--r
 @media(max-height:760px){.modal{max-height:min(94dvh,980px)}.onboarding-intro-pane.is-active,.onboarding-wizard-pane.is-active{max-height:calc(100dvh - 240px);overflow-y:auto;-webkit-overflow-scrolling:touch}.guided-tour-card{max-height:min(74dvh,640px);overflow-y:auto}.setup-card{padding:var(--s5)}.milestone-coach-host{max-height:min(80dvh,520px)}}
 @media(max-height:560px){.setup-card{padding:var(--s4)}.onboarding-intro-pane.is-active,.onboarding-wizard-pane.is-active{max-height:calc(100dvh - 200px)}.guided-tour-card{max-height:min(82dvh,640px)}.milestone-coach-host{max-height:min(86dvh,520px)}}
 /* ---- Auth gate: full-screen sign-in splash ---- */
-.auth-gate{position:fixed;inset:0;z-index:11000;background:var(--bg);display:none;align-items:center;justify-content:center;padding:var(--s4);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.auth-gate{position:fixed;inset:0;z-index:12000;background:var(--bg);display:none;align-items:center;justify-content:center;padding:var(--s4);overflow-y:auto;-webkit-overflow-scrolling:touch}
 .auth-gate.is-visible{display:flex}
 .auth-gate-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:var(--s6);width:min(420px,100%);box-shadow:var(--shadow-lg);display:flex;flex-direction:column;gap:var(--s3);max-height:calc(100dvh - var(--s8));overflow-y:auto;-webkit-overflow-scrolling:touch;text-align:center}
 .auth-gate-brand{display:flex;gap:var(--s3);align-items:center;justify-content:center;margin-bottom:var(--s2)}
@@ -439,7 +439,8 @@ select#hTier.habit-tier-select-expanded{min-height:4.25rem;border-radius:var(--r
 /* ---- Auth splash: 3-second branded intro shown only to non-signed-in users ---- */
 .auth-splash{position:fixed;inset:0;z-index:11500;background:var(--bg);display:none;flex-direction:column;align-items:center;justify-content:space-between;padding:var(--s8) var(--s4) var(--s5);text-align:center}
 .auth-splash.is-visible{display:flex}
-.auth-splash.is-fading{opacity:0;transition:opacity .4s ease}
+/* Opacity-only fade leaves the layer above .auth-gate (older z-index) and still receiving taps on some Android/MIUI WebViews — dead sign-in buttons. */
+.auth-splash.is-fading{opacity:0;transition:opacity .4s ease;pointer-events:none!important}
 .auth-splash-stack{display:flex;flex-direction:column;align-items:center;gap:var(--s5);flex:1;justify-content:center;width:100%}
 .auth-splash-mark{width:120px;height:120px;border-radius:32px;display:grid;place-items:center;background:linear-gradient(135deg,var(--blue-strong),color-mix(in srgb,var(--teal) 72%, var(--blue) 28%));border:1px solid color-mix(in srgb,var(--blue) 55%, transparent);box-shadow:0 0 32px var(--blue-glow),0 0 60px color-mix(in srgb,var(--blue) 28%, transparent);opacity:0;animation:splash-mark-in .6s ease-out 0s 1 forwards,splash-mark-pulse 1.6s ease-in-out .6s infinite}
 .auth-splash-mark .brand-c{font-size:3.6rem;font-weight:800;line-height:1;letter-spacing:-.08em;color:#fff;text-shadow:0 0 22px rgba(255,255,255,.22)}
@@ -882,10 +883,11 @@ select#hTier.habit-tier-select-expanded{min-height:4.25rem;border-radius:var(--r
     }
     if(gate)gate.classList.add('is-visible');
     if(splash){
+      splash.style.pointerEvents='none';
       splash.classList.add('is-fading');
       window.__authSplashFadeTimer=setTimeout(function(){
         window.__authSplashFadeTimer=null;
-        if(splash){splash.classList.remove('is-visible');splash.classList.remove('is-fading');}
+        if(splash){splash.classList.remove('is-visible');splash.classList.remove('is-fading');splash.style.pointerEvents='';}
       },450);
     }
   },4550);
@@ -2815,19 +2817,34 @@ function authSuggestedName(){const u=authCurrentUser();if(!u)return '';const can
 function applyAuthFirstNameToProfileIfNeeded(){if(!S||!S.user||S.user.setupDone)return;const u=authCurrentUser();if(!u)return;const{first,confident}=authExtractFirstNameCandidate(u);if(!confident||!first)return;if((S.user.name||'').trim())return;S.user.name=first;syncActiveProfileMetaNameFromDisplayName();save();const sn=document.getElementById('setupName');if(sn)sn.value=first;}
 function syncSetupNameRowVisibility(){const col=document.getElementById('setupNameFieldCol');const autoLine=document.getElementById('setupNameAutoLine');const autoStr=document.getElementById('setupNameAutoStrong');if(!col)return;if(S&&S.user&&S.user.setupDone){col.style.display='';if(autoLine)autoLine.style.display='none';return;}const u=authCurrentUser();if(!u){col.style.display='';if(autoLine)autoLine.style.display='none';return;}const{first,confident}=authExtractFirstNameCandidate(u);const cur=(S.user&&S.user.name||'').trim();const hide=!!(confident&&first&&cur===first);col.style.display=hide?'none':'';if(autoLine&&autoStr){if(hide){autoStr.textContent=first;autoLine.style.display='block';}else{autoLine.style.display='none';}}}
 function authUrlHasPendingCallback(){try{const u=window.location.href;if(/[?&#]code=/.test(u))return true;if(/[?&#]error_description=/.test(u)||/[?&]error=/.test(u))return true;if(/#.*access_token=/.test(u))return true;}catch(_){}return false;}
+function authPeekImplicitHash(){try{return /#(?:.*&)?access_token=/.test(String(window.location.hash||''))||/#.*access_token=/.test(String(window.location.href||''));}catch(_){return false;}}
+/** Some mobile mail apps (Gmail in-app browser, etc.) deliver #access_token after first paint or on a second navigation; listen so we still pick up the session. */
+function authBindDeferredHashSessionRecovery(){
+  if(!_supa||window.__consistencyAuthHashBound)return;
+  window.__consistencyAuthHashBound=true;
+  const kick=async function(){
+    if(!authPeekImplicitHash())return;
+    await authRefresh();
+    authFinalizeAuthUrl();
+    syncAccountUI();
+    syncAuthGate();
+    prefillNameFromAuth();
+    syncSetupNameRowVisibility();
+  };
+  window.addEventListener('hashchange',function(){void kick();},{passive:true});
+  document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')void kick();},{passive:true});
+  window.addEventListener('pageshow',function(ev){if(ev.persisted)void kick();},{passive:true});
+}
 /** Remove OAuth/magic-link fragments from the address bar once a session exists. If there is still an access_token in the hash but no session yet, do nothing — stripping here raced ahead of GoTrue and broke sign-in. */
 function authFinalizeAuthUrl(){try{const u=new URL(window.location.href);const hasImplicitHash=u.hash&&u.hash.includes('access_token');if(_authSession){if(u.hash)u.hash='';u.searchParams.delete('code');u.searchParams.delete('state');const qs=u.searchParams.toString();window.history.replaceState({},document.title,u.pathname+(qs?'?'+qs:'')+u.hash);return;}if(hasImplicitHash)return;u.searchParams.delete('code');u.searchParams.delete('state');const qs=u.searchParams.toString();window.history.replaceState({},document.title,u.pathname+(qs?'?'+qs:'')+u.hash);}catch(_){}}
 async function authBootstrapSession(){
+  authBindDeferredHashSessionRecovery();
   authSubscribe();
   authHandleRedirectFromUrl();
   await authRefresh();
-  const peekImplicit=()=>{try{return /#.*access_token=/.test(String(window.location.href||''));}catch(_){return false;}};
-  if(!_authSession&&peekImplicit()){
-    await new Promise(r=>setTimeout(r,50));
-    await authRefresh();
-  }
-  if(!_authSession&&peekImplicit()){
-    await new Promise(r=>setTimeout(r,220));
+  const delays=[50,120,280,450,900];
+  for(let i=0;i<delays.length&&!_authSession&&authPeekImplicitHash();i++){
+    await new Promise(r=>setTimeout(r,delays[i]));
     await authRefresh();
   }
   authFinalizeAuthUrl();
@@ -2844,7 +2861,7 @@ function authSetBusy(busy){_authBusy=!!busy;['authGoogleBtn','authMagicBtn','aut
 function authSendMagicLinkFromGate(){const el=document.getElementById('authGateEmail');if(!el)return;authSendMagicLink(el.value,{onSent:showAuthGateSent});}
 function showAuthGateSent(email){const a=document.getElementById('authGateViewSignIn');const b=document.getElementById('authGateViewSent');const lbl=document.getElementById('authGateSentEmail');if(lbl)lbl.textContent=email||'';if(a)a.hidden=true;if(b)b.hidden=false;}
 function authGateBackToSignIn(){const a=document.getElementById('authGateViewSignIn');const b=document.getElementById('authGateViewSent');if(b)b.hidden=true;if(a)a.hidden=false;const el=document.getElementById('authGateEmail');if(el){try{el.focus();el.select();}catch(_){}}}
-function syncAuthGate(){const gate=document.getElementById('authGate');if(!gate)return;if(_authSession){if(typeof window!=='undefined'){if(window.__authGateRevealTimer){try{clearTimeout(window.__authGateRevealTimer);}catch(_){}window.__authGateRevealTimer=null;}if(window.__authSplashFadeTimer){try{clearTimeout(window.__authSplashFadeTimer);}catch(_){}window.__authSplashFadeTimer=null;}}gate.classList.remove('is-visible');authGateBackToSignIn();const splash=document.getElementById('authSplash');if(splash){splash.classList.remove('is-visible');splash.classList.remove('is-fading');}}else{if(authUrlHasPendingCallback())return;gate.classList.add('is-visible');}}
+function syncAuthGate(){const gate=document.getElementById('authGate');if(!gate)return;if(_authSession){if(typeof window!=='undefined'){if(window.__authGateRevealTimer){try{clearTimeout(window.__authGateRevealTimer);}catch(_){}window.__authGateRevealTimer=null;}if(window.__authSplashFadeTimer){try{clearTimeout(window.__authSplashFadeTimer);}catch(_){}window.__authSplashFadeTimer=null;}}gate.classList.remove('is-visible');authGateBackToSignIn();const splash=document.getElementById('authSplash');if(splash){splash.classList.remove('is-visible');splash.classList.remove('is-fading');splash.style.pointerEvents='';}}else{if(authUrlHasPendingCallback())return;gate.classList.add('is-visible');}}
 async function authRefresh(){if(!_supa)return null;try{const r=await _supa.auth.getSession();_authSession=(r&&r.data)?r.data.session:null;return _authSession;}catch(e){_authSession=null;return null;}}
 function persistAuthDisplayNameFromAccountIfEmpty(){if(!S||!S.user||!S.user.setupDone)return;const u=authCurrentUser();if(!u)return;if((S.user.name||'').trim())return;const s=authSuggestedName();if(!s)return;S.user.name=s;syncActiveProfileMetaNameFromDisplayName();save();const su=document.getElementById('sUserName');if(su)su.value=s;if(typeof renderHeader==='function')renderHeader();}
 function prefillNameFromAuth(){try{applyAuthFirstNameToProfileIfNeeded();persistAuthDisplayNameFromAccountIfEmpty();syncSetupNameRowVisibility();const suggested=authSuggestedName();if(!suggested)return;const sn=document.getElementById('setupName');if(sn&&!sn.value)sn.value=suggested;const su=document.getElementById('sUserName');if(su&&!su.value)su.value=suggested;}catch(_){}}
