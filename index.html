@@ -427,6 +427,7 @@ select#hTier.habit-tier-select-expanded{min-height:4.25rem;border-radius:var(--r
 .auth-gate-sub{margin:0;font-size:var(--sm);color:var(--text-muted);line-height:1.55}
 .auth-gate-view{display:flex;flex-direction:column;gap:var(--s3)}
 .auth-gate-view[hidden]{display:none}
+.auth-modal-view[hidden]{display:none}
 .auth-gate-actions{display:flex;flex-direction:column;gap:var(--s2);margin-top:var(--s1)}
 .auth-gate-divider{display:flex;align-items:center;gap:var(--s2);color:var(--text-muted);font-size:var(--sm);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:var(--s1) 0}
 .auth-gate-divider .auth-gate-divider-line{flex:1;height:1px;background:var(--divider)}
@@ -523,14 +524,14 @@ select#hTier.habit-tier-select-expanded{min-height:4.25rem;border-radius:var(--r
 .bank-dup-keep{width:100%;justify-content:center}
 .btn.btn-danger.btn-sm.bank-delete-btn--round{padding:0!important;width:2.125rem;height:2.125rem;min-width:2.125rem;border-radius:50%;display:inline-flex!important;align-items:center;justify-content:center;font-size:1.125rem;font-weight:700;line-height:1;box-sizing:border-box}
 .settings-modal{max-width:min(640px,100%)}
-.settings-tabs{display:flex;flex-wrap:nowrap;gap:var(--s1);overflow-x:auto;margin-bottom:var(--s5);padding-bottom:var(--s4);border-bottom:1px solid var(--divider);-webkit-overflow-scrolling:touch;scroll-behavior:smooth;overscroll-behavior-x:contain;touch-action:pan-x;cursor:grab}
+.settings-tabs{display:flex;flex-wrap:nowrap;gap:var(--s1);overflow-x:auto;margin-bottom:var(--s4);padding-bottom:var(--s3);border-bottom:1px solid var(--divider);-webkit-overflow-scrolling:touch;scroll-behavior:smooth;overscroll-behavior-x:contain;touch-action:pan-x;cursor:grab}
 .settings-tabs.is-tab-dragging{cursor:grabbing;scroll-behavior:auto}
 .settings-tabs::-webkit-scrollbar{display:none}
 .settings-tabs{scrollbar-width:none}
-.settings-tab{font:inherit;font-size:var(--sm);font-weight:700;padding:10px 16px;border-radius:var(--r-md);border:1px solid transparent;background:transparent;color:var(--text-muted);cursor:pointer;transition:color var(--t),background var(--t),border-color var(--t);flex-shrink:0;white-space:nowrap}
+.settings-tab{font:inherit;font-size:var(--sm);font-weight:700;padding:8px 14px;border-radius:var(--r-md);border:1px solid transparent;background:transparent;color:var(--text-muted);cursor:pointer;transition:color var(--t),background var(--t),border-color var(--t),box-shadow var(--t);flex-shrink:0;white-space:nowrap}
 .settings-tab:hover{color:var(--text);background:var(--surface-3)}
 .settings-tab:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
-.settings-tab[aria-selected="true"]{color:var(--text);background:color-mix(in srgb,var(--blue) 14%,var(--surface-3));border-color:color-mix(in srgb,var(--blue) 38%,var(--border))}
+.settings-tab[aria-selected="true"]{color:var(--text);background:color-mix(in srgb,var(--blue) 14%,var(--surface-3));border-color:color-mix(in srgb,var(--blue) 38%,var(--border));box-shadow:inset 0 -2px 0 var(--blue)}
 .settings-panel{display:flex;flex-direction:column;gap:var(--s4)}
 .settings-panel[hidden]{display:none!important}
 .settings-panel .form-grid{margin:0}
@@ -819,7 +820,7 @@ select#hTier.habit-tier-select-expanded{min-height:4.25rem;border-radius:var(--r
   <div class="auth-splash-stack">
     <div class="auth-splash-mark"><span class="brand-c">C</span></div>
     <div class="auth-splash-wordmark">Consistency</div>
-    <div class="auth-splash-tagline">We help you be your better self.</div>
+    <div class="auth-splash-tagline">Become your better self.</div>
   </div>
   <div class="auth-splash-signature">by S-Sence Labs</div>
 </div>
@@ -1148,24 +1149,30 @@ select#hTier.habit-tier-select-expanded{min-height:4.25rem;border-radius:var(--r
 <div class="overlay app-dialog" id="mAuthLogin" onclick="if(event.target===this)closeM('mAuthLogin')">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="authLoginTitle" onclick="event.stopPropagation()" style="max-width:440px">
     <h2 id="authLoginTitle">Sign in</h2>
-    <p class="small-note" style="margin:0 0 var(--s4);line-height:1.55">Pick how you want to sign in. Your data stays private — we use it only to sync your habits across your own devices.</p>
-    <div style="display:flex;flex-direction:column;gap:var(--s3)">
-      <button type="button" class="btn btn-primary" id="authGoogleBtn" onclick="authSignInWithGoogle()">
-        <span style="display:inline-flex;align-items:center;gap:8px;justify-content:center">
-          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path fill="#fff" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.79 2.71v2.26h2.9c1.7-1.56 2.69-3.86 2.69-6.61z"/><path fill="#fff" d="M9 18c2.43 0 4.47-.81 5.96-2.18l-2.9-2.26c-.8.54-1.83.86-3.06.86-2.35 0-4.34-1.59-5.05-3.72H.96v2.33A8.99 8.99 0 0 0 9 18z"/><path fill="#fff" d="M3.95 10.7A5.41 5.41 0 0 1 3.66 9c0-.59.1-1.16.29-1.7V4.97H.96A8.99 8.99 0 0 0 0 9c0 1.45.35 2.83.96 4.03l2.99-2.33z"/><path fill="#fff" d="M9 3.58c1.32 0 2.5.45 3.44 1.34l2.58-2.58A8.99 8.99 0 0 0 9 0a8.99 8.99 0 0 0-8.04 4.97l2.99 2.33C4.66 5.17 6.65 3.58 9 3.58z"/></svg>
-          Continue with Google
-        </span>
-      </button>
-      <div style="display:flex;align-items:center;gap:var(--s2);color:var(--text-faint);font-size:var(--xs);margin:var(--s1) 0">
-        <div style="flex:1;height:1px;background:var(--divider)"></div><span>or</span><div style="flex:1;height:1px;background:var(--divider)"></div>
+    <div class="auth-modal-view" id="authModalViewSignIn">
+      <p class="small-note" style="margin:0 0 var(--s4);line-height:1.55">Pick how you want to sign in. Your data stays private — we use it only to sync your habits across your own devices.</p>
+      <div style="display:flex;flex-direction:column;gap:var(--s3)">
+        <button type="button" class="btn btn-primary" id="authGoogleBtn" onclick="authSignInWithGoogle()">
+          <span style="display:inline-flex;align-items:center;gap:8px;justify-content:center">
+            <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path fill="#fff" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.79 2.71v2.26h2.9c1.7-1.56 2.69-3.86 2.69-6.61z"/><path fill="#fff" d="M9 18c2.43 0 4.47-.81 5.96-2.18l-2.9-2.26c-.8.54-1.83.86-3.06.86-2.35 0-4.34-1.59-5.05-3.72H.96v2.33A8.99 8.99 0 0 0 9 18z"/><path fill="#fff" d="M3.95 10.7A5.41 5.41 0 0 1 3.66 9c0-.59.1-1.16.29-1.7V4.97H.96A8.99 8.99 0 0 0 0 9c0 1.45.35 2.83.96 4.03l2.99-2.33z"/><path fill="#fff" d="M9 3.58c1.32 0 2.5.45 3.44 1.34l2.58-2.58A8.99 8.99 0 0 0 9 0a8.99 8.99 0 0 0-8.04 4.97l2.99 2.33C4.66 5.17 6.65 3.58 9 3.58z"/></svg>
+            Continue with Google
+          </span>
+        </button>
+        <div style="display:flex;align-items:center;gap:var(--s2);color:var(--text-muted);font-size:var(--sm);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:var(--s1) 0">
+          <div style="flex:1;height:1px;background:var(--divider)"></div><span>or</span><div style="flex:1;height:1px;background:var(--divider)"></div>
+        </div>
+        <label class="flabel" for="authEmailInput">Email</label>
+        <input type="email" class="finput" id="authEmailInput" placeholder="you@example.com" autocomplete="email" autocapitalize="off" spellcheck="false">
+        <button type="button" class="btn btn-ghost" id="authMagicBtn" onclick="authSendMagicLinkFromUI()">📧 Email me a magic link</button>
       </div>
-      <label class="flabel" for="authEmailInput">Email</label>
-      <input type="email" class="finput" id="authEmailInput" placeholder="you@example.com" autocomplete="email" autocapitalize="off" spellcheck="false">
-      <button type="button" class="btn btn-ghost" id="authMagicBtn" onclick="authSendMagicLinkFromUI()">📧 Email me a magic link</button>
-      <p class="small-note" style="margin:0;line-height:1.55">We'll email you a one-tap link. Open it on this device and you're in. No password.</p>
+    </div>
+    <div class="auth-modal-view" id="authModalViewSent" hidden>
+      <p style="margin:0;font-size:var(--sm);color:var(--text-muted);line-height:1.55">We sent a sign-in link to <strong id="authModalSentEmail" style="color:var(--text);word-break:break-all"></strong>.<br>Open it on this device to finish signing in.</p>
+      <p style="margin:var(--s3) 0 0;font-size:var(--xs);color:var(--text-faint);line-height:1.55">Don't see it? Check your spam folder, then try again.</p>
+      <div style="margin-top:var(--s4)"><button type="button" class="btn btn-ghost" onclick="authModalBackToSignIn()">← Use a different email</button></div>
     </div>
     <div class="modal-footer" style="margin-top:var(--s5);justify-content:flex-end">
-      <button type="button" class="btn btn-ghost" onclick="closeM('mAuthLogin')">Cancel</button>
+      <button type="button" class="btn btn-ghost" onclick="closeM('mAuthLogin')">Close</button>
     </div>
   </div>
 </div>
@@ -1289,10 +1296,10 @@ select#hTier.habit-tier-select-expanded{min-height:4.25rem;border-radius:var(--r
   <h2 id="settingsModalTitle">Settings</h2>
   <div class="settings-tabs" role="tablist" aria-label="Settings sections">
     <button type="button" class="settings-tab" role="tab" id="settingsTabProfile" aria-selected="true" aria-controls="settingsPanelProfile" tabindex="0" data-settings-tab="profile" onclick="setSettingsTab('profile')">Profile</button>
-    <button type="button" class="settings-tab" role="tab" id="settingsTabAppearance" aria-selected="false" aria-controls="settingsPanelAppearance" tabindex="-1" data-settings-tab="appearance" onclick="setSettingsTab('appearance')">Personalize</button>
+    <button type="button" class="settings-tab" role="tab" id="settingsTabAccount" aria-selected="false" aria-controls="settingsPanelAccount" tabindex="-1" data-settings-tab="account" onclick="setSettingsTab('account')">Account</button>
+    <button type="button" class="settings-tab" role="tab" id="settingsTabAppearance" aria-selected="false" aria-controls="settingsPanelAppearance" tabindex="-1" data-settings-tab="appearance" onclick="setSettingsTab('appearance')">Appearance</button>
     <button type="button" class="settings-tab" role="tab" id="settingsTabTracking" aria-selected="false" aria-controls="settingsPanelTracking" tabindex="-1" data-settings-tab="tracking" onclick="setSettingsTab('tracking')">Tracking</button>
     <button type="button" class="settings-tab" role="tab" id="settingsTabData" aria-selected="false" aria-controls="settingsPanelData" tabindex="-1" data-settings-tab="data" onclick="setSettingsTab('data')">Data</button>
-    <button type="button" class="settings-tab" role="tab" id="settingsTabAccount" aria-selected="false" aria-controls="settingsPanelAccount" tabindex="-1" data-settings-tab="account" onclick="setSettingsTab('account')">Account</button>
     <button type="button" class="settings-tab" role="tab" id="settingsTabHelp" aria-selected="false" aria-controls="settingsPanelHelp" tabindex="-1" data-settings-tab="help" onclick="setSettingsTab('help')">Help</button>
     <button type="button" class="settings-tab" role="tab" id="settingsTabAbout" aria-selected="false" aria-controls="settingsPanelAbout" tabindex="-1" data-settings-tab="about" onclick="setSettingsTab('about')">About</button>
   </div>
@@ -2494,7 +2501,7 @@ function switchProfileTo(newId){if(!ROOT||!ROOT.profiles[newId]||newId===ROOT.ac
 function switchProfileFromSettings(newId){if(newId===ROOT.activeProfileId)return;switchProfileTo(newId);applyGraceWindowRules();document.getElementById('sUserName').value=S.user.name||'';const sd=document.getElementById('sDob');if(sd)sd.value=S.user.dob||'';document.getElementById('sStartDate').value=S.user.startDate||'';document.getElementById('sUnits').value=S.user.units||'metric';mountSettingsPaletteGrid();mountSettingsAvatarSwatches();syncGraceToggleButton();syncTrackingControlUI();}
 function createProfileWithName(nm,avatarHex){if(!ROOT)return;const name=(nm||'').trim()||'New profile';const id=uid('profile');const fresh=newProfileState();fresh.user.name=name;ROOT.profiles[id]=fresh;seedProfile(fresh);migrateOneProfile(fresh);if(!ROOT.profileMeta)ROOT.profileMeta={};ROOT.profileMeta[id]={name:name,avatarColor:normalizeNewProfileAvatarColor(avatarHex)};save();switchProfileTo(id);if(document.getElementById('mSettings')?.classList.contains('open')){applyGraceWindowRules();document.getElementById('sUserName').value=S.user.name||'';const sde=document.getElementById('sDob');if(sde)sde.value=S.user.dob||'';document.getElementById('sStartDate').value=S.user.startDate||'';document.getElementById('sUnits').value=S.user.units||'metric';mountSettingsPaletteGrid();mountSettingsAvatarSwatches();syncGraceToggleButton();syncTrackingControlUI();}}
 function setSettingsTab(key){const modal=document.getElementById('mSettings');if(!modal)return;modal.querySelectorAll('.settings-tab').forEach(btn=>{const on=btn.dataset.settingsTab===key;btn.setAttribute('aria-selected',on?'true':'false');btn.tabIndex=on?0:-1;});modal.querySelectorAll('.settings-panel').forEach(p=>{if(p.dataset.settingsPanel===key)p.removeAttribute('hidden');else p.setAttribute('hidden','');});if(key==='appearance'){mountSettingsAvatarSwatches();syncKidAnimationsToggleUI();}if(key==='tracking')syncTrackingControlUI();}
-function bindSettingsTabKeyboard(){const bar=document.querySelector('#mSettings .settings-tabs');if(!bar||bar.dataset.kbdBound)return;bar.dataset.kbdBound='1';const order=['profile','appearance','tracking','data','account','help','about'];bar.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home','End'].includes(e.key))return;const tabs=[...bar.querySelectorAll('.settings-tab')];let i=tabs.findIndex(t=>t.getAttribute('aria-selected')==='true');if(i<0)return;e.preventDefault();if(e.key==='Home')i=0;else if(e.key==='End')i=tabs.length-1;else if(e.key==='ArrowRight'||e.key==='ArrowDown')i=(i+1)%tabs.length;else if(e.key==='ArrowLeft'||e.key==='ArrowUp')i=(i-1+tabs.length)%tabs.length;setSettingsTab(order[i]);tabs[i].focus();});}
+function bindSettingsTabKeyboard(){const bar=document.querySelector('#mSettings .settings-tabs');if(!bar||bar.dataset.kbdBound)return;bar.dataset.kbdBound='1';const order=['profile','account','appearance','tracking','data','help','about'];bar.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home','End'].includes(e.key))return;const tabs=[...bar.querySelectorAll('.settings-tab')];let i=tabs.findIndex(t=>t.getAttribute('aria-selected')==='true');if(i<0)return;e.preventDefault();if(e.key==='Home')i=0;else if(e.key==='End')i=tabs.length-1;else if(e.key==='ArrowRight'||e.key==='ArrowDown')i=(i+1)%tabs.length;else if(e.key==='ArrowLeft'||e.key==='ArrowUp')i=(i-1+tabs.length)%tabs.length;setSettingsTab(order[i]);tabs[i].focus();});}
 function openSettings(){closeAvatarBubblePicker();applyGraceWindowRules();syncProfileSelect();document.getElementById('sUserName').value=S.user.name||'';const sd=document.getElementById('sDob');if(sd)sd.value=S.user.dob||'';document.getElementById('sStartDate').value=S.user.startDate||'';document.getElementById('sUnits').value=S.user.units||'metric';mountSettingsPaletteGrid();syncGraceToggleButton();syncTrackingControlUI();syncKidAnimationsToggleUI();const sslc=document.getElementById('sSkipSecondLockConfirm');if(sslc)sslc.checked=!!S.user.skipSecondLockConfirm;setSettingsTab('profile');openM('mSettings');}
 function toggleGracePeriodFromUI(){if(!userGraceWindowOpen())return;const btn=document.getElementById('sGracePeriodToggle');if(!btn)return;const next=!btn.classList.contains('on');S.user.gracePeriodEnabled=next;btn.classList.toggle('on',next);btn.setAttribute('aria-pressed',next?'true':'false');save();renderAll();}
 function syncSetupDobFromWizard(){if(!S||!S.user)return;const el=document.getElementById('setupDob');if(!el)return;S.user.dob=el.value||'';save();renderHeader();renderAll();syncGraceToggleButton();syncTrackingControlUI();syncOnboardingKidCopy();if(document.getElementById('mGuide')?.classList.contains('open'))syncGuideModalLanguage();if(document.getElementById('mHabit')?.classList.contains('open')){const pp=document.getElementById('hPresetPicker');if(pp){delete pp.dataset.bound;pp.innerHTML=buildHabitPresetPickerHTML(getHabitPresetFilterQuery());bindHabitPresetPicker();syncHabitPresetPickerSelection();}}}
@@ -2795,9 +2802,11 @@ function authSubscribe(){if(!_supa)return;try{_supa.auth.onAuthStateChange((even
 function authRedirectURL(){return window.location.origin+window.location.pathname;}
 async function authSignInWithGoogle(){if(!_supa){alert('Auth not ready — try refreshing.');return;}authSetBusy(true);try{const r=await _supa.auth.signInWithOAuth({provider:'google',options:{redirectTo:authRedirectURL()}});if(r&&r.error)throw r.error;}catch(e){authSetBusy(false);alert('Google sign-in failed: '+(e&&e.message?e.message:e));}}
 async function authSendMagicLink(email,opts){opts=opts||{};if(!_supa){alert('Auth not ready — try refreshing.');return;}email=(email||'').trim();if(!email||!email.includes('@')){alert('Enter a valid email.');return;}authSetBusy(true);try{const r=await _supa.auth.signInWithOtp({email,options:{emailRedirectTo:authRedirectURL()}});if(r&&r.error)throw r.error;if(typeof opts.onSent==='function'){opts.onSent(email);}else{alert('Magic link sent to '+email+'. Open it on this device to sign in.');}}catch(e){alert('Magic link failed: '+(e&&e.message?e.message:e));}finally{authSetBusy(false);}}
-function authSendMagicLinkFromUI(){const el=document.getElementById('authEmailInput');if(!el)return;authSendMagicLink(el.value);}
+function authSendMagicLinkFromUI(){const el=document.getElementById('authEmailInput');if(!el)return;authSendMagicLink(el.value,{onSent:showAuthModalSent});}
+function showAuthModalSent(email){const a=document.getElementById('authModalViewSignIn');const b=document.getElementById('authModalViewSent');const lbl=document.getElementById('authModalSentEmail');if(lbl)lbl.textContent=email||'';if(a)a.hidden=true;if(b)b.hidden=false;}
+function authModalBackToSignIn(){const a=document.getElementById('authModalViewSignIn');const b=document.getElementById('authModalViewSent');if(b)b.hidden=true;if(a)a.hidden=false;const el=document.getElementById('authEmailInput');if(el){try{el.focus();el.select();}catch(_){}}}
 async function authSignOut(){if(!_supa)return;authSetBusy(true);try{await _supa.auth.signOut();_authSession=null;}catch(e){}finally{authSetBusy(false);syncAccountUI();}}
-function openAuthLoginModal(){closeM('mSettings');setTimeout(()=>{openM('mAuthLogin');const el=document.getElementById('authEmailInput');if(el)el.value='';authSetBusy(false);},120);}
+function openAuthLoginModal(){closeM('mSettings');setTimeout(()=>{openM('mAuthLogin');const a=document.getElementById('authModalViewSignIn');const b=document.getElementById('authModalViewSent');if(b)b.hidden=true;if(a)a.hidden=false;const el=document.getElementById('authEmailInput');if(el)el.value='';authSetBusy(false);},120);}
 function syncAccountUI(){const anon=document.getElementById('accountAnonView');const signed=document.getElementById('accountSignedInView');const lbl=document.getElementById('accountEmailLabel');const u=authCurrentUser();if(anon&&signed){if(u){anon.hidden=true;signed.hidden=false;if(lbl)lbl.textContent=u.email||'(signed in)';}else{anon.hidden=false;signed.hidden=true;}}syncAuthGate();}
 function confirmDeleteCloudAccount(){if(!authCurrentUser()){alert('You are not signed in.');return;}if(!confirm('This will delete your cloud row and sign you out. Local data on this device stays intact. Continue?'))return;deleteCloudAccount();}
 async function deleteCloudAccount(){if(!_supa)return;authSetBusy(true);try{const u=authCurrentUser();if(u){const del=await _supa.from('user_state').delete().eq('user_id',u.id);if(del&&del.error)throw del.error;}await _supa.auth.signOut();_authSession=null;syncAccountUI();alert('Cloud data deleted. You are now signed out. Local data on this device is untouched.');}catch(e){alert('Delete failed: '+(e&&e.message?e.message:e));}finally{authSetBusy(false);}}
