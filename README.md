@@ -4,7 +4,7 @@ A habit and goal tracker built around weekly consistency, gentle scoring, and we
 
 ## Status
 
-Closed beta. **Auth:** Supabase (Google + email magic link). App data still lives in `localStorage` on each device until cloud sync (Phase D) ships.
+Closed beta. **Auth:** Supabase (Google + email magic link). **Cloud sync (Phase D):** signed-in users can sync the full multi-profile `ROOT` blob to Supabase (`user_state`) from **Settings → Account** (toggle, debounced upload, manual **Sync now**).
 
 ## Repository layout
 
@@ -14,6 +14,8 @@ Closed beta. **Auth:** Supabase (Google + email magic link). App data still live
 ├── manifest.webmanifest    # PWA manifest
 ├── sw.js                   # Minimal service worker (pass-through, enables installability)
 ├── _headers                # Cloudflare Pages cache rules
+├── supabase/
+│   └── schema.sql          # `user_state` table + RLS (run once in Supabase SQL Editor)
 ├── icons/                  # PWA icons (192, 512, apple-touch)
 └── README.md
 ```
@@ -120,6 +122,12 @@ git push
 
 - **Magic link “rate limit”** — Supabase caps how many OTP/magic-link emails can be sent per hour (see [Auth rate limits](https://supabase.com/docs/guides/auth/rate-limits)). Heavy testing triggers this quickly; wait ~1 hour, use Google sign-in, or raise limits / use **custom SMTP** on a paid tier.
 - **Link opens the site but you stay logged out** — The fragment `#access_token=…` must stay on the URL until the Supabase client ingests it. Older builds stripped it too early (a race with `getSession()`). Current `index.html` retries session detection briefly and only then clears the address bar; redeploy if you still see this after clicking **Open Consistency**.
+
+## Cloud sync (Phase D)
+
+1. In the Supabase dashboard, open **SQL** → **New query**, paste `supabase/schema.sql`, and run it once. That creates `public.user_state` (`user_id`, `payload` jsonb, `updated_at`) with RLS so each user can only read/write their own row.
+2. In the app, **Settings → Account**: turn **Sync this device with the cloud** on (default), edit data as usual — uploads are debounced (~2s after each save). **Sync now** forces an immediate upsert.
+3. **Conflict model (MVP):** last-write-wins using `ROOT._sync.editAt` (local, bumped on every normal save) versus `user_state.updated_at` from the server. After sign-in or session recovery, if the remote copy is newer the app replaces local `ROOT` with the migrated remote payload (then saves locally without bumping `editAt` for merge); if local is newer (or the cloud row is empty), the app pushes. Identical timestamps skip a redundant merge.
 
 ## License
 

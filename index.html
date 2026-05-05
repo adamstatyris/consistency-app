@@ -1406,7 +1406,15 @@ select#hTier.habit-tier-select-expanded{min-height:4.25rem;border-radius:var(--r
             <button type="button" class="btn btn-danger btn-sm" onclick="confirmDeleteCloudAccount()">Delete cloud data…</button>
           </div>
         </div>
-        <p class="small-note" style="margin:0;line-height:1.55">Logging out keeps the data on this device but stops syncing. Cloud sync goes live in the next update.</p>
+        <div class="settings-data-row" style="flex-direction:column;align-items:flex-start;gap:var(--s3)">
+          <label style="display:flex;align-items:center;gap:var(--s2);cursor:pointer">
+            <input type="checkbox" id="accountCloudSyncEnabled" checked onchange="toggleCloudSyncFromUI()" />
+            <span>Sync this device with the cloud (upload full app data for your account)</span>
+          </label>
+          <p class="small-note" id="accountCloudSyncStatus" style="margin:0;line-height:1.55">Sign in to sync across devices.</p>
+          <button type="button" class="btn btn-ghost btn-sm" onclick="void cloudPushNow();">Sync now</button>
+        </div>
+        <p class="small-note" style="margin:0;line-height:1.55">Logging out keeps data on this device; upload pauses until you sign in again.</p>
       </div>
     </div>
   </div>
@@ -1848,8 +1856,90 @@ function repairProfileMetaNamesFromUser(){if(!ROOT||!ROOT.profiles)return;if(!RO
 function syncActiveProfileMetaNameFromDisplayName(){if(!ROOT||!ROOT.activeProfileId)return;const pid=ROOT.activeProfileId;const v=(S.user&&String(S.user.name||'')).trim();if(!ROOT.profileMeta)ROOT.profileMeta={};if(!ROOT.profileMeta[pid])ROOT.profileMeta[pid]={};ROOT.profileMeta[pid].name=v||'Primary';}
 function migrate(){if(!ROOT||!ROOT.profiles)return;_prunedSleepCopyTestHabitThisMigrate=false;Object.keys(ROOT.profiles).forEach(pid=>migrateOneProfile(ROOT.profiles[pid]));repairProfileMetaNamesFromUser();if(_prunedSleepCopyTestHabitThisMigrate)try{save();}catch(e){}}
 function annotateProfilesForSave(){if(!ROOT||!ROOT.profiles)return;Object.values(ROOT.profiles).forEach(P=>{if(!P||!P.insights)return;P.insights.discoveredCount=(P.insights.unlocked||[]).length;P.insights.catalogSizeAtSave=INSIGHT_LIBRARY.length;});}
-function save(){if(!ROOT||!S)return;annotateProfilesForSave();const json=JSON.stringify(ROOT);try{localStorage.setItem(STORAGE_KEY,json);}catch(e){}if(cookieConsentStatus()==='accepted')try{persistToCookies(json);}catch(e){}}
+function bumpRootSyncEditAt(){if(!ROOT)return;ROOT._sync=ROOT._sync&&typeof ROOT._sync==='object'?ROOT._sync:{};ROOT._sync.editAt=Date.now();if(ROOT._sync.cloudEnabled===undefined)ROOT._sync.cloudEnabled=true;}
+function save(opts){opts=opts||{};if(!ROOT||!S)return;annotateProfilesForSave();if(!opts.fromCloudMerge)bumpRootSyncEditAt();const json=JSON.stringify(ROOT);try{localStorage.setItem(STORAGE_KEY,json);}catch(e){}if(cookieConsentStatus()==='accepted')try{persistToCookies(json);}catch(e){}if(!opts.fromCloudMerge)scheduleCloudPush();}
 function seed(){if(!S)return;if(seedProfile(S))save();}
+let _cloudPushTimer=null;let _cloudPushInFlight=false;let _cloudSyncLastError=null;
+function cloudSyncIsEnabled(){if(!ROOT)return false;if(!ROOT._sync||ROOT._sync.cloudEnabled===undefined)return true;return ROOT._sync.cloudEnabled!==false;}
+function scheduleCloudPush(){if(typeof authCurrentUser!=='function'||!authCurrentUser()||!cloudSyncIsEnabled())return;if(typeof _supa==='undefined'||!_supa)return;clearTimeout(_cloudPushTimer);_cloudPushTimer=setTimeout(()=>{_cloudPushTimer=null;void cloudPushNow();},2000);}
+async function cloudPushNow(){
+  const u=typeof authCurrentUser==='function'?authCurrentUser():null;
+  if(!u||!_supa||!cloudSyncIsEnabled()){syncCloudSyncPanelUI();return;}
+  if(_cloudPushInFlight)return;
+  _cloudPushInFlight=true;
+  _cloudSyncLastError=null;
+  try{
+    const payload=JSON.parse(JSON.stringify(ROOT));
+    const iso=new Date().toISOString();
+    const {error}=await _supa.from('user_state').upsert({user_id:u.id,payload,updated_at:iso},{onConflict:'user_id'});
+    if(error)throw error;
+    if(!ROOT._sync||typeof ROOT._sync!=='object')ROOT._sync={};
+    ROOT._sync.lastRemoteUpdatedAt=iso;
+    ROOT._sync.editAt=new Date(iso).getTime();
+    save({fromCloudMerge:true});
+  }catch(e){_cloudSyncLastError=e;console.warn('[sync] push failed',e);}
+  finally{_cloudPushInFlight=false;if(typeof syncCloudSyncPanelUI==='function')syncCloudSyncPanelUI();}
+}
+async function cloudSyncAfterAuthBootstrap(){
+  _cloudSyncLastError=null;
+  const u=typeof authCurrentUser==='function'?authCurrentUser():null;
+  if(!u||!_supa){syncCloudSyncPanelUI();return;}
+  if(!cloudSyncIsEnabled()){syncCloudSyncPanelUI();return;}
+  try{
+    const {data,error}=await _supa.from('user_state').select('payload,updated_at').eq('user_id',u.id).maybeSingle();
+    if(error)throw error;
+    const pl=data&&data.payload;
+    const empty=!pl||typeof pl!=='object'||(Object.keys(pl).length===0)||!pl.storageVersion;
+    if(!data||empty){await cloudPushNow();syncCloudSyncPanelUI();return;}
+    const remoteMs=new Date(data.updated_at).getTime();
+    const localEdit=(ROOT._sync&&typeof ROOT._sync.editAt==='number')?ROOT._sync.editAt:0;
+    if(localEdit>remoteMs){await cloudPushNow();syncCloudSyncPanelUI();return;}
+    if(localEdit===remoteMs){syncCloudSyncPanelUI();return;}
+    const merged=migrateStorageRoot(pl);
+    ROOT=merged;
+    if(!ROOT._sync||typeof ROOT._sync!=='object')ROOT._sync={};
+    ROOT._sync.lastRemoteUpdatedAt=data.updated_at;
+    ROOT._sync.editAt=remoteMs;
+    bindActiveProfile();
+    migrate();
+    save({fromCloudMerge:true});
+    themeInit();
+    renderAll();
+    setupScreen();
+    syncProfileSelect();
+    renderHeader();
+    syncAccountUI();
+  }catch(e){
+    _cloudSyncLastError=e;
+    console.warn('[sync] pull failed',e);
+  }
+  syncCloudSyncPanelUI();
+}
+function syncCloudSyncPanelUI(){
+  const cb=document.getElementById('accountCloudSyncEnabled');
+  const st=document.getElementById('accountCloudSyncStatus');
+  const u=typeof authCurrentUser==='function'?authCurrentUser():null;
+  if(cb){
+    cb.checked=!ROOT||!ROOT._sync||ROOT._sync.cloudEnabled!==false;
+    cb.disabled=!u;
+  }
+  if(st){
+    if(!u)st.textContent='Sign in to sync across devices.';
+    else if(_cloudSyncLastError)st.textContent='Sync error: '+(_cloudSyncLastError.message||String(_cloudSyncLastError));
+    else if(_cloudPushInFlight)st.textContent='Syncing…';
+    else if(ROOT&&ROOT._sync&&ROOT._sync.lastRemoteUpdatedAt)st.textContent='Last cloud save: '+new Date(ROOT._sync.lastRemoteUpdatedAt).toLocaleString();
+    else st.textContent='Cloud sync on — changes upload automatically.';
+  }
+}
+function toggleCloudSyncFromUI(){
+  if(!ROOT)return;
+  ROOT._sync=ROOT._sync&&typeof ROOT._sync==='object'?ROOT._sync:{};
+  const el=document.getElementById('accountCloudSyncEnabled');
+  ROOT._sync.cloudEnabled=!!(el&&el.checked);
+  save();
+  if(ROOT._sync.cloudEnabled)void cloudPushNow();
+  else syncCloudSyncPanelUI();
+}
 const UI_PALETTE_OPTIONS=[{id:'neutral',label:'Slate',sub:'Neutral & calm',darkBg:'linear-gradient(135deg,#1e293b,#334155)',lightBg:'linear-gradient(135deg,#cbd5e1,#94a3b8)'},{id:'navy',label:'Navy',sub:'Deep blue focus',darkBg:'linear-gradient(135deg,#0c4a6e,#1e3a5f)',lightBg:'linear-gradient(135deg,#7dd3fc,#38bdf8)'},{id:'graphite',label:'Graphite',sub:'Black & gray',darkBg:'linear-gradient(135deg,#27272a,#3f3f46)',lightBg:'linear-gradient(135deg,#d4d4d8,#a1a1aa)'},{id:'burgundy',label:'Burgundy',sub:'Warm wine tone',darkBg:'linear-gradient(135deg,#4a1520,#7f1d1d)',lightBg:'linear-gradient(135deg,#fda4af,#fb7185)'},{id:'teal',label:'Teal',sub:'Fresh aqua',darkBg:'linear-gradient(135deg,#115e59,#0f766e)',lightBg:'linear-gradient(135deg,#5eead4,#2dd4bf)'},{id:'purple',label:'Purple',sub:'Soft lilac',darkBg:'linear-gradient(135deg,#4c1d95,#6d28d9)',lightBg:'linear-gradient(135deg,#c4b5fd,#a78bfa)'},{id:'sage',label:'Sage',sub:'Muted green',darkBg:'linear-gradient(135deg,#1a2e24,#365314)',lightBg:'linear-gradient(135deg,#bbf7d0,#86efac)'},{id:'rose',label:'Rose',sub:'Dusty mauve',darkBg:'linear-gradient(135deg,#4a1942,#831843)',lightBg:'linear-gradient(135deg,#fbcfe8,#f472b6)'}];
 function normalizeUiPaletteId(p){const id=String(p||'').trim();return UI_PALETTE_OPTIONS.some(x=>x.id===id)?id:'neutral';}
 function applyUiPalette(){if(!S||!S.user)return;document.documentElement.setAttribute('data-palette',normalizeUiPaletteId(S.user.uiPalette));}
@@ -2517,7 +2607,7 @@ function playProfileSwitchSound(){try{const AC=window.AudioContext||window.webki
 function switchProfileTo(newId){if(!ROOT||!ROOT.profiles[newId]||newId===ROOT.activeProfileId)return;playProfileSwitchSound();stopDashInsightCarousel();stopSublineCarousel();ROOT.activeProfileId=newId;bindActiveProfile();migrate();try{sessionStorage.removeItem('consistencyDashInsightId');}catch(e){}_insightShownThisSession=false;save();themeInit();renderAll();setupScreen();syncProfileSelect();}
 function switchProfileFromSettings(newId){if(newId===ROOT.activeProfileId)return;switchProfileTo(newId);applyGraceWindowRules();const su=document.getElementById('sUserName');if(su)su.value=S.user.name||'';const sd=document.getElementById('sDob');if(sd)sd.value=S.user.dob||'';const ss=document.getElementById('sStartDate');if(ss)ss.value=S.user.startDate||'';const uu=document.getElementById('sUnits');if(uu)uu.value=S.user.units||'metric';mountSettingsPaletteGrid();mountSettingsAvatarSwatches();syncGraceToggleButton();syncTrackingControlUI();}
 function createProfileWithName(nm,avatarHex){if(!ROOT)return;const name=(nm||'').trim()||'New profile';const id=uid('profile');const fresh=newProfileState();fresh.user.name=name;ROOT.profiles[id]=fresh;seedProfile(fresh);migrateOneProfile(fresh);if(!ROOT.profileMeta)ROOT.profileMeta={};ROOT.profileMeta[id]={name:name,avatarColor:normalizeNewProfileAvatarColor(avatarHex)};save();switchProfileTo(id);if(document.getElementById('mSettings')?.classList.contains('open')){applyGraceWindowRules();const su=document.getElementById('sUserName');if(su)su.value=S.user.name||'';const sde=document.getElementById('sDob');if(sde)sde.value=S.user.dob||'';const sst=document.getElementById('sStartDate');if(sst)sst.value=S.user.startDate||'';const sun=document.getElementById('sUnits');if(sun)sun.value=S.user.units||'metric';mountSettingsPaletteGrid();mountSettingsAvatarSwatches();syncGraceToggleButton();syncTrackingControlUI();}}
-function setSettingsTab(key){const modal=document.getElementById('mSettings');if(!modal)return;modal.querySelectorAll('.settings-tab').forEach(btn=>{const on=btn.dataset.settingsTab===key;btn.setAttribute('aria-selected',on?'true':'false');btn.tabIndex=on?0:-1;});modal.querySelectorAll('.settings-panel').forEach(p=>{if(p.dataset.settingsPanel===key)p.removeAttribute('hidden');else p.setAttribute('hidden','');});if(key==='appearance'){mountSettingsAvatarSwatches();syncKidAnimationsToggleUI();}if(key==='tracking')syncTrackingControlUI();}
+function setSettingsTab(key){const modal=document.getElementById('mSettings');if(!modal)return;modal.querySelectorAll('.settings-tab').forEach(btn=>{const on=btn.dataset.settingsTab===key;btn.setAttribute('aria-selected',on?'true':'false');btn.tabIndex=on?0:-1;});modal.querySelectorAll('.settings-panel').forEach(p=>{if(p.dataset.settingsPanel===key)p.removeAttribute('hidden');else p.setAttribute('hidden','');});if(key==='appearance'){mountSettingsAvatarSwatches();syncKidAnimationsToggleUI();}if(key==='tracking')syncTrackingControlUI();if(key==='account')syncCloudSyncPanelUI();}
 function bindSettingsTabKeyboard(){const bar=document.querySelector('#mSettings .settings-tabs');if(!bar||bar.dataset.kbdBound)return;bar.dataset.kbdBound='1';const order=['profile','account','appearance','tracking','data','help','about'];bar.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home','End'].includes(e.key))return;const tabs=[...bar.querySelectorAll('.settings-tab')];let i=tabs.findIndex(t=>t.getAttribute('aria-selected')==='true');if(i<0)return;e.preventDefault();if(e.key==='Home')i=0;else if(e.key==='End')i=tabs.length-1;else if(e.key==='ArrowRight'||e.key==='ArrowDown')i=(i+1)%tabs.length;else if(e.key==='ArrowLeft'||e.key==='ArrowUp')i=(i-1+tabs.length)%tabs.length;setSettingsTab(order[i]);tabs[i].focus();});}
 function openSettings(){closeAvatarBubblePicker();applyGraceWindowRules();syncProfileSelect();const su=document.getElementById('sUserName');if(su)su.value=S.user.name||(typeof authSuggestedName==='function'?authSuggestedName():'')||'';const sd=document.getElementById('sDob');if(sd)sd.value=S.user.dob||'';const ss=document.getElementById('sStartDate');if(ss)ss.value=S.user.startDate||'';const uu=document.getElementById('sUnits');if(uu)uu.value=S.user.units||'metric';mountSettingsPaletteGrid();syncGraceToggleButton();syncTrackingControlUI();syncKidAnimationsToggleUI();const sslc=document.getElementById('sSkipSecondLockConfirm');if(sslc)sslc.checked=!!S.user.skipSecondLockConfirm;setSettingsTab('profile');openM('mSettings');}
 function toggleGracePeriodFromUI(){if(!userGraceWindowOpen())return;const btn=document.getElementById('sGracePeriodToggle');if(!btn)return;const next=!btn.classList.contains('on');S.user.gracePeriodEnabled=next;btn.classList.toggle('on',next);btn.setAttribute('aria-pressed',next?'true':'false');save();renderAll();}
@@ -2827,6 +2917,7 @@ function authBindDeferredHashSessionRecovery(){
     authFinalizeAuthUrl();
     syncAccountUI();
     syncAuthGate();
+    await cloudSyncAfterAuthBootstrap();
     prefillNameFromAuth();
     syncSetupNameRowVisibility();
   };
@@ -2849,6 +2940,7 @@ async function authBootstrapSession(){
   authFinalizeAuthUrl();
   syncAccountUI();
   syncAuthGate();
+  await cloudSyncAfterAuthBootstrap();
   prefillNameFromAuth();
   syncSetupNameRowVisibility();
 }
@@ -2864,7 +2956,7 @@ function syncAuthGate(){const gate=document.getElementById('authGate');if(!gate)
 async function authRefresh(){if(!_supa)return null;try{const r=await _supa.auth.getSession();_authSession=(r&&r.data)?r.data.session:null;return _authSession;}catch(e){_authSession=null;return null;}}
 function persistAuthDisplayNameFromAccountIfEmpty(){if(!S||!S.user||!S.user.setupDone)return;const u=authCurrentUser();if(!u)return;if((S.user.name||'').trim())return;const s=authSuggestedName();if(!s)return;S.user.name=s;syncActiveProfileMetaNameFromDisplayName();save();const su=document.getElementById('sUserName');if(su)su.value=s;if(typeof renderHeader==='function')renderHeader();}
 function prefillNameFromAuth(){try{applyAuthFirstNameToProfileIfNeeded();persistAuthDisplayNameFromAccountIfEmpty();syncSetupNameRowVisibility();const suggested=authSuggestedName();if(!suggested)return;const sn=document.getElementById('setupName');if(sn&&!sn.value)sn.value=suggested;const su=document.getElementById('sUserName');if(su&&!su.value)su.value=suggested;}catch(_){}}
-function authSubscribe(){if(!_supa)return;try{_supa.auth.onAuthStateChange((event,session)=>{_authSession=session||null;if(_authSession&&(event==='SIGNED_IN'||event==='INITIAL_SESSION'))authFinalizeAuthUrl();syncAccountUI();if(event==='SIGNED_IN'||event==='INITIAL_SESSION'||event==='TOKEN_REFRESHED'||event==='USER_UPDATED'){if(event==='SIGNED_IN'){const m=document.getElementById('mAuthLogin');if(m&&m.classList.contains('show'))closeM('mAuthLogin');}prefillNameFromAuth();}});}catch(e){}}
+function authSubscribe(){if(!_supa)return;try{_supa.auth.onAuthStateChange((event,session)=>{_authSession=session||null;if(_authSession&&(event==='SIGNED_IN'||event==='INITIAL_SESSION'))authFinalizeAuthUrl();syncAccountUI();if(event==='SIGNED_IN'||event==='INITIAL_SESSION'||event==='TOKEN_REFRESHED'||event==='USER_UPDATED'){if(event==='SIGNED_IN'){const m=document.getElementById('mAuthLogin');if(m&&m.classList.contains('show'))closeM('mAuthLogin');}if(event==='INITIAL_SESSION')return;if(event==='SIGNED_IN'||event==='USER_UPDATED'){void (async()=>{if(event==='SIGNED_IN')await cloudSyncAfterAuthBootstrap();prefillNameFromAuth();syncSetupNameRowVisibility();})();return;}prefillNameFromAuth();syncSetupNameRowVisibility();}});}catch(e){}}
 function authRedirectURL(){return window.location.origin+window.location.pathname;}
 async function authSignInWithGoogle(){if(!_supa){alert('Auth not ready — try refreshing.');return;}authSetBusy(true);try{const r=await _supa.auth.signInWithOAuth({provider:'google',options:{redirectTo:authRedirectURL()}});if(r&&r.error)throw r.error;}catch(e){authSetBusy(false);alert('Google sign-in failed: '+(e&&e.message?e.message:e));}}
 function authFormatMagicLinkError(err){const msg=String(err&&err.message?err.message:err||'');const low=msg.toLowerCase();if(low.includes('rate limit')||low.includes('too many')){return'Too many sign-in emails were sent recently (Supabase limits how many magic links go out per hour on your plan).\n\nWhat you can do:\n• Wait an hour and try again, or use “Continue with Google” now.\n• If you are testing a lot, open your Supabase dashboard → Authentication → Rate Limits, or add custom SMTP (often higher throughput).\n\nMore detail: https://supabase.com/docs/guides/auth/rate-limits';}return msg||'Something went wrong.';}
@@ -2872,9 +2964,9 @@ async function authSendMagicLink(email,opts){opts=opts||{};if(!_supa){alert('Aut
 function authSendMagicLinkFromUI(){const el=document.getElementById('authEmailInput');if(!el)return;authSendMagicLink(el.value,{onSent:showAuthModalSent});}
 function showAuthModalSent(email){const a=document.getElementById('authModalViewSignIn');const b=document.getElementById('authModalViewSent');const lbl=document.getElementById('authModalSentEmail');if(lbl)lbl.textContent=email||'';if(a)a.hidden=true;if(b)b.hidden=false;}
 function authModalBackToSignIn(){const a=document.getElementById('authModalViewSignIn');const b=document.getElementById('authModalViewSent');if(b)b.hidden=true;if(a)a.hidden=false;const el=document.getElementById('authEmailInput');if(el){try{el.focus();el.select();}catch(_){}}}
-async function authSignOut(){if(!_supa)return;authSetBusy(true);try{await _supa.auth.signOut();_authSession=null;}catch(e){}finally{authSetBusy(false);syncAccountUI();}}
+async function authSignOut(){if(!_supa)return;authSetBusy(true);try{clearTimeout(_cloudPushTimer);_cloudPushTimer=null;_cloudSyncLastError=null;await _supa.auth.signOut();_authSession=null;}catch(e){}finally{authSetBusy(false);syncAccountUI();}}
 function openAuthLoginModal(){closeM('mSettings');setTimeout(()=>{openM('mAuthLogin');const a=document.getElementById('authModalViewSignIn');const b=document.getElementById('authModalViewSent');if(b)b.hidden=true;if(a)a.hidden=false;const el=document.getElementById('authEmailInput');if(el)el.value='';authSetBusy(false);},120);}
-function syncAccountUI(){const anon=document.getElementById('accountAnonView');const signed=document.getElementById('accountSignedInView');const lbl=document.getElementById('accountEmailLabel');const u=authCurrentUser();if(anon&&signed){if(u){anon.hidden=true;signed.hidden=false;if(lbl)lbl.textContent=u.email||'(signed in)';}else{anon.hidden=false;signed.hidden=true;}}syncAuthGate();}
+function syncAccountUI(){const anon=document.getElementById('accountAnonView');const signed=document.getElementById('accountSignedInView');const lbl=document.getElementById('accountEmailLabel');const u=authCurrentUser();if(anon&&signed){if(u){anon.hidden=true;signed.hidden=false;if(lbl)lbl.textContent=u.email||'(signed in)';}else{anon.hidden=false;signed.hidden=true;}}syncAuthGate();syncCloudSyncPanelUI();}
 function confirmDeleteCloudAccount(){if(!authCurrentUser()){alert('You are not signed in.');return;}if(!confirm('This will delete your cloud row and sign you out. Local data on this device stays intact. Continue?'))return;deleteCloudAccount();}
 async function deleteCloudAccount(){if(!_supa)return;authSetBusy(true);try{const u=authCurrentUser();if(u){const del=await _supa.from('user_state').delete().eq('user_id',u.id);if(del&&del.error)throw del.error;}await _supa.auth.signOut();_authSession=null;syncAccountUI();alert('Cloud data deleted. You are now signed out. Local data on this device is untouched.');}catch(e){alert('Delete failed: '+(e&&e.message?e.message:e));}finally{authSetBusy(false);}}
 if(authReady()){void authBootstrapSession();}else{console.warn('[auth] Supabase SDK did not load — sign-in is unavailable. Gate stays visible until the SDK loads or the page is refreshed.');syncAuthGate();}
