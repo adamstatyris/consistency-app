@@ -430,6 +430,20 @@ select#hTier.habit-tier-select-expanded{min-height:4.25rem;border-radius:var(--r
 .auth-gate-divider .auth-gate-divider-line{flex:1;height:1px;background:var(--divider)}
 .auth-gate-note{margin:var(--s4) 0 0;font-size:var(--xs);color:var(--text-faint);line-height:1.55;text-align:center}
 @media(max-height:640px){.auth-gate-card{padding:var(--s4);gap:var(--s2)}.auth-gate-heading{font-size:var(--lg)}}
+/* ---- Auth splash: 3-second branded intro shown only to non-signed-in users ---- */
+.auth-splash{position:fixed;inset:0;z-index:11500;background:var(--bg);display:none;flex-direction:column;align-items:center;justify-content:space-between;padding:var(--s8) var(--s4) var(--s5);text-align:center}
+.auth-splash.is-visible{display:flex}
+.auth-splash.is-fading{opacity:0;transition:opacity .4s ease}
+.auth-splash-stack{display:flex;flex-direction:column;align-items:center;gap:var(--s5);flex:1;justify-content:center;width:100%}
+.auth-splash-mark{width:120px;height:120px;border-radius:32px;display:grid;place-items:center;background:linear-gradient(135deg,var(--blue-strong),color-mix(in srgb,var(--teal) 72%, var(--blue) 28%));border:1px solid color-mix(in srgb,var(--blue) 55%, transparent);box-shadow:0 0 32px var(--blue-glow),0 0 60px color-mix(in srgb,var(--blue) 28%, transparent);opacity:0;animation:splash-mark-in .5s ease-out 0s 1 forwards,splash-mark-pulse 1.6s ease-in-out .5s infinite}
+.auth-splash-mark .brand-c{font-size:3.6rem;font-weight:800;line-height:1;letter-spacing:-.08em;color:#fff;text-shadow:0 0 22px rgba(255,255,255,.22)}
+.auth-splash-wordmark{font-size:clamp(2rem,7vw,2.6rem);font-weight:800;color:var(--text);letter-spacing:-.02em;opacity:0;animation:splash-text-in .55s ease-out .55s forwards}
+.auth-splash-tagline{font-size:var(--md);color:var(--text-muted);font-weight:500;line-height:1.45;max-width:28ch;opacity:0;animation:splash-text-in .55s ease-out 1s forwards}
+.auth-splash-signature{font-size:var(--xs);color:var(--text-faint);letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:0;animation:splash-text-in .55s ease-out 1.4s forwards}
+@keyframes splash-mark-in{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+@keyframes splash-mark-pulse{0%,100%{transform:scale(1);box-shadow:0 0 32px var(--blue-glow),0 0 60px color-mix(in srgb,var(--blue) 28%, transparent)}50%{transform:scale(1.06);box-shadow:0 0 56px var(--blue-glow),0 0 110px color-mix(in srgb,var(--blue) 50%, transparent)}}
+@keyframes splash-text-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.auth-splash-mark{animation:splash-mark-in .2s ease-out 0s 1 forwards;opacity:1}.auth-splash-wordmark,.auth-splash-tagline,.auth-splash-signature{animation:none;opacity:1}}
 .metric-row{display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap;margin-top:var(--s3);padding-top:var(--s3);border-top:1px solid var(--divider)}
 .metric-num,.finput,.fselect,.ftextarea{width:100%;padding:var(--s3);border-radius:var(--r-md);background:var(--surface-3);border:1px solid var(--border)}
 .metric-num{width:110px;text-align:center}
@@ -796,6 +810,14 @@ select#hTier.habit-tier-select-expanded{min-height:4.25rem;border-radius:var(--r
 </style>
 </head>
 <body>
+<div id="authSplash" class="auth-splash" aria-hidden="true">
+  <div class="auth-splash-stack">
+    <div class="auth-splash-mark"><span class="brand-c">C</span></div>
+    <div class="auth-splash-wordmark">Consistency</div>
+    <div class="auth-splash-tagline">We help you be your better self.</div>
+  </div>
+  <div class="auth-splash-signature">by S-Sence Labs</div>
+</div>
 <div id="authGate" class="auth-gate" role="dialog" aria-modal="true" aria-labelledby="authGateHeading">
   <div class="auth-gate-card">
     <div class="auth-gate-brand">
@@ -825,10 +847,21 @@ select#hTier.habit-tier-select-expanded{min-height:4.25rem;border-radius:var(--r
   </div>
 </div>
 <script>
-/* Show auth gate immediately if Supabase SDK is present and there's no persisted session.
-   Avoids a flash of the app for unsigned users while the main script (and async auth refresh) load.
-   If SDK failed to load (network blocked etc.), gate stays hidden and app falls back to local-only. */
-(function(){try{if(typeof window.supabase==='undefined')return;var hasSession=false;try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k&&k.indexOf('sb-')===0&&k.indexOf('-auth-token')!==-1){hasSession=true;break;}}}catch(_){}if(!hasSession){var g=document.getElementById('authGate');if(g)g.classList.add('is-visible');}}catch(_){}})();
+/* Strict auth gate. If a persisted Supabase session exists, skip splash + gate entirely.
+   Otherwise: show a 3-second branded splash, then reveal the sign-in gate.
+   Splash and gate render regardless of SDK status — we never want to leak the app to an unsigned user. */
+(function(){try{
+  var hasSession=false;
+  try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k&&k.indexOf('sb-')===0&&k.indexOf('-auth-token')!==-1){hasSession=true;break;}}}catch(_){}
+  if(hasSession)return;
+  var splash=document.getElementById('authSplash');
+  var gate=document.getElementById('authGate');
+  if(splash)splash.classList.add('is-visible');
+  setTimeout(function(){
+    if(gate)gate.classList.add('is-visible');
+    if(splash){splash.classList.add('is-fading');setTimeout(function(){if(splash){splash.classList.remove('is-visible');splash.classList.remove('is-fading');}},420);}
+  },2600);
+}catch(_){}})();
 </script>
 <div id="cookieConsentBar" class="cookie-consent-bar" role="dialog" aria-modal="true" aria-labelledby="cookieConsentTitle" aria-hidden="true">
   <div class="cookie-consent-panel">
@@ -2742,7 +2775,7 @@ function authReady(){return !!_supa;}
 function authCurrentUser(){return _authSession?_authSession.user:null;}
 function authSetBusy(busy){_authBusy=!!busy;['authGoogleBtn','authMagicBtn','authGateGoogleBtn','authGateMagicBtn'].forEach(function(id){const el=document.getElementById(id);if(el)el.disabled=_authBusy;});}
 function authSendMagicLinkFromGate(){const el=document.getElementById('authGateEmail');if(!el)return;authSendMagicLink(el.value);}
-function syncAuthGate(){const gate=document.getElementById('authGate');if(!gate)return;if(!authReady()){gate.classList.remove('is-visible');return;}if(_authSession){gate.classList.remove('is-visible');}else{gate.classList.add('is-visible');}}
+function syncAuthGate(){const gate=document.getElementById('authGate');if(!gate)return;if(_authSession){gate.classList.remove('is-visible');}else{gate.classList.add('is-visible');}}
 async function authRefresh(){if(!_supa)return null;try{const r=await _supa.auth.getSession();_authSession=(r&&r.data)?r.data.session:null;return _authSession;}catch(e){_authSession=null;return null;}}
 function authSubscribe(){if(!_supa)return;try{_supa.auth.onAuthStateChange((event,session)=>{_authSession=session||null;syncAccountUI();if(event==='SIGNED_IN'){const m=document.getElementById('mAuthLogin');if(m&&m.classList.contains('show'))closeM('mAuthLogin');}});}catch(e){}}
 function authRedirectURL(){return window.location.origin+window.location.pathname;}
