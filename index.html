@@ -861,18 +861,29 @@ select#hTier.habit-tier-select-expanded{min-height:4.25rem;border-radius:var(--r
 </div>
 <script>
 /* Strict auth gate. If a persisted Supabase session exists, skip splash + gate entirely.
-   Otherwise: show a 3-second branded splash, then reveal the sign-in gate.
-   Splash and gate render regardless of SDK status — we never want to leak the app to an unsigned user. */
+   Otherwise: show branded splash, then reveal the sign-in gate — unless a session appears
+   in the meantime (e.g. Google / magic-link return writes Supabase keys after this script runs).
+   Timers are exposed on window so the main bundle can clear them once _authSession is ready. */
 (function(){try{
-  var hasSession=false;
-  try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k&&k.indexOf('sb-')===0&&k.indexOf('-auth-token')!==-1){hasSession=true;break;}}}catch(_){}
-  if(hasSession)return;
+  function lsHasSession(){try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k&&k.indexOf('sb-')===0&&k.indexOf('-auth-token')!==-1)return true;}}catch(_){}return false;}
+  if(lsHasSession())return;
   var splash=document.getElementById('authSplash');
   var gate=document.getElementById('authGate');
   if(splash)splash.classList.add('is-visible');
-  setTimeout(function(){
+  window.__authGateRevealTimer=setTimeout(function(){
+    window.__authGateRevealTimer=null;
+    if(lsHasSession()){
+      if(splash){splash.classList.remove('is-visible');splash.classList.remove('is-fading');}
+      return;
+    }
     if(gate)gate.classList.add('is-visible');
-    if(splash){splash.classList.add('is-fading');setTimeout(function(){if(splash){splash.classList.remove('is-visible');splash.classList.remove('is-fading');}},450);}
+    if(splash){
+      splash.classList.add('is-fading');
+      window.__authSplashFadeTimer=setTimeout(function(){
+        window.__authSplashFadeTimer=null;
+        if(splash){splash.classList.remove('is-visible');splash.classList.remove('is-fading');}
+      },450);
+    }
   },4550);
 }catch(_){}})();
 </script>
@@ -2803,7 +2814,7 @@ function authSetBusy(busy){_authBusy=!!busy;['authGoogleBtn','authMagicBtn','aut
 function authSendMagicLinkFromGate(){const el=document.getElementById('authGateEmail');if(!el)return;authSendMagicLink(el.value,{onSent:showAuthGateSent});}
 function showAuthGateSent(email){const a=document.getElementById('authGateViewSignIn');const b=document.getElementById('authGateViewSent');const lbl=document.getElementById('authGateSentEmail');if(lbl)lbl.textContent=email||'';if(a)a.hidden=true;if(b)b.hidden=false;}
 function authGateBackToSignIn(){const a=document.getElementById('authGateViewSignIn');const b=document.getElementById('authGateViewSent');if(b)b.hidden=true;if(a)a.hidden=false;const el=document.getElementById('authGateEmail');if(el){try{el.focus();el.select();}catch(_){}}}
-function syncAuthGate(){const gate=document.getElementById('authGate');if(!gate)return;if(_authSession){gate.classList.remove('is-visible');authGateBackToSignIn();}else{gate.classList.add('is-visible');}}
+function syncAuthGate(){const gate=document.getElementById('authGate');if(!gate)return;if(_authSession){if(typeof window!=='undefined'){if(window.__authGateRevealTimer){try{clearTimeout(window.__authGateRevealTimer);}catch(_){}window.__authGateRevealTimer=null;}if(window.__authSplashFadeTimer){try{clearTimeout(window.__authSplashFadeTimer);}catch(_){}window.__authSplashFadeTimer=null;}}gate.classList.remove('is-visible');authGateBackToSignIn();const splash=document.getElementById('authSplash');if(splash){splash.classList.remove('is-visible');splash.classList.remove('is-fading');}}else{gate.classList.add('is-visible');}}
 async function authRefresh(){if(!_supa)return null;try{const r=await _supa.auth.getSession();_authSession=(r&&r.data)?r.data.session:null;return _authSession;}catch(e){_authSession=null;return null;}}
 function prefillNameFromAuth(){try{applyAuthFirstNameToProfileIfNeeded();syncSetupNameRowVisibility();const suggested=authSuggestedName();if(!suggested)return;const sn=document.getElementById('setupName');if(sn&&!sn.value)sn.value=suggested;const su=document.getElementById('sUserName');if(su&&!su.value)su.value=suggested;}catch(_){}}
 function authSubscribe(){if(!_supa)return;try{_supa.auth.onAuthStateChange((event,session)=>{_authSession=session||null;syncAccountUI();if(event==='SIGNED_IN'||event==='INITIAL_SESSION'||event==='TOKEN_REFRESHED'||event==='USER_UPDATED'){if(event==='SIGNED_IN'){const m=document.getElementById('mAuthLogin');if(m&&m.classList.contains('show'))closeM('mAuthLogin');}prefillNameFromAuth();}});}catch(e){}}
