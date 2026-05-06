@@ -1,4 +1,4 @@
--- Run in Supabase SQL Editor (Dashboard → SQL → New query) once per project.
+-- Run in Supabase: Dashboard → SQL → New query. Step-by-step: README "Supabase setup".
 -- Stores the full multi-profile ROOT blob as JSON (Phase D sync).
 
 create table if not exists public.user_state (
@@ -27,7 +27,8 @@ create policy "user_state_delete_own"
   on public.user_state for delete
   using (auth.uid() = user_id);
 
--- Previous cloud payloads (one row archived before each non-first upload). Latest 30 per user are kept client-side after each insert.
+-- Previous cloud payloads (archived before each upload when a prior cloud row exists).
+-- The app keeps at most 2 snapshots per user from the rolling last 48 hours (prune runs client-side after each insert).
 create table if not exists public.user_state_history (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references auth.users (id) on delete cascade,
