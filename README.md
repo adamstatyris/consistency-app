@@ -80,6 +80,12 @@ git push
 
 ## Auth notes (Supabase)
 
+- **Google account picker says “Log in to” + a long random-looking string** — That text is **not** controlled in `index.html`. Google takes it from the **OAuth consent screen** (and the OAuth client) backing your sign-in. To show a friendly name (e.g. **Consistency app**):
+  1. In [Google Cloud Console](https://console.cloud.google.com/) use the **same Google Cloud project** where the **Web client ID** is registered that you entered in Supabase (see next bullet).
+  2. Go to **APIs & Services → OAuth consent screen**.
+  3. Set **App name** to `Consistency app` (or `Consistency`). Save.  
+     Optional: add **App logo**, **support email**, and **developer contact** — required if you move beyond “Testing” or widen audience.
+  4. In [Supabase](https://supabase.com/dashboard) open **Authentication → Providers → Google**: use your own **Client ID** and **Client Secret** from that Cloud project (see [Google sign-in with Supabase](https://supabase.com/docs/guides/auth/social-login/auth-google)). If you only use Supabase’s pre-filled Google keys, branding is limited; **custom credentials** + consent screen above are what make the picker show your name.
 - **Sign-in** uses [Supabase Auth](https://supabase.com/docs/guides/auth) with `flowType: 'implicit'` so **magic-link emails work when opened from another device or mail app** (PKCE requires the same browser session that requested the link).
 - **Email “From” (e.g. “Supabase Auth”)** — On the default host, Supabase sends from their infrastructure. To show **“Consistency”** or **“S-Sence Labs”** as the sender, add **custom SMTP** in the Supabase dashboard (**Project → Settings → Auth → SMTP Settings**), then set your **sender name** and **from address** (use a domain you control, e.g. `noreply@yourdomain.com`, with SPF/DKIM as your provider requires). You can also edit **Authentication → Email Templates** for subject/body copy.
 - **Redirect URLs** must include your production site and local dev (e.g. `https://your-project.pages.dev/**` and `http://localhost:*/**`).
