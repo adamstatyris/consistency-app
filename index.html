@@ -1206,7 +1206,7 @@ select#hTier.habit-tier-select-expanded{min-height:4.25rem;border-radius:var(--r
     <div class="guide-block"><strong>Rewards and pot</strong><div class="small-note" style="margin-top:8px">Weekly qualifying habits add a fixed amount (e.g., £30) to your savings pot—a self-commitment where you set aside real cash toward a big goal like an e-bike kit. It's not virtual money but your binding promise to fund it, aligned with your consistency floor. While a goal is <strong>below that floor (recovery)</strong>, only <strong>core</strong> habits add to the pot; <strong>growth</strong> habits add £0 until rolling % is back at the floor.</div></div>
     <div class="guide-block"><strong>Habit bank</strong><div class="small-note" style="margin-top:8px">When a goal is completed, its habits are archived and can be later reactivated toward a different goal.</div></div>
     <div class="guide-block"><strong>Below the floor: recovery mode</strong><div class="small-note" style="margin-top:8px">Each goal has a consistency <strong>floor</strong> (default 80%). Your <strong>rolling %</strong> includes every tracked scorable week (including grace-profile weeks). When rolling % is <strong>below the floor</strong>, the goal is in <strong>recovery</strong>: you still log habits as normal; only <strong>core</strong> habits add £ to the pot, and <strong>growth</strong> habits add £0 until rolling % is back at or above the floor. Recovery tracks your last rolling %: a <strong>strict drop</strong> (ties are not drops) resets the saved pot from that week onward. When rolling % reaches the floor again, recovery ends and full pot rules return. Weekly treats still follow core habit qualification — recovery changes how the <strong>pot</strong> accrues, not whether you can log.</div></div>
-    <div class="guide-block"><strong>Profiles</strong><div class="small-note" style="margin-top:8px">In <strong>Settings → Profile</strong>, tap a tile to switch, the <strong>+</strong> tile to add someone, <strong>Rename</strong> for a quick name and bubble-colour edit, or <strong>Delete this profile…</strong> when you have more than one. <strong>Settings → Appearance</strong> has the same display name and bubble colour next to accent palette and birthday. <strong>Settings → Account</strong> is for sign-in and optional <strong>cloud sync</strong> (full app data for your account). <strong>Settings → Advanced</strong> exports or imports a JSON backup (import only adds new profiles; existing local data is not overwritten). When you tap your name in the header, only the profile avatars open (same tiles as <strong>Settings → Profile</strong>, without add / rename / delete). Each profile has its own goals, habits, week history, and insights.</div></div>
+    <div class="guide-block"><strong>Profiles</strong><div class="small-note" style="margin-top:8px">In <strong>Settings → Profile</strong>, tap a tile to switch, the <strong>+</strong> tile to add someone, <strong>Rename</strong> for a quick name and bubble-colour edit, or <strong>Delete this profile…</strong> when you have more than one. <strong>Settings → Appearance</strong> has the same display name and bubble colour next to accent palette and birthday. <strong>Settings → Account</strong> is for sign-in, optional <strong>cloud sync</strong>, and short-term <strong>cloud backups</strong> (rows labelled <strong>Backup (dd/mm/yyyy)</strong> appear below Sync now after uploads). <strong>Settings → Advanced</strong> exports or imports a JSON backup (import only adds new profiles; existing local data is not overwritten). When you tap your name in the header, only the profile avatars open (same tiles as <strong>Settings → Profile</strong>, without add / rename / delete). Each profile has its own goals, habits, week history, and insights.</div></div>
     <div class="guide-block"><strong>Insights</strong><div class="small-note" style="margin-top:8px">Insights are short, science-backed (or occasionally funny) notes about habits, the brain, and consistency. They can appear in a pop-up when you earn one, and a rotating excerpt shows under <strong>Your Goals</strong> on the dashboard. <strong>Insights n/total</strong> opens everything you’ve discovered, grouped by category with source links where available.<br><br><strong>When insights tend to fire:</strong><br>• New habit<br>• First-time <strong>Add habit</strong> Tier spotlight (unlocks “Core and growth habits”)<br>• About once per calendar week when you have any qualifying habit (participation nudge)<br>• 2-, 4-, or 8-week consistency milestones<br>• Tier shifts on the disc (red ↔ amber ↔ green)<br>• Early in a month or year when you are already in the steady band<br>• After a rough <strong>closed</strong> week, when you are back on track in the live week<br>• Sometimes a random “any time” science or fun card from the library<br><br>Copy is written for non-medical readers. Tap <strong>Got it ✓</strong> to dismiss; if another is queued, it appears next.</div></div>
   </div>
   <div class="modal-footer"><button type="button" class="btn btn-primary" onclick="closeGuide()">Got it</button></div>
@@ -1355,8 +1355,8 @@ select#hTier.habit-tier-select-expanded{min-height:4.25rem;border-radius:var(--r
           <button type="button" class="btn btn-ghost btn-sm" id="accountSyncNowBtn" onclick="void cloudPushNow();">Sync now</button>
         </div>
         <div id="accountCloudHistorySection" style="margin-top:var(--s3)" hidden>
-          <div class="flabel" id="accountCloudHistoryHeading" style="margin:0">Cloud snapshots</div>
-          <p class="small-note" id="accountCloudHistoryIntro" style="margin:0;line-height:1.55">Each time your device uploads to the cloud, the previous cloud version may be stored here — up to 2 snapshots from the last 2 days. Restore replaces data on this device and updates the cloud to match.</p>
+          <div class="flabel" id="accountCloudHistoryHeading" style="margin:0">Cloud backups</div>
+          <p class="small-note" id="accountCloudHistoryIntro" style="margin:0;line-height:1.55">While signed in, open <strong>Settings</strong> → <strong>Account</strong> (this screen). After <strong>Sync now</strong>, up to two previous cloud copies from the last 2 days may appear below as <strong>Backup (dd/mm/yyyy)</strong>. Tapping one restores that copy on this device and updates the cloud.</p>
           <div id="accountCloudHistoryList" class="backup-modal-list" style="max-height:min(36dvh,280px);width:100%"></div>
         </div>
         <p class="small-note" id="settingsAccountSignoutNote" style="margin:0;line-height:1.55">Logging out keeps data on this device; upload pauses until you sign in again.</p>
@@ -1428,7 +1428,7 @@ select#hTier.habit-tier-select-expanded{min-height:4.25rem;border-radius:var(--r
       <div style="text-align:center;padding:var(--s3) 0">
         <div style="font-size:2rem;margin-bottom:var(--s2)">🎯</div>
         <div style="font-size:var(--xl);font-weight:800;color:var(--text)">Consistency</div>
-        <div style="font-size:var(--sm);color:var(--text-muted);margin-top:var(--s1)">Version 12</div>
+        <div style="font-size:var(--sm);color:var(--text-muted);margin-top:var(--s1)" id="settingsAboutVersion">v1.2beta</div>
         <p class="small-note" id="settingsAboutBlurb" style="margin-top:var(--s4);line-height:1.65;max-width:340px;margin-left:auto;margin-right:auto">A personal habit-tracking tool built around weekly consistency, gentle scoring, and honest self-reflection. Data stays on your device; optional sign-in syncs an encrypted copy to your account.</p>
       </div>
     </div>
@@ -1505,6 +1505,17 @@ select#hTier.habit-tier-select-expanded{min-height:4.25rem;border-radius:var(--r
     <div class="modal-footer" style="margin-top:var(--s5)">
       <button type="button" class="btn btn-ghost" id="confirmDeleteProfileCancelBtn">Cancel</button>
       <button type="button" class="btn btn-danger" id="confirmDeleteProfileOkBtn">Yes, delete profile</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay app-dialog" id="mConfirmRestoreCloudBackup" role="dialog" aria-modal="true" aria-labelledby="confirmRestoreCloudBackupTitle" style="z-index:10020">
+  <div class="modal" onclick="event.stopPropagation()" style="max-width:440px">
+    <h2 id="confirmRestoreCloudBackupTitle">Are you sure?</h2>
+    <p id="confirmRestoreCloudBackupText" class="small-note" style="margin-top:var(--s3);line-height:1.65;color:var(--text-muted)"></p>
+    <div class="modal-footer" style="margin-top:var(--s5)">
+      <button type="button" class="btn btn-ghost" id="confirmRestoreCloudBackupCancelBtn">Cancel</button>
+      <button type="button" class="btn btn-danger" id="confirmRestoreCloudBackupOkBtn">Restore backup</button>
     </div>
   </div>
 </div>
@@ -1801,6 +1812,12 @@ function uid(p='id'){return p+'_'+Math.random().toString(36).slice(2,9)}
 function isoDate(d){return new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,10)}
 // Key stays at 'v4' to preserve existing user data; migrate() handles schema changes on load.
 const STORAGE_KEY='consistency-app-v4';
+const APP_DISPLAY_VERSION='v1.2beta';
+function formatBackupDateDdMmYyyy(savedAt){
+  const d=new Date(savedAt);
+  if(!Number.isFinite(d.getTime()))return'—';
+  return String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear();
+}
 const COOKIE_CONSENT_LS='consistencyCookieConsentV1';
 const COOKIE_CONSENT_NAME='cst_consent';
 const COOKIE_DATA_COUNT='cst_dn';
@@ -1982,53 +1999,84 @@ async function syncCloudHistoryPanel(){
     if(!filtered.length){
       const p=document.createElement('p');
       p.className='small-note';
-      p.textContent=kid?'No snapshots yet. They appear after you save to the cloud when a copy was already there.':'No snapshots in the last 2 days (we keep at most 2 previous cloud versions).';
+      p.textContent=kid?'No backups yet. They appear after you save to the cloud when a copy was already there.':'No backups in the last 2 days (at most 2 previous cloud versions are kept).';
       wrap.appendChild(p);
       return;
     }
     filtered.forEach(row=>{
       const rowEl=document.createElement('div');
       rowEl.className='settings-data-row';
-      rowEl.style.cssText='justify-content:space-between;align-items:center;gap:var(--s2);flex-wrap:wrap';
-      const left=document.createElement('div');
-      const dEl=document.createElement('div');
-      dEl.textContent=new Date(row.saved_at).toLocaleString();
+      rowEl.style.cssText='display:flex;flex-direction:column;align-items:stretch;gap:var(--s1)';
+      const mainBtn=document.createElement('button');
+      mainBtn.type='button';
+      mainBtn.className='btn btn-ghost btn-sm';
+      mainBtn.style.cssText='width:100%;text-align:left;justify-content:flex-start';
+      const dsl=formatBackupDateDdMmYyyy(row.saved_at);
+      mainBtn.textContent='Backup ('+dsl+')';
+      mainBtn.setAttribute('aria-label',kid?'Restore backup '+dsl:'Restore backup '+dsl);
+      mainBtn.onclick=()=>promptRestoreCloudBackup(row.id,row.saved_at);
       const sum=document.createElement('div');
       sum.className='small-note';
       const r=syncPayloadRichness(row.payload);
       sum.textContent=r.profiles+' profiles · '+r.weekKeys+' week logs';
-      left.appendChild(dEl);
-      left.appendChild(sum);
-      const btn=document.createElement('button');
-      btn.type='button';
-      btn.className='btn btn-ghost btn-sm';
-      btn.textContent=kid?'Put back':'Restore';
-      btn.onclick=()=>void confirmRestoreCloudHistory(row.id);
-      rowEl.appendChild(left);
-      rowEl.appendChild(btn);
+      rowEl.appendChild(mainBtn);
+      rowEl.appendChild(sum);
       wrap.appendChild(rowEl);
     });
   }catch(e){
     wrap.replaceChildren();
     const p=document.createElement('p');
     p.className='small-note';
-    p.textContent='Could not load cloud history. Run the user_state_history SQL from the repo (Supabase) if this is new.';
+    p.textContent='Could not load cloud backups. Run the user_state_history SQL from the repo (Supabase) if this is new.';
     wrap.appendChild(p);
   }
 }
-async function confirmRestoreCloudHistory(historyId){
+function cancelRestoreCloudBackup(){window._pendingRestoreCloudHistoryId=null;window._pendingRestoreCloudHistoryStep=0;closeM('mConfirmRestoreCloudBackup');}
+function promptRestoreCloudBackup(historyId,savedAtIso){
+  window._pendingRestoreCloudHistoryId=historyId;
+  window._pendingRestoreCloudHistoryStep=1;
   const kid=typeof useKidsLanguage==='function'&&useKidsLanguage();
-  if(!confirm(kid?'Put this older cloud save on this device? Ask a grown-up — it replaces what you see here.':'Replace data on this device with this cloud snapshot? The current cloud copy will be archived and then updated to match.'))return;
+  const dsl=formatBackupDateDdMmYyyy(savedAtIso);
+  const title=document.getElementById('confirmRestoreCloudBackupTitle');
+  const tx=document.getElementById('confirmRestoreCloudBackupText');
+  const okBtn=document.getElementById('confirmRestoreCloudBackupOkBtn');
+  if(title)title.textContent=kid?'Sure?':'Are you sure?';
+  if(tx){if(kid)tx.textContent='Put backup ('+dsl+') on this device? Ask a grown-up. This swaps what you see here and in the cloud.';else tx.innerHTML='Restore backup ('+dsl+')? This replaces all data on this device with that backup and updates your live cloud copy. Consider <strong>Advanced → Export backup</strong> first if you want a JSON file.';}
+  if(okBtn)okBtn.textContent=kid?'Continue':'Restore backup';
+  openM('mConfirmRestoreCloudBackup');
+}
+function confirmRestoreCloudBackupExecute(){
+  const historyId=window._pendingRestoreCloudHistoryId;
+  if(!historyId){cancelRestoreCloudBackup();return;}
+  const skipSecond=!!(S&&S.user&&S.user.skipSecondLockConfirm);
+  if(window._pendingRestoreCloudHistoryStep===1&&!skipSecond){
+    window._pendingRestoreCloudHistoryStep=2;
+    const kid=typeof useKidsLanguage==='function'&&useKidsLanguage();
+    const title=document.getElementById('confirmRestoreCloudBackupTitle');
+    const tx=document.getElementById('confirmRestoreCloudBackupText');
+    const okBtn=document.getElementById('confirmRestoreCloudBackupOkBtn');
+    if(title)title.textContent=kid?'Really sure?':'Are you sure you are sure?';
+    if(tx)tx.textContent=kid?'This will replace your app here and online with that old save.':'This replaces your current data on this device and overwrites the live cloud copy. You cannot undo except from another backup or file export.';
+    if(okBtn)okBtn.textContent=kid?'Yes, do it':'Yes, I’m sure';
+    return;
+  }
+  window._pendingRestoreCloudHistoryId=null;
+  window._pendingRestoreCloudHistoryStep=0;
+  closeM('mConfirmRestoreCloudBackup');
+  void executeRestoreCloudBackupFromHistory(historyId);
+}
+async function executeRestoreCloudBackupFromHistory(historyId){
+  const kid=typeof useKidsLanguage==='function'&&useKidsLanguage();
   const u=typeof authCurrentUser==='function'?authCurrentUser():null;
   if(!u||!_supa)return;
   try{
     const {data,error}=await _supa.from('user_state_history').select('payload,saved_at').eq('id',historyId).eq('user_id',u.id).maybeSingle();
-    if(error||!data||cloudSyncPayloadIsEmpty(data.payload)){alert(kid?'Could not load that snapshot.':'Could not load that snapshot.');return;}
+    if(error||!data||cloudSyncPayloadIsEmpty(data.payload)){alert(kid?'Could not load that backup.':'Could not load that backup.');return;}
     applyCloudPullMerge(data.payload,data.saved_at);
     await cloudPushNow();
-    alert(kid?'All set!':'Restored. This device and your cloud copy now match this snapshot.');
+    alert(kid?'All set!':'Restored. This device and your cloud copy now match this backup.');
   }catch(e){
-    console.warn('[sync] restore history failed',e);
+    console.warn('[sync] restore backup failed',e);
     alert(kid?'Something went wrong.':'Restore failed.');
   }
 }
@@ -2121,6 +2169,7 @@ function cancelDeleteProfile(){window._pendingDeleteProfileId=null;window._pendi
 function deleteProfilePrompt(){if(!ROOT)return;const ids=Object.keys(ROOT.profiles);if(ids.length<=1){alert('You need at least one profile. Add another profile first if you want to remove this one.');return;}const pid=String(ROOT.activeProfileId||'');if(!pid||!ROOT.profiles[pid]){alert('Could not find the active profile. Try switching profiles, then try again.');return;}const nm=(ROOT.profileMeta[pid]&&ROOT.profileMeta[pid].name)||'Profile';const title=document.getElementById('confirmDeleteProfileTitle');const tx=document.getElementById('confirmDeleteProfileText');const okBtn=document.getElementById('confirmDeleteProfileOkBtn');if(title)title.textContent='Are you sure?';if(tx)tx.textContent='Are you sure you want to permanently delete "'+nm+'"? All goals, habits, week history, and insights for this profile will be removed. This cannot be undone.';if(okBtn)okBtn.textContent='Yes, delete profile';window._pendingDeleteProfileId=pid;window._pendingDeleteProfileStep=1;openM('mConfirmDeleteProfile');}
 function confirmDeleteProfileExecute(){const pid=String(window._pendingDeleteProfileId||'');if(!ROOT||!pid||!ROOT.profiles[pid]){closeM('mConfirmDeleteProfile');window._pendingDeleteProfileId=null;window._pendingDeleteProfileStep=0;return;}if(window._pendingDeleteProfileStep===1&&!S.user.skipSecondLockConfirm){const title=document.getElementById('confirmDeleteProfileTitle');const tx=document.getElementById('confirmDeleteProfileText');const okBtn=document.getElementById('confirmDeleteProfileOkBtn');if(title)title.textContent='Are you sure you are sure?';if(tx)tx.textContent='This will permanently delete this profile and all of its goals, habits, week history, and insights.';if(okBtn)okBtn.textContent='Yes, I’m sure';window._pendingDeleteProfileStep=2;return;}window._pendingDeleteProfileId=null;window._pendingDeleteProfileStep=0;closeM('mConfirmDeleteProfile');const all=Object.keys(ROOT.profiles);if(all.length<=1)return;const nextId=sortedProfileIds().map(String).find(x=>x!==pid);if(!nextId||!ROOT.profiles[nextId]){alert('Could not switch to another profile. Delete was cancelled.');return;}delete ROOT.profiles[pid];if(ROOT.profileMeta)delete ROOT.profileMeta[pid];ROOT.activeProfileId=nextId;bindActiveProfile();migrate();try{sessionStorage.removeItem('consistencyDashInsightId');}catch(e){}_insightShownThisSession=false;save();themeInit();renderAll();setupScreen();syncProfileSelect();renderHeader();if(document.getElementById('mSettings')?.classList.contains('open')){applyGraceWindowRules();const su=document.getElementById('sUserName'),sDobEl=document.getElementById('sDob'),sStart=document.getElementById('sStartDate'),uu=document.getElementById('sUnits');if(su)su.value=S.user.name||'';if(sDobEl)sDobEl.value=S.user.dob||'';if(sStart)sStart.value=S.user.startDate||'';if(uu)uu.value=S.user.units||'metric';mountSettingsPaletteGrid();syncGraceToggleButton();syncTrackingControlUI();}}
 function bindProfileDeleteButtons(){const d1=document.getElementById('deleteProfileBtn');if(d1&&!d1.dataset.delBound){d1.dataset.delBound='1';d1.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();deleteProfilePrompt();});}const ov=document.getElementById('mConfirmDeleteProfile');if(ov&&!ov.dataset.delDlgBound){ov.dataset.delDlgBound='1';document.getElementById('confirmDeleteProfileCancelBtn')?.addEventListener('click',()=>cancelDeleteProfile());document.getElementById('confirmDeleteProfileOkBtn')?.addEventListener('click',()=>confirmDeleteProfileExecute());}}
+function bindRestoreCloudBackupDialog(){const ov=document.getElementById('mConfirmRestoreCloudBackup');if(ov&&!ov.dataset.restoreDlgBound){ov.dataset.restoreDlgBound='1';document.getElementById('confirmRestoreCloudBackupCancelBtn')?.addEventListener('click',()=>cancelRestoreCloudBackup());document.getElementById('confirmRestoreCloudBackupOkBtn')?.addEventListener('click',()=>confirmRestoreCloudBackupExecute());}}
 function renderHeader(){const el=document.getElementById('motivationalHeader');if(!el)return;const multi=ROOT&&ROOT.profiles&&Object.keys(ROOT.profiles).length>1;el.innerHTML=headerGreetingHTML();if(multi){el.classList.add('brand-sub-tappable');el.setAttribute('role','button');el.setAttribute('tabindex','0');el.setAttribute('aria-haspopup','dialog');el.setAttribute('aria-label','Switch profile. '+headerGreetingAriaLabel());el.onclick=openProfilePickerFromHeader;el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openProfilePickerFromHeader();}};}else{el.classList.remove('brand-sub-tappable');el.removeAttribute('role');el.removeAttribute('tabindex');el.removeAttribute('aria-haspopup');el.removeAttribute('aria-label');el.onclick=null;el.onkeydown=null;}syncKidsSettingsCopy();syncKidCritterLoop();}
 function syncSettingsPanelsKidCopy(){
   const kid=typeof useKidsLanguage==='function'&&useKidsLanguage();
@@ -2149,8 +2198,9 @@ function syncSettingsPanelsKidCopy(){
   setHtml('settingsHelpIntro',kid?'See fun facts you collected, read Tips, or replay the intro, tab tour, or guides below. Backup files are under <strong>Advanced</strong>.':'Browse insights, open Tips for the full reference, or replay orientation tours below.');
   const sb=document.getElementById('accountSignInBtn');if(sb)sb.textContent=kid?'🔑 Sign in with a grown-up':'🔑 Sign in';
   const sn=document.getElementById('accountSyncNowBtn');if(sn)sn.textContent=kid?'Upload now':'Sync now';
-  setTxt('accountCloudHistoryHeading',kid?'Old cloud saves':'Cloud snapshots');
-  setTxt('accountCloudHistoryIntro',kid?'When you upload to the cloud, we keep up to two older copies from the last two days so a grown-up can put one back if something went wrong.':'Each upload may store the previous cloud version — up to 2 snapshots from the last 2 days (rolling 48 hours). Restore replaces data on this device and updates the cloud to match.');
+  const verEl=document.getElementById('settingsAboutVersion');if(verEl)verEl.textContent=APP_DISPLAY_VERSION;
+  setTxt('accountCloudHistoryHeading',kid?'Saved backups':'Cloud backups');
+  setHtml('accountCloudHistoryIntro',kid?'After you <strong>upload</strong> to the cloud, up to two older saves from the last two days can show here as <strong>Backup (dd/mm/yyyy)</strong>. Tap only with a grown-up — it changes this device and the cloud.':'While <strong>signed in</strong>, open <strong>Settings → Account</strong> (this tab). Below <strong>Sync now</strong>, you may see up to two rows labelled <strong>Backup (dd/mm/yyyy)</strong> — archived cloud copies from the last 2 days. Tap one to restore; you will be asked to confirm twice.');
   const stopTr=document.getElementById('btnStopTracking');if(stopTr)stopTr.textContent=kid?'Stop for a long pause…':'Stop tracking…';
 }
 function syncKidsSettingsCopy(){syncSettingsPanelsKidCopy();syncHabitPresetSearchLabels();}
@@ -2529,7 +2579,7 @@ function setUiScrollLock(on){const root=document.documentElement,b=document.body
 function syncUiScrollLock(){const hasOpenOverlay=!!document.querySelector('.overlay.open');const setupOpen=!!document.getElementById('setupScreen')?.classList.contains('show');const cookieOpen=!!document.getElementById('cookieConsentBar')?.classList.contains('show');const habitTierTour=!!document.getElementById('habitEditorTierTourLayer');setUiScrollLock(hasOpenOverlay||setupOpen||cookieOpen||habitTierTour);}
 function openM(id){clearInsightShowTimer();const im=document.getElementById('insightModal');if(im&&im.classList.contains('open')&&_insightModalMode==='insightDashboardNotice'){S.insights.participationNudgeShown=true;save();_insightModalMode='queue';}if(im)im.classList.remove('open','insight-leaving');document.getElementById(id).classList.add('open');syncUiScrollLock();}
 function closeM(id){if(id==='mFieldTip'){dismissFieldTip();return;}if(id==='mGoal')unbindGoalFieldTips();if(id==='mHabit'){if(habitEditorTierTourActive())destroyHabitEditorTierTutorial(true);unbindHabitFieldTips();closeEmojiPicker();}if(id==='mProfileName')closeAvatarBubblePicker();if(id==='mLogMetricDay')_logMetricCtx=null;document.getElementById(id).classList.remove('open');syncUiScrollLock();}
-document.querySelectorAll('.overlay.app-dialog').forEach(el=>el.addEventListener('click',e=>{if(e.target!==el)return;if(el.id==='mInsightLibrary')closeInsightLibrary();else if(el.id==='mConfirmDeleteProfile')cancelDeleteProfile();else if(el.id==='mImportBackup')cancelImportBackup();else if(el.id==='mConfirmRemoveBanked')cancelRemoveBanked();else if(el.id==='mFieldTip')dismissFieldTip();else if(el.id==='mNotifyFirstHabit')closeNotifyFirstHabitPrompt();else closeM(el.id);}));
+document.querySelectorAll('.overlay.app-dialog').forEach(el=>el.addEventListener('click',e=>{if(e.target!==el)return;if(el.id==='mInsightLibrary')closeInsightLibrary();else if(el.id==='mConfirmDeleteProfile')cancelDeleteProfile();else if(el.id==='mConfirmRestoreCloudBackup')cancelRestoreCloudBackup();else if(el.id==='mImportBackup')cancelImportBackup();else if(el.id==='mConfirmRemoveBanked')cancelRemoveBanked();else if(el.id==='mFieldTip')dismissFieldTip();else if(el.id==='mNotifyFirstHabit')closeNotifyFirstHabitPrompt();else closeM(el.id);}));
 const FIELD_TIP_COPY={goalName:{adult:{title:'Goal name',body:'Name something you’re working toward — often something you could save toward over weeks or months. Think inspiring target, not a vague chore.'},kid:{title:'Goal name',body:'Pick something big you want — like saving for something special. Make it something that makes you feel excited.'}},goalReward:{adult:{title:'Weekly treat',body:'This is a small reward for a good week — like a film night or a favourite snack. It’s separate from your big goal; it isn’t for weight-style outcomes.'},kid:{title:'Weekly treat',body:'Pick a little treat for a good week — like a fun outing or a small thing you like. Keep it small and fun, not big scary goals.'}},habitTitle:{adult:{title:'Habit',body:'Use small repeatable actions — like “walk 20 minutes” or “read before bed”. Avoid vague outcomes (“lose 30kg”), and don’t use your weekly treat as a habit.'},kid:{title:'Habit',body:'Write a small thing you do again and again — like “read 10 minutes”. Big goals and treats go in the other boxes.'}}};
 let _fieldTipKind=null;let _fieldTipRestoreEl=null;let _goalFieldTipHandlers=null;let _habitFieldTipHandlers=null;
 function openFieldTipModal(kind){const copy=FIELD_TIP_COPY[kind];if(!copy)return;const block=useKidsLanguage()?copy.kid:copy.adult;document.getElementById('fieldTipTitle').textContent=block.title;document.getElementById('fieldTipBody').textContent=block.body;_fieldTipKind=kind;const ae=document.activeElement;_fieldTipRestoreEl=(ae&&ae.id&&(ae.id==='gName'||ae.id==='gRewardPreset'||ae.id==='gRewardCustom'||ae.id==='hTitle'))?ae:null;openM('mFieldTip');}
@@ -3021,7 +3071,7 @@ const SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYm
 const _supa=(typeof window!=='undefined'&&window.supabase&&typeof window.supabase.createClient==='function')?window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY,{auth:{autoRefreshToken:true,persistSession:true,detectSessionInUrl:true,flowType:'implicit'}}):null;
 let _authSession=null;
 let _authBusy=false;
-load();seed();themeInit();populateUI();bindTrackerSwipe();bindHabitRowsReorder();bindArchiveBankRemove();bindSettingsTabKeyboard();bindProfileDeleteButtons();bindOnboardingShellKeys();setupScreen();renderAll();showCookieBannerIfNeeded();
+load();seed();themeInit();populateUI();bindTrackerSwipe();bindHabitRowsReorder();bindArchiveBankRemove();bindSettingsTabKeyboard();bindProfileDeleteButtons();bindRestoreCloudBackupDialog();bindOnboardingShellKeys();setupScreen();renderAll();showCookieBannerIfNeeded();
 if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost'||location.hostname==='127.0.0.1')){navigator.serviceWorker.register('sw.js',{scope:'./'}).catch(function(){});}
 
 function prepNotifyFirstHabitModal(){const kid=useKidsLanguage();const t=document.getElementById('notifyFirstHabitTitle');const bd=document.getElementById('notifyFirstHabitBodyDefault');const den=document.getElementById('notifyFirstHabitBodyDenied');const pb=document.getElementById('notifyFirstHabitPrimaryBtn');const cb=document.getElementById('notifyFirstHabitCancelBtn');if(t)t.textContent=kid?'Little reminders?':'Browser notifications?';if(bd)bd.textContent=kid?'Ask a grown-up to allow optional reminders so you can get nudges before the week closes. You can turn this off in Settings → Tracking.':'Optional reminders for unlogged habits and Sunday week-close. Works best while this tab is open. You can turn this off anytime in Settings → Tracking.';if(den)den.textContent=kid?'Your browser blocked this site. A grown-up can turn on reminders in the browser’s site settings if you want them later.':'Notifications are blocked for this site. You can enable them in your browser’s site settings for this page if you want reminders later.';if(cb)cb.textContent=kid?'Not now':'Not now';if(!pb)return;const p=typeof Notification!=='undefined'?Notification.permission:'denied';if(p==='denied'){if(bd)bd.style.display='none';if(den)den.style.display='';pb.textContent=kid?'OK':'OK';}else{if(bd)bd.style.display='';if(den)den.style.display='none';pb.textContent=kid?'Allow':'Allow notifications';}}
