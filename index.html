@@ -242,9 +242,9 @@ input,select,textarea{border:none}
 .tab.tab--premium-locked{opacity:.45;cursor:not-allowed;pointer-events:none;filter:grayscale(.35)}
 .tab.tab--premium-locked:hover{color:var(--text-muted);border-color:var(--border)}
 .mastery-badge{display:inline-flex;align-items:center;justify-content:center;min-width:1.65rem;height:1.65rem;padding:0 .28rem;border-radius:999px;font-size:.72rem;font-weight:800;line-height:1;color:#5c4010;background:radial-gradient(circle at 35% 30%,#ffeaa7,#f4d03f 45%,#c9981f 100%);box-shadow:0 0 12px rgba(244,208,63,.55),0 3px 8px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.5);flex-shrink:0;font-variant-numeric:lining-nums}
-.mastery-badge--mastery-card{min-width:2.85rem;min-height:3.35rem;padding:.32rem .5rem;border-radius:16px;font-size:clamp(1rem,2.8vw,1.18rem);font-weight:800;letter-spacing:.02em;font-family:Georgia,'Times New Roman',Times,serif;line-height:1.12;align-self:stretch}
+.mastery-badge--mastery-card{min-width:2.75rem;width:2.75rem;height:2.75rem;padding:0;border-radius:999px;font-size:clamp(.95rem,2.5vw,1.05rem);font-weight:800;letter-spacing:.02em;font-family:var(--font);line-height:1;align-self:center;box-sizing:border-box}
 .mastery-badge--legendary{color:#fef9e7;background:radial-gradient(circle at 35% 25%,#fff8e1,#f4d03f 38%,#8b6914 95%);box-shadow:0 0 0 2px rgba(212,175,55,.95),0 0 18px rgba(244,208,63,.75),0 4px 12px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.55);font-size:.68rem}
-.mastery-badge--mastery-card.mastery-badge--legendary{font-size:clamp(.95rem,2.6vw,1.12rem)}
+.mastery-badge--mastery-card.mastery-badge--legendary{font-size:clamp(.88rem,2.35vw,1rem)}
 html[data-theme="light"] .mastery-badge--legendary{color:#3d2a08}
 .legendary-re-float{position:fixed;left:50%;bottom:max(24px,env(safe-area-inset-bottom));transform:translateX(-50%) translateY(118%);z-index:10042;max-width:min(94vw,560px);padding:var(--s5);border-radius:var(--r-xl);background:linear-gradient(165deg,color-mix(in srgb,var(--surface-2) 100%,#2a2208 8%),var(--surface));border:1px solid color-mix(in srgb,var(--border) 80%,#d4af37 40%);box-shadow:0 14px 44px rgba(0,0,0,.4),0 0 0 1px rgba(212,175,55,.2);transition:transform .42s cubic-bezier(0.22,1,0.36,1),opacity .32s ease;opacity:0;pointer-events:none;text-align:left}
 .legendary-re-float.show{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto}
@@ -257,14 +257,14 @@ html[data-theme="light"] .mastery-badge{color:#3d2a08;box-shadow:0 0 16px rgba(2
 .habit-name-row{display:flex;align-items:center;gap:var(--s2);min-width:0;flex-wrap:wrap}
 .habit-name-row .habit-name{min-width:0}
 .config-head .mastery-badge{align-self:flex-start;margin-top:2px}
-.config-head .mastery-badge--mastery-card{align-self:stretch;margin-top:0}
+.config-head .mastery-badge--mastery-card{align-self:center;margin-top:0}
 .config-head.mastery-card-head{display:grid;grid-template-columns:auto 1fr auto;grid-template-rows:auto auto auto;gap:var(--s2) var(--s3);align-items:start;width:100%;flex-wrap:unset}
 .config-head.mastery-card-head .habit-emoji{grid-row:1/span 2}
 .config-head.mastery-card-head .mastery-card-title-block{grid-column:2;grid-row:1/span 2;min-width:0;display:flex;flex-direction:column;gap:var(--s1)}
-.config-head.mastery-card-head .mastery-badge-slot{grid-column:3;grid-row:1/span 2;display:flex;align-items:stretch;justify-content:flex-end}
-.mastery-card-tier-name{font-size:var(--sm);color:var(--text);line-height:1.35}
-.config-head.mastery-card-head .mastery-tier-dashes{grid-column:2/-1;grid-row:3;display:flex;flex-direction:column;gap:var(--s2);width:100%;margin-top:2px}
-.mastery-tier-dash{flex:0 0 auto;width:100%;height:6px;border-radius:999px;background:var(--border);opacity:.55}
+.config-head.mastery-card-head .mastery-badge-slot{grid-column:3;grid-row:1/span 2;display:flex;align-items:center;justify-content:flex-end}
+.mastery-card-tier-name{font-size:var(--xl);font-weight:800;color:var(--text);line-height:1.2;letter-spacing:-.015em}
+.config-head.mastery-card-head .mastery-tier-dashes{grid-column:2/-1;grid-row:3;display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;gap:var(--s3);width:100%;margin-top:2px}
+.mastery-tier-dash{flex:1;min-width:0;height:6px;border-radius:999px;background:var(--border);opacity:.55}
 .mastery-tier-dash--earned{opacity:1;background:linear-gradient(90deg,#ffeaa7,#f4d03f,#d4af37);box-shadow:0 0 12px rgba(244,208,63,.45),inset 0 1px 0 rgba(255,255,255,.35)}
 html[data-theme="light"] .mastery-tier-dash--earned{box-shadow:0 0 14px rgba(212,160,23,.55),inset 0 1px 0 rgba(255,255,255,.5)}
 .mastery-habit-list{display:flex;flex-direction:column;gap:var(--s4)}
@@ -290,6 +290,12 @@ html[data-theme="light"] .mastery-tier-dash--earned{box-shadow:0 0 14px rgba(212
 .card{background:linear-gradient(180deg,color-mix(in srgb,var(--surface) 97%, transparent),color-mix(in srgb,var(--surface-2) 92%, var(--surface) 8%));border:1px solid var(--border);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
 .card::before{content:'';position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);pointer-events:none}
 .glow-blue{box-shadow:0 0 0 1px color-mix(in srgb,var(--blue) 55%,transparent),0 0 36px var(--blue-glow),0 0 72px color-mix(in srgb,var(--blue) 24%,transparent),var(--shadow-sm)}
+.glow-mastery-bronze{box-shadow:0 0 0 1px rgba(184,115,51,.55),0 0 32px rgba(205,127,50,.38),0 0 64px rgba(160,82,45,.22),var(--shadow-sm)}
+.glow-mastery-silver{box-shadow:0 0 0 1px rgba(180,190,210,.55),0 0 30px rgba(192,200,220,.4),0 0 62px rgba(160,170,195,.2),var(--shadow-sm)}
+.glow-mastery-gold{box-shadow:0 0 0 1px rgba(212,175,55,.6),0 0 34px rgba(244,208,63,.48),0 0 72px rgba(184,134,11,.22),var(--shadow-sm)}
+[data-theme="light"] .glow-mastery-bronze{box-shadow:0 0 0 1px rgba(139,90,43,.45),0 0 28px rgba(184,115,51,.32),0 0 58px rgba(205,127,50,.18),var(--shadow-sm)}
+[data-theme="light"] .glow-mastery-silver{box-shadow:0 0 0 1px rgba(120,130,150,.45),0 0 26px rgba(160,170,190,.3),0 0 56px rgba(140,150,175,.16),var(--shadow-sm)}
+[data-theme="light"] .glow-mastery-gold{box-shadow:0 0 0 1px rgba(180,140,40,.5),0 0 30px rgba(212,175,55,.34),0 0 64px rgba(244,208,63,.2),var(--shadow-sm)}
 .glow-green{box-shadow:0 0 0 1px rgba(63,185,80,.65),0 0 30px var(--green-glow),0 0 64px rgba(63,185,80,.24),var(--shadow-sm)}
 .glow-amber{box-shadow:0 0 0 1px rgba(227,179,65,.58),0 0 30px rgba(227,179,65,.46),0 0 62px rgba(227,179,65,.22),var(--shadow-sm)}
 .glow-red{box-shadow:0 0 0 1px rgba(248,81,73,.54),0 0 28px rgba(248,81,73,.44),0 0 58px rgba(248,81,73,.22),var(--shadow-sm)}
@@ -1126,8 +1132,8 @@ select#hTier.habit-tier-select-expanded{min-height:4.25rem;border-radius:var(--r
   <section id="tab-mastery" class="panel">
     <div class="section-head">
       <div>
-        <div class="section-title">Mastery</div>
-        <div class="muted">Rolling Mastery Levels for sustained habit consistency (Premium). A level stays once earned.</div>
+
+
       </div>
     </div>
     <div id="masteryBody"></div>
@@ -1995,22 +2001,6 @@ function formatBackupDateDdMmYyyy(savedAt){
   if(!Number.isFinite(d.getTime()))return'—';
   return String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear();
 }
-/** Local calendar YYYY-MM-DD for cloud archive rotation (device timezone). */
-function getLocalDateKey(d){
-  const t=d&&d instanceof Date?d:new Date();
-  return t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
-}
-function yesterdayLocalDateKey(todayKey){
-  const p=todayKey.split('-').map(Number);
-  const dt=new Date(p[0],p[1]-1,p[2]);
-  dt.setDate(dt.getDate()-1);
-  return dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0');
-}
-/** ISO timestamp for 23:59:59.999 local on the given YYYY-MM-DD (for archive labelling). */
-function endOfLocalDayIsoFromDateKey(dateKey){
-  const p=dateKey.split('-').map(Number);
-  return new Date(p[0],p[1]-1,p[2],23,59,59,999).toISOString();
-}
 const COOKIE_CONSENT_LS='consistencyCookieConsentV1';
 const COOKIE_CONSENT_NAME='cst_consent';
 const COOKIE_DATA_COUNT='cst_dn';
@@ -2040,7 +2030,7 @@ function applyGraceWindowRulesForProfile(P){if(!P||!P.user)return;if(Date.now()>
 function applyGraceWindowRules(){if(S)applyGraceWindowRulesForProfile(S);}
 function load(){try{let fromLs=null,fromCk=null;try{const ls=localStorage.getItem(STORAGE_KEY);if(ls)fromLs=JSON.parse(ls);}catch(_){}if(cookieConsentStatus()==='accepted'){try{const c=loadFromCookies();if(c&&typeof c==='object')fromCk=c;}catch(_){}}const raw=fromLs||fromCk;ROOT=migrateStorageRoot(raw);bindActiveProfile();}catch(e){ROOT=migrateStorageRoot(null);bindActiveProfile();}migrate();}
 let _prunedSleepCopyTestHabitThisMigrate=false;function removeOneOffTestHabitSleepCopy(P){if(!P||!Array.isArray(P.habits))return;const norm=s=>String(s||'').trim().toLowerCase().replace(/\s+/g,' ');const titles=new Set(['sleep before 11pm (copy)','sleep before 11 pm (copy)']);const drop=[];P.habits=P.habits.filter(h=>{if(titles.has(norm(h.title))){drop.push(h.id);return false;}return true;});if(!drop.length)return;_prunedSleepCopyTestHabitThisMigrate=true;Object.values(P.weeks||{}).forEach(w=>{if(w&&w.habitData)drop.forEach(id=>delete w.habitData[id]);});}
-function migrateOneProfile(P){if(!P||typeof P!=='object')return;if(!P.user)P.user={name:'',dob:'',startDate:isoDate(new Date()),setupDone:false,introSeen:false,guideSeen:false,units:'metric',uiPalette:'neutral',seeded:false,gracePeriodEnabled:false,trackingPaused:false,trackingStopped:false,kidAnimationsEnabled:true};if(P.user.dob===undefined)P.user.dob='';if(typeof P.user.dob==='string'){const t=P.user.dob.trim();P.user.dob=t.length>=10?t.slice(0,10):(t||'');}if(P.user.guideSeen===undefined)P.user.guideSeen=false;if(P.user.introSeen===undefined)P.user.introSeen=false;if(P.user.setupDone&&P.user.guideSeen&&!P.user.introSeen)P.user.introSeen=true;if(!P.user.units)P.user.units='metric';if(P.user.seeded===undefined)P.user.seeded=false;if(P.user.gracePeriodEnabled===undefined)P.user.gracePeriodEnabled=false;if(P.user.trackingPaused===undefined)P.user.trackingPaused=false;if(P.user.trackingStopped===undefined)P.user.trackingStopped=false;if(P.user.skipSecondLockConfirm===undefined)P.user.skipSecondLockConfirm=false;if(P.user.browserNotifyEnabled===undefined)P.user.browserNotifyEnabled=false;if(!P.user.notifDedupe||typeof P.user.notifDedupe!=='object')P.user.notifDedupe={};if(P.user.kidAnimationsEnabled===undefined)P.user.kidAnimationsEnabled=true;if(P.user.fieldTipGoalNameShown===undefined)P.user.fieldTipGoalNameShown=0;if(P.user.fieldTipGoalRewardShown===undefined)P.user.fieldTipGoalRewardShown=0;if(P.user.fieldTipHabitShown===undefined)P.user.fieldTipHabitShown=0;if(P.user.habitTierTutorialSeen===undefined)P.user.habitTierTutorialSeen=!!(Array.isArray(P.habits)&&P.habits.length>0);if(P.user.graceOfferStepperSeen===undefined)P.user.graceOfferStepperSeen=false;if(P.user.browserNotifyFirstHabitPromptDone===undefined)P.user.browserNotifyFirstHabitPromptDone=!!(Array.isArray(P.habits)&&P.habits.some(h=>h.active&&!h.archived));const _hasGoals=!!(Array.isArray(P.goals)&&P.goals.length>0);const _hasHabits=!!(Array.isArray(P.habits)&&P.habits.some(h=>h.active&&!h.archived));if(P.user.firstGoalIntentionSeen===undefined)P.user.firstGoalIntentionSeen=_hasGoals;if(P.user.firstGoalEditorTourSeen===undefined)P.user.firstGoalEditorTourSeen=_hasGoals;if(P.user.firstHabitEditorTourSeen===undefined)P.user.firstHabitEditorTourSeen=_hasHabits;if(P.user.firstHabitSavedTourSeen===undefined)P.user.firstHabitSavedTourSeen=_hasHabits;if(P.user.firstLogStepperSeen===undefined)P.user.firstLogStepperSeen=_hasHabits&&!!(P.weeks&&Object.keys(P.weeks).length);if(P.user.firstInsightDashboardCoachSeen===undefined)P.user.firstInsightDashboardCoachSeen=!!(P.insights&&(P.insights.unlocked||[]).length>0);if(P.user.dashboardBlockTourSeen===undefined)P.user.dashboardBlockTourSeen=!!(P.insights&&(P.insights.unlocked||[]).length>0);if(P.user.consistencyDiscRuleTaughtSeen===undefined)P.user.consistencyDiscRuleTaughtSeen=false;if(P.user.firstHistoryStepperSeen===undefined)P.user.firstHistoryStepperSeen=!!(P.weeks&&Object.keys(P.weeks).length>1);if(P.user.firstBankStepperSeen===undefined)P.user.firstBankStepperSeen=!!(Array.isArray(P.habits)&&P.habits.some(h=>h.archived));if(P.user.whatsNewPromptId===undefined)P.user.whatsNewPromptId='';const _palIds=new Set(['neutral','purple','burgundy','navy','graphite','teal','sage','rose']);if(!_palIds.has(String(P.user.uiPalette||'')))P.user.uiPalette='neutral';if(!P.goals)P.goals=[];if(!P.habits)P.habits=[];if(!P.weeks)P.weeks={};if(typeof P.offset!=='number')P.offset=0;if(!P.insights)P.insights={queue:[],seen:[],unlocked:[]};if(!P.insights.queue)P.insights.queue=[];if(!P.insights.seen)P.insights.seen=[];if(!P.insights.unlocked)P.insights.unlocked=[];if(P.insights.dashRevealedUpTo===undefined)P.insights.dashRevealedUpTo=(P.insights.unlocked||[]).length;delete P.insights.dashRevealed;if(!P.insights.milestonesFired)P.insights.milestonesFired=[];if(!P.insights.tierByGoal)P.insights.tierByGoal={};if(P.insights.participationInsightWeekKey===undefined)P.insights.participationInsightWeekKey='';if(!Array.isArray(P.insights.participationInsightWeekKeysFired)){P.insights.participationInsightWeekKeysFired=P.insights.participationInsightWeekKey? [P.insights.participationInsightWeekKey]:[];}if(P.insights.participationTransitionWeekKey===undefined)P.insights.participationTransitionWeekKey='';if(P.insights.participationSeenNoQualifyWeekKey===undefined)P.insights.participationSeenNoQualifyWeekKey='';if(P.insights.monthOnTrackYM===undefined)P.insights.monthOnTrackYM='';if(P.insights.yearOnTrackY===undefined)P.insights.yearOnTrackY=null;if(P.insights.comebackFiredWeekKey===undefined)P.insights.comebackFiredWeekKey='';if(P.insights.participationNudgeShown===undefined)P.insights.participationNudgeShown=((P.insights.unlocked||[]).length>0);['queue','seen','unlocked'].forEach(k=>{if(Array.isArray(P.insights[k]))P.insights[k]=P.insights[k].filter(id=>id!=='I0');});(P.insights.seen||[]).forEach(id=>{if(id&&!P.insights.unlocked.includes(id))P.insights.unlocked.push(id);});P.goals.forEach(g=>{if(g.status!=='active'&&g.status!=='completed')g.status='active';delete g.grace;if(g.recoveryActive===undefined)g.recoveryActive=false;if(g.recoveryLastPct===undefined)g.recoveryLastPct=null;if(g.potExcludedUpToWeekKey===undefined)g.potExcludedUpToWeekKey='';if(g.emoji===undefined)g.emoji='🎯';});P.habits.forEach((h,i)=>{if(h.category===undefined)h.category='';if(typeof h.listOrder!=='number')h.listOrder=i*10;if(h.createdViaClone===undefined)h.createdViaClone=false;if(h.fromPresetTemplate===undefined)h.fromPresetTemplate=false;if(h.addedDate===undefined||h.addedDate==='')h.addedDate=P.user.startDate||isoDate(new Date());if(h.masteryTier===undefined)h.masteryTier=0;if((parseInt(h.masteryTier,10)||0)>=1&&!h.lastMasteryEarnedAt&&h.masteryTierUpdatedAt)h.lastMasteryEarnedAt=h.masteryTierUpdatedAt;});inferHabitAddedDatesFromWeekLogs(P);const _masteryNeedTs=P.habits.filter(h=>(parseInt(h.masteryTier,10)||0)>=1&&!h.masteryTierUpdatedAt);if(_masteryNeedTs.length){_masteryNeedTs.sort(habitListSort);const _mbase=Date.now();_masteryNeedTs.forEach((h,i)=>{h.masteryTierUpdatedAt=new Date(_mbase-i*86400000).toISOString();});}Object.keys(P.weeks).forEach(k=>{const w=P.weeks[k];if(!w||typeof w!=='object')return;if(!w.habitData)w.habitData={};if(!w.coinFlips)w.coinFlips={};});if(P.user.seeded===false&&(P.goals.length||P.habits.length)){P.user.seeded=true;}removeOneOffTestHabitSleepCopy(P);applyHabitAutoLocksForProfile(P);applyGraceWindowRulesForProfile(P);}
+function migrateOneProfile(P){if(!P||typeof P!=='object')return;if(!P.user)P.user={name:'',dob:'',startDate:isoDate(new Date()),setupDone:false,introSeen:false,guideSeen:false,units:'metric',uiPalette:'neutral',seeded:false,gracePeriodEnabled:false,trackingPaused:false,trackingStopped:false,kidAnimationsEnabled:true};if(P.user.dob===undefined)P.user.dob='';if(typeof P.user.dob==='string'){const t=P.user.dob.trim();P.user.dob=t.length>=10?t.slice(0,10):(t||'');}if(P.user.guideSeen===undefined)P.user.guideSeen=false;if(P.user.introSeen===undefined)P.user.introSeen=false;if(P.user.setupDone&&P.user.guideSeen&&!P.user.introSeen)P.user.introSeen=true;if(!P.user.units)P.user.units='metric';if(P.user.seeded===undefined)P.user.seeded=false;if(P.user.gracePeriodEnabled===undefined)P.user.gracePeriodEnabled=false;if(P.user.trackingPaused===undefined)P.user.trackingPaused=false;if(P.user.trackingStopped===undefined)P.user.trackingStopped=false;if(P.user.skipSecondLockConfirm===undefined)P.user.skipSecondLockConfirm=false;if(P.user.browserNotifyEnabled===undefined)P.user.browserNotifyEnabled=false;if(!P.user.notifDedupe||typeof P.user.notifDedupe!=='object')P.user.notifDedupe={};if(P.user.kidAnimationsEnabled===undefined)P.user.kidAnimationsEnabled=true;if(P.user.fieldTipGoalNameShown===undefined)P.user.fieldTipGoalNameShown=0;if(P.user.fieldTipGoalRewardShown===undefined)P.user.fieldTipGoalRewardShown=0;if(P.user.fieldTipHabitShown===undefined)P.user.fieldTipHabitShown=0;if(P.user.habitTierTutorialSeen===undefined)P.user.habitTierTutorialSeen=!!(Array.isArray(P.habits)&&P.habits.length>0);if(P.user.graceOfferStepperSeen===undefined)P.user.graceOfferStepperSeen=false;if(P.user.browserNotifyFirstHabitPromptDone===undefined)P.user.browserNotifyFirstHabitPromptDone=!!(Array.isArray(P.habits)&&P.habits.some(h=>h.active&&!h.archived));const _hasGoals=!!(Array.isArray(P.goals)&&P.goals.length>0);const _hasHabits=!!(Array.isArray(P.habits)&&P.habits.some(h=>h.active&&!h.archived));if(P.user.firstGoalIntentionSeen===undefined)P.user.firstGoalIntentionSeen=_hasGoals;if(P.user.firstGoalEditorTourSeen===undefined)P.user.firstGoalEditorTourSeen=_hasGoals;if(P.user.firstHabitEditorTourSeen===undefined)P.user.firstHabitEditorTourSeen=_hasHabits;if(P.user.firstHabitSavedTourSeen===undefined)P.user.firstHabitSavedTourSeen=_hasHabits;if(P.user.firstLogStepperSeen===undefined)P.user.firstLogStepperSeen=_hasHabits&&!!(P.weeks&&Object.keys(P.weeks).length);if(P.user.firstInsightDashboardCoachSeen===undefined)P.user.firstInsightDashboardCoachSeen=!!(P.insights&&(P.insights.unlocked||[]).length>0);if(P.user.dashboardBlockTourSeen===undefined)P.user.dashboardBlockTourSeen=!!(P.insights&&(P.insights.unlocked||[]).length>0);if(P.user.consistencyDiscRuleTaughtSeen===undefined)P.user.consistencyDiscRuleTaughtSeen=false;if(P.user.firstHistoryStepperSeen===undefined)P.user.firstHistoryStepperSeen=!!(P.weeks&&Object.keys(P.weeks).length>1);if(P.user.firstBankStepperSeen===undefined)P.user.firstBankStepperSeen=!!(Array.isArray(P.habits)&&P.habits.some(h=>h.archived));if(P.user.whatsNewPromptId===undefined)P.user.whatsNewPromptId='';const _palIds=new Set(['neutral','purple','burgundy','navy','graphite','teal','sage','rose']);if(!_palIds.has(String(P.user.uiPalette||'')))P.user.uiPalette='neutral';if(!P.goals)P.goals=[];if(!P.habits)P.habits=[];if(!Array.isArray(P.masteryLedger))P.masteryLedger=[];if(!P.weeks)P.weeks={};if(typeof P.offset!=='number')P.offset=0;if(!P.insights)P.insights={queue:[],seen:[],unlocked:[]};if(!P.insights.queue)P.insights.queue=[];if(!P.insights.seen)P.insights.seen=[];if(!P.insights.unlocked)P.insights.unlocked=[];if(P.insights.dashRevealedUpTo===undefined)P.insights.dashRevealedUpTo=(P.insights.unlocked||[]).length;delete P.insights.dashRevealed;if(!P.insights.milestonesFired)P.insights.milestonesFired=[];if(!P.insights.tierByGoal)P.insights.tierByGoal={};if(P.insights.participationInsightWeekKey===undefined)P.insights.participationInsightWeekKey='';if(!Array.isArray(P.insights.participationInsightWeekKeysFired)){P.insights.participationInsightWeekKeysFired=P.insights.participationInsightWeekKey? [P.insights.participationInsightWeekKey]:[];}if(P.insights.participationTransitionWeekKey===undefined)P.insights.participationTransitionWeekKey='';if(P.insights.participationSeenNoQualifyWeekKey===undefined)P.insights.participationSeenNoQualifyWeekKey='';if(P.insights.monthOnTrackYM===undefined)P.insights.monthOnTrackYM='';if(P.insights.yearOnTrackY===undefined)P.insights.yearOnTrackY=null;if(P.insights.comebackFiredWeekKey===undefined)P.insights.comebackFiredWeekKey='';if(P.insights.participationNudgeShown===undefined)P.insights.participationNudgeShown=((P.insights.unlocked||[]).length>0);['queue','seen','unlocked'].forEach(k=>{if(Array.isArray(P.insights[k]))P.insights[k]=P.insights[k].filter(id=>id!=='I0');});(P.insights.seen||[]).forEach(id=>{if(id&&!P.insights.unlocked.includes(id))P.insights.unlocked.push(id);});P.goals.forEach(g=>{if(g.status!=='active'&&g.status!=='completed')g.status='active';delete g.grace;if(g.recoveryActive===undefined)g.recoveryActive=false;if(g.recoveryLastPct===undefined)g.recoveryLastPct=null;if(g.potExcludedUpToWeekKey===undefined)g.potExcludedUpToWeekKey='';if(g.emoji===undefined)g.emoji='🎯';});P.habits.forEach((h,i)=>{if(h.category===undefined)h.category='';if(typeof h.listOrder!=='number')h.listOrder=i*10;if(h.createdViaClone===undefined)h.createdViaClone=false;if(h.fromPresetTemplate===undefined)h.fromPresetTemplate=false;if(h.addedDate===undefined||h.addedDate==='')h.addedDate=P.user.startDate||isoDate(new Date());if(h.masteryTier===undefined)h.masteryTier=0;if((parseInt(h.masteryTier,10)||0)>=1&&!h.lastMasteryEarnedAt&&h.masteryTierUpdatedAt)h.lastMasteryEarnedAt=h.masteryTierUpdatedAt;});inferHabitAddedDatesFromWeekLogs(P);const _masteryNeedTs=P.habits.filter(h=>(parseInt(h.masteryTier,10)||0)>=1&&!h.masteryTierUpdatedAt);if(_masteryNeedTs.length){_masteryNeedTs.sort(habitListSort);const _mbase=Date.now();_masteryNeedTs.forEach((h,i)=>{h.masteryTierUpdatedAt=new Date(_mbase-i*86400000).toISOString();});}Object.keys(P.weeks).forEach(k=>{const w=P.weeks[k];if(!w||typeof w!=='object')return;if(!w.habitData)w.habitData={};if(!w.coinFlips)w.coinFlips={};});if(P.user.seeded===false&&(P.goals.length||P.habits.length)){P.user.seeded=true;}removeOneOffTestHabitSleepCopy(P);applyHabitAutoLocksForProfile(P);applyGraceWindowRulesForProfile(P);}
 function repairProfileMetaNamesFromUser(){if(!ROOT||!ROOT.profiles)return;if(!ROOT.profileMeta)ROOT.profileMeta={};Object.keys(ROOT.profiles).forEach(pid=>{const P=ROOT.profiles[pid];const un=(P.user&&String(P.user.name||'')).trim();const mn=String((ROOT.profileMeta[pid]&&ROOT.profileMeta[pid].name)||'').trim();if(un&&(mn==='Primary'||mn==='Profile'||mn==='')){if(!ROOT.profileMeta[pid])ROOT.profileMeta[pid]={};ROOT.profileMeta[pid].name=un;}});}
 function syncActiveProfileMetaNameFromDisplayName(){if(!ROOT||!ROOT.activeProfileId)return;const pid=ROOT.activeProfileId;const v=(S.user&&String(S.user.name||'')).trim();if(!ROOT.profileMeta)ROOT.profileMeta={};if(!ROOT.profileMeta[pid])ROOT.profileMeta[pid]={};ROOT.profileMeta[pid].name=v||'Primary';}
 function migrate(){if(!ROOT||!ROOT.profiles)return;ensureAccountPlanTierOnRoot();repairProfileChildMetaFromDob();_prunedSleepCopyTestHabitThisMigrate=false;Object.keys(ROOT.profiles).forEach(pid=>migrateOneProfile(ROOT.profiles[pid]));repairProfileMetaNamesFromUser();if(_prunedSleepCopyTestHabitThisMigrate)try{save();}catch(e){}}
@@ -2095,88 +2085,45 @@ function applyCloudPullMerge(pl,remoteUpdatedAtIso){
   syncAccountUI();
 }
 const _CLOUD_HISTORY_MAX_SNAPSHOTS=2;
-let _cloudEndOfDayTimer=null;
-function clearCloudEndOfDaySchedule(){if(_cloudEndOfDayTimer){clearTimeout(_cloudEndOfDayTimer);_cloudEndOfDayTimer=null;}}
-/** Milliseconds until next local midnight (finalize pending archive when the calendar day rolls over while the app stays open). */
-function msUntilNextLocalMidnight(){
-  const n=new Date();
-  const t=new Date(n.getFullYear(),n.getMonth(),n.getDate()+1,0,0,0,0);
-  return Math.max(3000,t.getTime()-n.getTime());
-}
-function scheduleCloudArchiveEndOfDay(){
-  clearCloudEndOfDaySchedule();
-  if(typeof authCurrentUser!=='function'||!authCurrentUser()||!cloudSyncIsEnabled())return;
-  if(typeof _supa==='undefined'||!_supa)return;
-  const u=authCurrentUser();
-  _cloudEndOfDayTimer=setTimeout(()=>{_cloudEndOfDayTimer=null;void (async()=>{try{await cloudSyncPendingWithoutMainPush(u);}finally{if(typeof syncCloudHistoryPanel==='function')void syncCloudHistoryPanel();}})();scheduleCloudArchiveEndOfDay();},msUntilNextLocalMidnight());
-}
-/** Keep exactly the two newest archives (prior row becomes “2 days ago”; oldest dropped). */
+const _CLOUD_HISTORY_MAX_AGE_MS=48*60*60*1000;
 async function pruneUserStateHistoryForUser(userId){
   if(!_supa||!userId)return;
   try{
+    const cutoff=Date.now()-_CLOUD_HISTORY_MAX_AGE_MS;
     const {data:rows}=await _supa.from('user_state_history').select('id,saved_at').eq('user_id',userId).order('saved_at',{ascending:false});
-    if(!rows||rows.length<=_CLOUD_HISTORY_MAX_SNAPSHOTS)return;
-    const drop=rows.slice(_CLOUD_HISTORY_MAX_SNAPSHOTS).map(r=>r.id);
-    if(drop.length)await _supa.from('user_state_history').delete().in('id',drop);
+    if(!rows||!rows.length)return;
+    const keepIds=new Set();
+    let n=0;
+    for(const r of rows){
+      const t=new Date(r.saved_at).getTime();
+      if(!Number.isFinite(t)||t<cutoff)continue;
+      if(n<_CLOUD_HISTORY_MAX_SNAPSHOTS){keepIds.add(r.id);n++;}
+    }
+    const toDelete=rows.filter(r=>!keepIds.has(r.id)).map(r=>r.id);
+    if(toDelete.length)await _supa.from('user_state_history').delete().in('id',toDelete);
   }catch(e){console.warn('[sync] history prune skipped',e);}
 }
 function scheduleCloudPush(){if(typeof authCurrentUser!=='function'||!authCurrentUser()||!cloudSyncIsEnabled())return;if(typeof _supa==='undefined'||!_supa)return;clearTimeout(_cloudPushTimer);_cloudPushTimer=setTimeout(()=>{_cloudPushTimer=null;void cloudPushNow();},2000);}
-/** If cloud pending is from a previous local calendar day, move it into user_state_history with saved_at = end of that day (23:59:59.999 local), then prune. Called on every push and when the app opens — no need for the user to be online at midnight. */
-async function cloudFinalizeStalePendingArchive(u){
-  if(!_supa||!u)return;
-  const todayKey=getLocalDateKey();
-  let pend=null;
-  try{
-    const {data,error}=await _supa.from('user_state_pending').select('payload,pending_day_key').eq('user_id',u.id).maybeSingle();
-    if(error)throw error;
-    pend=data;
-  }catch(e){console.warn('[sync] pending read failed',e);return;}
-  if(!pend||!pend.pending_day_key||pend.payload===undefined||pend.payload===null)return;
-  const pk=String(pend.pending_day_key||'').slice(0,10);
-  if(!pk||pk.length<10||pk>=todayKey)return;
-  const savedAt=endOfLocalDayIsoFromDateKey(pk);
-  try{
-    const {error:insErr}=await _supa.from('user_state_history').insert({user_id:u.id,payload:pend.payload,saved_at:savedAt});
-    if(insErr){
-      const code=String(insErr.code||'');
-      const msg=String(insErr.message||'').toLowerCase();
-      const dup=code==='23505'||msg.includes('duplicate')||msg.includes('unique');
-      if(!dup){console.warn('[sync] history insert from pending failed',insErr);return;}
-    }
-    await pruneUserStateHistoryForUser(u.id);
-  }catch(e){console.warn('[sync] finalize pending archive failed',e);}
-}
-async function cloudUpsertPendingMirror(u){
-  if(!_supa||!u||!ROOT)return;
-  const todayKey=getLocalDateKey();
-  const payload=JSON.parse(JSON.stringify(ROOT));
-  const iso=new Date().toISOString();
-  try{
-    const {error}=await _supa.from('user_state_pending').upsert({user_id:u.id,payload,pending_day_key:todayKey,updated_at:iso},{onConflict:'user_id'});
-    if(error)throw error;
-  }catch(e){console.warn('[sync] pending mirror upsert failed',e);}
-}
-async function cloudSyncPendingWithoutMainPush(u){
-  if(!_supa||!u||!ROOT||!cloudSyncIsEnabled())return;
-  await cloudFinalizeStalePendingArchive(u);
-  await cloudUpsertPendingMirror(u);
-}
 async function cloudPushNow(){
   const u=typeof authCurrentUser==='function'?authCurrentUser():null;
   if(!u||!_supa||!cloudSyncIsEnabled()){syncCloudSyncPanelUI();return;}
-  if(_cloudPushInFlight){setTimeout(()=>void cloudPushNow(),4000);return;}
+  if(_cloudPushInFlight)return;
   _cloudPushInFlight=true;
   _cloudSyncLastError=null;
   try{
-    await cloudFinalizeStalePendingArchive(u);
     const {data:remoteRow,error:fetchErr}=await _supa.from('user_state').select('payload,updated_at').eq('user_id',u.id).maybeSingle();
     if(fetchErr)throw fetchErr;
     const pl=remoteRow&&remoteRow.payload;
     const remoteNonempty=!cloudSyncPayloadIsEmpty(pl);
     if(remoteNonempty&&rootLooksLikeUnsyncedFreshShell(ROOT)&&remotePayloadLikelyMoreValuableThanLocalFreshShell(ROOT,pl)){
       applyCloudPullMerge(pl,remoteRow.updated_at);
-      await cloudSyncPendingWithoutMainPush(u);
       return;
+    }
+    if(remoteNonempty){
+      try{
+        const {error:histErr}=await _supa.from('user_state_history').insert({user_id:u.id,payload:pl,saved_at:remoteRow.updated_at});
+        if(!histErr)void pruneUserStateHistoryForUser(u.id);
+      }catch(_){/* user_state_history missing until SQL migration is applied */}
     }
     const payload=JSON.parse(JSON.stringify(ROOT));
     const iso=new Date().toISOString();
@@ -2186,7 +2133,6 @@ async function cloudPushNow(){
     ROOT._sync.lastRemoteUpdatedAt=iso;
     ROOT._sync.editAt=new Date(iso).getTime();
     save({fromCloudMerge:true});
-    await cloudUpsertPendingMirror(u);
   }catch(e){_cloudSyncLastError=e;console.warn('[sync] push failed',e);}
   finally{_cloudPushInFlight=false;if(typeof syncCloudSyncPanelUI==='function')syncCloudSyncPanelUI();if(typeof syncCloudHistoryPanel==='function')void syncCloudHistoryPanel();}
 }
@@ -2194,27 +2140,25 @@ async function cloudSyncAfterAuthBootstrap(){
   clearTimeout(_cloudPushTimer);_cloudPushTimer=null;
   _cloudSyncLastError=null;
   const u=typeof authCurrentUser==='function'?authCurrentUser():null;
-  if(!u||!_supa){syncCloudSyncPanelUI();clearCloudEndOfDaySchedule();return;}
-  if(!cloudSyncIsEnabled()){syncCloudSyncPanelUI();clearCloudEndOfDaySchedule();return;}
+  if(!u||!_supa){syncCloudSyncPanelUI();return;}
+  if(!cloudSyncIsEnabled()){syncCloudSyncPanelUI();return;}
   try{
     const {data,error}=await _supa.from('user_state').select('payload,updated_at').eq('user_id',u.id).maybeSingle();
     if(error)throw error;
     const pl=data&&data.payload;
-    if(!data||cloudSyncPayloadIsEmpty(pl)){await cloudPushNow();syncCloudSyncPanelUI();syncCloudHistoryPanel();scheduleCloudArchiveEndOfDay();return;}
+    if(!data||cloudSyncPayloadIsEmpty(pl)){await cloudPushNow();syncCloudSyncPanelUI();syncCloudHistoryPanel();return;}
     const remoteMs=new Date(data.updated_at).getTime();
     const localEdit=(ROOT._sync&&typeof ROOT._sync.editAt==='number')?ROOT._sync.editAt:0;
-    if(localEdit===remoteMs){await cloudSyncPendingWithoutMainPush(u);syncCloudSyncPanelUI();syncCloudHistoryPanel();scheduleCloudArchiveEndOfDay();return;}
+    if(localEdit===remoteMs){syncCloudSyncPanelUI();syncCloudHistoryPanel();return;}
     const freshLocalShell=rootLooksLikeUnsyncedFreshShell(ROOT);
-    if(localEdit>remoteMs&&!freshLocalShell){await cloudPushNow();syncCloudSyncPanelUI();syncCloudHistoryPanel();scheduleCloudArchiveEndOfDay();return;}
+    if(localEdit>remoteMs&&!freshLocalShell){await cloudPushNow();syncCloudSyncPanelUI();syncCloudHistoryPanel();return;}
     applyCloudPullMerge(pl,data.updated_at);
-    await cloudSyncPendingWithoutMainPush(u);
   }catch(e){
     _cloudSyncLastError=e;
     console.warn('[sync] pull failed',e);
   }
   syncCloudSyncPanelUI();
   syncCloudHistoryPanel();
-  scheduleCloudArchiveEndOfDay();
 }
 async function syncCloudHistoryPanel(){
   const wrap=document.getElementById('advancedCloudHistoryList');
@@ -2259,17 +2203,8 @@ async function syncCloudHistoryPanel(){
   try{
     const {data,error}=await _supa.from('user_state_history').select('id,saved_at,payload').eq('user_id',u.id).order('saved_at',{ascending:false}).limit(24);
     if(error)throw error;
-    const rows=(data||[]).filter(r=>Number.isFinite(new Date(r.saved_at).getTime()));
-    const seenDay=new Set();
-    filtered=[];
-    for(const r of rows){
-      const d=new Date(r.saved_at);
-      const dk=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
-      if(seenDay.has(dk))continue;
-      seenDay.add(dk);
-      filtered.push(r);
-      if(filtered.length>=_CLOUD_HISTORY_MAX_SNAPSHOTS)break;
-    }
+    const cutoff=Date.now()-_CLOUD_HISTORY_MAX_AGE_MS;
+    filtered=(data||[]).filter(r=>{const t=new Date(r.saved_at).getTime();return Number.isFinite(t)&&t>=cutoff;}).slice(0,_CLOUD_HISTORY_MAX_SNAPSHOTS);
   }catch(e){
     console.warn('[sync] cloud history list failed',e);
     filtered=[];
@@ -2360,8 +2295,8 @@ function toggleCloudSyncFromUI(){
   const el=document.getElementById('accountCloudSyncEnabled');
   ROOT._sync.cloudEnabled=!!(el&&el.checked);
   save();
-  if(ROOT._sync.cloudEnabled){void cloudPushNow();scheduleCloudArchiveEndOfDay();}
-  else{clearCloudEndOfDaySchedule();syncCloudSyncPanelUI();}
+  if(ROOT._sync.cloudEnabled)void cloudPushNow();
+  else syncCloudSyncPanelUI();
 }
 const UI_PALETTE_OPTIONS=[{id:'neutral',label:'Slate',sub:'Neutral & calm',darkBg:'linear-gradient(135deg,#1e293b,#334155)',lightBg:'linear-gradient(135deg,#cbd5e1,#94a3b8)'},{id:'navy',label:'Navy',sub:'Deep blue focus',darkBg:'linear-gradient(135deg,#0c4a6e,#1e3a5f)',lightBg:'linear-gradient(135deg,#7dd3fc,#38bdf8)'},{id:'graphite',label:'Graphite',sub:'Black & gray',darkBg:'linear-gradient(135deg,#27272a,#3f3f46)',lightBg:'linear-gradient(135deg,#d4d4d8,#a1a1aa)'},{id:'burgundy',label:'Burgundy',sub:'Warm wine tone',darkBg:'linear-gradient(135deg,#4a1520,#7f1d1d)',lightBg:'linear-gradient(135deg,#fda4af,#fb7185)'},{id:'teal',label:'Teal',sub:'Fresh aqua',darkBg:'linear-gradient(135deg,#115e59,#0f766e)',lightBg:'linear-gradient(135deg,#5eead4,#2dd4bf)'},{id:'purple',label:'Purple',sub:'Soft lilac',darkBg:'linear-gradient(135deg,#4c1d95,#6d28d9)',lightBg:'linear-gradient(135deg,#c4b5fd,#a78bfa)'},{id:'sage',label:'Sage',sub:'Muted green',darkBg:'linear-gradient(135deg,#1a2e24,#365314)',lightBg:'linear-gradient(135deg,#bbf7d0,#86efac)'},{id:'rose',label:'Rose',sub:'Dusty mauve',darkBg:'linear-gradient(135deg,#4a1942,#831843)',lightBg:'linear-gradient(135deg,#fbcfe8,#f472b6)'}];
 function normalizeUiPaletteId(p){const id=String(p||'').trim();return UI_PALETTE_OPTIONS.some(x=>x.id===id)?id:'neutral';}
@@ -3235,7 +3170,7 @@ function findBankTitleConflict(incomingId,title){const k=habitBankTitleNorm(titl
 function applyBankSlotForHabit(h,meta){const ts=Date.now();stampLegendaryAbortOnBank(h,ts);h.active=false;h.archived=true;h.archivedAt=ts;if(meta&&meta.originGoalId!=null)h.originGoalId=meta.originGoalId;if(meta&&meta.bankedFromGoalName)h.bankedFromGoalName=meta.bankedFromGoalName;}
 function bankDupCompareCardHTML(h,label,fromLabel,bankWhen){const whenLine=bankWhen&&bankWhen!=='—'?`<div class="small-note">Banked: ${escDash(bankWhen)}</div>`:'';return`<div class="bank-dup-compare-card"><div class="bank-dup-badge">${escDash(label)}</div><div class="bank-dup-compare-head"><span class="habit-emoji">${h.emoji||'🎯'}</span><div><div class="goal-title">${escDash(h.title)}</div><div class="goal-sub">${escDash(h.tier)} · ${escDash(metricLabel(h))}</div></div></div><div class="small-note" style="margin-top:var(--s2)">${escDash(fromLabel)}</div>${whenLine}</div>`;}
 function openBankDuplicateHabitModal(incoming,existing,cb){window._bankDupCallback=cb;const gIn=goalById(incoming.goalId);const fromNew=gIn?`Current goal: ${gIn.name}`:'—';const origin=goalById(existing.originGoalId);const fromOld=`Originally from ${existing.bankedFromGoalName||origin?.name||'a previous goal'}`;const whenOld=existing.archivedAt?new Date(existing.archivedAt).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}):'—';const nb=document.getElementById('bankDupNewBody'),ob=document.getElementById('bankDupOldBody');if(nb)nb.innerHTML=bankDupCompareCardHTML(incoming,'Moving to bank',fromNew,'—');if(ob)ob.innerHTML=bankDupCompareCardHTML(existing,'Already in bank',fromOld,whenOld);const fin=function(ch){closeM('mBankDupHabit');const fn=window._bankDupCallback;window._bankDupCallback=null;if(fn)fn(ch);};const kn=document.getElementById('bankDupKeepNew'),ko=document.getElementById('bankDupKeepOld');if(kn)kn.onclick=function(){fin('incoming');};if(ko)ko.onclick=function(){fin('existing');};openM('mBankDupHabit');}
-function resolveBankDuplicateThenArchive(h,meta,done){const conflict=findBankTitleConflict(h.id,h.title);if(!conflict){applyBankSlotForHabit(h,meta);done();return;}openBankDuplicateHabitModal(h,conflict,function(keep){if(keep==='incoming'){mergeWeekHabitDataInto(S.weeks,h.id,conflict.id);S.habits=S.habits.filter(x=>x.id!==conflict.id);applyBankSlotForHabit(h,meta);}else{mergeWeekHabitDataInto(S.weeks,conflict.id,h.id);S.habits=S.habits.filter(x=>x.id!==h.id);}done();});}
+function resolveBankDuplicateThenArchive(h,meta,done){const conflict=findBankTitleConflict(h.id,h.title);if(!conflict){applyBankSlotForHabit(h,meta);done();return;}openBankDuplicateHabitModal(h,conflict,function(keep){if(keep==='incoming'){mergeWeekHabitDataInto(S.weeks,h.id,conflict.id);const cs=masteryLedgerSnapshotFromHabit(conflict);S.habits=S.habits.filter(x=>x.id!==conflict.id);if(cs)pushMasteryLedgerSnapshot(cs);applyBankSlotForHabit(h,meta);}else{mergeWeekHabitDataInto(S.weeks,conflict.id,h.id);const hs=masteryLedgerSnapshotFromHabit(h);S.habits=S.habits.filter(x=>x.id!==h.id);if(hs)pushMasteryLedgerSnapshot(hs);}done();});}
 function bankHabitsListSequential(list,meta,done){let i=0;const next=function(){if(i>=list.length){if(done)done();return;}const hid=list[i++].id;const hh=habitById(hid);if(!hh){next();return;}resolveBankDuplicateThenArchive(hh,meta,next);};next();}
 function saveGoal(){const name=document.getElementById('gName').value.trim();if(!name)return alert('Add a goal name.');const id=document.getElementById('goalId').value||uid('goal');const existing=goalById(id);const _wasFirstGoal=!existing&&(S.goals||[]).filter(g=>g.status==='active').length===0;const emojiRaw=document.getElementById('gEmoji')?String(document.getElementById('gEmoji').value||'').trim().slice(0,8):'';const emoji=emojiRaw||'🎯';const goal={id,name,target:parseFloat(document.getElementById('gTarget').value)||0,floor:parseInt(document.getElementById('gFloor').value)||80,reward:document.getElementById('gRewardCustom').value.trim()||'Badminton',startDate:document.getElementById('gStartDate').value||S.user.startDate,status:document.getElementById('gStatus').value,emoji};if(existing){Object.assign(existing,goal);delete existing.grace;}else{goal.recoveryActive=false;goal.recoveryLastPct=null;goal.potExcludedUpToWeekKey='';S.goals.push(goal);}if(goal.status==='completed'){const cel={name:goal.name,emoji:goal.emoji};const list=S.habits.filter(h=>h.goalId===goal.id&&h.active);bankHabitsListSequential(list,{originGoalId:goal.id},function(){save();closeM('mGoal');renderAll();showGoalCompleteCelebration(cel);});return;}save();closeM('mGoal');renderAll();if(_wasFirstGoal&&!hasAnyActiveHabits()){setTimeout(()=>onFirstGoalSavedFollowUp(goal.id),420);}}
 function onFirstGoalSavedFollowUp(goalId){if(milestoneAnyOverlayActive())return;const kid=useKidsLanguage();startMilestoneCoach({title:kid?'Goal saved!':'Goal saved',html:kid?'<p>Now add the first habit that helps you reach it. Tap <strong>Add habit</strong> when you are ready.</p>':'<p>Now attach a habit that helps fund this goal. Open <strong>Add habit</strong> next — we will walk you through the editor.</p>',primaryLabel:kid?'Add habit':'Add first habit',dismissLabel:'Later',onPrimary:function(){openHabitModal();setTimeout(()=>maybeStartFirstHabitEditorTour(),360);}});}
@@ -3256,14 +3191,14 @@ function syncLegendaryHabitEditorTierLock(){
 function openHabitModal(id=''){const edH=id?habitById(id):null;const legAllow=!!(edH&&edH.masteryLegendaryCoreLocked&&edH.active);if(!activeGoals().length&&!legAllow){if(!id)openGoalModal();else alert('No active goal is available. Add a goal or reactivate one first.');return;}closeEmojiPicker();closeAvatarBubblePicker();ensureGoalOptions('hGoal',!!legAllow);const hs=document.getElementById('hPresetSearch');if(hs)hs.value='';syncHabitPresetSearchLabels();bindHabitPresetSearchField();const pp0=document.getElementById('hPresetPicker');if(pp0){delete pp0.dataset.bound;pp0.innerHTML=buildHabitPresetPickerHTML(getHabitPresetFilterQuery());bindHabitPresetPicker();}document.getElementById('habitId').value='';const hfc=document.getElementById('habitFromClone');if(hfc)hfc.value='';document.getElementById('habitModalTitle').textContent=id?'Edit habit':'Add habit';document.getElementById('hPreset').value='custom';const cbtn=document.getElementById('habitCloneBtn');if(cbtn)cbtn.style.display=id?'inline-flex':'none';if(id){const h=habitById(id);if(!h)return;document.getElementById('habitId').value=h.id;document.getElementById('hGoal').value=h.goalId||'';document.getElementById('hTitle').value=h.title;document.getElementById('hEmoji').value=h.emoji||'🎯';document.getElementById('hTier').value=h.tier;document.getElementById('hMetric').value=h.metric;document.getElementById('hThreshold').value=h.threshold;document.getElementById('hPot').value=h.pot;document.getElementById('hCustomUnit').value=h.customUnit||'';let pk=findPresetKeyForSavedHabit(h);if(!habitPresetKeyInActiveLibrary(pk))pk='custom';document.getElementById('hPreset').value=pk;if(pk==='custom')hydrateHabitCategoryFromHabit(h);else hydrateHabitCategoryFromHabit({category:findHabitPresetByKey(pk).category});}else{document.getElementById('hGoal').value=activeGoals()[0]?.id||'';document.getElementById('hTitle').value='';document.getElementById('hEmoji').value='🎯';document.getElementById('hTier').value='core';document.getElementById('hMetric').value='days';document.getElementById('hThreshold').value=5;document.getElementById('hPot').value=30;document.getElementById('hCustomUnit').value='';applyHabitPreset();}syncLegendaryHabitEditorTierLock();syncHabitCategoryVisibility();syncHabitPresetPickerSelection();syncEmojiTriggerDisplay();syncEmojiSelection();onMetricChange();refreshHabitEditorSummary();openM('mHabit');if(!id&&!hasAnyActiveHabits())bindHabitFieldTipsForAdd();if(!id&&!hasAnyActiveHabits())requestAnimationFrame(()=>requestAnimationFrame(()=>{if(document.getElementById('mHabit')?.classList.contains('open')&&!document.getElementById('habitId')?.value){startHabitEditorTierTutorial();if(!S.user.firstHabitEditorTourSeen&&!habitEditorTierTourActive())setTimeout(()=>maybeStartFirstHabitEditorTour(),420);}}));}
 function cloneHabitInEditor(){const hid=document.getElementById('habitId');if(!hid||!hid.value)return;const titleEl=document.getElementById('hTitle');let t=titleEl.value.trim();if(t&&!/\(copy\)\s*$/i.test(t))titleEl.value=t+' (copy)';hid.value='';const hfc=document.getElementById('habitFromClone');if(hfc)hfc.value='1';document.getElementById('habitModalTitle').textContent='Add habit';const cbtn=document.getElementById('habitCloneBtn');if(cbtn)cbtn.style.display='none';document.getElementById('hPreset').value='custom';const hs2=document.getElementById('hPresetSearch');if(hs2)hs2.value='';syncHabitPresetSearchLabels();bindHabitPresetSearchField();const pp=document.getElementById('hPresetPicker');if(pp){delete pp.dataset.bound;pp.innerHTML=buildHabitPresetPickerHTML(getHabitPresetFilterQuery());bindHabitPresetPicker();}syncHabitCategoryVisibility();syncHabitPresetPickerSelection();refreshHabitEditorSummary();}
 function saveHabit(){const title=document.getElementById('hTitle').value.trim();if(!title)return alert('Please enter a habit title.');const id=document.getElementById('habitId').value||uid('habit');const ex=habitById(id);const goalIdRaw=document.getElementById('hGoal').value;const allowNoGoal=!!(ex&&ex.masteryLegendaryCoreLocked);if(!goalIdRaw&&!allowNoGoal)return alert('Choose a tethered goal.');const goalId=goalIdRaw||'';const presetKey=document.getElementById('hPreset').value;const preset=findHabitPresetByKey(presetKey);let category='';if(presetKey!=='custom')category=(preset&&preset.category)||'';else{const cv=document.getElementById('hHabitCategory')?.value;if(cv==='__custom__'){const t=document.getElementById('hCustomCategory')?.value.trim()||'';if(!t)return alert('Enter a custom category name, or pick a category from the list.');category=t;}else category=cv||'self_care';}const fromClone=document.getElementById('habitFromClone')?.value==='1';const data={id,goalId,emoji:document.getElementById('hEmoji').value.trim()||'🎯',title,tier:document.getElementById('hTier').value,metric:document.getElementById('hMetric').value,customUnit:document.getElementById('hCustomUnit').value.trim(),category,threshold:(()=>{const raw=parseFloat(document.getElementById('hThreshold').value||1);const m=document.getElementById('hMetric').value;return(S.user.units==='imperial'&&m==='km')?raw/0.621371:raw;})(),pot:parseFloat(document.getElementById('hPot').value)||0,active:true,archived:false,originGoalId:(ex&&ex.originGoalId!=null)?ex.originGoalId:(goalId||null)};const idx=S.habits.findIndex(h=>h.id===id);const isNew=idx<0;if(isNew){data.createdViaClone=!!fromClone;data.fromPresetTemplate=!fromClone&&presetKey!=='custom';data.addedDate=isoDate(new Date());}else{data.createdViaClone=!!(ex&&ex.createdViaClone);data.fromPresetTemplate=!!(ex&&ex.fromPresetTemplate);data.addedDate=(ex&&ex.addedDate)||isoDate(new Date());}if(data.tier!=='core'&&goalId){const sameGoalHabits=S.habits.filter(x=>x.active&&!x.archived&&x.goalId===goalId&&x.id!==id);const coresRemaining=sameGoalHabits.filter(x=>x.tier==='core');if(coresRemaining.length===0){alert('At least one habit per goal must be core for consistency to be calculated. Add or keep a core habit for this goal first.');return;}}if(idx>-1)S.habits[idx]={...S.habits[idx],...data};else{const maxLO=Math.max(0,...S.habits.map(x=>typeof x.listOrder==='number'?x.listOrder:0));data.listOrder=maxLO+10;S.habits.push(data);}const hfc=document.getElementById('habitFromClone');if(hfc)hfc.value='';if(isNew){queueInsight('habit_added',{category:category||undefined});}save();const _act=S.habits.filter(h=>h.active&&!h.archived).length;if(isNew&&_act===1)maybeScheduleFirstHabitNotifyPrompt();closeM('mHabit');renderAll();if(isNew&&_act===1)maybeStartFirstHabitSavedFlow(data.id);}
-function archiveHabit(id,cardEl){const h=habitById(id);if(!h)return;const applyBank=function(){if(cardEl){const t=cardEl.querySelector('.hw-toggle');if(t)t.classList.remove('on');setTimeout(()=>{cardEl.classList.add('habit-card-exit');setTimeout(()=>{const ts=Date.now();stampLegendaryAbortOnBank(h,ts);h.active=false;h.archived=true;h.archivedAt=ts;save();renderAll();},380);},160);}else{const ts=Date.now();stampLegendaryAbortOnBank(h,ts);h.active=false;h.archived=true;h.archivedAt=ts;save();renderAll();}};const conflict=findBankTitleConflict(h.id,h.title);if(!conflict){applyBank();return;}openBankDuplicateHabitModal(h,conflict,function(keep){if(keep==='incoming'){mergeWeekHabitDataInto(S.weeks,h.id,conflict.id);S.habits=S.habits.filter(x=>x.id!==conflict.id);applyBank();}else{mergeWeekHabitDataInto(S.weeks,conflict.id,h.id);S.habits=S.habits.filter(x=>x.id!==h.id);save();renderAll();}});}
+function archiveHabit(id,cardEl){const h=habitById(id);if(!h)return;const applyBank=function(){if(cardEl){const t=cardEl.querySelector('.hw-toggle');if(t)t.classList.remove('on');setTimeout(()=>{cardEl.classList.add('habit-card-exit');setTimeout(()=>{const ts=Date.now();stampLegendaryAbortOnBank(h,ts);h.active=false;h.archived=true;h.archivedAt=ts;save();renderAll();},380);},160);}else{const ts=Date.now();stampLegendaryAbortOnBank(h,ts);h.active=false;h.archived=true;h.archivedAt=ts;save();renderAll();}};const conflict=findBankTitleConflict(h.id,h.title);if(!conflict){applyBank();return;}openBankDuplicateHabitModal(h,conflict,function(keep){if(keep==='incoming'){mergeWeekHabitDataInto(S.weeks,h.id,conflict.id);const cs=masteryLedgerSnapshotFromHabit(conflict);S.habits=S.habits.filter(x=>x.id!==conflict.id);if(cs)pushMasteryLedgerSnapshot(cs);applyBank();}else{mergeWeekHabitDataInto(S.weeks,conflict.id,h.id);const hs=masteryLedgerSnapshotFromHabit(h);S.habits=S.habits.filter(x=>x.id!==h.id);if(hs)pushMasteryLedgerSnapshot(hs);save();renderAll();}});}
 function cancelRemoveBanked(){window._pendingRemoveBankId=null;window._pendingRemoveBankCard=null;closeM('mConfirmRemoveBanked');}
 function openRemoveBankedConfirm(id,card){const h=habitById(id);if(!h){alert('Could not find that habit. Try refreshing the page.');return;}if(h.active&&!h.archived){alert('This habit is still on the tracker. Remove it from the Habits tab first.');return;}const tx=document.getElementById('confirmRemoveBankedText');if(tx)tx.textContent='Remove “'+(h.title||'Habit')+'” from the Habit Bank? This cannot be undone.';window._pendingRemoveBankId=id;window._pendingRemoveBankCard=card||null;openM('mConfirmRemoveBanked');}
 function confirmRemoveBankedExecute(){const id=window._pendingRemoveBankId;const card=window._pendingRemoveBankCard;window._pendingRemoveBankId=null;window._pendingRemoveBankCard=null;closeM('mConfirmRemoveBanked');if(!id)return;if(!habitById(id)){renderAll();return;}animateBankCardRemoval(card,function(){purgeBankedHabitFromState(id);});}
-function purgeBankedHabitFromState(id){S.habits=S.habits.filter(x=>x.id!==id);Object.values(S.weeks).forEach(w=>{if(w.habitData&&w.habitData[id])delete w.habitData[id];});save();renderAll();}
+function purgeBankedHabitFromState(id){const h=habitById(id);const snap=h?masteryLedgerSnapshotFromHabit(h):null;S.habits=S.habits.filter(x=>x.id!==id);Object.values(S.weeks).forEach(w=>{if(w.habitData&&w.habitData[id])delete w.habitData[id];});if(snap)pushMasteryLedgerSnapshot(snap);save();renderAll();}
 function animateBankCardRemoval(card,done){const finish=typeof done==='function'?done:function(){};if(!card||!card.parentNode){finish();return;}if(typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches){finish();return;}const parent=card.parentNode;parent.style.overflowX='clip';card.style.willChange='transform,opacity';requestAnimationFrame(()=>{requestAnimationFrame(()=>{card.style.transition='transform 0.38s cubic-bezier(0.22,1,0.36,1), opacity 0.38s';card.style.transform='translateX(calc(100vw + 40px))';card.style.opacity='0';});});setTimeout(()=>{const h0=Math.max(1,card.offsetHeight);card.style.transition='max-height 0.34s ease, margin-top 0.34s ease, margin-bottom 0.34s ease, padding 0.34s ease, border-width 0.34s ease, opacity 0.2s';card.style.maxHeight=h0+'px';card.style.overflow='hidden';requestAnimationFrame(()=>{requestAnimationFrame(()=>{card.style.maxHeight='0';card.style.marginTop='0';card.style.marginBottom='0';card.style.paddingTop='0';card.style.paddingBottom='0';card.style.borderWidth='0';card.style.opacity='0';});});setTimeout(()=>{try{parent.style.overflowX='';card.style.willChange='';}catch(e){}finish();},380);},420);}
 function bindArchiveBankRemove(){const root=document.getElementById('archiveList');if(!root||root.dataset.bankRemoveBound)return;root.dataset.bankRemoveBound='1';root.addEventListener('click',function(e){let t=e.target;if(t&&t.nodeType===3)t=t.parentElement;const btn=t&&t.closest?t.closest('.bank-delete-btn'):null;if(!btn||!root.contains(btn))return;e.preventDefault();e.stopPropagation();const id=btn.getAttribute('data-habit-id');if(!id)return;const card=btn.closest('.card.config-card');openRemoveBankedConfirm(id,card);});const ok=document.getElementById('confirmRemoveBankedOk'),cx=document.getElementById('confirmRemoveBankedCancel');if(ok&&!ok.dataset.bankDlgBound){ok.dataset.bankDlgBound='1';ok.addEventListener('click',function(){confirmRemoveBankedExecute();});}if(cx&&!cx.dataset.bankDlgBound){cx.dataset.bankDlgBound='1';cx.addEventListener('click',function(){cancelRemoveBanked();});}}
-function deleteHabit(id){const h=habitById(id);if(!h){alert('Could not find that habit. Try refreshing the page.');return;}if(!h.createdViaClone){alert('Only habits you created with “Clone habit” can be deleted here. Template and preset habits stay in the system — send them to the Habit Bank if you don’t need them on the tracker.');return;}if(!confirm('Delete this habit permanently? This cannot be undone.'))return;S.habits=S.habits.filter(x=>x.id!==id);Object.values(S.weeks).forEach(w=>{if(w.habitData)delete w.habitData[id];});save();renderAll();}
+function deleteHabit(id){const h=habitById(id);if(!h){alert('Could not find that habit. Try refreshing the page.');return;}if(!h.createdViaClone){alert('Only habits you created with “Clone habit” can be deleted here. Template and preset habits stay in the system — send them to the Habit Bank if you don’t need them on the tracker.');return;}if(!confirm('Delete this habit permanently? This cannot be undone.'))return;const snap=masteryLedgerSnapshotFromHabit(h);S.habits=S.habits.filter(x=>x.id!==id);Object.values(S.weeks).forEach(w=>{if(w.habitData)delete w.habitData[id];});if(snap)pushMasteryLedgerSnapshot(snap);save();renderAll();}
 function onReactivateMetricChange(){const m=document.getElementById('reactivateMetric').value;const lbl={days:'Days to qualify',sessions:'Sessions to qualify',km:'Km to qualify',minutes:'Minutes to qualify',pages:'Pages to qualify',custom:'Units to qualify'};document.getElementById('reactivateThrLbl').textContent=lbl[m]||'Threshold';document.getElementById('reactivateCustomUnitFg').style.display=m==='custom'?'flex':'none';}
 function openReactivate(id){if(!activeGoals().length){openGoalModal();return;}ensureGoalOptions('reactivateGoal');const h=habitById(id);if(!h)return;document.getElementById('reactivateHabitId').value=h.id;document.getElementById('reactivateTitle').value=h.title;document.getElementById('reactivateEmoji').value=h.emoji||'🎯';document.getElementById('reactivatePot').value=h.pot||0;document.getElementById('reactivateTier').value=h.tier||'core';document.getElementById('reactivateMetric').value=h.metric||'days';document.getElementById('reactivateThreshold').value=h.threshold||5;document.getElementById('reactivateCustomUnit').value=h.customUnit||'';const lastGoal=goalById(h.goalId);const defaultId=goalIsActive(lastGoal)?lastGoal.id:(activeGoals()[0]?.id||'');document.getElementById('reactivateGoal').value=defaultId;onReactivateMetricChange();openM('mReassign');}
 function reactivateHabit(){const h=habitById(document.getElementById('reactivateHabitId').value);if(!h)return;h.goalId=document.getElementById('reactivateGoal').value;h.title=document.getElementById('reactivateTitle').value.trim()||h.title;h.emoji=document.getElementById('reactivateEmoji').value.trim()||h.emoji;h.pot=parseFloat(document.getElementById('reactivatePot').value)||0;h.tier=document.getElementById('reactivateTier').value||'core';if(h.tier!=='core'){const sameGoalHabits=S.habits.filter(x=>x.active&&!x.archived&&x.goalId===h.goalId&&x.id!==h.id);const coresRemaining=sameGoalHabits.filter(x=>x.tier==='core');if(coresRemaining.length===0){alert('At least one habit per goal must be core. Add a core habit for this goal first.');h.tier='core';}}h.metric=document.getElementById('reactivateMetric').value||'days';const _rThrRaw=parseFloat(document.getElementById('reactivateThreshold').value||1);h.threshold=(S.user.units==='imperial'&&h.metric==='km')?_rThrRaw/0.621371:_rThrRaw;h.customUnit=document.getElementById('reactivateCustomUnit').value.trim();delete h.bankedFromGoalName;h.archived=false;h.active=true;h.addedDate=isoDate(new Date());save();closeM('mReassign');renderAll();}
@@ -3588,6 +3523,36 @@ function masteryTierUpdatedAtMs(h){
   const ms=Date.parse(String(u));
   return isNaN(ms)?0:ms;
 }
+function masteryLedgerSnapshotFromHabit(h){
+  if(!h)return null;
+  const t=parseInt(h.masteryTier,10)||0;
+  if(t<1)return null;
+  return{id:h.id,title:String(h.title||''),emoji:h.emoji||'🎯',masteryTier:t,lastMasteryEarnedAt:h.lastMasteryEarnedAt||null,masteryTierUpdatedAt:h.masteryTierUpdatedAt||null,listOrder:typeof h.listOrder==='number'?h.listOrder:0};
+}
+function pushMasteryLedgerSnapshot(snap){
+  if(!S||!snap)return;
+  if(!Array.isArray(S.masteryLedger))S.masteryLedger=[];
+  const idx=S.masteryLedger.findIndex(e=>e.id===snap.id);
+  if(idx>=0)S.masteryLedger[idx]=snap;else S.masteryLedger.push(snap);
+}
+function habitLikeFromMasteryLedger(e){
+  return{id:e.id,title:e.title,emoji:e.emoji,masteryTier:e.masteryTier,lastMasteryEarnedAt:e.lastMasteryEarnedAt,masteryTierUpdatedAt:e.masteryTierUpdatedAt,listOrder:typeof e.listOrder==='number'?e.listOrder:0};
+}
+function masteryCardGlowClassForTier(tier){
+  const t=Math.max(0,Math.min(7,parseInt(tier,10)||0));
+  if(t<=0)return'glow-blue';
+  if(t===1)return'glow-mastery-bronze';
+  if(t===2)return'glow-mastery-silver';
+  return'glow-mastery-gold';
+}
+function masteryTabMasteredHabitRows(){
+  if(!S)return[];
+  if(Array.isArray(S.masteryLedger)&&Array.isArray(S.habits))S.masteryLedger=S.masteryLedger.filter(e=>!S.habits.some(h=>h.id===e.id));
+  const map=new Map();
+  (S.habits||[]).forEach(h=>{if((parseInt(h.masteryTier,10)||0)>=1)map.set(h.id,h);});
+  (S.masteryLedger||[]).forEach(e=>{const t=parseInt(e.masteryTier,10)||0;if(t<1||map.has(e.id))return;map.set(e.id,habitLikeFromMasteryLedger(e));});
+  return sortMasteryTabHabits([...map.values()]);
+}
 function sortMasteryTabHabits(arr){
   const withBadge=[];
   const without=[];
@@ -3609,24 +3574,23 @@ function renderMastery(){
   if(!mount)return;
   const kid=typeof useKidsLanguage==='function'&&useKidsLanguage();
   const actFilter=h=>h.active&&!h.archived&&(goalIsActive(goalById(h.goalId))||h.masteryLegendaryCoreLocked);
-  const habits=sortMasteryTabHabits(S.habits.filter(actFilter));
-  const banked=sortMasteryTabHabits(S.habits.filter(h=>(h.archived||!h.active)&&(parseInt(h.masteryTier,10)||0)>0));
-  if(!habits.length&&!banked.length){
+  const mastered=masteryTabMasteredHabitRows();
+  const workingToward=sortMasteryTabHabits(S.habits.filter(actFilter).filter(h=>(parseInt(h.masteryTier,10)||0)<1));
+  if(!mastered.length&&!workingToward.length){
     mount.innerHTML=`<div class="card empty glow-blue"><div class="empty-icon">🏅</div><h3>${kid?'No habits to level up yet':'No habits yet'}</h3><p>${kid?'Add a habit and keep logging.':'Basic: goals use ISO weeks for consistency and recovery. Premium mastery compares actual logging to the minimum implied by your weekly habit (threshold × days ÷ 7) over 27 / 54 / 81 days at ≥70% / ≥80% / ≥90%.'}</p></div>`;
     return;
   }
-  const hint=kid?'Levels stick once you earn them.':'Mastery is separate from ISO week qualification: actual vs minimum implied by your weekly threshold over rolling calendar days.';
   const row=h=>{
     const awarded=habitMasteryLevelDigit(h.masteryTier);
+    const glow=masteryCardGlowClassForTier(awarded);
     const tierTitle=awarded>=1&&habitMasteryLevelName(awarded)?`<div class="mastery-card-tier-name"><strong>${escDash(habitMasteryLevelName(awarded))}</strong></div>`:'';
     const badgeSlot=awarded>=1?`<div class="mastery-badge-slot">${habitMasteryBadgeHTML(h,{roman:true,masteryCard:true})}</div>`:'<div class="mastery-badge-slot"></div>';
     const dashes=habitMasteryCardDashesHTML(h.masteryTier);
-    return`<div class="card config-card glow-blue mastery-card"><div class="config-head mastery-card-head"><div class="habit-emoji">${h.emoji||'🎯'}</div><div class="mastery-card-title-block"><div class="habit-name-row"><span class="goal-title">${escDash(h.title)}</span></div>${tierTitle}</div>${badgeSlot}${dashes}</div></div>`;
+    return`<div class="card config-card mastery-card ${glow}"><div class="config-head mastery-card-head"><div class="habit-emoji">${h.emoji||'🎯'}</div><div class="mastery-card-title-block"><div class="habit-name-row"><span class="goal-title">${escDash(h.title)}</span></div>${tierTitle}</div>${badgeSlot}${dashes}</div></div>`;
   };
-  let html=`<p class="small-note" style="margin-bottom:var(--s4)">${hint}</p><div class="mastery-habit-list">${habits.map(row).join('')}</div>`;
-  if(banked.length){
-    html+=`<div class="section-title" style="margin:var(--s6) 0 var(--s2)">${kid?'Bank / paused':'Bank & inactive'}</div><div class="mastery-habit-list">${banked.map(row).join('')}</div>`;
-  }
+  let html='';
+  if(mastered.length)html+=`<div class="mastery-habit-list">${mastered.map(row).join('')}</div>`;
+  if(workingToward.length)html+=`<div class="mastery-habit-list"${mastered.length?' style="margin-top:var(--s6)"':''}>${workingToward.map(row).join('')}</div>`;
   mount.innerHTML=html;
 }
 function renderCompletedGoals(){
@@ -3817,10 +3781,8 @@ function bindAppConnectivityListeners(){
   window._consistencyConnectivityBound=true;
   const onOn=()=>{if(typeof authRefresh==='function')void authRefresh().then(()=>{syncAuthGate();syncAccountUI();renderHeader();syncCloudSyncPanelUI();void syncCloudHistoryPanel();});};
   const onOff=()=>{void authApplyOfflineShadowIfNeeded();syncAuthGate();syncAccountUI();renderHeader();syncCloudSyncPanelUI();};
-  const onVis=()=>{if(document.visibilityState!=='visible')return;const u=typeof authCurrentUser==='function'?authCurrentUser():null;if(!u||typeof _supa==='undefined'||!_supa||!cloudSyncIsEnabled())return;void (async()=>{try{await cloudSyncPendingWithoutMainPush(u);}finally{if(typeof syncCloudHistoryPanel==='function')void syncCloudHistoryPanel();}})();};
   window.addEventListener('online',onOn,{passive:true});
   window.addEventListener('offline',onOff,{passive:true});
-  document.addEventListener('visibilitychange',onVis,{passive:true});
 }
 function authPeekImplicitHash(){try{return /#(?:.*&)?access_token=/.test(String(window.location.hash||''))||/#.*access_token=/.test(String(window.location.href||''));}catch(_){return false;}}
 /** Some mobile mail apps (Gmail in-app browser, etc.) deliver #access_token after first paint or on a second navigation; listen so we still pick up the session. */
@@ -3876,7 +3838,7 @@ function syncAuthGate(){const gate=document.getElementById('authGate');if(!gate)
 async function authRefresh(){if(!_supa)return null;try{const r=await _supa.auth.getSession();_authSession=(r&&r.data)?r.data.session:null;}catch(e){_authSession=null;} if(_authSession){_offlineShadowUser=null;authDeviceTrustWrite(_authSession);return _authSession;} if(authApplyOfflineShadowIfNeeded())return null;return null;}
 function persistAuthDisplayNameFromAccountIfEmpty(){if(!S||!S.user||!S.user.setupDone)return;const u=authCurrentUser();if(!u)return;if((S.user.name||'').trim())return;const s=authSuggestedName();if(!s)return;S.user.name=s;syncActiveProfileMetaNameFromDisplayName();save();const su=document.getElementById('sUserName');if(su)su.value=s;if(typeof renderHeader==='function')renderHeader();}
 function prefillNameFromAuth(){try{applyAuthFirstNameToProfileIfNeeded();persistAuthDisplayNameFromAccountIfEmpty();syncSetupNameRowVisibility();const suggested=authSuggestedName();if(!suggested)return;const sn=document.getElementById('setupName');if(sn&&!sn.value)sn.value=suggested;const su=document.getElementById('sUserName');if(su&&!su.value)su.value=suggested;}catch(_){}}
-function authSubscribe(){if(!_supa)return;try{_supa.auth.onAuthStateChange((event,session)=>{_authSession=session||null;if(!_authSession)clearCloudEndOfDaySchedule();if(_authSession){_offlineShadowUser=null;authDeviceTrustWrite(_authSession);}else if(typeof navigator!=='undefined'&&navigator.onLine===false){authApplyOfflineShadowIfNeeded();}else{_offlineShadowUser=null;}if(_authSession&&(event==='SIGNED_IN'||event==='INITIAL_SESSION'))authFinalizeAuthUrl();syncAccountUI();if(event==='SIGNED_IN'||event==='INITIAL_SESSION'||event==='TOKEN_REFRESHED'||event==='USER_UPDATED'){if(event==='SIGNED_IN'){const m=document.getElementById('mAuthLogin');if(m&&m.classList.contains('show'))closeM('mAuthLogin');}if(event==='INITIAL_SESSION')return;if(event==='SIGNED_IN'||event==='USER_UPDATED'){void (async()=>{if(event==='SIGNED_IN')await cloudSyncAfterAuthBootstrap();prefillNameFromAuth();syncSetupNameRowVisibility();renderHeader();})();return;}prefillNameFromAuth();syncSetupNameRowVisibility();renderHeader();}});}catch(e){}}
+function authSubscribe(){if(!_supa)return;try{_supa.auth.onAuthStateChange((event,session)=>{_authSession=session||null;if(_authSession){_offlineShadowUser=null;authDeviceTrustWrite(_authSession);}else if(typeof navigator!=='undefined'&&navigator.onLine===false){authApplyOfflineShadowIfNeeded();}else{_offlineShadowUser=null;}if(_authSession&&(event==='SIGNED_IN'||event==='INITIAL_SESSION'))authFinalizeAuthUrl();syncAccountUI();if(event==='SIGNED_IN'||event==='INITIAL_SESSION'||event==='TOKEN_REFRESHED'||event==='USER_UPDATED'){if(event==='SIGNED_IN'){const m=document.getElementById('mAuthLogin');if(m&&m.classList.contains('show'))closeM('mAuthLogin');}if(event==='INITIAL_SESSION')return;if(event==='SIGNED_IN'||event==='USER_UPDATED'){void (async()=>{if(event==='SIGNED_IN')await cloudSyncAfterAuthBootstrap();prefillNameFromAuth();syncSetupNameRowVisibility();renderHeader();})();return;}prefillNameFromAuth();syncSetupNameRowVisibility();renderHeader();}});}catch(e){}}
 function authRedirectURL(){return window.location.origin+window.location.pathname;}
 async function authSignInWithGoogle(){if(!_supa){alert('Auth not ready — try refreshing.');return;}authSetBusy(true);try{const r=await _supa.auth.signInWithOAuth({provider:'google',options:{redirectTo:authRedirectURL()}});if(r&&r.error)throw r.error;}catch(e){authSetBusy(false);alert('Google sign-in failed: '+(e&&e.message?e.message:e));}}
 function authFormatMagicLinkError(err){const msg=String(err&&err.message?err.message:err||'');const low=msg.toLowerCase();if(low.includes('rate limit')||low.includes('too many')){return'Too many sign-in emails were sent recently (Supabase limits how many magic links go out per hour on your plan).\n\nWhat you can do:\n• Wait an hour and try again, or use “Continue with Google” now.\n• If you are testing a lot, open your Supabase dashboard → Authentication → Rate Limits, or add custom SMTP (often higher throughput).\n\nMore detail: https://supabase.com/docs/guides/auth/rate-limits';}return msg||'Something went wrong.';}
@@ -3884,11 +3846,11 @@ async function authSendMagicLink(email,opts){opts=opts||{};if(!_supa){alert('Aut
 function authSendMagicLinkFromUI(){const el=document.getElementById('authEmailInput');if(!el)return;authSendMagicLink(el.value,{onSent:showAuthModalSent});}
 function showAuthModalSent(email){const a=document.getElementById('authModalViewSignIn');const b=document.getElementById('authModalViewSent');const lbl=document.getElementById('authModalSentEmail');if(lbl)lbl.textContent=email||'';if(a)a.hidden=true;if(b)b.hidden=false;}
 function authModalBackToSignIn(){const a=document.getElementById('authModalViewSignIn');const b=document.getElementById('authModalViewSent');if(b)b.hidden=true;if(a)a.hidden=false;const el=document.getElementById('authEmailInput');if(el){try{el.focus();el.select();}catch(_){}}}
-async function authSignOut(){if(!_supa)return;authSetBusy(true);try{clearTimeout(_cloudPushTimer);_cloudPushTimer=null;clearCloudEndOfDaySchedule();_cloudSyncLastError=null;authDeviceTrustClear();try{await _supa.auth.signOut();}catch(_){}_authSession=null;}catch(e){}finally{authSetBusy(false);syncAccountUI();renderHeader();}}
+async function authSignOut(){if(!_supa)return;authSetBusy(true);try{clearTimeout(_cloudPushTimer);_cloudPushTimer=null;_cloudSyncLastError=null;authDeviceTrustClear();try{await _supa.auth.signOut();}catch(_){}_authSession=null;}catch(e){}finally{authSetBusy(false);syncAccountUI();renderHeader();}}
 function openAuthLoginModal(){closeM('mSettings');setTimeout(()=>{openM('mAuthLogin');const a=document.getElementById('authModalViewSignIn');const b=document.getElementById('authModalViewSent');if(b)b.hidden=true;if(a)a.hidden=false;const el=document.getElementById('authEmailInput');if(el)el.value='';authSetBusy(false);},120);}
 function syncAccountUI(){const anon=document.getElementById('accountAnonView');const signed=document.getElementById('accountSignedInView');const lbl=document.getElementById('accountEmailLabel');const u=authCurrentUser();if(anon&&signed){if(u){anon.hidden=true;signed.hidden=false;if(lbl)lbl.textContent=u.email||'(signed in)';}else{anon.hidden=false;signed.hidden=true;}}syncAuthGate();syncCloudSyncPanelUI();syncAccountPlanUI();syncSettingsPanelsKidCopy();void syncCloudHistoryPanel();}
 function confirmDeleteCloudAccount(){if(!authCurrentUser()){alert('You are not signed in.');return;}if(!confirm('This will delete your cloud row and sign you out. Local data on this device stays intact. Continue?'))return;deleteCloudAccount();}
-async function deleteCloudAccount(){if(!_supa)return;const kid=typeof useKidsLanguage==='function'&&useKidsLanguage();if(authCurrentUser()&&!_authSession){alert(kid?'You need the internet to delete cloud data. Ask a grown-up to connect.':'Connect to the internet to delete cloud data, then try again.');return;}authSetBusy(true);try{const u=authCurrentUser();if(u&&_authSession){const hDel=await _supa.from('user_state_history').delete().eq('user_id',u.id);if(hDel&&hDel.error)throw hDel.error;const pDel=await _supa.from('user_state_pending').delete().eq('user_id',u.id);if(pDel&&pDel.error)throw pDel.error;const del=await _supa.from('user_state').delete().eq('user_id',u.id);if(del&&del.error)throw del.error;}try{await _supa.auth.signOut();}catch(_){}_authSession=null;authDeviceTrustClear();syncAccountUI();renderHeader();alert('Cloud data deleted. You are now signed out. Local data on this device is untouched.');}catch(e){alert('Delete failed: '+(e&&e.message?e.message:e));}finally{authSetBusy(false);}}
+async function deleteCloudAccount(){if(!_supa)return;const kid=typeof useKidsLanguage==='function'&&useKidsLanguage();if(authCurrentUser()&&!_authSession){alert(kid?'You need the internet to delete cloud data. Ask a grown-up to connect.':'Connect to the internet to delete cloud data, then try again.');return;}authSetBusy(true);try{const u=authCurrentUser();if(u&&_authSession){const del=await _supa.from('user_state').delete().eq('user_id',u.id);if(del&&del.error)throw del.error;}try{await _supa.auth.signOut();}catch(_){}_authSession=null;authDeviceTrustClear();syncAccountUI();renderHeader();alert('Cloud data deleted. You are now signed out. Local data on this device is untouched.');}catch(e){alert('Delete failed: '+(e&&e.message?e.message:e));}finally{authSetBusy(false);}}
 if(authReady()){void authBootstrapSession();}else{console.warn('[auth] Supabase SDK did not load — sign-in is unavailable. Gate stays visible until the SDK loads or the page is refreshed.');syncAuthGate();}
 
 </script>

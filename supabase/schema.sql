@@ -51,33 +51,3 @@ create policy "user_state_history_insert_own"
 create policy "user_state_history_delete_own"
   on public.user_state_history for delete
   using (auth.uid() = user_id);
-
--- Latest “draft” mirror for rolling daily archives: overwritten on every sync while signed in.
--- When the device’s local calendar day advances, the previous pending_day_key snapshot is copied
--- into user_state_history with saved_at = end of that local day (23:59:59.999). No server cron required.
-create table if not exists public.user_state_pending (
-  user_id uuid primary key references auth.users (id) on delete cascade,
-  payload jsonb not null default '{}'::jsonb,
-  pending_day_key text not null,
-  updated_at timestamptz not null default now()
-);
-
-create index if not exists user_state_pending_updated_idx on public.user_state_pending (user_id, updated_at desc);
-
-alter table public.user_state_pending enable row level security;
-
-create policy "user_state_pending_select_own"
-  on public.user_state_pending for select
-  using (auth.uid() = user_id);
-
-create policy "user_state_pending_insert_own"
-  on public.user_state_pending for insert
-  with check (auth.uid() = user_id);
-
-create policy "user_state_pending_update_own"
-  on public.user_state_pending for update
-  using (auth.uid() = user_id);
-
-create policy "user_state_pending_delete_own"
-  on public.user_state_pending for delete
-  using (auth.uid() = user_id);
