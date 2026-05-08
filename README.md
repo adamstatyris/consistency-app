@@ -4,7 +4,7 @@ A habit and goal tracker built around weekly consistency, gentle scoring, and we
 
 ## Status
 
-Closed beta (**v1.2beta**). **Auth:** Supabase (Google + email magic link). **Cloud sync:** signed-in users sync the full multi-profile `ROOT` to Supabase (`user_state`) from **Settings → Account**. **Automatic cloud archives:** these are **not** manual uploads. After you run the SQL in [`supabase/schema.sql`](supabase/schema.sql) (see [Supabase setup](#supabase-setup-cloud-sync--backups)), each successful sync can archive the **previous** cloud payload on the server; the app keeps **at most 2 archived states per account from the last 2 days** (rolling 48 hours). **Settings → Account → Automatic cloud archives** lists them as **Backup 1** / **Backup 2** (newest first) for **manual restore** if live data looks wrong—the app creates and uploads the archives when you sync.
+Closed beta (**v1.2beta**). **Auth:** Supabase (Google + email magic link). **Cloud sync:** signed-in users sync the full multi-profile `ROOT` to Supabase (`user_state`) from **Settings → Account**. **Automatic cloud archives:** these are **not** manual uploads. After you run the SQL in [`supabase/schema.sql`](supabase/schema.sql) (see [Supabase setup](#supabase-setup-cloud-sync--backups)), the app keeps a **`user_state_pending`** row per account: every sync overwrites that row for the **current local calendar day**. When the local date advances (next open, next edit, or while the tab stays open past midnight), the **previous day’s** pending snapshot is appended to **`user_state_history`** with `saved_at` = **23:59:59.999 local** on that day; the client prunes to **at most 2** history rows. **You do not need the app open at midnight**—finalization runs on the next successful sync after the day changes. **Settings → Account → Automatic cloud archives** lists them as backups (newest first) for restore if live data looks wrong.
 
 ## Repository layout
 
@@ -15,7 +15,7 @@ Closed beta (**v1.2beta**). **Auth:** Supabase (Google + email magic link). **Cl
 ├── sw.js                   # Minimal service worker (pass-through, enables installability)
 ├── _headers                # Cloudflare Pages cache rules
 ├── supabase/
-│   └── schema.sql          # `user_state` + `user_state_history` + RLS (run / re-run in Supabase SQL Editor)
+│   └── schema.sql          # `user_state` + `user_state_pending` + `user_state_history` + RLS (run / re-run in Supabase SQL Editor)
 ├── icons/                  # PWA icons (192, 512, apple-touch)
 └── README.md
 ```
@@ -27,12 +27,12 @@ Do this in the [Supabase Dashboard](https://supabase.com/dashboard) for **the sa
 1. Open your project → **SQL Editor** (left sidebar) → **New query**.
 2. Open [`supabase/schema.sql`](supabase/schema.sql) in this repo and **copy the entire file** into the editor.  
    - **New project:** run the full script once.  
-   - **Already migrated `user_state`:** if the editor reports errors such as *policy already exists* for `user_state_*`, do **not** re-run those lines — copy only the block in `schema.sql` from `-- Previous cloud payloads` through the last `user_state_history` policy and run **that** once to add cloud backup history.
+   - **Already migrated `user_state`:** if the editor reports errors such as *policy already exists* for `user_state_*`, do **not** re-run those lines — copy only the block in `schema.sql` from `-- Previous cloud payloads` through the last `user_state_pending` policy and run **that** once to add rolling daily archives.
 3. Click **Run** (or **Ctrl+Enter**). You should see success; no rows returned is normal.
-4. Quick check: **Table Editor** → confirm tables **`user_state`** and **`user_state_history`** exist and RLS is enabled (shield icon).
-5. Deploy or refresh the app; sign in and use **Sync now** once. After the **second** upload (when a previous cloud version exists), **Automatic cloud archives** on the Account tab should list **Backup 1** / **Backup 2** rows.
+4. Quick check: **Table Editor** → confirm tables **`user_state`**, **`user_state_pending`**, and **`user_state_history`** exist and RLS is enabled (shield icon).
+5. Deploy or refresh the app; sign in and change something (or use **Sync now**). **Automatic cloud archives** on the Account tab should list backups after your local calendar day rolls over and you sync again (or open the app the next day).
 
-Snapshots are optional for sync itself: if `user_state_history` is missing, uploads still work; the app just cannot list or restore older cloud copies.
+Rolling archives are optional: if `user_state_history` / `user_state_pending` are missing, live `user_state` uploads still work; the app just cannot list or restore older cloud copies until you run the new SQL block.
 
 ## Local preview
 

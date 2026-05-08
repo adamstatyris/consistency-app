@@ -241,8 +241,10 @@ input,select,textarea{border:none}
 .tab.active{color:#fff;border-color:transparent;background:linear-gradient(135deg,var(--blue-strong),var(--blue));box-shadow:0 0 18px var(--blue-glow-strong),inset 0 1px 0 rgba(255,255,255,.16)}
 .tab.tab--premium-locked{opacity:.45;cursor:not-allowed;pointer-events:none;filter:grayscale(.35)}
 .tab.tab--premium-locked:hover{color:var(--text-muted);border-color:var(--border)}
-.mastery-badge{display:inline-flex;align-items:center;justify-content:center;min-width:1.65rem;height:1.65rem;padding:0 .28rem;border-radius:999px;font-size:.72rem;font-weight:800;line-height:1;color:#5c4010;background:radial-gradient(circle at 35% 30%,#ffeaa7,#f4d03f 45%,#c9981f 100%);box-shadow:0 0 12px rgba(244,208,63,.55),0 3px 8px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.5);flex-shrink:0}
+.mastery-badge{display:inline-flex;align-items:center;justify-content:center;min-width:1.65rem;height:1.65rem;padding:0 .28rem;border-radius:999px;font-size:.72rem;font-weight:800;line-height:1;color:#5c4010;background:radial-gradient(circle at 35% 30%,#ffeaa7,#f4d03f 45%,#c9981f 100%);box-shadow:0 0 12px rgba(244,208,63,.55),0 3px 8px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.5);flex-shrink:0;font-variant-numeric:lining-nums}
+.mastery-badge--mastery-card{min-width:2.85rem;min-height:3.35rem;padding:.32rem .5rem;border-radius:16px;font-size:clamp(1rem,2.8vw,1.18rem);font-weight:800;letter-spacing:.02em;font-family:Georgia,'Times New Roman',Times,serif;line-height:1.12;align-self:stretch}
 .mastery-badge--legendary{color:#fef9e7;background:radial-gradient(circle at 35% 25%,#fff8e1,#f4d03f 38%,#8b6914 95%);box-shadow:0 0 0 2px rgba(212,175,55,.95),0 0 18px rgba(244,208,63,.75),0 4px 12px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.55);font-size:.68rem}
+.mastery-badge--mastery-card.mastery-badge--legendary{font-size:clamp(.95rem,2.6vw,1.12rem)}
 html[data-theme="light"] .mastery-badge--legendary{color:#3d2a08}
 .legendary-re-float{position:fixed;left:50%;bottom:max(24px,env(safe-area-inset-bottom));transform:translateX(-50%) translateY(118%);z-index:10042;max-width:min(94vw,560px);padding:var(--s5);border-radius:var(--r-xl);background:linear-gradient(165deg,color-mix(in srgb,var(--surface-2) 100%,#2a2208 8%),var(--surface));border:1px solid color-mix(in srgb,var(--border) 80%,#d4af37 40%);box-shadow:0 14px 44px rgba(0,0,0,.4),0 0 0 1px rgba(212,175,55,.2);transition:transform .42s cubic-bezier(0.22,1,0.36,1),opacity .32s ease;opacity:0;pointer-events:none;text-align:left}
 .legendary-re-float.show{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto}
@@ -255,6 +257,16 @@ html[data-theme="light"] .mastery-badge{color:#3d2a08;box-shadow:0 0 16px rgba(2
 .habit-name-row{display:flex;align-items:center;gap:var(--s2);min-width:0;flex-wrap:wrap}
 .habit-name-row .habit-name{min-width:0}
 .config-head .mastery-badge{align-self:flex-start;margin-top:2px}
+.config-head .mastery-badge--mastery-card{align-self:stretch;margin-top:0}
+.config-head.mastery-card-head{display:grid;grid-template-columns:auto 1fr auto;grid-template-rows:auto auto auto;gap:var(--s2) var(--s3);align-items:start;width:100%;flex-wrap:unset}
+.config-head.mastery-card-head .habit-emoji{grid-row:1/span 2}
+.config-head.mastery-card-head .mastery-card-title-block{grid-column:2;grid-row:1/span 2;min-width:0;display:flex;flex-direction:column;gap:var(--s1)}
+.config-head.mastery-card-head .mastery-badge-slot{grid-column:3;grid-row:1/span 2;display:flex;align-items:stretch;justify-content:flex-end}
+.mastery-card-tier-name{font-size:var(--sm);color:var(--text);line-height:1.35}
+.config-head.mastery-card-head .mastery-tier-dashes{grid-column:2/-1;grid-row:3;display:flex;flex-direction:column;gap:var(--s2);width:100%;margin-top:2px}
+.mastery-tier-dash{flex:0 0 auto;width:100%;height:6px;border-radius:999px;background:var(--border);opacity:.55}
+.mastery-tier-dash--earned{opacity:1;background:linear-gradient(90deg,#ffeaa7,#f4d03f,#d4af37);box-shadow:0 0 12px rgba(244,208,63,.45),inset 0 1px 0 rgba(255,255,255,.35)}
+html[data-theme="light"] .mastery-tier-dash--earned{box-shadow:0 0 14px rgba(212,160,23,.55),inset 0 1px 0 rgba(255,255,255,.5)}
 .mastery-habit-list{display:flex;flex-direction:column;gap:var(--s4)}
 .goal-complete-float{position:fixed;left:50%;bottom:max(24px,env(safe-area-inset-bottom));transform:translateX(-50%) translateY(120%);z-index:10040;max-width:min(92vw,380px);padding:var(--s4) var(--s5);border-radius:var(--r-xl);background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--border);box-shadow:0 12px 40px rgba(0,0,0,.35),0 0 0 1px rgba(255,255,255,.06);transition:transform .42s cubic-bezier(0.22,1,0.36,1),opacity .32s ease;opacity:0;pointer-events:none;text-align:center}
 .goal-complete-float.show{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto}
@@ -1940,9 +1952,9 @@ I1_35.forEach(([id,title,body,sourceText,sourceUrl,category,triggerType])=>L.pus
 ].forEach(([id,title,body,sourceText,sourceUrl,category,triggerType])=>L.push({id,title,body,sourceText,sourceUrl,category,triggerType}));
 (function(){var bu=(typeof CONSISTENCY_INSIGHT_BLOG_URL==='string'&&CONSISTENCY_INSIGHT_BLOG_URL.trim().length>8)?CONSISTENCY_INSIGHT_BLOG_URL.trim():'';if(!bu)return;L.forEach(function(x){if(x.category==='molecules and mood'){x.blogUrl=bu;x.blogText='More on In (5)Essence';}});})();
 [
-['MX1','Mastery I — rhythm holds','Research on habit formation shows “automaticity” emerges over weeks to months, with wide individual differences — not a single fixed number for everyone.\n\nEarning this tier means your logged behaviour met a strong bar over a recent window on locked weeks — celebrate showing up.','Lally et al. — habit formation (overview)','https://pubmed.ncbi.nlm.nih.gov/19827987/','consistency','mastery_tier_1'],
-['MX2','Mastery II — deeper pattern','As windows lengthen, off-days age out of the lookback while you keep accumulating proof you can return.\n\nThis tier is about sustaining the pattern — not perfection on every calendar week forever.','Wood & Neal — habits (overview)','https://pubmed.ncbi.nlm.nih.gov/17685980/','consistency','mastery_tier_2'],
-['MX3','Mastery III — you own this here','A high bar over a long lookback on locked logs is rare air — you have built real consistency with this habit in this app.\n\nConsider banking it for now and revisiting in 6–12 months if you want to reinforce it again.','Consistency — mastery framing','','consistency','mastery_tier_3'],
+['MX1','Mastery I — rhythm holds','Research on habit formation shows “automaticity” emerges over weeks to months, with wide individual differences — not a single fixed number for everyone.\n\nEarning this tier means your logged behaviour met the bar over roughly a month of calendar days for this habit — celebrate showing up.','Lally et al. — habit formation (overview)','https://pubmed.ncbi.nlm.nih.gov/19827987/','consistency','mastery_tier_1'],
+['MX2','Mastery II — deeper pattern','As windows lengthen, off-days age out of the lookback while you keep accumulating proof you can return.\n\nThis tier is about sustaining the pattern on the Log across roughly two months of calendar days.','Wood & Neal — habits (overview)','https://pubmed.ncbi.nlm.nih.gov/17685980/','consistency','mastery_tier_2'],
+['MX3','Mastery III — you own this here','Meeting a high bar over the longest mastery window (calendar days) in this app is rare air — you have built real consistency with this habit here.\n\nConsider banking it for now and revisiting in 6–12 months if you want to reinforce it again.','Consistency — mastery framing','','consistency','mastery_tier_3'],
 ['MX4','Legendary Maintenance — back on purpose','A long pause after mastery is normal life. Choosing to return and meet the maintenance bar shows the habit is still yours — a deliberate reunion, not a rescue mission.','Consistency — legendary framing','','consistency','mastery_tier_4'],
 ['MX5','Timeless —still showing up','Years later, the signal is not perfection. It is that you came back and let the weeks add up again — quiet proof that the identity stuck.','Consistency — timeless framing','','consistency','mastery_tier_5'],
 ['MX6','Eternal — depth over drama','Half a decade is enough seasons to fail, wander, and restart. Earning this means the pattern survived real life — not a streak fantasy.','Consistency — eternal framing','','consistency','mastery_tier_6'],
@@ -1982,6 +1994,22 @@ function formatBackupDateDdMmYyyy(savedAt){
   const d=new Date(savedAt);
   if(!Number.isFinite(d.getTime()))return'—';
   return String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear();
+}
+/** Local calendar YYYY-MM-DD for cloud archive rotation (device timezone). */
+function getLocalDateKey(d){
+  const t=d&&d instanceof Date?d:new Date();
+  return t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
+}
+function yesterdayLocalDateKey(todayKey){
+  const p=todayKey.split('-').map(Number);
+  const dt=new Date(p[0],p[1]-1,p[2]);
+  dt.setDate(dt.getDate()-1);
+  return dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0');
+}
+/** ISO timestamp for 23:59:59.999 local on the given YYYY-MM-DD (for archive labelling). */
+function endOfLocalDayIsoFromDateKey(dateKey){
+  const p=dateKey.split('-').map(Number);
+  return new Date(p[0],p[1]-1,p[2],23,59,59,999).toISOString();
 }
 const COOKIE_CONSENT_LS='consistencyCookieConsentV1';
 const COOKIE_CONSENT_NAME='cst_consent';
@@ -2067,45 +2095,88 @@ function applyCloudPullMerge(pl,remoteUpdatedAtIso){
   syncAccountUI();
 }
 const _CLOUD_HISTORY_MAX_SNAPSHOTS=2;
-const _CLOUD_HISTORY_MAX_AGE_MS=48*60*60*1000;
+let _cloudEndOfDayTimer=null;
+function clearCloudEndOfDaySchedule(){if(_cloudEndOfDayTimer){clearTimeout(_cloudEndOfDayTimer);_cloudEndOfDayTimer=null;}}
+/** Milliseconds until next local midnight (finalize pending archive when the calendar day rolls over while the app stays open). */
+function msUntilNextLocalMidnight(){
+  const n=new Date();
+  const t=new Date(n.getFullYear(),n.getMonth(),n.getDate()+1,0,0,0,0);
+  return Math.max(3000,t.getTime()-n.getTime());
+}
+function scheduleCloudArchiveEndOfDay(){
+  clearCloudEndOfDaySchedule();
+  if(typeof authCurrentUser!=='function'||!authCurrentUser()||!cloudSyncIsEnabled())return;
+  if(typeof _supa==='undefined'||!_supa)return;
+  const u=authCurrentUser();
+  _cloudEndOfDayTimer=setTimeout(()=>{_cloudEndOfDayTimer=null;void (async()=>{try{await cloudSyncPendingWithoutMainPush(u);}finally{if(typeof syncCloudHistoryPanel==='function')void syncCloudHistoryPanel();}})();scheduleCloudArchiveEndOfDay();},msUntilNextLocalMidnight());
+}
+/** Keep exactly the two newest archives (prior row becomes “2 days ago”; oldest dropped). */
 async function pruneUserStateHistoryForUser(userId){
   if(!_supa||!userId)return;
   try{
-    const cutoff=Date.now()-_CLOUD_HISTORY_MAX_AGE_MS;
     const {data:rows}=await _supa.from('user_state_history').select('id,saved_at').eq('user_id',userId).order('saved_at',{ascending:false});
-    if(!rows||!rows.length)return;
-    const keepIds=new Set();
-    let n=0;
-    for(const r of rows){
-      const t=new Date(r.saved_at).getTime();
-      if(!Number.isFinite(t)||t<cutoff)continue;
-      if(n<_CLOUD_HISTORY_MAX_SNAPSHOTS){keepIds.add(r.id);n++;}
-    }
-    const toDelete=rows.filter(r=>!keepIds.has(r.id)).map(r=>r.id);
-    if(toDelete.length)await _supa.from('user_state_history').delete().in('id',toDelete);
+    if(!rows||rows.length<=_CLOUD_HISTORY_MAX_SNAPSHOTS)return;
+    const drop=rows.slice(_CLOUD_HISTORY_MAX_SNAPSHOTS).map(r=>r.id);
+    if(drop.length)await _supa.from('user_state_history').delete().in('id',drop);
   }catch(e){console.warn('[sync] history prune skipped',e);}
 }
 function scheduleCloudPush(){if(typeof authCurrentUser!=='function'||!authCurrentUser()||!cloudSyncIsEnabled())return;if(typeof _supa==='undefined'||!_supa)return;clearTimeout(_cloudPushTimer);_cloudPushTimer=setTimeout(()=>{_cloudPushTimer=null;void cloudPushNow();},2000);}
+/** If cloud pending is from a previous local calendar day, move it into user_state_history with saved_at = end of that day (23:59:59.999 local), then prune. Called on every push and when the app opens — no need for the user to be online at midnight. */
+async function cloudFinalizeStalePendingArchive(u){
+  if(!_supa||!u)return;
+  const todayKey=getLocalDateKey();
+  let pend=null;
+  try{
+    const {data,error}=await _supa.from('user_state_pending').select('payload,pending_day_key').eq('user_id',u.id).maybeSingle();
+    if(error)throw error;
+    pend=data;
+  }catch(e){console.warn('[sync] pending read failed',e);return;}
+  if(!pend||!pend.pending_day_key||pend.payload===undefined||pend.payload===null)return;
+  const pk=String(pend.pending_day_key||'').slice(0,10);
+  if(!pk||pk.length<10||pk>=todayKey)return;
+  const savedAt=endOfLocalDayIsoFromDateKey(pk);
+  try{
+    const {error:insErr}=await _supa.from('user_state_history').insert({user_id:u.id,payload:pend.payload,saved_at:savedAt});
+    if(insErr){
+      const code=String(insErr.code||'');
+      const msg=String(insErr.message||'').toLowerCase();
+      const dup=code==='23505'||msg.includes('duplicate')||msg.includes('unique');
+      if(!dup){console.warn('[sync] history insert from pending failed',insErr);return;}
+    }
+    await pruneUserStateHistoryForUser(u.id);
+  }catch(e){console.warn('[sync] finalize pending archive failed',e);}
+}
+async function cloudUpsertPendingMirror(u){
+  if(!_supa||!u||!ROOT)return;
+  const todayKey=getLocalDateKey();
+  const payload=JSON.parse(JSON.stringify(ROOT));
+  const iso=new Date().toISOString();
+  try{
+    const {error}=await _supa.from('user_state_pending').upsert({user_id:u.id,payload,pending_day_key:todayKey,updated_at:iso},{onConflict:'user_id'});
+    if(error)throw error;
+  }catch(e){console.warn('[sync] pending mirror upsert failed',e);}
+}
+async function cloudSyncPendingWithoutMainPush(u){
+  if(!_supa||!u||!ROOT||!cloudSyncIsEnabled())return;
+  await cloudFinalizeStalePendingArchive(u);
+  await cloudUpsertPendingMirror(u);
+}
 async function cloudPushNow(){
   const u=typeof authCurrentUser==='function'?authCurrentUser():null;
   if(!u||!_supa||!cloudSyncIsEnabled()){syncCloudSyncPanelUI();return;}
-  if(_cloudPushInFlight)return;
+  if(_cloudPushInFlight){setTimeout(()=>void cloudPushNow(),4000);return;}
   _cloudPushInFlight=true;
   _cloudSyncLastError=null;
   try{
+    await cloudFinalizeStalePendingArchive(u);
     const {data:remoteRow,error:fetchErr}=await _supa.from('user_state').select('payload,updated_at').eq('user_id',u.id).maybeSingle();
     if(fetchErr)throw fetchErr;
     const pl=remoteRow&&remoteRow.payload;
     const remoteNonempty=!cloudSyncPayloadIsEmpty(pl);
     if(remoteNonempty&&rootLooksLikeUnsyncedFreshShell(ROOT)&&remotePayloadLikelyMoreValuableThanLocalFreshShell(ROOT,pl)){
       applyCloudPullMerge(pl,remoteRow.updated_at);
+      await cloudSyncPendingWithoutMainPush(u);
       return;
-    }
-    if(remoteNonempty){
-      try{
-        const {error:histErr}=await _supa.from('user_state_history').insert({user_id:u.id,payload:pl,saved_at:remoteRow.updated_at});
-        if(!histErr)void pruneUserStateHistoryForUser(u.id);
-      }catch(_){/* user_state_history missing until SQL migration is applied */}
     }
     const payload=JSON.parse(JSON.stringify(ROOT));
     const iso=new Date().toISOString();
@@ -2115,6 +2186,7 @@ async function cloudPushNow(){
     ROOT._sync.lastRemoteUpdatedAt=iso;
     ROOT._sync.editAt=new Date(iso).getTime();
     save({fromCloudMerge:true});
+    await cloudUpsertPendingMirror(u);
   }catch(e){_cloudSyncLastError=e;console.warn('[sync] push failed',e);}
   finally{_cloudPushInFlight=false;if(typeof syncCloudSyncPanelUI==='function')syncCloudSyncPanelUI();if(typeof syncCloudHistoryPanel==='function')void syncCloudHistoryPanel();}
 }
@@ -2122,25 +2194,27 @@ async function cloudSyncAfterAuthBootstrap(){
   clearTimeout(_cloudPushTimer);_cloudPushTimer=null;
   _cloudSyncLastError=null;
   const u=typeof authCurrentUser==='function'?authCurrentUser():null;
-  if(!u||!_supa){syncCloudSyncPanelUI();return;}
-  if(!cloudSyncIsEnabled()){syncCloudSyncPanelUI();return;}
+  if(!u||!_supa){syncCloudSyncPanelUI();clearCloudEndOfDaySchedule();return;}
+  if(!cloudSyncIsEnabled()){syncCloudSyncPanelUI();clearCloudEndOfDaySchedule();return;}
   try{
     const {data,error}=await _supa.from('user_state').select('payload,updated_at').eq('user_id',u.id).maybeSingle();
     if(error)throw error;
     const pl=data&&data.payload;
-    if(!data||cloudSyncPayloadIsEmpty(pl)){await cloudPushNow();syncCloudSyncPanelUI();syncCloudHistoryPanel();return;}
+    if(!data||cloudSyncPayloadIsEmpty(pl)){await cloudPushNow();syncCloudSyncPanelUI();syncCloudHistoryPanel();scheduleCloudArchiveEndOfDay();return;}
     const remoteMs=new Date(data.updated_at).getTime();
     const localEdit=(ROOT._sync&&typeof ROOT._sync.editAt==='number')?ROOT._sync.editAt:0;
-    if(localEdit===remoteMs){syncCloudSyncPanelUI();syncCloudHistoryPanel();return;}
+    if(localEdit===remoteMs){await cloudSyncPendingWithoutMainPush(u);syncCloudSyncPanelUI();syncCloudHistoryPanel();scheduleCloudArchiveEndOfDay();return;}
     const freshLocalShell=rootLooksLikeUnsyncedFreshShell(ROOT);
-    if(localEdit>remoteMs&&!freshLocalShell){await cloudPushNow();syncCloudSyncPanelUI();syncCloudHistoryPanel();return;}
+    if(localEdit>remoteMs&&!freshLocalShell){await cloudPushNow();syncCloudSyncPanelUI();syncCloudHistoryPanel();scheduleCloudArchiveEndOfDay();return;}
     applyCloudPullMerge(pl,data.updated_at);
+    await cloudSyncPendingWithoutMainPush(u);
   }catch(e){
     _cloudSyncLastError=e;
     console.warn('[sync] pull failed',e);
   }
   syncCloudSyncPanelUI();
   syncCloudHistoryPanel();
+  scheduleCloudArchiveEndOfDay();
 }
 async function syncCloudHistoryPanel(){
   const wrap=document.getElementById('advancedCloudHistoryList');
@@ -2185,8 +2259,17 @@ async function syncCloudHistoryPanel(){
   try{
     const {data,error}=await _supa.from('user_state_history').select('id,saved_at,payload').eq('user_id',u.id).order('saved_at',{ascending:false}).limit(24);
     if(error)throw error;
-    const cutoff=Date.now()-_CLOUD_HISTORY_MAX_AGE_MS;
-    filtered=(data||[]).filter(r=>{const t=new Date(r.saved_at).getTime();return Number.isFinite(t)&&t>=cutoff;}).slice(0,_CLOUD_HISTORY_MAX_SNAPSHOTS);
+    const rows=(data||[]).filter(r=>Number.isFinite(new Date(r.saved_at).getTime()));
+    const seenDay=new Set();
+    filtered=[];
+    for(const r of rows){
+      const d=new Date(r.saved_at);
+      const dk=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+      if(seenDay.has(dk))continue;
+      seenDay.add(dk);
+      filtered.push(r);
+      if(filtered.length>=_CLOUD_HISTORY_MAX_SNAPSHOTS)break;
+    }
   }catch(e){
     console.warn('[sync] cloud history list failed',e);
     filtered=[];
@@ -2277,8 +2360,8 @@ function toggleCloudSyncFromUI(){
   const el=document.getElementById('accountCloudSyncEnabled');
   ROOT._sync.cloudEnabled=!!(el&&el.checked);
   save();
-  if(ROOT._sync.cloudEnabled)void cloudPushNow();
-  else syncCloudSyncPanelUI();
+  if(ROOT._sync.cloudEnabled){void cloudPushNow();scheduleCloudArchiveEndOfDay();}
+  else{clearCloudEndOfDaySchedule();syncCloudSyncPanelUI();}
 }
 const UI_PALETTE_OPTIONS=[{id:'neutral',label:'Slate',sub:'Neutral & calm',darkBg:'linear-gradient(135deg,#1e293b,#334155)',lightBg:'linear-gradient(135deg,#cbd5e1,#94a3b8)'},{id:'navy',label:'Navy',sub:'Deep blue focus',darkBg:'linear-gradient(135deg,#0c4a6e,#1e3a5f)',lightBg:'linear-gradient(135deg,#7dd3fc,#38bdf8)'},{id:'graphite',label:'Graphite',sub:'Black & gray',darkBg:'linear-gradient(135deg,#27272a,#3f3f46)',lightBg:'linear-gradient(135deg,#d4d4d8,#a1a1aa)'},{id:'burgundy',label:'Burgundy',sub:'Warm wine tone',darkBg:'linear-gradient(135deg,#4a1520,#7f1d1d)',lightBg:'linear-gradient(135deg,#fda4af,#fb7185)'},{id:'teal',label:'Teal',sub:'Fresh aqua',darkBg:'linear-gradient(135deg,#115e59,#0f766e)',lightBg:'linear-gradient(135deg,#5eead4,#2dd4bf)'},{id:'purple',label:'Purple',sub:'Soft lilac',darkBg:'linear-gradient(135deg,#4c1d95,#6d28d9)',lightBg:'linear-gradient(135deg,#c4b5fd,#a78bfa)'},{id:'sage',label:'Sage',sub:'Muted green',darkBg:'linear-gradient(135deg,#1a2e24,#365314)',lightBg:'linear-gradient(135deg,#bbf7d0,#86efac)'},{id:'rose',label:'Rose',sub:'Dusty mauve',darkBg:'linear-gradient(135deg,#4a1942,#831843)',lightBg:'linear-gradient(135deg,#fbcfe8,#f472b6)'}];
 function normalizeUiPaletteId(p){const id=String(p||'').trim();return UI_PALETTE_OPTIONS.some(x=>x.id===id)?id:'neutral';}
@@ -3052,7 +3135,7 @@ function hideLegendaryReFloatUi(){const el=document.getElementById('legendaryReF
 function dismissLegendaryReFloat(snooze){if(snooze&&_legendaryFloatHabitId){const h=habitById(_legendaryFloatHabitId);if(h)h.masteryReactivationSnoozeUntil=new Date(Date.now()+LEGENDARY_SNOOZE_MS).toISOString();save();}hideLegendaryReFloatUi();maybeScheduleLegendaryReFloat();}
 function acceptLegendaryReactivationFromFloat(){const id=_legendaryFloatHabitId;hideLegendaryReFloatUi();if(!id)return;const h=habitById(id);if(!h)return;h.active=true;h.archived=false;h.tier='growth';h.masteryLegendaryCoreLocked=true;if(!h.goalId)h.goalId='';delete h.masteryReactivationSnoozeUntil;h.habitLegendarySinceWeek=weekKey(0);delete h.legendaryMaintenancePromptAfterMs;save();renderAll();maybeScheduleLegendaryReFloat();}
 function legendaryReFloatShouldDefer(){if(!S||!S.user||!S.user.setupDone)return true;if(typeof isPremiumAccount==='function'&&!isPremiumAccount())return true;if(legendaryReFloatActive())return true;if(typeof milestoneAnyOverlayActive==='function'&&milestoneAnyOverlayActive())return true;if(typeof milestoneCoachActive==='function'&&milestoneCoachActive())return true;if(document.getElementById('cookieConsentBar')?.classList.contains('show'))return true;if(document.querySelector('.overlay.open'))return true;const gcf=document.getElementById('goalCompleteFloat');if(gcf&&gcf.classList.contains('show'))return true;const wn=document.getElementById('whatsNewFloat');if(wn&&wn.classList.contains('show'))return true;return false;}
-function tryShowLegendaryReFloat(){if(legendaryReFloatShouldDefer())return false;const c=findLegendaryPromptCandidate();if(!c)return false;const h=c.h;const next=c.nextTier;const kid=typeof useKidsLanguage==='function'&&useKidsLanguage();const tierName=habitMasteryLevelName(next)||('Level '+next);const el=document.getElementById('legendaryReFloat');if(!el)return false;_legendaryFloatHabitId=h.id;const kicker=document.getElementById('lrfKicker');const tit=document.getElementById('lrfTitle');const body=document.getElementById('lrfBody');if(kicker)kicker.textContent=kid?'Big milestone':'Legendary maintenance';if(tit)tit.textContent=kid?`Time for ${h.title}?`:`${h.title} — ready for ${tierName}`;if(body)body.textContent=kid?`It has been a long rest since you mastered this habit. Tap to bring it back in Growth tier and earn “${tierName}” — a prize for keeping it for life.`:`It has been long enough since your last mastery milestone. Reactivate in Growth tier (Core stays locked), log locked weeks again, and earn ${tierName} — maintenance, not starting over.`;el.hidden=false;requestAnimationFrame(()=>el.classList.add('show'));return true;}
+function tryShowLegendaryReFloat(){if(legendaryReFloatShouldDefer())return false;const c=findLegendaryPromptCandidate();if(!c)return false;const h=c.h;const next=c.nextTier;const kid=typeof useKidsLanguage==='function'&&useKidsLanguage();const tierName=habitMasteryLevelName(next)||('Level '+next);const el=document.getElementById('legendaryReFloat');if(!el)return false;_legendaryFloatHabitId=h.id;const kicker=document.getElementById('lrfKicker');const tit=document.getElementById('lrfTitle');const body=document.getElementById('lrfBody');if(kicker)kicker.textContent=kid?'Big milestone':'Legendary maintenance';if(tit)tit.textContent=kid?`Time for ${h.title}?`:`${h.title} — ready for ${tierName}`;if(body)body.textContent=kid?`It has been a long rest since you mastered this habit. Tap to bring it back in Growth tier and earn “${tierName}” — a prize for keeping it for life.`:`It has been long enough since your last mastery milestone. Reactivate in Growth tier (Core stays locked), hit your day targets again over the calendar windows, and earn ${tierName} — maintenance, not starting over.`;el.hidden=false;requestAnimationFrame(()=>el.classList.add('show'));return true;}
 function maybeScheduleLegendaryReFloat(){if(!S||!S.user||!S.user.setupDone)return;if(_legendaryReTimer){clearTimeout(_legendaryReTimer);_legendaryReTimer=null;}let tries=0;const step=function(){_legendaryReTimer=null;if(tryShowLegendaryReFloat())return;tries++;if(tries>=24)return;_legendaryReTimer=setTimeout(step,1000);};_legendaryReTimer=setTimeout(step,1100);}
 function closeMilestoneStepper(){clearMilestoneStepperHighlight();if(_milestoneStepperResizeBound){window.removeEventListener('resize',_milestoneStepperResizeBound);window.removeEventListener('scroll',_milestoneStepperResizeBound,true);_milestoneStepperResizeBound=null;}const m=document.getElementById('milestoneStepperMount');if(m)m.innerHTML='';syncUiScrollLock();maybeScheduleWhatsNewFloat();}
 function closeMilestoneCoach(){const m=document.getElementById('milestoneCoachMount');if(m)m.innerHTML='';syncUiScrollLock();maybeScheduleWhatsNewFloat();}
@@ -3281,68 +3364,109 @@ function habitShownOnTrackerWeek(h,off){
     return ad<=weekSun;
   }catch(e){return true;}
 }
-const MASTERY_WIN_T1=8,MASTERY_WIN_T2=16,MASTERY_WIN_T3=26;
-const MASTERY_MIN_T1=4,MASTERY_MIN_T2=8,MASTERY_MIN_T3=12;
+/**
+ * Two parallel mechanics:
+ * • Basic: ISO-week goal consistency, recovery, pot — unchanged by Premium.
+ * • Premium mastery: rolling 27 / 54 / 81 calendar days. expectedMin = eligibleDays × (weekly threshold from the same habit rule ÷ 7).
+ *   Actual = days checked (days metric) or sum of logged units (volume). rate = actual ÷ expectedMin vs 70% / 80% / 90%.
+ */
+const MASTERY_DAYS_T1=27,MASTERY_DAYS_T2=54,MASTERY_DAYS_T3=81;
+const MASTERY_RATE_T1=0.7,MASTERY_RATE_T2=0.8,MASTERY_RATE_T3=0.9;
 const MASTERY_LEVEL_NAMES=['','Apprentice','Adept','Master','Legendary','Timeless','Eternal','Immortal'];
 const LEGENDARY_SNOOZE_MS=Math.round(182.625*24*3600000);
 function legendaryWaitMsForBankedTier(tier){if(tier===3)return Math.round(182.625*24*3600000);if(tier===4)return Math.round(2*365.25*24*3600000);if(tier===5)return Math.round(5*365.25*24*3600000);if(tier===6)return Math.round(10*365.25*24*3600000);return null;}
 function msFromAnyDate(s){if(!s)return 0;const t=Date.parse(String(s));return isNaN(t)?0:t;}
 function stampLegendaryAbortOnBank(h,ts){if(!h||!h.masteryLegendaryCoreLocked||!h.habitLegendarySinceWeek)return;h.masteryLegendaryCoreLocked=false;delete h.habitLegendarySinceWeek;const tier=parseInt(h.masteryTier,10)||0;const w=legendaryWaitMsForBankedTier(tier);if(w&&tier>=3&&tier<7)h.legendaryMaintenancePromptAfterMs=(ts||Date.now())+w;}
-function habitLockedApplicableWeekKeys(h){
-  const out=[];
-  Object.keys(S.weeks||{}).forEach(wk=>{
-    if(!habitAppliesToConsistencyWeek(h,wk))return;
-    const off=offsetForWeekKey(wk);
-    if(off===null||!isIsoWeekEndedForOffset(off))return;
-    if(!habitShownOnTrackerWeek(h,off))return;
-    out.push(wk);
-  });
-  out.sort((a,b)=>String(a).localeCompare(String(b)));
-  return out;
+function mondayIsoForWeekKey(wk){if(!wk)return null;const off=offsetForWeekKey(wk);if(off===null)return null;return isoDate(weekDates(off)[0]);}
+function habitShownOnTrackerWeekForDate(h,d){
+  const ad=habitAddedDateStr(h);
+  if(!ad)return true;
+  const wk=dateToWeekKey(d);
+  const off=offsetForWeekKey(wk);
+  if(off===null)return true;
+  const dates=weekDates(off);
+  const weekSun=isoDate(dates[6]);
+  return ad<=weekSun;
 }
-function habitMasteryQualifiedLockedWeek(h,wk){
+/** Per-day signal for mastery: days = checkbox; sessions/km = that day’s log or qualifying week (legacy lump); other metrics = week qualifies. */
+function habitMasteryDayHit(h,wk,dayIndex){
   const hd=S.weeks&&S.weeks[wk]&&S.weeks[wk].habitData&&S.weeks[wk].habitData[h.id];
-  return qualifiesFromStoredHabitWeek(h,wk,hd||null);
+  if(!hd)return false;
+  if(h.metric==='days')return!!(hd.days&&hd.days[dayIndex]);
+  if(h.metric==='sessions'||h.metric==='km'){
+    if(Number((hd.dayValues&&hd.dayValues[dayIndex])||0)>0)return true;
+    return qualifiesFromStoredHabitWeek(h,wk,hd);
+  }
+  return qualifiesFromStoredHabitWeek(h,wk,hd);
 }
-function habitMasterySliceStats(h,n){
-  const keys=habitLockedApplicableWeekKeys(h);
-  if(!keys.length)return null;
-  const slice=keys.slice(-n);
-  let q=0;
-  for(let i=0;i<slice.length;i++) if(habitMasteryQualifiedLockedWeek(h,slice[i])) q++;
-  return{qualified:q,total:slice.length};
+/** Logged volume only for Premium mastery (no credit for “week qualifies” without logged amounts). Legacy weekly lump spread with value/7 per day. */
+function habitMasteryDayVolumeLogged(h,wk,dayIndex,hd){
+  if(!hd||h.metric==='days')return 0;
+  const dv=Number((hd.dayValues&&hd.dayValues[dayIndex])||0)||0;
+  if(dv>0)return dv;
+  const wv=Number(hd.value)||0;
+  if(wv>0)return wv/7;
+  return 0;
+}
+/** Rolling calendar-day window ending today. Optional `sinceIso`: only days from legendary restart Monday onward. */
+function habitMasteryDayWindowStats(h,numDays,sinceIso){
+  const thr=Math.max(0,Number(h&&h.threshold)||0);
+  const today=new Date();
+  today.setHours(0,0,0,0);
+  const todayStr=isoDate(today);
+  const ad=habitAddedDateStr(h);
+  const start=String(S.user&&S.user.startDate||'').slice(0,10);
+  let eligible=0,actual=0;
+  const isDays=h.metric==='days';
+  for(let i=0;i<numDays;i++){
+    const d=new Date(today);
+    d.setDate(d.getDate()-i);
+    const ds=isoDate(d);
+    if(ds>todayStr)continue;
+    if(sinceIso&&ds<sinceIso)continue;
+    if(ad&&ds<ad)continue;
+    if(start&&ds<start)continue;
+    const wk=dateToWeekKey(d);
+    if(!habitAppliesToConsistencyWeek(h,wk))continue;
+    if(!habitShownOnTrackerWeekForDate(h,d))continue;
+    const off=offsetForWeekKey(wk);
+    if(off===null)continue;
+    const dates=weekDates(off);
+    let idx=-1;
+    for(let j=0;j<7;j++){if(isoDate(dates[j])===ds){idx=j;break;}}
+    if(idx<0)continue;
+    eligible++;
+    if(isDays){
+      if(habitMasteryDayHit(h,wk,idx))actual++;
+    }else{
+      const hd=S.weeks&&S.weeks[wk]&&S.weeks[wk].habitData&&S.weeks[wk].habitData[h.id];
+      actual+=habitMasteryDayVolumeLogged(h,wk,idx,hd||null);
+    }
+  }
+  const expected=eligible*(thr/7);
+  const rate=expected>0?actual/expected:0;
+  return{eligible,actual,expected,rate};
 }
 function computeDeservedMasteryTier(h){
-  const s8=habitMasterySliceStats(h,MASTERY_WIN_T1);
-  const s16=habitMasterySliceStats(h,MASTERY_WIN_T2);
-  const s26=habitMasterySliceStats(h,MASTERY_WIN_T3);
+  const s27=habitMasteryDayWindowStats(h,MASTERY_DAYS_T1,null);
+  const s54=habitMasteryDayWindowStats(h,MASTERY_DAYS_T2,null);
+  const s81=habitMasteryDayWindowStats(h,MASTERY_DAYS_T3,null);
   let tier=0;
-  if(s8&&s8.total>=MASTERY_MIN_T1&&s8.qualified/s8.total>=0.699999)tier=1;
-  if(s16&&s16.total>=MASTERY_MIN_T2&&s16.qualified/s16.total>=0.799999)tier=2;
-  if(s26&&s26.total>=MASTERY_MIN_T3&&s26.qualified/s26.total>=0.899999)tier=3;
+  if(s27.eligible>=MASTERY_DAYS_T1&&s27.rate>=MASTERY_RATE_T1-1e-9)tier=1;
+  if(s54.eligible>=MASTERY_DAYS_T2&&s54.rate>=MASTERY_RATE_T2-1e-9)tier=2;
+  if(s81.eligible>=MASTERY_DAYS_T3&&s81.rate>=MASTERY_RATE_T3-1e-9)tier=3;
   return tier;
 }
-function habitLockedApplicableWeekKeysSince(h,sinceWk){
-  const all=habitLockedApplicableWeekKeys(h);
-  if(!sinceWk)return all;
-  return all.filter(wk=>wk>=sinceWk);
-}
-function habitMasterySliceStatsSince(h,n,sinceWk){
-  const keys=habitLockedApplicableWeekKeysSince(h,sinceWk);
-  if(!keys.length)return null;
-  const slice=keys.slice(-n);
-  let q=0;
-  for(let i=0;i<slice.length;i++) if(habitMasteryQualifiedLockedWeek(h,slice[i])) q++;
-  return{qualified:q,total:slice.length};
-}
 function computeDeservedMasteryTierSince(h,sinceWk){
-  const s8=habitMasterySliceStatsSince(h,MASTERY_WIN_T1,sinceWk);
-  const s16=habitMasterySliceStatsSince(h,MASTERY_WIN_T2,sinceWk);
-  const s26=habitMasterySliceStatsSince(h,MASTERY_WIN_T3,sinceWk);
+  const sinceM=mondayIsoForWeekKey(sinceWk);
+  if(!sinceM)return 0;
+  const s27=habitMasteryDayWindowStats(h,MASTERY_DAYS_T1,sinceM);
+  const s54=habitMasteryDayWindowStats(h,MASTERY_DAYS_T2,sinceM);
+  const s81=habitMasteryDayWindowStats(h,MASTERY_DAYS_T3,sinceM);
   let tier=0;
-  if(s8&&s8.total>=MASTERY_MIN_T1&&s8.qualified/s8.total>=0.699999)tier=1;
-  if(s16&&s16.total>=MASTERY_MIN_T2&&s16.qualified/s16.total>=0.799999)tier=2;
-  if(s26&&s26.total>=MASTERY_MIN_T3&&s26.qualified/s26.total>=0.899999)tier=3;
+  if(s27.eligible>=MASTERY_DAYS_T1&&s27.rate>=MASTERY_RATE_T1-1e-9)tier=1;
+  if(s54.eligible>=MASTERY_DAYS_T2&&s54.rate>=MASTERY_RATE_T2-1e-9)tier=2;
+  if(s81.eligible>=MASTERY_DAYS_T3&&s81.rate>=MASTERY_RATE_T3-1e-9)tier=3;
   return tier;
 }
 function recordMasteryTierProgress(h,newTier){
@@ -3439,12 +3563,24 @@ function habitMasteryLevelName(t){
   const n=Math.max(0,Math.min(7,parseInt(t,10)||0));
   return MASTERY_LEVEL_NAMES[n]||'';
 }
-function habitMasteryBadgeHTML(h){
+function habitMasteryRoman(t){
+  const n=Math.max(0,Math.min(7,parseInt(t,10)||0));
+  return['','I','II','III','IV','V','VI','VII'][n]||'';
+}
+function habitMasteryBadgeHTML(h, opts){
+  opts=opts||{};
   const t=habitMasteryLevelDigit(h.masteryTier);
   if(t<1)return'';
+  const inner=opts.roman?habitMasteryRoman(t):String(t);
   const lab='Mastery Level '+t+(habitMasteryLevelName(t)?' — '+habitMasteryLevelName(t):'');
   const leg=t>=4?' mastery-badge--legendary':'';
-  return`<span class="mastery-badge${leg}" title="${escAttr(lab)}">${t}</span>`;
+  const cardCls=opts.masteryCard?' mastery-badge--mastery-card':'';
+  return`<span class="mastery-badge${leg}${cardCls}" title="${escAttr(lab)}">${inner}</span>`;
+}
+function habitMasteryCardDashesHTML(tier){
+  const t=Math.max(0,Math.min(7,parseInt(tier,10)||0));
+  const cls=n=>(t>=n?' mastery-tier-dash--earned':'');
+  return`<div class="mastery-tier-dashes" aria-hidden="true"><div class="mastery-tier-dash${cls(1)}"></div><div class="mastery-tier-dash${cls(2)}"></div><div class="mastery-tier-dash${cls(3)}"></div></div>`;
 }
 function masteryTierUpdatedAtMs(h){
   const u=(h&&h.lastMasteryEarnedAt)||(h&&h.masteryTierUpdatedAt);
@@ -3476,33 +3612,16 @@ function renderMastery(){
   const habits=sortMasteryTabHabits(S.habits.filter(actFilter));
   const banked=sortMasteryTabHabits(S.habits.filter(h=>(h.archived||!h.active)&&(parseInt(h.masteryTier,10)||0)>0));
   if(!habits.length&&!banked.length){
-    mount.innerHTML=`<div class="card empty glow-blue"><div class="empty-icon">🏅</div><h3>${kid?'No habits to level up yet':'No habits yet'}</h3><p>${kid?'Add a habit and keep logging. Levels grow when you qualify most locked weeks.':'Add habits and close ISO weeks. Levels 1–3 (Apprentice → Master) use rolling locked weeks. Levels 4–7 unlock after Master when banked — timed reactivation in Growth tier and meeting the maintenance bar again.'}</p></div>`;
+    mount.innerHTML=`<div class="card empty glow-blue"><div class="empty-icon">🏅</div><h3>${kid?'No habits to level up yet':'No habits yet'}</h3><p>${kid?'Add a habit and keep logging.':'Basic: goals use ISO weeks for consistency and recovery. Premium mastery compares actual logging to the minimum implied by your weekly habit (threshold × days ÷ 7) over 27 / 54 / 81 days at ≥70% / ≥80% / ≥90%.'}</p></div>`;
     return;
   }
-  const hint=kid?'Levels stick once you earn them.':'Levels never downgrade. Only closed weeks (since the habit existed) count.';
+  const hint=kid?'Levels stick once you earn them.':'Mastery is separate from ISO week qualification: actual vs minimum implied by your weekly threshold over rolling calendar days.';
   const row=h=>{
-    const g=goalById(h.goalId);
     const awarded=habitMasteryLevelDigit(h.masteryTier);
-    const nameBit=awarded>=1&&habitMasteryLevelName(awarded)?` (${habitMasteryLevelName(awarded)})`:'';
-    let deserved=computeDeservedMasteryTier(h);
-    let snap;
-    if(h.masteryLegendaryCoreLocked&&h.habitLegendarySinceWeek){
-      deserved=computeDeservedMasteryTierSince(h,h.habitLegendarySinceWeek);
-      const s16b=habitMasterySliceStatsSince(h,MASTERY_WIN_T2,h.habitLegendarySinceWeek);
-      snap=s16b?`${s16b.qualified}/${s16b.total} qualified · last ${MASTERY_WIN_T2} locked wks (since restart)`:kid?'Need more closed weeks':'Need more closed weeks since restart';
-    }else{
-      const s8=habitMasterySliceStats(h,MASTERY_WIN_T1);
-      snap=s8?`${s8.qualified}/${s8.total} qualified · last ${MASTERY_WIN_T1} locked wks`:kid?'Need more closed weeks':'Need more closed weeks';
-    }
-    const showLvl=awarded>=1?String(awarded)+nameBit:'—';
-    let prog;
-    if(h.masteryLegendaryCoreLocked&&h.habitLegendarySinceWeek){
-      if(deserved>=2)prog=kid?'You matched the maintenance bar. Hang tight — level banks on save.':'Maintenance bar met since restart — your next mastery level is being saved.';
-      else prog=kid?'Keep logging locked weeks for maintenance.':'Meet the Level 2 maintenance bar on weeks since restart (≥80% of last 16 locked weeks, minimum 8 counted).';
-    }else{
-      prog=awarded>=deserved?(kid?'Looking strong.':'Your Mastery Level matches what your locked weeks show right now.'):(deserved>=1?(kid?`Keep going — you are heading for Mastery Level ${deserved}.`:`Progress toward Mastery Level ${deserved}.`):(kid?'Keep logging — your first level is taking shape.':'Keep closing weeks — Mastery Level 1 unlocks from your rolling 8-week window.'));
-    }
-    return`<div class="card config-card glow-blue"><div class="config-head"><div class="habit-emoji">${h.emoji||'🎯'}</div><div style="flex:1"><div class="habit-name-row"><span class="goal-title">${escDash(h.title)}</span>${habitMasteryBadgeHTML(h)}</div><div class="goal-sub">${g?escDash(g.name):'—'} · ${escDash(metricLabel(h))}</div><div class="small-note" style="margin-top:var(--s2);line-height:1.55">${escDash(snap)} · Mastery Level <strong>${escDash(showLvl)}</strong> · ${escDash(prog)}</div></div></div></div>`;
+    const tierTitle=awarded>=1&&habitMasteryLevelName(awarded)?`<div class="mastery-card-tier-name"><strong>${escDash(habitMasteryLevelName(awarded))}</strong></div>`:'';
+    const badgeSlot=awarded>=1?`<div class="mastery-badge-slot">${habitMasteryBadgeHTML(h,{roman:true,masteryCard:true})}</div>`:'<div class="mastery-badge-slot"></div>';
+    const dashes=habitMasteryCardDashesHTML(h.masteryTier);
+    return`<div class="card config-card glow-blue mastery-card"><div class="config-head mastery-card-head"><div class="habit-emoji">${h.emoji||'🎯'}</div><div class="mastery-card-title-block"><div class="habit-name-row"><span class="goal-title">${escDash(h.title)}</span></div>${tierTitle}</div>${badgeSlot}${dashes}</div></div>`;
   };
   let html=`<p class="small-note" style="margin-bottom:var(--s4)">${hint}</p><div class="mastery-habit-list">${habits.map(row).join('')}</div>`;
   if(banked.length){
@@ -3698,8 +3817,10 @@ function bindAppConnectivityListeners(){
   window._consistencyConnectivityBound=true;
   const onOn=()=>{if(typeof authRefresh==='function')void authRefresh().then(()=>{syncAuthGate();syncAccountUI();renderHeader();syncCloudSyncPanelUI();void syncCloudHistoryPanel();});};
   const onOff=()=>{void authApplyOfflineShadowIfNeeded();syncAuthGate();syncAccountUI();renderHeader();syncCloudSyncPanelUI();};
+  const onVis=()=>{if(document.visibilityState!=='visible')return;const u=typeof authCurrentUser==='function'?authCurrentUser():null;if(!u||typeof _supa==='undefined'||!_supa||!cloudSyncIsEnabled())return;void (async()=>{try{await cloudSyncPendingWithoutMainPush(u);}finally{if(typeof syncCloudHistoryPanel==='function')void syncCloudHistoryPanel();}})();};
   window.addEventListener('online',onOn,{passive:true});
   window.addEventListener('offline',onOff,{passive:true});
+  document.addEventListener('visibilitychange',onVis,{passive:true});
 }
 function authPeekImplicitHash(){try{return /#(?:.*&)?access_token=/.test(String(window.location.hash||''))||/#.*access_token=/.test(String(window.location.href||''));}catch(_){return false;}}
 /** Some mobile mail apps (Gmail in-app browser, etc.) deliver #access_token after first paint or on a second navigation; listen so we still pick up the session. */
@@ -3755,7 +3876,7 @@ function syncAuthGate(){const gate=document.getElementById('authGate');if(!gate)
 async function authRefresh(){if(!_supa)return null;try{const r=await _supa.auth.getSession();_authSession=(r&&r.data)?r.data.session:null;}catch(e){_authSession=null;} if(_authSession){_offlineShadowUser=null;authDeviceTrustWrite(_authSession);return _authSession;} if(authApplyOfflineShadowIfNeeded())return null;return null;}
 function persistAuthDisplayNameFromAccountIfEmpty(){if(!S||!S.user||!S.user.setupDone)return;const u=authCurrentUser();if(!u)return;if((S.user.name||'').trim())return;const s=authSuggestedName();if(!s)return;S.user.name=s;syncActiveProfileMetaNameFromDisplayName();save();const su=document.getElementById('sUserName');if(su)su.value=s;if(typeof renderHeader==='function')renderHeader();}
 function prefillNameFromAuth(){try{applyAuthFirstNameToProfileIfNeeded();persistAuthDisplayNameFromAccountIfEmpty();syncSetupNameRowVisibility();const suggested=authSuggestedName();if(!suggested)return;const sn=document.getElementById('setupName');if(sn&&!sn.value)sn.value=suggested;const su=document.getElementById('sUserName');if(su&&!su.value)su.value=suggested;}catch(_){}}
-function authSubscribe(){if(!_supa)return;try{_supa.auth.onAuthStateChange((event,session)=>{_authSession=session||null;if(_authSession){_offlineShadowUser=null;authDeviceTrustWrite(_authSession);}else if(typeof navigator!=='undefined'&&navigator.onLine===false){authApplyOfflineShadowIfNeeded();}else{_offlineShadowUser=null;}if(_authSession&&(event==='SIGNED_IN'||event==='INITIAL_SESSION'))authFinalizeAuthUrl();syncAccountUI();if(event==='SIGNED_IN'||event==='INITIAL_SESSION'||event==='TOKEN_REFRESHED'||event==='USER_UPDATED'){if(event==='SIGNED_IN'){const m=document.getElementById('mAuthLogin');if(m&&m.classList.contains('show'))closeM('mAuthLogin');}if(event==='INITIAL_SESSION')return;if(event==='SIGNED_IN'||event==='USER_UPDATED'){void (async()=>{if(event==='SIGNED_IN')await cloudSyncAfterAuthBootstrap();prefillNameFromAuth();syncSetupNameRowVisibility();renderHeader();})();return;}prefillNameFromAuth();syncSetupNameRowVisibility();renderHeader();}});}catch(e){}}
+function authSubscribe(){if(!_supa)return;try{_supa.auth.onAuthStateChange((event,session)=>{_authSession=session||null;if(!_authSession)clearCloudEndOfDaySchedule();if(_authSession){_offlineShadowUser=null;authDeviceTrustWrite(_authSession);}else if(typeof navigator!=='undefined'&&navigator.onLine===false){authApplyOfflineShadowIfNeeded();}else{_offlineShadowUser=null;}if(_authSession&&(event==='SIGNED_IN'||event==='INITIAL_SESSION'))authFinalizeAuthUrl();syncAccountUI();if(event==='SIGNED_IN'||event==='INITIAL_SESSION'||event==='TOKEN_REFRESHED'||event==='USER_UPDATED'){if(event==='SIGNED_IN'){const m=document.getElementById('mAuthLogin');if(m&&m.classList.contains('show'))closeM('mAuthLogin');}if(event==='INITIAL_SESSION')return;if(event==='SIGNED_IN'||event==='USER_UPDATED'){void (async()=>{if(event==='SIGNED_IN')await cloudSyncAfterAuthBootstrap();prefillNameFromAuth();syncSetupNameRowVisibility();renderHeader();})();return;}prefillNameFromAuth();syncSetupNameRowVisibility();renderHeader();}});}catch(e){}}
 function authRedirectURL(){return window.location.origin+window.location.pathname;}
 async function authSignInWithGoogle(){if(!_supa){alert('Auth not ready — try refreshing.');return;}authSetBusy(true);try{const r=await _supa.auth.signInWithOAuth({provider:'google',options:{redirectTo:authRedirectURL()}});if(r&&r.error)throw r.error;}catch(e){authSetBusy(false);alert('Google sign-in failed: '+(e&&e.message?e.message:e));}}
 function authFormatMagicLinkError(err){const msg=String(err&&err.message?err.message:err||'');const low=msg.toLowerCase();if(low.includes('rate limit')||low.includes('too many')){return'Too many sign-in emails were sent recently (Supabase limits how many magic links go out per hour on your plan).\n\nWhat you can do:\n• Wait an hour and try again, or use “Continue with Google” now.\n• If you are testing a lot, open your Supabase dashboard → Authentication → Rate Limits, or add custom SMTP (often higher throughput).\n\nMore detail: https://supabase.com/docs/guides/auth/rate-limits';}return msg||'Something went wrong.';}
@@ -3763,11 +3884,11 @@ async function authSendMagicLink(email,opts){opts=opts||{};if(!_supa){alert('Aut
 function authSendMagicLinkFromUI(){const el=document.getElementById('authEmailInput');if(!el)return;authSendMagicLink(el.value,{onSent:showAuthModalSent});}
 function showAuthModalSent(email){const a=document.getElementById('authModalViewSignIn');const b=document.getElementById('authModalViewSent');const lbl=document.getElementById('authModalSentEmail');if(lbl)lbl.textContent=email||'';if(a)a.hidden=true;if(b)b.hidden=false;}
 function authModalBackToSignIn(){const a=document.getElementById('authModalViewSignIn');const b=document.getElementById('authModalViewSent');if(b)b.hidden=true;if(a)a.hidden=false;const el=document.getElementById('authEmailInput');if(el){try{el.focus();el.select();}catch(_){}}}
-async function authSignOut(){if(!_supa)return;authSetBusy(true);try{clearTimeout(_cloudPushTimer);_cloudPushTimer=null;_cloudSyncLastError=null;authDeviceTrustClear();try{await _supa.auth.signOut();}catch(_){}_authSession=null;}catch(e){}finally{authSetBusy(false);syncAccountUI();renderHeader();}}
+async function authSignOut(){if(!_supa)return;authSetBusy(true);try{clearTimeout(_cloudPushTimer);_cloudPushTimer=null;clearCloudEndOfDaySchedule();_cloudSyncLastError=null;authDeviceTrustClear();try{await _supa.auth.signOut();}catch(_){}_authSession=null;}catch(e){}finally{authSetBusy(false);syncAccountUI();renderHeader();}}
 function openAuthLoginModal(){closeM('mSettings');setTimeout(()=>{openM('mAuthLogin');const a=document.getElementById('authModalViewSignIn');const b=document.getElementById('authModalViewSent');if(b)b.hidden=true;if(a)a.hidden=false;const el=document.getElementById('authEmailInput');if(el)el.value='';authSetBusy(false);},120);}
 function syncAccountUI(){const anon=document.getElementById('accountAnonView');const signed=document.getElementById('accountSignedInView');const lbl=document.getElementById('accountEmailLabel');const u=authCurrentUser();if(anon&&signed){if(u){anon.hidden=true;signed.hidden=false;if(lbl)lbl.textContent=u.email||'(signed in)';}else{anon.hidden=false;signed.hidden=true;}}syncAuthGate();syncCloudSyncPanelUI();syncAccountPlanUI();syncSettingsPanelsKidCopy();void syncCloudHistoryPanel();}
 function confirmDeleteCloudAccount(){if(!authCurrentUser()){alert('You are not signed in.');return;}if(!confirm('This will delete your cloud row and sign you out. Local data on this device stays intact. Continue?'))return;deleteCloudAccount();}
-async function deleteCloudAccount(){if(!_supa)return;const kid=typeof useKidsLanguage==='function'&&useKidsLanguage();if(authCurrentUser()&&!_authSession){alert(kid?'You need the internet to delete cloud data. Ask a grown-up to connect.':'Connect to the internet to delete cloud data, then try again.');return;}authSetBusy(true);try{const u=authCurrentUser();if(u&&_authSession){const del=await _supa.from('user_state').delete().eq('user_id',u.id);if(del&&del.error)throw del.error;}try{await _supa.auth.signOut();}catch(_){}_authSession=null;authDeviceTrustClear();syncAccountUI();renderHeader();alert('Cloud data deleted. You are now signed out. Local data on this device is untouched.');}catch(e){alert('Delete failed: '+(e&&e.message?e.message:e));}finally{authSetBusy(false);}}
+async function deleteCloudAccount(){if(!_supa)return;const kid=typeof useKidsLanguage==='function'&&useKidsLanguage();if(authCurrentUser()&&!_authSession){alert(kid?'You need the internet to delete cloud data. Ask a grown-up to connect.':'Connect to the internet to delete cloud data, then try again.');return;}authSetBusy(true);try{const u=authCurrentUser();if(u&&_authSession){const hDel=await _supa.from('user_state_history').delete().eq('user_id',u.id);if(hDel&&hDel.error)throw hDel.error;const pDel=await _supa.from('user_state_pending').delete().eq('user_id',u.id);if(pDel&&pDel.error)throw pDel.error;const del=await _supa.from('user_state').delete().eq('user_id',u.id);if(del&&del.error)throw del.error;}try{await _supa.auth.signOut();}catch(_){}_authSession=null;authDeviceTrustClear();syncAccountUI();renderHeader();alert('Cloud data deleted. You are now signed out. Local data on this device is untouched.');}catch(e){alert('Delete failed: '+(e&&e.message?e.message:e));}finally{authSetBusy(false);}}
 if(authReady()){void authBootstrapSession();}else{console.warn('[auth] Supabase SDK did not load — sign-in is unavailable. Gate stays visible until the SDK loads or the page is refreshed.');syncAuthGate();}
 
 </script>
