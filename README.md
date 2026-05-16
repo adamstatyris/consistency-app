@@ -12,7 +12,7 @@ Closed beta (**v2.2beta**). **Auth:** Supabase (Google + email magic link). **Cl
 .
 Ôö£ÔöÇÔöÇ index.html              # Entire app (HTML + CSS + JS in one file)
 Ôö£ÔöÇÔöÇ manifest.webmanifest    # PWA manifest
-Ôö£ÔöÇÔöÇ sw.js                   # Minimal service worker (pass-through, enables installability)
+Ôö£ÔöÇÔöÇ sw.js                   # Service worker: fetch + Web Push handler only
 Ôö£ÔöÇÔöÇ _headers                # Cloudflare Pages cache rules
 Ôö£ÔöÇÔöÇ supabase/
 Ôöé   Ôö£ÔöÇÔöÇ schema.sql          # `user_state`, `user_state_history`, Web Push tables + RLS
@@ -37,7 +37,9 @@ Snapshots are optional for sync itself: if `user_state_history` is missing, uplo
 
 ## Web Push (Supabase Edge Function + cron)
 
-Habit **exact** reminder times (same rules as the in-page snapshot) can be delivered while the app is closed: the client writes pending rows to **`reminder_schedule`** and registers a **VAPID** subscription in **`push_subscriptions`**. A scheduled job calls the **`push-reminders`** Edge Function, which sends notifications via the `web-push` library.
+**All** reminder delivery when the app is closed is **Web Push** through Supabase: the client writes pending rows to **`reminder_schedule`** and registers a **VAPID** subscription in **`push_subscriptions`**. A scheduled job calls the **`push-reminders`** Edge Function ( `web-push` ) to deliver notifications. The service worker **only** handles `push` and `fetch` (no Periodic Background Sync reminder snapshot).
+
+Included in the server schedule (local wall times when the client syncs): **per-habit exact times** (not in kid mode), **Sunday / grace-window** nudges at fixed times, one **habits_day** nudge (14:00) when any **core or growth** habit is still unlogged that day, plus the optional dev test slot (`CONSISTENCY_TEMP_PUSH_TEST_2350`). **`CONSISTENCY_VAPID_PUBLIC_KEY`** must be set in `index.html` for scheduling to run; users must be **signed in** with sync-capable session.
 
 **Billing:** delivery uses normal Edge Function invocations. On the free tier, projects include a large monthly Edge quota (see [Supabase pricing](https://supabase.com/pricing)); a cron every 1ÔÇô5 minutes stays far below typical free limits for a personal app.
 
@@ -51,12 +53,8 @@ Habit **exact** reminder times (same rules as the in-page snapshot) can be deliv
 5. Schedule HTTP **`POST`** to  
    `https://<project-ref>.supabase.co/functions/v1/push-reminders`  
    with header **`x-cron-secret: <same as CRON_SECRET>`** (Supabase Dashboard cron, `pg_net`, GitHub Actions, etc.). Every 1ÔÇô5 minutes is reasonable.
-6. In [`index.html`](index.html), set **`CONSISTENCY_VAPID_PUBLIC_KEY`** to the **public** key string (must match `VAPID_PUBLIC_KEY` in secrets). Leave it empty to disable server scheduling (local service worker reminders still work).
-7. Users must be **signed in**, grant **notification** permission, and have **browser reminders** enabled; then open the app once so the client can upsert subscription and schedule rows.
-
-Sunday / core / growth **range** nudges are not duplicated on the server yet (only **exact** habit times and the optional dev test slot).
-
-## Local preview
+6. In [`index.html`](index.html), set **`CONSISTENCY_VAPID_PUBLIC_KEY`** to the **public** key string (must match `VAPID_PUBLIC_KEY` in secrets). Leave it empty to disable writing server schedule rows (no Web Push deliveries from cron).
+7. Users must be **signed in**, grant **notification** permission, and have **browser reminders** enabled; then open the app so the client can upsert subscription and schedule rows after edits or on the minute tick.
 
 Any static-file server works. Two easy options:
 
