@@ -15,7 +15,8 @@ Closed beta (**v2.2beta**). **Auth:** Supabase (Google + email magic link). **Cl
 Ôö£ÔöÇÔöÇ sw.js                   # Minimal service worker (pass-through, enables installability)
 Ôö£ÔöÇÔöÇ _headers                # Cloudflare Pages cache rules
 Ôö£ÔöÇÔöÇ supabase/
-Ôöé   ÔööÔöÇÔöÇ schema.sql          # `user_state` + `user_state_history` + RLS (run / re-run in Supabase SQL Editor)
+Ôöé   Ôö£ÔöÇÔöÇ schema.sql          # `user_state`, `user_state_history`, Web Push tables + RLS
+Ôöé   ÔööÔöÇÔöÇ functions/push-reminders/   # Edge Function: cron sends due rows via Web Push
 Ôö£ÔöÇÔöÇ icons/                  # PWA icons (192, 512, apple-touch)
 ÔööÔöÇÔöÇ README.md
 ```
@@ -27,12 +28,33 @@ Do this in the [Supabase Dashboard](https://supabase.com/dashboard) for **the sa
 1. Open your project ÔåÆ **SQL Editor** (left sidebar) ÔåÆ **New query**.
 2. Open [`supabase/schema.sql`](supabase/schema.sql) in this repo and **copy the entire file** into the editor.  
    - **New project:** run the full script once.  
-   - **Already migrated `user_state`:** if the editor reports errors such as *policy already exists* for `user_state_*`, do **not** re-run those lines ÔÇö copy only the block in `schema.sql` from `-- Previous cloud payloads` through the last `user_state_history` policy and run **that** once to add cloud backup history.
+   - **Already migrated `user_state`:** if the editor reports errors such as *policy already exists* for `user_state_*`, do **not** re-run those lines ÔÇö copy only the block in `schema.sql` from `-- Previous cloud payloads` through the last `user_state_history` policy and run **that** once to add cloud backup history. For **Web Push**, copy from `-- Web Push:` through the last `reminder_schedule` policy and run that once (see [Web Push](#web-push-supabase-edge-function--cron)).
 3. Click **Run** (or **Ctrl+Enter**). You should see success; no rows returned is normal.
-4. Quick check: **Table Editor** ÔåÆ confirm tables **`user_state`** and **`user_state_history`** exist and RLS is enabled (shield icon).
+4. Quick check: **Table Editor** ÔåÆ confirm **`user_state`** and **`user_state_history`** exist and RLS is enabled (shield icon). If you ran the Web Push block, **`push_subscriptions`** and **`reminder_schedule`** should also appear.
 5. Deploy or refresh the app; sign in and use **Sync now** once. After the **second** upload (when a previous cloud version exists), **Automatic cloud archives** on the Account tab should list **Backup 1** / **Backup 2** rows.
 
 Snapshots are optional for sync itself: if `user_state_history` is missing, uploads still work; the app just cannot list or restore older cloud copies.
+
+## Web Push (Supabase Edge Function + cron)
+
+Habit **exact** reminder times (same rules as the in-page snapshot) can be delivered while the app is closed: the client writes pending rows to **`reminder_schedule`** and registers a **VAPID** subscription in **`push_subscriptions`**. A scheduled job calls the **`push-reminders`** Edge Function, which sends notifications via the `web-push` library.
+
+**Billing:** delivery uses normal Edge Function invocations. On the free tier, projects include a large monthly Edge quota (see [Supabase pricing](https://supabase.com/pricing)); a cron every 1ÔÇô5 minutes stays far below typical free limits for a personal app.
+
+1. Run the **`-- Web Push:`** section from [`supabase/schema.sql`](supabase/schema.sql) in the SQL Editor (if you have not already).
+2. Generate VAPID keys (public + private), e.g. `npx --yes web-push generate-vapid-keys`.
+3. In the project root (with [Supabase CLI](https://supabase.com/docs/guides/cli) linked): set secrets, for example:
+   - `supabase secrets set VAPID_PUBLIC_KEY="..." VAPID_PRIVATE_KEY="..." VAPID_SUBJECT="mailto:you@yourdomain" CRON_SECRET="long-random-string"`
+   - `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` are normally injected when the function runs; set them via `secrets set` if your setup requires it.
+4. Deploy: `supabase functions deploy push-reminders --no-verify-jwt`  
+   (JWT verification is off so **only** callers that know `CRON_SECRET` should invoke the URL; use HTTPS and a long random secret.)
+5. Schedule HTTP **`POST`** to  
+   `https://<project-ref>.supabase.co/functions/v1/push-reminders`  
+   with header **`x-cron-secret: <same as CRON_SECRET>`** (Supabase Dashboard cron, `pg_net`, GitHub Actions, etc.). Every 1ÔÇô5 minutes is reasonable.
+6. In [`index.html`](index.html), set **`CONSISTENCY_VAPID_PUBLIC_KEY`** to the **public** key string (must match `VAPID_PUBLIC_KEY` in secrets). Leave it empty to disable server scheduling (local service worker reminders still work).
+7. Users must be **signed in**, grant **notification** permission, and have **browser reminders** enabled; then open the app once so the client can upsert subscription and schedule rows.
+
+Sunday / core / growth **range** nudges are not duplicated on the server yet (only **exact** habit times and the optional dev test slot).
 
 ## Local preview
 

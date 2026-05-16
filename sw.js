@@ -1,8 +1,8 @@
-/* Service worker: network pass-through + background reminder checks (Periodic Background Sync).
+/* Service worker: network pass-through + Periodic Background Sync + Web Push (payload from Supabase Edge Function).
  * Reminder times use the device timezone string posted from the page (see snapshot builder).
- * True server Push (works when the browser is fully closed) still needs a push backend + subscription — not implemented here.
+ * Web Push delivers JSON {title, body, tag} when subscribed and the server cron runs.
  */
-var CONSISTENCY_SW_CACHE = 'consistency-sw-v3';
+var CONSISTENCY_SW_CACHE = 'consistency-sw-v4';
 var K_SNAPSHOT = 'https://consistency.invalid/reminder-snapshot';
 var K_SW_DEDUPE = 'https://consistency.invalid/sw-notif-dedupe';
 
@@ -148,6 +148,28 @@ self.addEventListener('periodicsync', function (event) {
   if (event.tag === 'consistency-reminders') {
     event.waitUntil(swProcessReminders());
   }
+});
+
+self.addEventListener('push', function (event) {
+  var title = 'Consistency';
+  var body = '';
+  var tag = 'consistency-push';
+  var icon = notifIconUrl();
+  if (event.data) {
+    try {
+      var j = event.data.json();
+      if (j.title) title = j.title;
+      if (j.body != null) body = j.body;
+      if (j.tag) tag = j.tag;
+    } catch (e) {
+      try {
+        body = event.data.text() || '';
+      } catch (e2) {}
+    }
+  }
+  event.waitUntil(
+    self.registration.showNotification(title, { body: body, tag: tag, icon: icon, badge: icon })
+  );
 });
 
 self.addEventListener('notificationclick', function (event) {
