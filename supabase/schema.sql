@@ -28,7 +28,7 @@ create policy "user_state_delete_own"
   using (auth.uid() = user_id);
 
 -- Previous cloud payloads (archived before each upload when a prior cloud row exists).
--- The app keeps at most 2 archived cloud backups per user from the rolling last 48 hours (prune runs client-side after each insert).
+-- Prune (client): keeps at most one archived row per local calendar day for yesterday and two days ago; deletes all other history rows for that user. Live row stays in user_state.
 create table if not exists public.user_state_history (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references auth.users (id) on delete cascade,
