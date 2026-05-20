@@ -319,6 +319,12 @@ html[data-theme="light"] .goals-tab-pill--cooldown::before{background:conic-grad
 .pot-reset-float .prf-emoji{font-size:2.1rem;line-height:1;margin-bottom:var(--s2)}
 .pot-reset-float .prf-title{font-size:var(--sm);font-weight:800;color:var(--text)}
 .pot-reset-float .prf-body{margin-top:var(--s2);font-size:var(--xs);color:var(--text-muted);line-height:1.5;white-space:pre-line}
+.reminder-debug-scroll{overflow:auto;max-height:min(70vh,520px);max-width:100%;border:1px solid var(--border);border-radius:var(--r-lg);background:var(--surface)}
+.reminder-debug-table{width:100%;min-width:520px;border-collapse:collapse;font-size:var(--xs);line-height:1.35}
+.reminder-debug-table th,.reminder-debug-table td{border:1px solid var(--border);padding:var(--s2) var(--s3);text-align:left;vertical-align:top;white-space:nowrap}
+.reminder-debug-table th{background:var(--surface-2);font-weight:700;color:var(--text);position:sticky;top:0;z-index:1}
+.reminder-debug-table td:nth-child(3){white-space:normal;max-width:220px}
+.reminder-debug-table code{font-size:.85em}
 .whats-new-float{position:fixed;left:50%;bottom:max(24px,env(safe-area-inset-bottom));transform:translateX(-50%) translateY(115%);z-index:10041;width:min(94vw,640px);max-width:min(94vw,640px);box-sizing:border-box;max-height:min(calc(85vh - env(safe-area-inset-bottom)),720px);padding:var(--s5);border-radius:var(--r-xl);background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--border);box-shadow:0 12px 40px rgba(0,0,0,.35),0 0 0 1px rgba(255,255,255,.06);transition:transform .42s cubic-bezier(0.22,1,0.36,1),opacity .32s ease;opacity:0;pointer-events:none;text-align:left;display:flex;flex-direction:column}
 .whats-new-float.show{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto}
 .whats-new-float .wn-kicker{font-size:var(--xs);font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);margin-bottom:var(--s1);flex-shrink:0}
@@ -1152,6 +1158,7 @@ select#hTier.habit-tier-select-expanded{min-height:4.25rem;border-radius:var(--r
     <button type="button" class="tab" data-guided-tour="tab-history" onclick="switchTab('history',this)">📈 History</button>
     <button type="button" class="tab" data-guided-tour="tab-archive" onclick="switchTab('archive',this)">🗂 Habit Bank</button>
     <button type="button" class="tab" data-tab-premium="1" onclick="switchTab('mastery',this)" title="">🏅 Mastery</button>
+    <button type="button" class="tab" id="tabReminderDebugBtn" hidden onclick="switchTab('reminderDebug',this)" title="Scheduled push reminders (debug)">🔔 Reminders</button>
   </div>
 
   <section id="tab-dashboard" class="panel active">
@@ -1242,6 +1249,20 @@ select#hTier.habit-tier-select-expanded{min-height:4.25rem;border-radius:var(--r
     </div>
     <div id="masteryBody"></div>
     <div class="kid-critter-mount" id="kidCritterMount-mastery" aria-hidden="true"></div>
+  </section>
+
+  <section id="tab-reminderDebug" class="panel">
+    <div class="section-head" style="flex-wrap:wrap;gap:var(--s3)">
+      <div style="flex:1;min-width:min(100%,220px)">
+        <div class="section-title">Scheduled reminders</div>
+        <div class="muted small-note" style="margin-top:var(--s1)">Debug: local plan vs Supabase <code>reminder_schedule</code>. Scroll sideways on small screens.</div>
+      </div>
+      <button type="button" class="btn btn-ghost btn-sm" onclick="void renderReminderDebugTab()">Refresh</button>
+    </div>
+    <p id="reminderDebugMeta" class="small-note" style="margin:var(--s3) 0"></p>
+    <div class="reminder-debug-scroll">
+      <div id="reminderDebugBody"></div>
+    </div>
   </section>
 </main>
 </div>
@@ -4169,6 +4190,78 @@ function syncPremiumTabs(){
     el.title=prem?'':(kid?'Premium tab — ask a grown-up to pick Premium in Settings.':'Premium tab — choose Premium under Settings → Account plan (beta).');
   });
 }
+const REMINDER_DEBUG_ACCOUNT_EMAIL='dr.statiris@gmail.com';
+function reminderDebugUserAllowed(){const u=typeof authCurrentUser==='function'?authCurrentUser():null;if(!u||!u.email)return false;return String(u.email).toLowerCase().trim()===REMINDER_DEBUG_ACCOUNT_EMAIL;}
+function syncReminderDebugTabVisibility(){const b=document.getElementById('tabReminderDebugBtn');if(!b)return;const show=reminderDebugUserAllowed();b.hidden=!show;b.style.display=show?'':'none';if(!show){const p=document.getElementById('tab-reminderDebug');if(p&&p.classList.contains('active')){const d=document.querySelector('[data-guided-tour="tab-dashboard"]');if(d)switchTab('dashboard',d);}}}
+function normalizeReminderFireKey(iso){try{return new Date(iso).toISOString();}catch(e){return String(iso||'');}}
+function reminderDebugRowKey(sk,iso){return String(sk||'')+'\0'+normalizeReminderFireKey(iso);}
+function reminderDebugHabitLabel(slot_key,tag){
+  const sk=String(slot_key||'');const tg=String(tag||'');
+  if(sk.indexOf('hrd:')===0){
+    const dm=sk.match(/(\d{4}-\d{2}-\d{2})$/);if(!dm)return tg||'Habit';
+    const rest=sk.slice(4,sk.length-dm[0].length);if(!rest.endsWith(':'))return tg||'Habit';
+    const before=rest.slice(0,-1);const tm=before.match(/(\d{2}:\d{2})$/);if(!tm)return tg||'Habit';
+    const hid=before.slice(0,before.length-tm[0].length-1);
+    const h=typeof habitById==='function'?habitById(hid):null;
+    if(h)return(String(h.emoji||'').trim()+' '+String(h.title||'').trim()).trim().slice(0,48)||'Habit';
+    return String(hid||'Habit');
+  }
+  if(sk.indexOf('_tempPush2350')===0)return 'Test push';
+  if(tg==='habits_day'||sk.indexOf('habits_day')===0)return 'Daily nudge (unlogged)';
+  if(/^sun_/.test(tg)||/^sun_/.test(sk))return 'Sunday week-close';
+  return String(tg||sk.split(':')[0]||'—');
+}
+async function renderReminderDebugTab(){
+  const mount=document.getElementById('reminderDebugBody');const meta=document.getElementById('reminderDebugMeta');
+  if(!mount)return;
+  if(!reminderDebugUserAllowed()){mount.innerHTML='<p class="small-note">Not available.</p>';if(meta)meta.textContent='';return;}
+  mount.innerHTML='<p class="small-note">Loading…</p>';
+  const localRows=buildExactReminderScheduleRowsForSupabase(reminderSyncMaxFireMs('full'));
+  const notifyOn=!!(S&&S.user&&S.user.browserNotifyEnabled);
+  const perm=typeof Notification!=='undefined'?Notification.permission:'n/a';
+  let srvRows=[];let srvErr='';
+  const u=typeof authCurrentUser==='function'?authCurrentUser():null;
+  if(_supa&&u&&u.id&&_authSession){
+    const q=await _supa.from('reminder_schedule').select('slot_key,fire_at_utc,sent_at,tag,body').eq('user_id',u.id).order('fire_at_utc',{ascending:true});
+    if(q.error)srvErr=q.error.message||String(q.error);else srvRows=q.data||[];
+  }else if(!_supa)srvErr='No Supabase client';else if(!_authSession)srvErr='Sign in required for server rows';
+  const srvMap=new Map();
+  (srvRows||[]).forEach(function(r){if(!r)return;const k=reminderDebugRowKey(r.slot_key,r.fire_at_utc);srvMap.set(k,r);});
+  const localKeys=new Set();
+  localRows.forEach(function(r){localKeys.add(reminderDebugRowKey(r.slot_key,r.fire_at_utc));});
+  const rowsOut=[];
+  localRows.forEach(function(r){
+    const k=reminderDebugRowKey(r.slot_key,r.fire_at_utc);
+    const sr=srvMap.get(k);
+    rowsOut.push({slot_key:r.slot_key,fire_at_utc:r.fire_at_utc,habit:reminderDebugHabitLabel(r.slot_key,r.tag),up:!!sr,tx:sr?(sr.sent_at?'sent':'pend'):'—'});
+  });
+  (srvRows||[]).forEach(function(r){
+    const k=reminderDebugRowKey(r.slot_key,r.fire_at_utc);
+    if(localKeys.has(k))return;
+    rowsOut.push({slot_key:r.slot_key,fire_at_utc:r.fire_at_utc,habit:reminderDebugHabitLabel(r.slot_key,r.tag),up:true,tx:r.sent_at?'sent':'pend',srvOnly:true});
+  });
+  rowsOut.sort(function(a,b){return new Date(a.fire_at_utc)-new Date(b.fire_at_utc);});
+  if(meta){
+    meta.textContent='Profile: '+(notifyOn?'reminders on':'reminders off')+' · Notification: '+perm+' · Local rows: '+localRows.length+' · Server rows: '+(srvRows?srvRows.length:0)+(srvErr?' · API: '+srvErr:'');
+  }
+  if(!rowsOut.length){
+    mount.innerHTML='<p class="small-note">No rows. Turn on <strong>Browser reminders</strong> and grant notification permission to populate the schedule; or check API errors above.</p>';
+    return;
+  }
+  const esc=typeof escHTML==='function'?escHTML:function(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');};
+  let tb='<table class="reminder-debug-table"><thead><tr><th>Date</th><th>Time</th><th>Habit</th><th>Up</th><th>Tx</th><th>Slot</th></tr></thead><tbody>';
+  rowsOut.forEach(function(row){
+    let d=new Date(row.fire_at_utc);
+    const dateStr=isNaN(d.getTime())?'—':new Intl.DateTimeFormat('en-CA',{dateStyle:'short'}).format(d);
+    const timeStr=isNaN(d.getTime())?'—':new Intl.DateTimeFormat(undefined,{timeStyle:'short'}).format(d);
+    const up=row.up?'✓':'—';
+    const tx=esc(String(row.tx));
+    const slo=esc(String(row.slot_key||'').slice(0,56));
+    tb+='<tr><td>'+esc(dateStr)+'</td><td>'+esc(timeStr)+'</td><td>'+esc(String(row.habit))+'</td><td>'+up+'</td><td>'+tx+'</td><td><code>'+slo+(String(row.slot_key||'').length>56?'…':'')+'</code></td></tr>';
+  });
+  tb+='</tbody></table><p class="small-note" style="margin:var(--s3) 0 0"><strong>Up</strong> = row on server. <strong>Tx</strong> = pend (queued) / sent (push attempted). Extra server-only rows show if cloud has entries not in the current local plan.</p>';
+  mount.innerHTML=tb;
+}
 function habitEffectiveTier(h,wk){
   if(!h||!wk)return'core';
   const wd=S.weeks&&S.weeks[wk];
@@ -4271,8 +4364,8 @@ function goalsTabApplyRetetherWithGid(hid,newGid){const h=habitById(hid);if(!h)r
 function renderGoalsTab(fromUser){bindGoalsTabDelegationOnce();if(fromUser)_goalsTabEditMode=false;const host=document.getElementById('goalsTabBody');if(!host)return;const paint=function(){const goals=activeGoals();const oldGoals=(S.goals||[]).filter(function(g){return g&&g.status==='completed';});const kid=typeof useKidsLanguage==='function'&&useKidsLanguage();if(goals.length<2)_goalsTabEditMode=false;syncGoalsTabToolbar(goals);let html='';if(goals.length){const edit=_goalsTabEditMode;if(edit){html+=`<div class="goals-tab-banner">${kid?'Tap a habit pill to move it to another goal.':'Tap a habit pill, then choose which goal it should move to.'}</div>`;}goals.forEach(function(g){const pot=computeGoalPotTotalForGoal(g);const tgt=Number(g.target)||0;const potLine=tgt>0?`<div class="goals-tab-card__pot">Pot: <strong>£${pot}</strong> / £${tgt} target</div>`:`<div class="goals-tab-card__pot">Pot: <strong>£${pot}</strong> · add a savings target in the goal editor for a progress line</div>`;const habits=goalHabits(g.id).filter(function(h){return h.active&&!h.archived;});const pills=habits.length?habits.map(function(h){const ms=habitGoalRetetherCooldownRemainingMs(h);const frozen=ms>0;const tierCls=h.tier==='growth'?'goals-tab-pill--growth':'goals-tab-pill--core';const baseCls='goals-tab-pill '+tierCls+(frozen?' goals-tab-pill--cooldown':'');const label=escDash(h.title);const hidEsc=escHTML(h.id);const gidEsc=escHTML(g.id);const emRaw=(String(h.emoji||'').trim().slice(0,8));const emPart=emRaw?`<span class="goals-tab-pill__emoji" aria-hidden="true">${escHTML(emRaw)}</span>`:'';const inner=`<span class="goals-tab-pill__inner">${emPart}<span class="goals-tab-pill__text">${label}</span></span>`;if(edit){if(frozen){const tip=(kid?('Unlocks '+formatRetetherUnlockDate(ms)):('Cooldown until '+formatRetetherUnlockDate(ms)));return `<button type="button" class="${baseCls} goals-tab-pill--interactive" disabled title="${escHTML(tip)}">${inner}</button>`;}return `<button type="button" class="${baseCls} goals-tab-pill--interactive" data-goals-move-habit="1" data-habit-id="${hidEsc}" data-goal-id="${gidEsc}">${inner}</button>`;}return `<span class="${baseCls}">${inner}</span>`;}).join(''):`<span class="small-note" style="color:var(--text-muted)">${kid?'No habits on this goal yet.':'No active habits on this goal yet.'}</span>`;const archTgl=goalArchiveToggleButtonHTML(g);const emojiG=escHTML((String(g.emoji||'🎯').trim()||'🎯').slice(0,8));html+=`<div class="goals-tab-card card glow-blue"><div class="goals-tab-card__inner"><div class="goals-tab-card__title"><span class="goals-tab-card__emoji" aria-hidden="true">${emojiG}</span><span>${escDash(g.name)}</span></div>${potLine}<div class="goals-tab-pills">${pills}</div>${archTgl?`<div class="goals-tab-card__archive-row" style="margin-top:var(--s3);display:flex;align-items:center;flex-wrap:wrap;gap:var(--s2)">${archTgl}</div>`:''}</div></div>`;});}else{if(!oldGoals.length){host.innerHTML='<div class="card empty glow-blue"><div class="empty-icon">🎯</div><h3>No active goals</h3><p>Add a goal first. Habits you attach will show up here as pills.</p></div>';return;}html+=`<div class="card empty glow-blue" style="margin-bottom:var(--s4)"><div class="empty-icon">🎯</div><h3>No active goals</h3><p>${kid?'Add a goal when you are ready. Finished goals are below.':'Add a goal when you are ready — Completed Goals are below.'}</p></div>`;}if(oldGoals.length){html+=`<div class="old-goals-section"><h3 class="old-goals-section__title">${kid?'Completed goals':'Completed Goals'}</h3>`;oldGoals.forEach(function(g){const wkDisp=typeof g.goalCompletedTrackedWeeks==='number'?g.goalCompletedTrackedWeeks:snapshotGoalCompletedWeeksCount(g);const line=kid?(`Tracked ${wkDisp} week${wkDisp===1?'':'s'} until you finished.`):(`Tracked for ${wkDisp} week${wkDisp===1?'':'s'} until completion.`);html+=`<div class="old-goal-swipe" data-old-goal-swipe><div class="old-goal-swipe__under"><button type="button" class="btn btn-danger btn-sm old-goal-swipe__delete" data-gid="${escAttr(g.id)}" onclick="openDeleteOldGoalConfirm(this.dataset.gid)">${kid?'Delete':'Delete'}</button></div><div class="old-goal-swipe__inner"><div class="goals-tab-card card" style="margin-bottom:0"><div class="goals-tab-card__inner"><div class="old-goal-card-head"><div class="old-goal-card-head__text"><div class="goals-tab-card__title"><span class="goals-tab-card__emoji" aria-hidden="true">${escHTML((String(g.emoji||'🎯').trim()||'🎯').slice(0,8))}</span><span>${escDash(g.name)}</span></div><p class="small-note" style="margin:var(--s2) 0 0;line-height:1.55">${line}</p></div>${goalArchiveToggleButtonHTML(g)}</div></div></div></div></div>`;});html+='</div>';}const orphans=S.habits.filter(function(h){return h.active&&!h.archived&&!goalIsActive(goalById(h.goalId))&&!h.masteryLegendaryCoreLocked;});if(orphans.length){html+=`<div class="goals-tab-card card" style="border-color:var(--amber)"><div class="goals-tab-card__inner"><div class="goals-tab-card__title">${kid?'Needs a goal':'Needs a goal'}</div><p class="small-note" style="margin:0;color:var(--text-muted)">${kid?'These habits are active but not on an active goal — open each in the editor to pick a goal.':'These habits are active but not on an active goal — open each in the habit editor to pick a goal.'}</p>${orphans.map(function(h){return '<div class="small-note" style="margin-top:var(--s2)">· '+escDash(h.title)+'</div>';}).join('')}</div></div>`;}host.innerHTML=html;};paint();bindOldGoalsSwipeHandlers(host);if(fromUser&&S&&S.user&&!S.user.habitRetetherRulesStepperSeen)maybeStartHabitRetetherRulesStepper(function(){});}
 function renderArchive(){const habits=S.habits.filter(h=>h.archived||!h.active);if(!habits.length){document.getElementById('archiveList').innerHTML=`<div class="card empty glow-blue"><div class="empty-icon">🗂</div><h3>Habit bank is empty</h3><p>Archived habits will show here and can be reused later.</p></div>`;return;}document.getElementById('archiveList').innerHTML=habits.map(h=>{const origin=goalById(h.originGoalId);const del=`<button type="button" class="btn btn-danger btn-sm bank-delete-btn bank-delete-btn--round" data-habit-id="${h.id}" aria-label="Remove from bank" title="Remove from bank">×</button>`;return `<div class="card config-card"><div class="config-head"><div class="habit-emoji">${h.emoji||'🎯'}</div><div style="flex:1"><div class="habit-name-row"><span class="goal-title">${escDash(h.title)}</span>${habitMasteryBadgeHTML(h)}${legendaryBankPillHTML(h)}</div><div class="goal-sub">Originally from ${escDash(h.bankedFromGoalName||origin?.name||'a previous goal')} · ${metricLabel(h)}</div></div><div class="config-actions"><button type="button" class="hw-toggle bank-reactivate-btn" data-habit-id="${h.id}" onclick="openReactivate('${h.id}')" title="Banked — click to reactivate"><span class="hw-toggle-track"><span class="hw-toggle-thumb"></span></span><span class="hw-toggle-lbl">Banked</span></button>${del}</div></div></div>`;}).join('');}
 function scrollAppMainToTop(){if(typeof guidedTourActive==='function'&&guidedTourActive())return;try{window.scrollTo({top:0,left:0,behavior:'auto'});}catch(e){window.scrollTo(0,0);}const se=document.scrollingElement;if(se)se.scrollTop=0;}
-function switchTab(name,btn){if(name==='mastery'&&typeof isPremiumAccount==='function'&&!isPremiumAccount()){const kid=typeof useKidsLanguage==='function'&&useKidsLanguage();alert(kid?'Ask a grown-up to pick Premium in Settings to open this tab.':'Choose Premium under Settings → Account plan (beta) to use this tab.');return;}document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));document.getElementById('tab-'+name).classList.add('active');btn.classList.add('active');if(name==='dashboard')renderDashboard();if(name==='tracker')renderTracker();if(name==='history')renderHistory();if(name==='habits')renderHabitsConfig();if(name==='goals')renderGoalsTab(true);if(name==='archive')renderArchive();if(name==='mastery')renderMastery();scrollAppMainToTop();syncKidCritterLoop();if(name==='tracker'&&S&&S.user&&S.user.setupDone&&!S.user.firstLogStepperSeen&&hasAnyActiveHabits())setTimeout(()=>maybeStartFirstLogStepper(),420);if(name==='dashboard')setTimeout(()=>maybeStartConsistencyRuleDeferred(),520);if(name==='history'&&S&&S.user&&S.user.setupDone&&!S.user.firstHistoryStepperSeen)setTimeout(()=>maybeStartFirstHistoryStepper(),420);if(name==='archive'&&S&&S.user&&S.user.setupDone&&!S.user.firstBankStepperSeen)setTimeout(()=>maybeStartFirstBankStepper(),420);}
-function renderAll(){syncPremiumTabs();renderHeader();renderDashboard();renderTracker();refreshCollectionButtons();syncProfileDeleteButtonsVisible();const p=document.querySelector('.panel.active')?.id||'';if(p==='tab-history')renderHistory();if(p==='tab-habits')renderHabitsConfig();if(p==='tab-goals')renderGoalsTab();if(p==='tab-archive')renderArchive();if(p==='tab-mastery')renderMastery();maybeScheduleWhatsNewVersionModal();maybeScheduleLegendaryReFloat();maybeScheduleWhatsNewFloat();maybeShowPotTargetCelebration();flushPotResetSupportQueue();syncPwaAddToHomeBar();}
+function switchTab(name,btn){if(name==='mastery'&&typeof isPremiumAccount==='function'&&!isPremiumAccount()){const kid=typeof useKidsLanguage==='function'&&useKidsLanguage();alert(kid?'Ask a grown-up to pick Premium in Settings to open this tab.':'Choose Premium under Settings → Account plan (beta) to use this tab.');return;}if(name==='reminderDebug'&&!reminderDebugUserAllowed()){alert('This tab is not available for this account.');return;}document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));document.getElementById('tab-'+name).classList.add('active');btn.classList.add('active');if(name==='dashboard')renderDashboard();if(name==='tracker')renderTracker();if(name==='history')renderHistory();if(name==='habits')renderHabitsConfig();if(name==='goals')renderGoalsTab(true);if(name==='archive')renderArchive();if(name==='mastery')renderMastery();if(name==='reminderDebug')void renderReminderDebugTab();scrollAppMainToTop();syncKidCritterLoop();if(name==='tracker'&&S&&S.user&&S.user.setupDone&&!S.user.firstLogStepperSeen&&hasAnyActiveHabits())setTimeout(()=>maybeStartFirstLogStepper(),420);if(name==='dashboard')setTimeout(()=>maybeStartConsistencyRuleDeferred(),520);if(name==='history'&&S&&S.user&&S.user.setupDone&&!S.user.firstHistoryStepperSeen)setTimeout(()=>maybeStartFirstHistoryStepper(),420);if(name==='archive'&&S&&S.user&&S.user.setupDone&&!S.user.firstBankStepperSeen)setTimeout(()=>maybeStartFirstBankStepper(),420);}
+function renderAll(){syncPremiumTabs();syncReminderDebugTabVisibility();renderHeader();renderDashboard();renderTracker();refreshCollectionButtons();syncProfileDeleteButtonsVisible();const p=document.querySelector('.panel.active')?.id||'';if(p==='tab-history')renderHistory();if(p==='tab-habits')renderHabitsConfig();if(p==='tab-goals')renderGoalsTab();if(p==='tab-archive')renderArchive();if(p==='tab-mastery')renderMastery();if(p==='tab-reminderDebug')void renderReminderDebugTab();maybeScheduleWhatsNewVersionModal();maybeScheduleLegendaryReFloat();maybeScheduleWhatsNewFloat();maybeShowPotTargetCelebration();flushPotResetSupportQueue();syncPwaAddToHomeBar();}
 function toggleDay(wk,id,idx){const off=offsetForWeekKey(wk);const h=habitById(id);if(off===null||!h||!canEditHabitDay(h,off,idx)||isHabitDataLocked(wk,id))return;const hd=ensureHD(wk,id);const wasQ=qualifies(h,wk);hd.days[idx]=!hd.days[idx];if(hd.days[idx])soundCheck();else soundUncheck();if(qualifies(habitById(id),wk))setTimeout(soundQualify,80);kidCritterMaybePlayRocketOnHabitQualified(wk,habitById(id),wasQ);if(activeGoals().length&&activeGoals().every(g=>weekGoalConsistent(g.id,wk))&&wk===weekKey(0)){setTimeout(()=>{soundWeekComplete();confetti();},180);}save();renderDashboard();renderTracker();renderHistory();}
 function setMetric(wk,id,val){const off=offsetForWeekKey(wk);const h=habitById(id);if(off===null||!h||!canEditHabitWeekMetric(h,off)||isHabitDataLocked(wk,id))return;const wasQ=qualifies(h,wk);ensureHD(wk,id).value=parseFloat(val)||0;if(qualifies(habitById(id),wk))setTimeout(soundQualify,60);kidCritterMaybePlayRocketOnHabitQualified(wk,h,wasQ);save();renderDashboard();renderTracker();renderHistory();}
 function weekSlideDurationMs(steps){if(typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches)return 0;const s=Math.max(1,steps);const k=Math.min(s,8);return Math.max(200,Math.min(560,520-48*k));}
@@ -4535,7 +4628,7 @@ function showAuthModalSent(email){const a=document.getElementById('authModalView
 function authModalBackToSignIn(){const a=document.getElementById('authModalViewSignIn');const b=document.getElementById('authModalViewSent');if(b)b.hidden=true;if(a)a.hidden=false;const el=document.getElementById('authEmailInput');if(el){try{el.focus();el.select();}catch(_){}}}
 async function authSignOut(){if(!_supa)return;authSetBusy(true);try{const u0=typeof authCurrentUser==='function'?authCurrentUser():null;const uid=u0&&u0.id?u0.id:null;clearTimeout(_cloudPushTimer);_cloudPushTimer=null;_cloudSyncLastError=null;await cleanupWebPushOnSignOut(uid);authDeviceTrustClear();try{await _supa.auth.signOut();}catch(_){}_authSession=null;}catch(e){}finally{authSetBusy(false);syncAccountUI();renderHeader();}}
 function openAuthLoginModal(){closeM('mSettings');setTimeout(()=>{openM('mAuthLogin');const a=document.getElementById('authModalViewSignIn');const b=document.getElementById('authModalViewSent');if(b)b.hidden=true;if(a)a.hidden=false;const el=document.getElementById('authEmailInput');if(el)el.value='';authSetBusy(false);},120);}
-function syncAccountUI(){const anon=document.getElementById('accountAnonView');const signed=document.getElementById('accountSignedInView');const lbl=document.getElementById('accountEmailLabel');const u=authCurrentUser();if(anon&&signed){if(u){anon.hidden=true;signed.hidden=false;if(lbl)lbl.textContent=u.email||'(signed in)';}else{anon.hidden=false;signed.hidden=true;}}syncAuthGate();syncCloudSyncPanelUI();syncAccountPlanUI();syncSettingsPanelsKidCopy();void syncCloudHistoryPanel();}
+function syncAccountUI(){const anon=document.getElementById('accountAnonView');const signed=document.getElementById('accountSignedInView');const lbl=document.getElementById('accountEmailLabel');const u=authCurrentUser();if(anon&&signed){if(u){anon.hidden=true;signed.hidden=false;if(lbl)lbl.textContent=u.email||'(signed in)';}else{anon.hidden=false;signed.hidden=true;}}syncAuthGate();syncCloudSyncPanelUI();syncAccountPlanUI();syncSettingsPanelsKidCopy();void syncCloudHistoryPanel();syncReminderDebugTabVisibility();}
 function confirmDeleteCloudAccount(){if(!authCurrentUser()){alert('You are not signed in.');return;}if(!confirm('This will delete your cloud row and sign you out. Local data on this device stays intact. Continue?'))return;deleteCloudAccount();}
 async function deleteCloudAccount(){if(!_supa)return;const kid=typeof useKidsLanguage==='function'&&useKidsLanguage();if(authCurrentUser()&&!_authSession){alert(kid?'You need the internet to delete cloud data. Ask a grown-up to connect.':'Connect to the internet to delete cloud data, then try again.');return;}authSetBusy(true);try{const u=authCurrentUser();if(u&&_authSession){await cleanupWebPushOnSignOut(u.id);const del=await _supa.from('user_state').delete().eq('user_id',u.id);if(del&&del.error)throw del.error;}try{await _supa.auth.signOut();}catch(_){}_authSession=null;authDeviceTrustClear();syncAccountUI();renderHeader();alert('Cloud data deleted. You are now signed out. Local data on this device is untouched.');}catch(e){alert('Delete failed: '+(e&&e.message?e.message:e));}finally{authSetBusy(false);}}
 if(authReady()){void authBootstrapSession();}else{console.warn('[auth] Supabase SDK did not load — sign-in is unavailable. Gate stays visible until the SDK loads or the page is refreshed.');syncAuthGate();}
