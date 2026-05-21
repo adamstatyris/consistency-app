@@ -14,8 +14,8 @@
 /icons/*
   Cache-Control: public, max-age=86400
 
-# HTML entry: short cache so app updates reach users quickly.
+# HTML entry: revalidate often so habit editor / reminders UI updates aren’t stale on phones.
 /
-  Cache-Control: public, max-age=300
+  Cache-Control: public, max-age=0, must-revalidate
 /index.html
-  Cache-Control: public, max-age=300
+  Cache-Control: public, max-age=0, must-revalidate
