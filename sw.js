@@ -1,7 +1,7 @@
 /* Service worker: fetch pass-through + Web Push only.
  * Scheduled reminders are delivered via Supabase Edge (push) — no Periodic Background Sync snapshot.
  */
-var CONSISTENCY_SW_CACHE = 'consistency-sw-v12';
+var CONSISTENCY_SW_CACHE = 'consistency-sw-v13';
 
 function notifIconUrl() {
   try {
