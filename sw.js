@@ -1,7 +1,7 @@
 /* Service worker: Web Push only (no asset caching).
  * Do NOT intercept fetch — pass-through avoids Response.error() breaking PWA loads on flaky mobile networks.
  */
-var CONSISTENCY_SW_CACHE = 'consistency-sw-v14';
+var CONSISTENCY_SW_CACHE = 'consistency-sw-v15';
 
 function notifIconUrl() {
   try {
