@@ -5,7 +5,7 @@ var CONSISTENCY_SW_CACHE = 'consistency-sw-v14';
 
 function notifIconUrl() {
   try {
-    return new URL('icons/icon-192.png?v=4', self.registration.scope || self.location).href;
+    return new URL('icons/icon-192.png?v=5', self.registration.scope || self.location).href;
   } catch (e) {
     return undefined;
   }

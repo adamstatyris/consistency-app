@@ -60,6 +60,21 @@ function fixBrokenUnicodeNames(s) {
     .replace(/\bu([0-9a-f]{4})\b/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)));
 }
 
+/** TSV/extract stores paragraph breaks as literal \\n; convert to real newlines before jsq(). */
+function unescapeCatalogText(s) {
+  if (s == null || s === '') return s;
+  return String(s)
+    .replace(/\\n/g, '\n')
+    .replace(/\\r/g, '\r')
+    .replace(/\\t/g, '\t');
+}
+
+/** Repair tuples that already contain literal backslash-n from a bad apply round-trip. */
+function denormalizeLiteralEscapes(s) {
+  if (s == null || s === '') return s;
+  return unescapeCatalogText(s);
+}
+
 function jsq(s) {
   if (s == null) return "''";
   return (
@@ -319,6 +334,13 @@ function applyInsightsAdult(html, byId) {
       const f = parsed.fields;
       const id = f[0];
       let changed = false;
+      for (const idx of [1, 2, 3]) {
+        const fixed = denormalizeLiteralEscapes(f[idx]);
+        if (fixed !== f[idx]) {
+          f[idx] = fixed;
+          changed = true;
+        }
+      }
       for (const suf of ['title', 'body', 'sourceText']) {
         const eid = `insight.adult.${id}.${suf}`;
         const row = byId.get(eid);
@@ -459,8 +481,8 @@ function buildById(rows) {
     if (!id || id === 'id') continue;
     const category = row[idx.category] ?? '';
     const variant = row[idx.variant] ?? '';
-    let adult = fixBrokenUnicodeNames(row[idx.adult] ?? '');
-    let kid = fixBrokenUnicodeNames(row[idx.kid] ?? '');
+    let adult = unescapeCatalogText(fixBrokenUnicodeNames(row[idx.adult] ?? ''));
+    let kid = unescapeCatalogText(fixBrokenUnicodeNames(row[idx.kid] ?? ''));
     const html = (row[idx.html] ?? '').trim().toLowerCase();
     byId.set(id, { id, category, variant, adult, kid, html: html === 'yes' ? 'yes' : 'no' });
   }

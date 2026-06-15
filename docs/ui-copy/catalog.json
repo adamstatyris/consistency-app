@@ -4194,7 +4194,7 @@
       "category": "insights_adult",
       "insight_id": "ME11",
       "field": "sourceText",
-      "adult": "Consistency app — online / offline indicator",
+      "adult": "Evolve app — online / offline indicator",
       "kid": null,
       "html": false,
       "meta": {
@@ -4246,7 +4246,7 @@
       "category": "insights_adult",
       "insight_id": "RG1",
       "field": "sourceText",
-      "adult": "Consistency app — tier colours",
+      "adult": "Evolve app — tier colours",
       "kid": null,
       "html": false,
       "meta": {
@@ -4454,7 +4454,7 @@
       "category": "insights_adult",
       "insight_id": "CA1",
       "field": "sourceText",
-      "adult": "Consistency — week & habit rules",
+      "adult": "Evolve — week & habit rules",
       "kid": null,
       "html": false,
       "meta": {
@@ -4506,7 +4506,7 @@
       "category": "insights_adult",
       "insight_id": "CA2",
       "field": "sourceText",
-      "adult": "Consistency app — habit tiers",
+      "adult": "Evolve app — habit tiers",
       "kid": null,
       "html": false,
       "meta": {
@@ -5286,7 +5286,7 @@
       "category": "insights_adult",
       "insight_id": "MX3",
       "field": "sourceText",
-      "adult": "Consistency — mastery framing",
+      "adult": "Evolve — mastery framing",
       "kid": null,
       "html": false,
       "meta": {
@@ -5338,7 +5338,7 @@
       "category": "insights_adult",
       "insight_id": "MX4",
       "field": "sourceText",
-      "adult": "Consistency — legendary framing",
+      "adult": "Evolve — legendary framing",
       "kid": null,
       "html": false,
       "meta": {
@@ -5390,7 +5390,7 @@
       "category": "insights_adult",
       "insight_id": "MX5",
       "field": "sourceText",
-      "adult": "Consistency — timeless framing",
+      "adult": "Evolve — timeless framing",
       "kid": null,
       "html": false,
       "meta": {
@@ -5442,7 +5442,7 @@
       "category": "insights_adult",
       "insight_id": "MX6",
       "field": "sourceText",
-      "adult": "Consistency — eternal framing",
+      "adult": "Evolve — eternal framing",
       "kid": null,
       "html": false,
       "meta": {
@@ -5494,7 +5494,7 @@
       "category": "insights_adult",
       "insight_id": "MX7",
       "field": "sourceText",
-      "adult": "Consistency — immortal framing",
+      "adult": "Evolve — immortal framing",
       "kid": null,
       "html": false,
       "meta": {
@@ -9159,7 +9159,7 @@
       "locator": "syncSettingsPanelsKidCopy:setHtml:advancedCloudHistoryIntro",
       "elementId": "advancedCloudHistoryIntro",
       "adult": "These two buttons are the latest two rolling cloud snapshots (updated nightly on the server). Tap one to revert if your data looks off (you confirm first).",
-      "kid": "Two rolling cloud snapshots (like \"yesterday\" and \"two days ago\"). Tap one to go back if something looks wrong (confirm with a grown-up).",
+      "kid": "Two rolling cloud snapshots (like yesterday and two days ago). Tap one to go back if something looks wrong (confirm with a grown-up).",
       "html": true
     },
     {
@@ -9350,7 +9350,7 @@
       "id": "onboarding.intro.adult.steps[0].html",
       "category": "onboarding_intro",
       "variant": "adult",
-      "adult": "<p style=\"margin:0 0 var(--s3)\">This app helps you build consistency for everything you struggle with until now, using three mechanisms:</p><ul><li><strong>Goal</strong> — long-term rewards so you keep your eyes on what you are saving for.</li><li><strong>Weekly treat</strong> — short-term rewards so you feel the win often.</li><li><strong>Consistency</strong> — a streak you will want to keep going.</li></ul>",
+      "adult": "<p style=margin:0 0 var(--s3)>This app helps you build consistency for everything you struggle with until now, using three mechanisms:</p><ul><li><strong>Goal</strong> — long-term rewards so you keep your eyes on what you are saving for.</li><li><strong>Weekly treat</strong> — short-term rewards so you feel the win often.</li><li><strong>Consistency</strong> — a streak you will want to keep going.</li></ul>",
       "kid": null,
       "html": true
     },
@@ -9366,7 +9366,7 @@
       "id": "onboarding.intro.adult.steps[1].html",
       "category": "onboarding_intro",
       "variant": "adult",
-      "adult": "<p style=\"margin:0 0 var(--s3)\"><strong>Consistency</strong> is built on mundane repetition. But this app makes it interesting and fun. Life is neither easy nor perfect, but we think it’s OK to be on top of things at least <strong>80%</strong> of the time.</p>",
+      "adult": "<p style=margin:0 0 var(--s3)><strong>Consistency</strong> is built on mundane repetition. But this app makes it interesting and fun. Life is neither easy nor perfect, but we think it’s OK to be on top of things at least <strong>80%</strong> of the time.</p>",
       "kid": null,
       "html": true
     },
@@ -9382,7 +9382,7 @@
       "id": "onboarding.intro.adult.steps[2].html",
       "category": "onboarding_intro",
       "variant": "adult",
-      "adult": "<p style=\"margin:0\"><strong>Qualify</strong> your week to remain <strong>Consistent</strong> for 80% of your tracking time and you can reap your <strong>big Goal</strong> reward, on top of building the good habits you really need.</p>",
+      "adult": "<p style=margin:0><strong>Qualify</strong> your week to remain <strong>Consistent</strong> for 80% of your tracking time and you can reap your <strong>big Goal</strong> reward, on top of building the good habits you really need.</p>",
       "kid": null,
       "html": true
     },
@@ -9398,7 +9398,7 @@
       "id": "onboarding.intro.adult.steps[3].html",
       "category": "onboarding_intro",
       "variant": "adult",
-      "adult": "<p style=\"margin:0 0 var(--s3)\">A week qualifies by qualifying its <strong>(core)</strong> habits. More on this later.</p><p style=\"margin:0\">You are now ready to set your first <strong>Goal</strong>.</p>",
+      "adult": "<p style=margin:0 0 var(--s3)>A week qualifies by qualifying its <strong>(core)</strong> habits. More on this later.</p><p style=margin:0>You are now ready to set your first <strong>Goal</strong>.</p>",
       "kid": null,
       "html": true
     },
@@ -9431,7 +9431,7 @@
       "category": "onboarding_intro",
       "variant": "kid",
       "adult": null,
-      "kid": "<p style=\"margin:0 0 var(--s3)\">This app uses three ideas:</p><ul><li>A big <strong>Goal</strong> to save for.</li><li>A small weekly <strong>Treat</strong> when you do well.</li><li>A <strong>Consistency</strong> streak you want to protect.</li></ul><p style=\"margin:0\">Ask a grown-up if a sentence feels tricky.</p>",
+      "kid": "<p style=margin:0 0 var(--s3)>This app uses three ideas:</p><ul><li>A big <strong>Goal</strong> to save for.</li><li>A small weekly <strong>Treat</strong> when you do well.</li><li>A <strong>Consistency</strong> streak you want to protect.</li></ul><p style=margin:0>Ask a grown-up if a sentence feels tricky.</p>",
       "html": true
     },
     {
@@ -9447,7 +9447,7 @@
       "category": "onboarding_intro",
       "variant": "kid",
       "adult": null,
-      "kid": "<p style=\"margin:0 0 var(--s3)\"><strong>Consistency</strong> means showing up again and again. This app tries to make that feel fair and a bit fun. Aim to be on track most weeks — grown-ups often use about <strong>80%</strong> as a guide.</p>",
+      "kid": "<p style=margin:0 0 var(--s3)><strong>Consistency</strong> means showing up again and again. This app tries to make that feel fair and a bit fun. Aim to be on track most weeks — grown-ups often use about <strong>80%</strong> as a guide.</p>",
       "html": true
     },
     {
@@ -9463,7 +9463,7 @@
       "category": "onboarding_intro",
       "variant": "kid",
       "adult": null,
-      "kid": "<p style=\"margin:0\">When your week <strong>qualifies</strong>, you stay <strong>Consistent</strong> over your tracked weeks and move toward your big <strong>Goal</strong> while building habits.</p>",
+      "kid": "<p style=margin:0>When your week <strong>qualifies</strong>, you stay <strong>Consistent</strong> over your tracked weeks and move toward your big <strong>Goal</strong> while building habits.</p>",
       "html": true
     },
     {
@@ -9479,7 +9479,7 @@
       "category": "onboarding_intro",
       "variant": "kid",
       "adult": null,
-      "kid": "<p style=\"margin:0 0 var(--s3)\">A week qualifies when its <strong>core</strong> habits qualify. Grown-ups can read more in <strong>Settings → Help</strong>.</p><p style=\"margin:0\">Next: add your first <strong>Goal</strong>.</p>",
+      "kid": "<p style=margin:0 0 var(--s3)>A week qualifies when its <strong>core</strong> habits qualify. Grown-ups can read more in <strong>Settings → Help</strong>.</p><p style=margin:0>Next: add your first <strong>Goal</strong>.</p>",
       "html": true
     },
     {
@@ -9576,7 +9576,7 @@
     {
       "id": "habitTierTutorial.adult.body",
       "category": "habit_editor_tour",
-      "adult": "<strong>Core</strong> — Every core habit must qualify in a week for that week to count as \"on track\".<br><br><strong>Growth</strong> — Both core and growth habits add money to your pots at the end of the week when they qualify.<br><br><strong>Recovery mode</strong> — When your consistency % drops below the floor, only core habits add to your pot until you recover (more on this later).",
+      "adult": "<strong>Core</strong> — Every core habit must qualify in a week for that week to count as on track.<br><br><strong>Growth</strong> — Both core and growth habits add money to your pots at the end of the week when they qualify.<br><br><strong>Recovery mode</strong> — When your consistency % drops below the floor, only core habits add to your pot until you recover (more on this later).",
       "kid": null,
       "html": true
     },

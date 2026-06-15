@@ -617,7 +617,10 @@ function main() {
   const esc = (v) => {
     if (v === null || v === undefined) return '';
     const s = String(v);
-    return s.replace(/\r?\n/g, '\\n').replace(/\t/g, ' ');
+    if (s.includes('\t') || s.includes('\n') || s.includes('\r') || s.includes('"')) {
+      return `"${s.replace(/"/g, '""')}"`;
+    }
+    return s;
   };
   const tsvLines = ['id\tcategory\tvariant\tadult\tkid\thtml'];
   for (const e of catalog.entries) {
