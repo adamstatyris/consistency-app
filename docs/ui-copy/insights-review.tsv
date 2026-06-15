@@ -1,0 +1,934 @@
+insight_id	category	trigger	sourceText	sourceUrl	current_adult_title	current_adult_body	current_kid_title	current_kid_body	proposed_adult_title	proposed_adult_body	proposed_kid_title	proposed_kid_body	notes
+I1	sleep	habit_added	Walker — Why We Sleep (overview)	https://pubmed.ncbi.nlm.nih.gov/	Sleep helps memories stick	"Your brain files the day while you sleep. Skip it too often and things stop sticking — meetings, names, where you left your keys.
+
+Consistent sleep beats one heroic ten-hour catch-up."	Sleep helps you remember	"When you sleep, your brain sorts the day — a bit like tidying your room.
+
+If you miss sleep a lot, remembering gets harder. A usual bedtime beats one huge catch-up night."	Sleep helps memories stick	"Your brain files the day while you sleep. Skip it too often and things stop sticking — meetings, names, where you left your keys.
+
+Consistent sleep beats one heroic ten-hour catch-up."	Sleep helps you remember	"When you sleep, your brain sorts the day — a bit like tidying your room.
+
+If you miss sleep a lot, remembering gets harder. A usual bedtime beats one huge catch-up night."	
+I2	sleep	week_2	NIH — circadian health	https://www.nih.gov/news-events/nih-research-matters/understanding-circadian-rhythm-sleep	Your body likes a rhythm	"Light, meals, and bedtime all tell your body what time it is. Send mixed signals and your mood and focus will let you know about it.
+
+A dull wind-down routine is actually doing a lot of work."	Your body likes a rhythm	"Sunlight, meals, and bedtime tell your body what time it is. Mixed signals can make you feel off.
+
+A calm wind-down routine is doing real work, even if it feels boring."	Your body likes a rhythm	"Light, meals, and bedtime all tell your body what time it is. Send mixed signals and your mood and focus will let you know about it.
+
+A dull wind-down routine is actually doing a lot of work."	Your body likes a rhythm	"Sunlight, meals, and bedtime tell your body what time it is. Mixed signals can make you feel off.
+
+A calm wind-down routine is doing real work, even if it feels boring."	
+I3	eating	habit_added	Baron et al., 2013	https://pubmed.ncbi.nlm.nih.gov/23997356/	Late calories, fussier blood sugar	"Eating a big meal late at night tends to make blood-sugar control harder — even if the total calories are identical to an earlier meal.
+
+It’s not about willpower. It’s just how the body prefers its schedule."	Late snacks and your body	"A very big meal late at night can make blood sugar trickier to handle — even with the same food earlier.
+
+It is biology, not “being bad.”"	Late calories, fussier blood sugar	"Eating a big meal late at night tends to make blood-sugar control harder — even if the total calories are identical to an earlier meal.
+
+It’s not about willpower. It’s just how the body prefers its schedule."	Late snacks and your body	"A very big meal late at night can make blood sugar trickier to handle — even with the same food earlier.
+
+It is biology, not “being bad.”"	
+I4	cardio	week_participation	Hillman et al. — exercise & cognition	https://pubmed.ncbi.nlm.nih.gov/	Movement sharpens thinking	"Ten minutes of walking, cycling, or anything that gets you moving tends to clear the mental fog fairly reliably. It’s one of the more reproducible findings in cognitive research.
+
+You don’t need a full session. You just need to move."	Moving wakes up your brain	"About ten minutes of walking or moving often clears a fuzzy head.
+
+You do not need a huge workout — wiggle, walk, dance."	Movement sharpens thinking	"Ten minutes of walking, cycling, or anything that gets you moving tends to clear the mental fog fairly reliably. It’s one of the more reproducible findings in cognitive research.
+
+You don’t need a full session. You just need to move."	Moving wakes up your brain	"About ten minutes of walking or moving often clears a fuzzy head.
+
+You do not need a huge workout — wiggle, walk, dance."	
+I5	consistency	habit_added	Lally et al. — habit formation	https://pubmed.ncbi.nlm.nih.gov/19827987/	Piggyback on what you already do	"“After I make coffee, I do two minutes of stretching.” The existing habit does the reminding — you don’t have to remember anything new.
+
+Small links are more durable than big resolutions."	Hook new habits to old ones	"Try: “After I brush my teeth, I do two stretches.” The old habit reminds you.
+
+Tiny links beat giant promises."	Piggyback on what you already do	"“After I make coffee, I do two minutes of stretching.” The existing habit does the reminding — you don’t have to remember anything new.
+
+Small links are more durable than big resolutions."	Hook new habits to old ones	"Try: “After I brush my teeth, I do two stretches.” The old habit reminds you.
+
+Tiny links beat giant promises."	
+I6	consistency	habit_added	Gollwitzer — implementation intentions	https://pubmed.ncbi.nlm.nih.gov/10620504/	“If this, then that” really works	"“If it’s Tuesday at 7pm, I go to the gym” outperforms “I should exercise more” every time. Specificity removes the daily decision.
+
+Writing the when and where is most of the work done."	Say when and where	"“Tuesday after school I ride my bike” beats “I should move more.”
+
+Brains love a clear plan."	“If this, then that” really works	"“If it’s Tuesday at 7pm, I go to the gym” outperforms “I should exercise more” every time. Specificity removes the daily decision.
+
+Writing the when and where is most of the work done."	Say when and where	"“Tuesday after school I ride my bike” beats “I should move more.”
+
+Brains love a clear plan."	
+I7	neuroscience	habit_added	Schultz — reward learning (overview)	https://www.ncbi.nlm.nih.gov/books/NBK10921/	Why checking a box feels good	"Your brain pays attention to better-than-expected outcomes. A small visible win — a tick, a streak — registers as one. That’s not shallow; it’s just how learning works.
+
+Aim that wiring at things worth repeating."	Why ticks feel good	"Your brain likes little wins — checkmarks, stars, streaks.
+
+Use that power for habits that help you."	Why checking a box feels good	"Your brain pays attention to better-than-expected outcomes. A small visible win — a tick, a streak — registers as one. That’s not shallow; it’s just how learning works.
+
+Aim that wiring at things worth repeating."	Why ticks feel good	"Your brain likes little wins — checkmarks, stars, streaks.
+
+Use that power for habits that help you."	
+I8	adhd	habit_added	Barkley — ADHD & time	https://pubmed.ncbi.nlm.nih.gov/21299070/	When time feels slippery	"Some brains genuinely struggle to feel how long things take without external cues. Calendars, alarms, and timers aren’t crutches — they’re just the right tool for that particular wiring.
+
+Vague plans fail specific people. Specificity is the fix."	When time feels slippery	"Some brains need clocks, timers, or lists to feel how long things take. That is okay — tools are helpers.
+
+“Someday” is fuzzy; “after snack” is friendly."	When time feels slippery	"Some brains genuinely struggle to feel how long things take without external cues. Calendars, alarms, and timers aren’t crutches — they’re just the right tool for that particular wiring.
+
+Vague plans fail specific people. Specificity is the fix."	When time feels slippery	"Some brains need clocks, timers, or lists to feel how long things take. That is okay — tools are helpers.
+
+“Someday” is fuzzy; “after snack” is friendly."	
+I9	consistency	week_4	Neff — self-compassion research	https://self-compassion.org/	Beating yourself up is expensive	"Research is pretty consistent: self-criticism after a slip makes quitting more likely, not less. A calm restart keeps more people going long-term.
+
+Flat tyre. Fix it. Drive on."	Be kind after a miss	"Being mean to yourself after a slip makes it harder to try again.
+
+Fix it like a flat bike tyre: patch it and ride on."	Beating yourself up is expensive	"Research is pretty consistent: self-criticism after a slip makes quitting more likely, not less. A calm restart keeps more people going long-term.
+
+Flat tyre. Fix it. Drive on."	Be kind after a miss	"Being mean to yourself after a slip makes it harder to try again.
+
+Fix it like a flat bike tyre: patch it and ride on."	
+I10	journal	week_participation	Pennebaker — expressive writing	https://pubmed.ncbi.nlm.nih.gov/	Paper as a pressure valve	"Writing about tangled thoughts for a few minutes consistently reduces rumination in study after study. You’re not trying to write well — you’re just clearing the inbox.
+
+Messy notes count. Full sentences not required."	Writing calms a busy head	"A few minutes of messy writing can untangle worried thoughts.
+
+You do not need perfect sentences."	Paper as a pressure valve	"Writing about tangled thoughts for a few minutes consistently reduces rumination in study after study. You’re not trying to write well — you’re just clearing the inbox.
+
+Messy notes count. Full sentences not required."	Writing calms a busy head	"A few minutes of messy writing can untangle worried thoughts.
+
+You do not need perfect sentences."	
+I11	reading	habit_added	Cunningham & Stanovich	https://pubmed.ncbi.nlm.nih.gov/	Reading grows your words	"Regular readers carry larger vocabularies even when their formal education looks identical on paper. Fifteen quiet minutes a day compounds over years.
+
+Speed-reading trophies optional."	Reading grows words	"Reading a little most days grows vocabulary over time.
+
+Short, cosy reading still counts."	Reading grows your words	"Regular readers carry larger vocabularies even when their formal education looks identical on paper. Fifteen quiet minutes a day compounds over years.
+
+Speed-reading trophies optional."	Reading grows words	"Reading a little most days grows vocabulary over time.
+
+Short, cosy reading still counts."	
+I12	meditation	habit_added	Tang et al. — mindfulness reviews	https://pubmed.ncbi.nlm.nih.gov/	Meditation as attention gym	"Mindfulness practice produces modest but reliable gains on attention measures — not magic, just practice applied to a specific skill.
+
+Short and daily beats long and occasional."	Quiet focus practice	"Calm attention practice can train focus a bit like practice for sport.
+
+Short and often beats rare and long."	Meditation as attention gym	"Mindfulness practice produces modest but reliable gains on attention measures — not magic, just practice applied to a specific skill.
+
+Short and daily beats long and occasional."	Quiet focus practice	"Calm attention practice can train focus a bit like practice for sport.
+
+Short and often beats rare and long."	
+I13	consistency	week_2	Cepeda et al. — spacing effect	https://pubmed.ncbi.nlm.nih.gov/	Little and often wins	"Spreading practice across days beats cramming it all into one session — for skills, facts, and habits alike. Your brain consolidates better with gaps in between.
+
+Show up regularly. Let the gaps do half the work."	Little and often wins	"A bit on many days beats one giant cram for skills and habits.
+
+Gaps between tries help your brain learn."	Little and often wins	"Spreading practice across days beats cramming it all into one session — for skills, facts, and habits alike. Your brain consolidates better with gaps in between.
+
+Show up regularly. Let the gaps do half the work."	Little and often wins	"A bit on many days beats one giant cram for skills and habits.
+
+Gaps between tries help your brain learn."	
+I14	consistency	habit_added	Identity & habits (research reviews)	https://pubmed.ncbi.nlm.nih.gov/	Who you think you are matters	"People who say “I’m someone who exercises” stick with it longer than people who say “I’m trying to exercise more.” Identity outruns motivation.
+
+The story you tell on good days is the voice you hear on hard ones."	“I am someone who…”	"Saying “I am a reader” or “I move my body” can stick better than “I am trying.”
+
+Tell a story that helps you on hard days."	Who you think you are matters	"People who say “I’m someone who exercises” stick with it longer than people who say “I’m trying to exercise more.” Identity outruns motivation.
+
+The story you tell on good days is the voice you hear on hard ones."	“I am someone who…”	"Saying “I am a reader” or “I move my body” can stick better than “I am trying.”
+
+Tell a story that helps you on hard days."	
+I15	consistency	habit_added	Wood & Neal — habits	https://pubmed.ncbi.nlm.nih.gov/17685980/	Make the good thing easier	"Shoes by the door. Gym bag already packed. Water bottle already filled. Environment design consistently beats willpower when you’re tired.
+
+Reduce friction. Future-you will be grateful."	Make the good thing easy	"Lay out clothes, fill a water bottle, put shoes by the door — easy setups beat arguing with a tired brain.
+
+Less friction, more follow-through."	Make the good thing easier	"Shoes by the door. Gym bag already packed. Water bottle already filled. Environment design consistently beats willpower when you’re tired.
+
+Reduce friction. Future-you will be grateful."	Make the good thing easy	"Lay out clothes, fill a water bottle, put shoes by the door — easy setups beat arguing with a tired brain.
+
+Less friction, more follow-through."	
+I16	consistency	any	Health behaviour trials (overview)	https://pubmed.ncbi.nlm.nih.gov/	Other people help you show up	"Knowing someone is loosely watching — a friend, a partner, a group chat — reliably nudges follow-through. You don’t need a coach.
+
+Sometimes one text buddy is enough."	Buddies help you show up	"When someone kind knows your plan, you are more likely to do it.
+
+A friend, parent, or coach counts."	Other people help you show up	"Knowing someone is loosely watching — a friend, a partner, a group chat — reliably nudges follow-through. You don’t need a coach.
+
+Sometimes one text buddy is enough."	Buddies help you show up	"When someone kind knows your plan, you are more likely to do it.
+
+A friend, parent, or coach counts."	
+I17	neuroscience	red_to_amber	Schwabe & Wolf — stress & habits	https://pubmed.ncbi.nlm.nih.gov/	Stress loves the old playlist	"Under pressure, the brain defaults to its most familiar routines — fast. If those routines are good ones, great. If not, stress will find that out quickly.
+
+Simplify the plan before stress does it for you."	Stress picks the old habit	"When stressed, brains reach for familiar routines fast — good or not.
+
+Keep your plan simple before stress arrives."	Stress loves the old playlist	"Under pressure, the brain defaults to its most familiar routines — fast. If those routines are good ones, great. If not, stress will find that out quickly.
+
+Simplify the plan before stress does it for you."	Stress picks the old habit	"When stressed, brains reach for familiar routines fast — good or not.
+
+Keep your plan simple before stress arrives."	
+I18	sleep	week_8	Killgore — sleep & cognition	https://pubmed.ncbi.nlm.nih.gov/	Sleep debt hits your brakes	"The first thing poor sleep dulls is your ability to pause before reacting. Everything gets louder, smaller decisions feel bigger.
+
+Protecting sleep is protecting your judgement — not a soft priority."	Tired brains react fast	"Poor sleep makes it harder to pause before you snap or give up.
+
+Sleep protects your choices."	Sleep debt hits your brakes	"The first thing poor sleep dulls is your ability to pause before reacting. Everything gets louder, smaller decisions feel bigger.
+
+Protecting sleep is protecting your judgement — not a soft priority."	Tired brains react fast	"Poor sleep makes it harder to pause before you snap or give up.
+
+Sleep protects your choices."	
+I19	cardio	week_participation	Owen et al. — sitting breaks	https://pubmed.ncbi.nlm.nih.gov/	Two minutes of moving counts	"Short breaks from sitting improve energy ratings and help blood-sugar regulation after long desk stretches. The bar is genuinely low.
+
+Stand up, walk to the kitchen, come back. That counts."	Two minutes of moving	"Short breaks from sitting help energy and sugar control.
+
+Stand, stretch, grab water — it counts."	Two minutes of moving counts	"Short breaks from sitting improve energy ratings and help blood-sugar regulation after long desk stretches. The bar is genuinely low.
+
+Stand up, walk to the kitchen, come back. That counts."	Two minutes of moving	"Short breaks from sitting help energy and sugar control.
+
+Stand, stretch, grab water — it counts."	
+I20	consistency	week_4	Lally et al.	https://pubmed.ncbi.nlm.nih.gov/19827987/	Habits feel automatic slowly	"Real-world studies put habit formation at weeks to months, not the famous 21 days. Early repetitions are the investment. Ease is what you get later.
+
+You’re not slow. You’re just early."	Habits take weeks	"Real life habits often need weeks or months, not magic “21 days.”
+
+Early tries are not failure — they are the start."	Habits feel automatic slowly	"Real-world studies put habit formation at weeks to months, not the famous 21 days. Early repetitions are the investment. Ease is what you get later.
+
+You’re not slow. You’re just early."	Habits take weeks	"Real life habits often need weeks or months, not magic “21 days.”
+
+Early tries are not failure — they are the start."	
+I21	consistency	amber_to_green	Dweck — mindset research	https://pubmed.ncbi.nlm.nih.gov/	Skills can grow	"People who treat ability as buildable come back after setbacks more readily than those who see it as fixed. A bad week is noise, not a ceiling.
+
+The only thing a slip proves is that you’re still in the game."	You can grow skills	"People who believe skills can grow bounce back after a bad day.
+
+A rough week is a bump, not the end."	Skills can grow	"People who treat ability as buildable come back after setbacks more readily than those who see it as fixed. A bad week is noise, not a ceiling.
+
+The only thing a slip proves is that you’re still in the game."	You can grow skills	"People who believe skills can grow bounce back after a bad day.
+
+A rough week is a bump, not the end."	
+I22	eating	week_participation	Sutton et al.	https://pubmed.ncbi.nlm.nih.gov/28469135/	Earlier eating, calmer numbers	"Shifting the bulk of eating earlier in the day consistently shows better metabolic patterns in trials. Same food, different clock.
+
+Timing is a lever. Not a moral position."	Earlier food, calmer body	"More food earlier in the day often suits the body better than only huge late meals.
+
+Timing is a tool, not a rule about “good” or “bad.”"	Earlier eating, calmer numbers	"Shifting the bulk of eating earlier in the day consistently shows better metabolic patterns in trials. Same food, different clock.
+
+Timing is a lever. Not a moral position."	Earlier food, calmer body	"More food earlier in the day often suits the body better than only huge late meals.
+
+Timing is a tool, not a rule about “good” or “bad.”"	
+I23	workout	habit_added	Westcott — resistance training	https://pubmed.ncbi.nlm.nih.gov/	Muscles pay rent on independence	"Strength training supports bones, metabolism, and your ability to carry your own shopping decades from now. Two sessions a week is a legitimate longevity habit.
+
+Not about aesthetics. About function."	Strong muscles help forever	"Strength helps bones and everyday jobs like carrying bags.
+
+Two short sessions a week is a big win."	Muscles pay rent on independence	"Strength training supports bones, metabolism, and your ability to carry your own shopping decades from now. Two sessions a week is a legitimate longevity habit.
+
+Not about aesthetics. About function."	Strong muscles help forever	"Strength helps bones and everyday jobs like carrying bags.
+
+Two short sessions a week is a big win."	
+I24	productivity	habit_added	Newport — deep work / cognitive load	https://pubmed.ncbi.nlm.nih.gov/	One block, one job	"Every task switch leaves residual mental noise that slows down whatever comes next. Protecting a block of uninterrupted time isn’t a luxury — it’s how actual deep work gets done.
+
+Batch the similar stuff. Guard the focused time."	One thing at a time	"Switching tasks leaves mental “echoes” that slow you down.
+
+Give one job a protected block of time."	One block, one job	"Every task switch leaves residual mental noise that slows down whatever comes next. Protecting a block of uninterrupted time isn’t a luxury — it’s how actual deep work gets done.
+
+Batch the similar stuff. Guard the focused time."	One thing at a time	"Switching tasks leaves mental “echoes” that slow you down.
+
+Give one job a protected block of time."	
+I25	consistency	week_participation	Norcross — change maintenance	https://pubmed.ncbi.nlm.nih.gov/	A gap is not a verdict	"Missing once doesn’t erase progress. Shame spirals do. The quickest recovery is the next small win — not a Monday restart ceremony.
+
+Comebacks count as data too."	A miss is not the end	"Skipping once does not erase progress. Shame spirals do more damage.
+
+The next small win is the comeback."	A gap is not a verdict	"Missing once doesn’t erase progress. Shame spirals do. The quickest recovery is the next small win — not a Monday restart ceremony.
+
+Comebacks count as data too."	A miss is not the end	"Skipping once does not erase progress. Shame spirals do more damage.
+
+The next small win is the comeback."	
+I26	sleep	habit_added	Chang et al.	https://pubmed.ncbi.nlm.nih.gov/25588408/	Screens and sleepy chemistry	"Evening light from phones delays melatonin — the signal that tells your body it’s time to wind down. Your brain can’t quite tell a screen from a sunny window.
+
+Dimming helps. Distance helps more."	Screens and sleepy feelings	"Bright screens at night can delay sleepy chemistry.
+
+Dim screens or move them farther away before bed."	Screens and sleepy chemistry	"Evening light from phones delays melatonin — the signal that tells your body it’s time to wind down. Your brain can’t quite tell a screen from a sunny window.
+
+Dimming helps. Distance helps more."	Screens and sleepy feelings	"Bright screens at night can delay sleepy chemistry.
+
+Dim screens or move them farther away before bed."	
+I27	health	week_participation	Armstrong et al.	https://pubmed.ncbi.nlm.nih.gov/21736786/	Thirst sneaks into focus	"Mild dehydration — the kind where you don’t feel particularly thirsty — is enough to measurably dent concentration and mood. Most people walk around in it.
+
+Full water bottle on the desk. Boring and effective."	Water and focus	"Even mild thirst can ding mood and attention.
+
+Keep water handy — boring and useful."	Thirst sneaks into focus	"Mild dehydration — the kind where you don’t feel particularly thirsty — is enough to measurably dent concentration and mood. Most people walk around in it.
+
+Full water bottle on the desk. Boring and effective."	Water and focus	"Even mild thirst can ding mood and attention.
+
+Keep water handy — boring and useful."	
+I28	cardio	any	Oppezzo & Schwartz	https://pubmed.ncbi.nlm.nih.gov/	Walk, then think	"People consistently generate more ideas while walking than sitting still. If you’re stuck, a lap around the block is not procrastination.
+
+Move first. Judge the ideas when you’re back."	Walk, then ideas	"Walking often brings more ideas than sitting.
+
+Stuck? Try a lap before deciding."	Walk, then think	"People consistently generate more ideas while walking than sitting still. If you’re stuck, a lap around the block is not procrastination.
+
+Move first. Judge the ideas when you’re back."	Walk, then ideas	"Walking often brings more ideas than sitting.
+
+Stuck? Try a lap before deciding."	
+I29	cardio	week_8	Celis-Morales et al., 2017	https://pubmed.ncbi.nlm.nih.gov/28360066/	Pedal power and the heart	"Large studies show people who cycle to work have meaningfully lower heart disease rates than those who drive the same route.
+
+No lycra required."	Bikes and hearts	"Big studies link biking with healthier hearts than only driving.
+
+Pedals do not need fancy clothes."	Pedal power and the heart	"Large studies show people who cycle to work have meaningfully lower heart disease rates than those who drive the same route.
+
+No lycra required."	Bikes and hearts	"Big studies link biking with healthier hearts than only driving.
+
+Pedals do not need fancy clothes."	
+I30	productivity	week_2	Matthews — goal writing	https://pubmed.ncbi.nlm.nih.gov/	Ink beats hope	"Writing a goal down with a concrete plan consistently outperforms keeping it in your head. The act of writing it forces enough specificity to make it real.
+
+Paper is cheap accountability."	Write the plan down	"Goals with a written plan beat goals only in your head.
+
+Paper or phone notes both work."	Ink beats hope	"Writing a goal down with a concrete plan consistently outperforms keeping it in your head. The act of writing it forces enough specificity to make it real.
+
+Paper is cheap accountability."	Write the plan down	"Goals with a written plan beat goals only in your head.
+
+Paper or phone notes both work."	
+I31	adhd	habit_added	Leroy — attention residue	https://pubmed.ncbi.nlm.nih.gov/	Tasks leave echoes	"Switch tasks before finishing a thought and part of your brain stays on the old one. That leftover hum makes the new task harder than it actually is.
+
+Jot a quick note before you jump. Costs ten seconds."	Finish a thought before you jump	"If you switch tasks mid-thought, part of your brain stays behind.
+
+Jot a note in ten seconds, then switch."	Tasks leave echoes	"Switch tasks before finishing a thought and part of your brain stays on the old one. That leftover hum makes the new task harder than it actually is.
+
+Jot a quick note before you jump. Costs ten seconds."	Finish a thought before you jump	"If you switch tasks mid-thought, part of your brain stays behind.
+
+Jot a note in ten seconds, then switch."	
+I32	consistency	habit_added	Fogg — Tiny Habits	https://pubmed.ncbi.nlm.nih.gov/	Start so small it feels silly	"“Two push-ups” beats “get fit” because it’s impossible to argue with. The first step should have no resistance at all.
+
+Win first. Scale later."	Start silly-small	"“Two jumps” beats “get fit forever” for actually starting.
+
+Make step one too easy to argue with."	Start so small it feels silly	"“Two push-ups” beats “get fit” because it’s impossible to argue with. The first step should have no resistance at all.
+
+Win first. Scale later."	Start silly-small	"“Two jumps” beats “get fit forever” for actually starting.
+
+Make step one too easy to argue with."	
+I33	workout	week_4	Sports medicine consensus	https://pubmed.ncbi.nlm.nih.gov/	Rest is part of the program	"Adaptation happens during recovery, not during effort. Skipping rest doesn’t add progress — it just delays it and increases the chance something breaks.
+
+Schedule it. Treat it like a set."	Rest builds strength	"Muscles and skills grow during recovery, not only during effort.
+
+Rest is part of training."	Rest is part of the program	"Adaptation happens during recovery, not during effort. Skipping rest doesn’t add progress — it just delays it and increases the chance something breaks.
+
+Schedule it. Treat it like a set."	Rest builds strength	"Muscles and skills grow during recovery, not only during effort.
+
+Rest is part of training."	
+I34	family	any	Fiese et al.	https://pubmed.ncbi.nlm.nih.gov/	Kids feel steady rhythms	"Children in households with predictable routines show calmer and healthier patterns across multiple measures of wellbeing. Not rigid — just consistent.
+
+You’re building a felt sense of safety. That’s the whole point."	Kids like steady routines	"Predictable rhythms help kids feel safe and healthy — not rigid, just steady.
+
+You are building a calm home feeling."	Kids feel steady rhythms	"Children in households with predictable routines show calmer and healthier patterns across multiple measures of wellbeing. Not rigid — just consistent.
+
+You’re building a felt sense of safety. That’s the whole point."	Kids like steady routines	"Predictable rhythms help kids feel safe and healthy — not rigid, just steady.
+
+You are building a calm home feeling."	
+I35	finance	habit_added	Behavioural finance reviews	https://pubmed.ncbi.nlm.nih.gov/	Watching spending changes it	"Just logging purchases — without any budget lecture attached — tends to reduce discretionary spending on its own. Awareness does most of the work.
+
+The log is the intervention."	Watching spending helps	"Just noticing what you buy often lowers extra spending — no lecture needed.
+
+The list is the magic."	Watching spending changes it	"Just logging purchases — without any budget lecture attached — tends to reduce discretionary spending on its own. Awareness does most of the work.
+
+The log is the intervention."	Watching spending helps	"Just noticing what you buy often lowers extra spending — no lecture needed.
+
+The list is the magic."	
+I36	consistency	week_4	Baumeister & Vohs — self-regulation	https://pubmed.ncbi.nlm.nih.gov/17068127/	Consistency is a muscle	"Self-control is not a fixed gift — it trains like anything else. Each time you follow through, the next start gets a little easier to reach.
+
+You are not faking discipline; you are collecting receipts."	Self-control is practice	"Following through trains “stop and go” skills like sport practice.
+
+Each small keep-trying counts."	Consistency is a muscle	"Self-control is not a fixed gift — it trains like anything else. Each time you follow through, the next start gets a little easier to reach.
+
+You are not faking discipline; you are collecting receipts."	Self-control is practice	"Following through trains “stop and go” skills like sport practice.
+
+Each small keep-trying counts."	
+I37	neuroscience	week_participation	Marcora et al.	https://pubmed.ncbi.nlm.nih.gov/19131043/	“I cannot” often arrives early	"Sports science shows people often feel maxed out while their body still has a large reserve. The brain yells “stop” before the tank is empty.
+
+On a brutal habit day, slow down — but question the story that you have nothing left."	“I cannot” can show up early	"Bodies often have more gas than the brain admits on hard days.
+
+Slow down, but question “I have nothing left.”"	“I cannot” often arrives early	"Sports science shows people often feel maxed out while their body still has a large reserve. The brain yells “stop” before the tank is empty.
+
+On a brutal habit day, slow down — but question the story that you have nothing left."	“I cannot” can show up early	"Bodies often have more gas than the brain admits on hard days.
+
+Slow down, but question “I have nothing left.”"	
+I38	adhd	habit_added	Barkley — executive function	https://pubmed.ncbi.nlm.nih.gov/22541441/	Tools are not cheating	"Some nervous systems need louder outside cues — calendars, lists, apps — to feel time and reward fairly. That is biology, not laziness.
+
+Use the scaffolding that lets you live the life you chose."	Lists and alarms are tools	"Some brains need louder outside reminders. That is wiring, not laziness.
+
+Use what works for you."	Tools are not cheating	"Some nervous systems need louder outside cues — calendars, lists, apps — to feel time and reward fairly. That is biology, not laziness.
+
+Use the scaffolding that lets you live the life you chose."	Lists and alarms are tools	"Some brains need louder outside reminders. That is wiring, not laziness.
+
+Use what works for you."	
+I39	neuroscience	habit_added	Berridge & Robinson — wanting vs liking	https://pubmed.ncbi.nlm.nih.gov/9580132/	The brain loves any win	"The same circuits that light up for a gold star can light up for a workout or a slot machine. Healthy systems borrow that wiring on purpose.
+
+Direction matters more than the fact that chemistry notices."	Wins light up the brain	"Stars, ticks, and games use similar “win” wiring — healthy apps borrow that on purpose.
+
+Steer the wins toward good habits."	The brain loves any win	"The same circuits that light up for a gold star can light up for a workout or a slot machine. Healthy systems borrow that wiring on purpose.
+
+Direction matters more than the fact that chemistry notices."	Wins light up the brain	"Stars, ticks, and games use similar “win” wiring — healthy apps borrow that on purpose.
+
+Steer the wins toward good habits."	
+I40	adhd	week_8	Miyake et al. — executive function	https://pubmed.ncbi.nlm.nih.gov/10945922/	Focus is a bundle of skills	"Planning, starting, sticking, and switching are related but separate mental skills. They differ between people and can improve with practice.
+
+Every steady week is quiet training for all of them."	Focus has many parts	"Planning, starting, sticking, and switching are different skills.
+
+Steady weeks quietly train all of them."	Focus is a bundle of skills	"Planning, starting, sticking, and switching are related but separate mental skills. They differ between people and can improve with practice.
+
+Every steady week is quiet training for all of them."	Focus has many parts	"Planning, starting, sticking, and switching are different skills.
+
+Steady weeks quietly train all of them."	
+I41	neuroscience	week_2	Skinner — schedules of reinforcement (textbooks)	https://pubmed.ncbi.nlm.nih.gov/28176700/	Surprise keeps attention awake	"When rewards arrive on an unpredictable rhythm, behaviour tends to stick harder than with a clockwork prize — that is old psychology lab wisdom.
+
+Random insights here echo mild curiosity — separate from your weekly treats and pot rules, not an extra game layered on top."	Surprises keep attention	"Random little rewards can make habits stickier than perfect clocks.
+
+This app’s surprise facts are gentle curiosity — separate from weekly treats and jar rules, not an extra game on top."	Surprise keeps attention awake	"When rewards arrive on an unpredictable rhythm, behaviour tends to stick harder than with a clockwork prize — that is old psychology lab wisdom.
+
+Random insights here echo mild curiosity — separate from your weekly treats and pot rules, not an extra game layered on top."	Surprises keep attention	"Random little rewards can make habits stickier than perfect clocks.
+
+This app’s surprise facts are gentle curiosity — separate from weekly treats and jar rules, not an extra game on top."	
+I42	consistency	any	Zentall — social facilitation	https://pubmed.ncbi.nlm.nih.gov/22462781/	Being watched helps, even quietly	"Knowing someone else knows your goal nudges follow-through even if they never comment.
+
+Pick an audience you trust; visibility is the tool."	Someone knowing helps	"When a trusted person knows your goal, you are more likely to try.
+
+They do not have to nag."	Being watched helps, even quietly	"Knowing someone else knows your goal nudges follow-through even if they never comment.
+
+Pick an audience you trust; visibility is the tool."	Someone knowing helps	"When a trusted person knows your goal, you are more likely to try.
+
+They do not have to nag."	
+I43	adhd	habit_added	Barkley — time estimation	https://pubmed.ncbi.nlm.nih.gov/21299070/	Time sense varies	"Some people honestly mis-feel how long tasks take without clocks and reminders. That is not a character flaw — it is a mismatch between brain and vague plans.
+
+Concrete times and places are the kind fix."	Time guesses vary	"Some people mis-guess how long tasks take without a clock. That is human, not “lazy.”
+
+Concrete times fix it kindly."	Time sense varies	"Some people honestly mis-feel how long tasks take without clocks and reminders. That is not a character flaw — it is a mismatch between brain and vague plans.
+
+Concrete times and places are the kind fix."	Time guesses vary	"Some people mis-guess how long tasks take without a clock. That is human, not “lazy.”
+
+Concrete times fix it kindly."	
+I44	consistency	habit_added	Gollwitzer	https://pubmed.ncbi.nlm.nih.gov/10620504/	Spell it out	"“If X happens, I will do Y” plans routinely beat “I will try harder” in study after study.
+
+The sentence is the intervention."	If-then plans work	"“If it rains, I dance inside” beats “I will try harder.”
+
+The sentence is the superpower."	Spell it out	"“If X happens, I will do Y” plans routinely beat “I will try harder” in study after study.
+
+The sentence is the intervention."	If-then plans work	"“If it rains, I dance inside” beats “I will try harder.”
+
+The sentence is the superpower."	
+I45	consistency	habit_added	Wood & Neal	https://pubmed.ncbi.nlm.nih.gov/17685980/	Motivation is a fair-weather friend	"Rooms, layouts, and visible cues predict doing the habit better than how motivated you felt that morning.
+
+Design for Tuesday-you, not Sunday-night-you."	Rooms matter more than mood	"Visible cues and layouts predict habits better than morning excitement.
+
+Design for Tuesday-you."	Motivation is a fair-weather friend	"Rooms, layouts, and visible cues predict doing the habit better than how motivated you felt that morning.
+
+Design for Tuesday-you, not Sunday-night-you."	Rooms matter more than mood	"Visible cues and layouts predict habits better than morning excitement.
+
+Design for Tuesday-you."	
+I46	consistency	week_4	Cialdini — influence	https://pubmed.ncbi.nlm.nih.gov/11272398/	We copy the crowd	"People often follow what they think peers do, sometimes more than their private values say.
+
+Use that wisely: find a group where the normal thing is showing up."	We copy our crew	"People often copy what friends seem to do.
+
+Pick friends or groups where showing up is normal."	We copy the crowd	"People often follow what they think peers do, sometimes more than their private values say.
+
+Use that wisely: find a group where the normal thing is showing up."	We copy our crew	"People often copy what friends seem to do.
+
+Pick friends or groups where showing up is normal."	
+I47	adhd	habit_added	Faraone et al.	https://pubmed.ncbi.nlm.nih.gov/33501530/	Attention differences are common	"A noticeable slice of adults meet criteria for attention-deficit conditions; many never get a label but still benefit from structure.
+
+If a system helps you function, that is the outcome that counts."	Attention comes in flavours	"Many people have attention differences; structure still helps everyone.
+
+If a tool helps you live your plan, it wins."	Attention differences are common	"A noticeable slice of adults meet criteria for attention-deficit conditions; many never get a label but still benefit from structure.
+
+If a system helps you function, that is the outcome that counts."	Attention comes in flavours	"Many people have attention differences; structure still helps everyone.
+
+If a tool helps you live your plan, it wins."	
+I48	consistency	habit_added	Fleeson — trait consistency	https://pubmed.ncbi.nlm.nih.gov/15301630/	Structure soothes	"Having several small dependable habits correlates with life satisfaction even when the habits themselves are humble.
+
+Rhythm is its own kind of rest."	Rhythms feel good	"Several small steady habits link to happier days — even humble ones.
+
+Rhythm can feel like rest."	Structure soothes	"Having several small dependable habits correlates with life satisfaction even when the habits themselves are humble.
+
+Rhythm is its own kind of rest."	Rhythms feel good	"Several small steady habits link to happier days — even humble ones.
+
+Rhythm can feel like rest."	
+I49	consistency	week_participation	Milkman & Dai	https://pubmed.ncbi.nlm.nih.gov/24434240/	Fresh starts are real	"People restart goals more often after Mondays, month beginnings, or birthdays — “temporal landmarks” in the research.
+
+A Wednesday miss is not a season finale; Thursday can be episode two."	Fresh starts are real	"Mondays, month starts, and birthdays nudge new tries.
+
+A Wednesday miss is not the finale."	Fresh starts are real	"People restart goals more often after Mondays, month beginnings, or birthdays — “temporal landmarks” in the research.
+
+A Wednesday miss is not a season finale; Thursday can be episode two."	Fresh starts are real	"Mondays, month starts, and birthdays nudge new tries.
+
+A Wednesday miss is not the finale."	
+I50	consistency	week_8	Mixpanel — app retention	https://mixpanel.com/blog/	You beat the averages	"Industry data suggests only a sliver of people who download habit apps are still active two months later. Logging here already puts you on the uncommon side of the curve.
+
+Credit the structure you built, not luck."	You are already rare	"Most habit apps lose people in a couple of months. Logging here already puts you on the uncommon side.
+
+Credit your effort."	You beat the averages	"Industry data suggests only a small share of people who download habit apps are still active two months later. By logging here you’re already on the uncommon side of that curve.
+
+That’s the structure you built doing its job — not luck."	You are already rare	"Most habit apps lose people in a couple of months. Logging here already puts you on the uncommon side.
+
+Credit your effort."	Smoothed the abrupt 'Credit the structure you built, not luck.' closer.
+F1	funny	week_participation	Sleep Foundation	https://www.sleepfoundation.org/	Snooze is a human specialty	"Plenty of animals wake on cue, but only humans set an alarm, understand what it means, and then debate whether nine more minutes is “strategic rest.”
+
+The snooze button is a tiny comedy about self-control every morning."	Snooze is a human thing	"Only humans set alarms… then negotiate nine more minutes.
+
+The snooze button is a tiny comedy about mornings."	Snooze is a human specialty	"Plenty of animals wake on cue, but only humans set an alarm, understand what it means, and then debate whether nine more minutes is “strategic rest.”
+
+The snooze button is a tiny comedy about self-control every morning."	Snooze is a human thing	"Only humans set alarms… then negotiate nine more minutes.
+
+The snooze button is a tiny comedy about mornings."	
+F2	funny	week_participation	Sleep Foundation	https://www.sleepfoundation.org/how-sleep-works/how-much-sleep-do-we-need	You will sleep for years	"Over a life, sleep adds up to decades — more than many mortgages last. Unlike a mortgage, good sleep pays you back in mood and focus.
+
+Treat the mattress like infrastructure, not luxury."	You will sleep for years	"Sleep adds up to a huge slice of life — like a long holiday every year.
+
+Good sleep pays you back in mood."	You will sleep for years	"Over a life, sleep adds up to decades — more than many mortgages last. Unlike a mortgage, good sleep pays you back in mood and focus.
+
+Treat the mattress like infrastructure, not luxury."	You will sleep for years	"Sleep adds up to a huge slice of life — like a long holiday every year.
+
+Good sleep pays you back in mood."	
+F3	funny	any	NHS — alcohol	https://www.nhs.uk/live-well/alcohol-advice/	The liver keeps its own clock	"Roughly one standard drink per hour is what typical livers clear — coffee, cold showers, and pep talks do not speed the chemistry.
+
+Patience is the only life hack here."	Bodies clear drinks slowly	"Typical grown-up bodies clear about one standard drink per hour — coffee and pep talks do not speed it up.
+
+Waiting is the real “life hack.”"	The liver keeps its own clock	"Roughly one standard drink per hour is what typical livers clear — coffee, cold showers, and pep talks do not speed the chemistry.
+
+Patience is the only life hack here."	Bodies clear drinks slowly	"Typical grown-up bodies clear about one standard drink per hour — coffee and pep talks do not speed it up.
+
+Waiting is the real “life hack.”"	
+F4	funny	week_participation	Guinness / Gardner record	https://www.guinnessworldrecords.com/	Eleven days awake (please do not try)	"A famous 1964 stunt stayed awake for eleven days under medical watch. He recovered — and said never again.
+
+Your late reel session is not that experiment, but it rhymes."	Eleven days awake (!)	"A famous stunt stayed awake eleven days with doctors watching. He said never again.
+
+Do not try this — your sleep matters."	Eleven days awake (please do not try)	"A famous 1964 stunt stayed awake for eleven days under medical watch. He recovered — and said never again.
+
+Your late reel session is not that experiment, but it rhymes."	Eleven days awake (!)	"A famous stunt stayed awake eleven days with doctors watching. He said never again.
+
+Do not try this — your sleep matters."	
+F5	funny	week_2	Industry surveys (e.g. Statista)	https://www.statista.com/	January gyms, March quiet	"Gyms spike in early January, then quiet down by February. March regulars rarely have more “motivation” — they have a plan that survived February.
+
+Systems beat vibes."	January gyms, March calm	"Gyms get busy in January, then quieter. March regulars have plans that survived February.
+
+Systems beat vibes."	January gyms, March quiet	"Gyms spike in early January, then quiet down by February. March regulars rarely have more “motivation” — they have a plan that survived February.
+
+Systems beat vibes."	January gyms, March calm	"Gyms get busy in January, then quieter. March regulars have plans that survived February.
+
+Systems beat vibes."	
+F6	funny	week_participation	Libet et al., 1983	https://pubmed.ncbi.nlm.nih.gov/6875817/	The body moves before the story	"Classic lab work found brain activity shifting before people reported a conscious choice to move. Much of life is noticing yourself mid-habit.
+
+Automatic is not the enemy — it is the finish line."	Body first, story second	"Brains sometimes move before we notice the choice.
+
+Much of life is catching yourself mid-habit."	The body moves before the story	"Classic lab work found brain activity shifting before people reported a conscious choice to move. Much of life is noticing yourself mid-habit.
+
+Automatic is not the enemy — it is the finish line."	Body first, story second	"Brains sometimes move before we notice the choice.
+
+Much of life is catching yourself mid-habit."	
+F7	funny	any	Popular psychology summaries	https://www.psychologytoday.com/	Made beds, clearer heads	"People who make the bed often report feeling more on top of the day. Causation is fuzzy; the easy win is not.
+
+Two minutes for a visible “already done” badge."	Made beds, brighter mornings	"People who make the bed often feel more on top of the day.
+
+Two minutes, one easy win."	Made beds, clearer heads	"People who make the bed often report feeling more on top of the day. Causation is fuzzy; the easy win is not.
+
+Two minutes for a visible “already done” badge."	Made beds, brighter mornings	"People who make the bed often feel more on top of the day.
+
+Two minutes, one easy win."	
+F8	funny	habit_added	Asurion survey	https://www.asurion.com/connect/news/tech-usage/	Phones trained you well	"Some surveys find phones checked nearly a hundred times a day — tiny hits of novelty all waking hours.
+
+If your habit app feels sticky, you are competing with world-class designers. Fair fight."	Phones are designed to stick	"Some people check phones nearly a hundred times a day.
+
+Your habit app competes with world-class designers — fair fight."	Phones trained you well	"Some surveys find phones checked nearly a hundred times a day — tiny hits of novelty all waking hours.
+
+If your habit app feels sticky, you are competing with world-class designers. Fair fight."	Phones are designed to stick	"Some people check phones nearly a hundred times a day.
+
+Your habit app competes with world-class designers — fair fight."	
+F9	funny	week_participation	Harvard Health — activity & calories	https://www.health.harvard.edu/diet-and-weight-loss/calories-burned-in-30-minutes-for-people-of-three-different-weights	Miles and pastries	"A mile of jogging burns less energy than a fancy pastry contains — annoying math, true math.
+
+Still worth it for heart, mood, and bones; health is not a spreadsheet duel."	Miles and treats	"A run burns less energy than a fancy pastry — annoying math.
+
+Still worth it for heart, mood, and bones."	Miles and pastries	"A mile of jogging burns less energy than a fancy pastry contains — annoying math, true math.
+
+Still worth it for heart, mood, and bones; health is not a spreadsheet duel."	Miles and treats	"A run burns less energy than a fancy pastry — annoying math.
+
+Still worth it for heart, mood, and bones."	
+F10	funny	any	Merriam-Webster — word history	https://www.merriam-webster.com/words-at-play/the-history-of-deadline	Deadline used to be literal	"“Deadline” once meant a line prisoners could not cross — serious consequences. Now it means spreadsheets.
+
+Your Week still has a firm line here: logging for that Mon–Sun row locks at midnight Sunday (local time) — gentler stakes, same human love of a boundary."	“Deadline” used to be scarier	"Long ago a “deadline” was a line you must not cross — serious trouble.
+
+Now it means rows in an app — gentler stakes."	Deadline used to be literal	"“Deadline” once meant a line prisoners could not cross — serious consequences. Now it means spreadsheets.
+
+Your Week still has a firm line here: logging for that Mon–Sun row locks at midnight Sunday (local time) — gentler stakes, same human love of a boundary."	“Deadline” used to be scarier	"Long ago a “deadline” was a line you must not cross — serious trouble.
+
+Now it means rows in an app — gentler stakes."	
+F11	funny	week_participation	Danziger et al., 2011	https://pubmed.ncbi.nlm.nih.gov/21482790/	Judges and lunch breaks	"A well-known study found judges’ leniency dipped before meal breaks and rose after — probably fatigue and timing, not cruelty.
+
+Your 4pm self is not morally worse; just depleted."	Judges and lunch	"A famous study: judges were stricter before lunch and kinder after — tired brains, not mean hearts.
+
+Afternoon you is not “worse,” just lower fuel."	Judges and lunch breaks	"A well-known study found judges’ leniency dipped before meal breaks and rose after — probably fatigue and timing, not cruelty.
+
+Your 4pm self is not morally worse; just depleted."	Judges and lunch	"A famous study: judges were stricter before lunch and kinder after — tired brains, not mean hearts.
+
+Afternoon you is not “worse,” just lower fuel."	
+F12	myth	habit_added	Lally et al.	https://pubmed.ncbi.nlm.nih.gov/19827987/	Not twenty-one days flat	"The “three-week habit” story came from a surgeon’s guess decades ago. Real studies show weeks to many months depending on the habit and the person.
+
+You are not behind — you are on a real curve."	Not always twenty-one days	"The “three-week habit” story was a rough guess. Real habits take weeks to months.
+
+You are not behind."	Not twenty-one days flat	"The “three-week habit” story came from a surgeon’s guess decades ago. Real studies show weeks to many months depending on the habit and the person.
+
+You are not behind — you are on a real curve."	Not always twenty-one days	"The “three-week habit” story was a rough guess. Real habits take weeks to months.
+
+You are not behind."	
+F13	funny	week_participation	APMA — walking facts	https://www.apma.org/	Lifetime mileage	"Average humans walk enough miles in a life to circle Earth several times — mostly in small trips.
+
+The “extra” walks for health are a rounding error that still changes risk."	Walking adds up	"Average humans walk enough in life to circle Earth several times — in tiny trips.
+
+Extra walks still change health."	Lifetime mileage	"Average humans walk enough miles in a life to circle Earth several times — mostly in small trips.
+
+The “extra” walks for health are a rounding error that still changes risk."	Walking adds up	"Average humans walk enough in life to circle Earth several times — in tiny trips.
+
+Extra walks still change health."	
+F14	funny	week_participation	Celis-Morales et al., 2017	https://pubmed.ncbi.nlm.nih.gov/28360066/	Bike commuters, calmer hearts	"Big studies link cycling to work with much lower heart-disease risk than driving the same route.
+
+Lycra optional; pedals sufficient."	Bikes and hearts	"Big studies say bike commuters often have calmer hearts than drivers on the same route.
+
+Lycra optional."	Bike commuters, calmer hearts	"Big studies link cycling to work with much lower heart-disease risk than driving the same route.
+
+Lycra optional; pedals sufficient."	Bikes and hearts	"Big studies say bike commuters often have calmer hearts than drivers on the same route.
+
+Lycra optional."	
+F15	funny	any	Strength training primers	https://pubmed.ncbi.nlm.nih.gov/	Kids are kettlebells	"Muscles do not care if the weight has opinions. Carrying a toddler upstairs still counts as load.
+
+Parenting: accidental gym."	Kids count as weights	"Muscles do not care if the weight giggles. Carrying little ones upstairs still counts.
+
+Accidental gym."	Kids are kettlebells	"Muscles do not care if the weight has opinions. Carrying a toddler upstairs still counts as load.
+
+Parenting: accidental gym."	Kids count as weights	"Muscles do not care if the weight giggles. Carrying little ones upstairs still counts.
+
+Accidental gym."	
+F16	funny	week_4	Historical demography	https://en.wikipedia.org/wiki/Roman_demography	Ancient life expectancy math	"Roman “average lifespan ~35” mostly reflects child deaths. Adults who survived childhood often reached their sixties and seventies.
+
+Averages hide different stories."	Old average ages were tricky	"Ancient “average lifespan ~35” mostly counted young kids. Adults often lived decades longer.
+
+Averages hide stories."	Ancient life expectancy math	"Roman “average lifespan ~35” mostly reflects child deaths. Adults who survived childhood often reached their sixties and seventies.
+
+Averages hide different stories."	Old average ages were tricky	"Ancient “average lifespan ~35” mostly counted young kids. Adults often lived decades longer.
+
+Averages hide stories."	
+F17	funny	week_participation	BBC Future	https://www.bbc.com/future/article/20210907-how-often-does-the-human-body-replace-itself	Your body rebuilds itself	"Most cells replace on a multi-year rhythm — you are a slow ship of Theseus.
+
+Today’s habits feed tomorrow’s replacement crew."	Your body rebuilds	"Most cells replace on a slow rhythm — you are a ship rebuilt plank by plank.
+
+Today’s habits feed tomorrow’s you."	Your body rebuilds itself	"Most cells replace on a multi-year rhythm — you are a slow ship of Theseus.
+
+Today’s habits feed tomorrow’s replacement crew."	Your body rebuilds	"Most cells replace on a slow rhythm — you are a ship rebuilt plank by plank.
+
+Today’s habits feed tomorrow’s you."	
+F18	funny	habit_added	Sirois & Pychyl	https://pubmed.ncbi.nlm.nih.gov/24126546/	Procrastination protects feelings	"Putting things off often dodges boredom, anxiety, or shame — not a calendar glitch.
+
+Name the feeling, shrink the task, start ugly."	Delay dodges feelings	"Putting things off often hides boredom, worry, or shame.
+
+Name the feeling, shrink the task, start messy."	Procrastination protects feelings	"Putting things off often dodges boredom, anxiety, or shame — not a calendar glitch.
+
+Name the feeling, shrink the task, start ugly."	Delay dodges feelings	"Putting things off often hides boredom, worry, or shame.
+
+Name the feeling, shrink the task, start messy."	
+F19	funny	week_participation	Dallman et al.	https://pubmed.ncbi.nlm.nih.gov/14583744/	Stress whispers “eat dense”	"Long-term stress nudges appetite toward quick calories — an old survival script.
+
+Not weakness; wiring you can plan around."	Stress and snack cravings	"Long stress nudges appetite toward quick calories — old survival wiring.
+
+Not weakness; you can plan snacks kindly."	Stress whispers “eat dense”	"Long-term stress nudges appetite toward quick calories — an old survival script.
+
+Not weakness; wiring you can plan around."	Stress and snack cravings	"Long stress nudges appetite toward quick calories — old survival wiring.
+
+Not weakness; you can plan snacks kindly."	
+F20	funny	week_participation	Aragón et al., 2015	https://pubmed.ncbi.nlm.nih.gov/26312674/	Cute aggression is normal	"That urge to squeeze a puppy? Researchers gave it a name: cute aggression. Harmless, common, weirdly sweet.
+
+Totally unrelated to your streak — just a smile break."	Cute squeeze feelings	"Wanting to squeeze a puppy? Scientists called it “cute aggression” — common and harmless.
+
+Totally unrelated to your streak — just silly joy."	Cute aggression is normal	"That urge to squeeze a puppy? Researchers gave it a name: cute aggression. Harmless, common, weirdly sweet.
+
+Totally unrelated to your streak — just a smile break."	Cute squeeze feelings	"Wanting to squeeze a puppy? Scientists called it “cute aggression” — common and harmless.
+
+Totally unrelated to your streak — just silly joy."	
+ME1	inside the app	red_to_amber	Kahneman & Tversky — prospect theory	https://doi.org/10.2307/1914183	Losses feel louder than wins	"Classic decision research found people hate losing about twice as much as they enjoy gaining the same amount. A clear “floor” uses that honesty: protecting progress hits different emotional notes than a vague “do better.”
+
+The app names the stakes so your attention has somewhere real to stand.
+
+Below the floor, recovery keeps rules transparent — core-only pot accrual and strict-drop resets — all explicit, with no random layer on top of your treats or pot."	Losses feel louder than wins	"People hate losing about twice as much as they enjoy gaining the same amount.
+
+A clear “floor” in the app makes the stakes honest.
+
+Below the floor, recovery keeps jar rules clear — core-only money until the score recovers. Ask a grown-up for the full picture."	Losses feel louder than wins	"Classic decision research found people dislike losing about twice as much as they enjoy gaining the same amount. A clear “floor” puts that to work: protecting progress motivates more than a vague “do better.”
+
+Below the floor you’re in recovery: only core habits add to the pot, and a further true drop resets it. Every rule is visible — no random layer on top of your treats or pot."	Losses feel louder than wins	"People hate losing about twice as much as they enjoy gaining the same amount.
+
+A clear “floor” in the app makes the stakes honest.
+
+Below the floor, recovery keeps jar rules clear — core-only money until the score recovers. Ask a grown-up for the full picture."	Trimmed the abstract 'somewhere real to stand' line; kept the mechanic explanation concrete and visible.
+ME2	inside the app	week_4	Ashraf, Karlan & Yin — commitment savings	https://doi.org/10.1162/qjec.2006.121.2.635	Locking money on purpose works	"In real-world trials, savers who chose accounts that locked funds until a date often built bigger balances than people left totally free — even when freedom sounds nicer.
+
+A named pot is a soft version of that contract with yourself."	Locked savings help	"Savers who chose “locked until a date” accounts often saved more than total freedom.
+
+Goal pots here echo that gentle lock."	Locking money on purpose works	"In real-world trials, savers who chose accounts that locked funds until a date often built bigger balances than people left totally free — even when freedom sounds nicer.
+
+A named pot is a soft version of that contract with yourself."	Locked savings help	"Savers who chose “locked until a date” accounts often saved more than total freedom.
+
+Goal pots here echo that gentle lock."	
+ME3	inside the app	week_participation	Kivetz, Urminsky & Zheng	https://doi.org/10.1509/jmkr.43.1.39	The last steps feel fastest	"Coffee-shop studies showed people speed up purchases as a free-drink card nears full — effort rises near the finish. A filling progress bar borrows the same nudge.
+
+Close targets feel magnetic; use that instead of guilt."	The last steps feel fastest	"People speed up when a punch-card is almost full.
+
+Progress bars use the same “almost there” pull."	The last steps feel fastest	"Coffee-shop studies showed people speed up purchases as a free-drink card nears full — effort rises near the finish. A filling progress bar borrows the same nudge.
+
+Close targets feel magnetic; use that instead of guilt."	The last steps feel fastest	"People speed up when a punch-card is almost full.
+
+Progress bars use the same “almost there” pull."	
+ME4	inside the app	week_2	Laibson — present bias (QJE)	https://doi.org/10.1162/003355397555253	Now-you and later-you disagree	"Economists model a pattern many people feel: distant rewards shrink in our minds while tonight’s treat grows huge. Pairing a small weekly win with a slow pot feeds both versions of you.
+
+Structure ends the argument instead of moralising it."	Now-you vs later-you	"Tonight’s treat feels huge; faraway rewards feel tiny.
+
+Weekly treats plus a slow pot feed both versions of you."	Now-you and later-you disagree	"Economists model a pattern many people feel: distant rewards shrink in our minds while tonight’s treat grows huge. Pairing a small weekly win with a slow pot feeds both versions of you.
+
+Structure ends the argument instead of moralising it."	Now-you vs later-you	"Tonight’s treat feels huge; faraway rewards feel tiny.
+
+Weekly treats plus a slow pot feed both versions of you."	
+ME5	inside the app	habit_added	Michie et al. — behaviour change techniques	https://doi.org/10.1037/a0016136	Checking boxes is real medicine	"A giant review of health programmes found keeping track of behaviour — food, steps, sleep — was one of the strongest ingredients that made interventions work.
+
+Your taps are not theatre; they are a proven behaviour-change tool."	Tracking really helps	"Big reviews say logging food, steps, or sleep is one of the strongest helpers in health programmes.
+
+Your taps are real tools."	Checking boxes is real medicine	"A giant review of health programmes found keeping track of behaviour — food, steps, sleep — was one of the strongest ingredients that made interventions work.
+
+Your taps are not theatre; they are a proven behaviour-change tool."	Tracking really helps	"Big reviews say logging food, steps, or sleep is one of the strongest helpers in health programmes.
+
+Your taps are real tools."	
+ME6	inside the app	week_participation	Milkman, Minson & Volpp	https://doi.org/10.1287/mnsc.2013.1784	Earn the fun, enjoy it harder	"Researchers boosted gym visits by pairing addictive audiobooks with treadmill time only. Your weekly treat after qualifying is the same bargain: joy rides on the habit, not beside it.
+
+Pleasure with a gate stays memorable longer."	Earn the fun	"Researchers paired audiobooks with treadmill time only — visits went up.
+
+Your weekly treat after qualifying uses the same bargain."	Earn the fun, enjoy it harder	"Researchers boosted gym visits by saving an addictive audiobook for treadmill time only. Your weekly treat works the same way: it arrives because you qualified, so the fun and the habit stay linked.
+
+A reward you earned tends to stick in memory longer than one you just took."	Earn the fun	"Researchers paired audiobooks with treadmill time only — visits went up.
+
+Your weekly treat after qualifying uses the same bargain."	Replaced cryptic 'joy rides on the habit, not beside it' / 'pleasure with a gate' with plain language.
+ME7	inside the app	amber_to_green	Kahneman, Knetsch & Thaler — endowment effect	https://doi.org/10.1086/261737	Progress feels like property	"Give someone a random mug and they suddenly price it like treasure. Streaks and pots inherit that quirk — losing ground stings because it feels like giving something up.
+
+The design respects that feeling instead of pretending you are a spreadsheet."	Progress feels like “mine”	"We care extra about things we feel we own — streaks and pots use that quirk.
+
+The app respects feelings, not only numbers."	Progress feels like property	"Give someone a random mug and they suddenly price it like treasure. Streaks and pots inherit that quirk — losing ground stings because it feels like giving something up.
+
+The app treats that feeling as real information, not something to shame you out of."	Progress feels like “mine”	"We care extra about things we feel we own — streaks and pots use that quirk.
+
+The app respects feelings, not only numbers."	Replaced the slightly advert-like 'instead of pretending you are a spreadsheet'.
+ME8	inside the app	week_2	Carver & Scheier — control theory	https://doi.org/10.1037/0033-2909.92.1.111	The screen is a thermostat	"Self-regulation theories say we compare “where I am” to “where I want to be,” then adjust. Colours, chips, and week rows are that comparison made friendly.
+
+You get direction without drowning in shame."	The screen is a thermostat	"Brains compare “where I am” to “where I want to be,” then adjust.
+
+Colours and chips make that comparison kind."	The screen is a thermostat	"Self-regulation theories say we compare “where I am” to “where I want to be,” then adjust. Colours, chips, and week rows are that comparison made friendly.
+
+You get direction without drowning in shame."	The screen is a thermostat	"Brains compare “where I am” to “where I want to be,” then adjust.
+
+Colours and chips make that comparison kind."	
+ME9	inside the app	habit_added	Thaler — mental accounting	https://doi.org/10.1002/(SICI)1099-0771(199909)12:3%3C183::AID-BDM318%3E3.0.CO;2-F	Labels change spending in your head	"People treat “holiday money” and “bill money” as if they are not interchangeable — even when the bank account is one. Separate goal pots ride that habit so wins stay attached to their story.
+
+Compartmentalising can be a feature."	Separate jars in your head	"People treat “holiday money” and “bill money” differently even in one account.
+
+Separate goal pots ride that habit."	Labels change spending in your head	"People treat “holiday money” and “bill money” as if they are not interchangeable — even when the bank account is one. Separate goal pots ride that habit so wins stay attached to their story.
+
+Compartmentalising can be a feature."	Separate jars in your head	"People treat “holiday money” and “bill money” differently even in one account.
+
+Separate goal pots ride that habit."	
+ME10	inside the app	any	Schultz, Dayan & Montague — reward learning	https://doi.org/10.1126/science.275.5306.1593	Little surprises, steady attention	"Brain studies show cells that learn from “better than expected” moments. A pop-up fact you did not schedule is a mild version of that — curiosity without turning insights into a wager.
+
+Small novelty can support focus when kept kind."	Small surprises, steady attention	"Brains learn from “better than expected” moments.
+
+Surprise facts here are mild curiosity — little brain teasers, not bets."	Little surprises, steady attention	"Brain cells learn from “better than expected” moments. A fact you didn’t schedule is a mild version of that — a little curiosity, never a bet or a prize you can lose.
+
+Small novelty can keep attention awake when it stays gentle."	Small surprises, steady attention	"Brains learn from “better than expected” moments.
+
+Surprise facts here are mild curiosity — little brain teasers, not bets."	Replaced 'turning insights into a wager' with clearer wording; clarified it's not a gamble.
+ME11	inside the app	any	Consistency app — online / offline indicator		Green means online	The green pill around your name shows that you are currently online. When it's grey it means that you have lost connection, but your data will keep being saved on your device until next sync.	Online?	Green around your name means you are online! Grey means you are not!	Green means online	The green ring around your name means you’re online and syncing. Grey means the connection dropped — don’t worry, your logs keep saving on this device and upload on the next sync.	Online?	Green around your name means you are online! Grey means you are not!	Fixed run-on grammar and tightened; same meaning.
+RG1	inside the app	red_to_green	Consistency app — tier colours		From red to green	"When consistency jumps straight from struggling to solid, it usually means several closed weeks lined up behind the number — not one fluke week.
+
+Let the colour change be a quiet “keep going,” not pressure to be perfect next week."	From red to green	"Jumping from struggling to solid usually means several good closed weeks — not one fluke week.
+
+Let the colour change say “keep going,” not “be perfect.”"	From red to green	"When consistency jumps straight from struggling to solid, it usually means several closed weeks lined up behind the number — not one fluke week.
+
+Let the colour change be a quiet “keep going,” not pressure to be perfect next week."	From red to green	"Jumping from struggling to solid usually means several good closed weeks — not one fluke week.
+
+Let the colour change say “keep going,” not “be perfect.”"	
+MY1	consistency	month_on_track	Milkman & Dai — fresh starts	https://pubmed.ncbi.nlm.nih.gov/24434240/	Month on track	"Early in a month, people often lean on fresh-start energy. Research on “temporal landmarks” shows Mondays and month beginnings nudge new attempts without needing a dramatic reboot.
+
+If your goals sit in the steady band, you are allowed to ride that gentle tailwind."	Month on track	"Month starts give a fresh-start boost for many people.
+
+If you are in the steady band, ride the gentle tailwind."	Month on track	"Early in a month, people often lean on fresh-start energy. Research on “temporal landmarks” shows Mondays and month beginnings nudge new attempts without needing a dramatic reboot.
+
+If your goals sit in the steady band, you are allowed to ride that gentle tailwind."	Month on track	"Month starts give a fresh-start boost for many people.
+
+If you are in the steady band, ride the gentle tailwind."	
+MY2	consistency	year_on_track	Wood & Neal — habits (overview)	https://pubmed.ncbi.nlm.nih.gov/17685980/	Year, same lane	"Big studies on habits stress boring repetition over hero weeks. A new calendar year is just another Monday in a longer chain — useful if it helps you show up, not if it becomes all-or-nothing.
+
+Steady beats dramatic when the year gets noisy."	New year, same steady	"Habits love boring repetition more than hero weeks.
+
+A new year is useful if it helps you show up — not if it becomes all-or-nothing."	Year, same lane	"Big studies on habits stress boring repetition over hero weeks. A new calendar year is just another Monday in a longer chain — useful if it helps you show up, not if it becomes all-or-nothing.
+
+Steady beats dramatic when the year gets noisy."	New year, same steady	"Habits love boring repetition more than hero weeks.
+
+A new year is useful if it helps you show up — not if it becomes all-or-nothing."	
+CB1	consistency	comeback	Norcross — change maintenance	https://pubmed.ncbi.nlm.nih.gov/	You came back	"Maintenance research keeps repeating one lesson: slips are normal; re-entry predicts long-term change more than a spotless streak.
+
+Opening the log again after a rough week is already the behaviour scientists care about."	You came back	"Slips are normal. Scientists care most that you return.
+
+Opening the log after a rough week already counts."	You came back	"Maintenance research keeps repeating one lesson: slips are normal; re-entry predicts long-term change more than a spotless streak.
+
+Opening the log again after a rough week is already the behaviour scientists care about."	You came back	"Slips are normal. Scientists care most that you return.
+
+Opening the log after a rough week already counts."	
+CA1	how the consistency app works	habit_added	Consistency — week & habit rules		Habits added mid-week get a fair start	"If you add a habit on a day other than Monday, that first partial week uses proportional targets — your threshold is scaled down based on how many days remain in the week.
+
+For example, if your goal is 5 days per week and you start on Thursday, you only need to hit roughly 2 days (floor of 5 × 4/7). This keeps scoring fair without blocking your goal on a week you could never fully complete."	Fair start mid-week	"If you add a habit mid-week, your first partial week uses a smaller target so it stays fair.
+
+Example: starting Thursday with a 5-day goal might ask ~2 days that week."	Habits added mid-week get a fair start	"If you add a habit on a day other than Monday, that first partial week uses proportional targets — your threshold is scaled down based on how many days remain in the week.
+
+For example, if your goal is 5 days per week and you start on Thursday, you only need to hit roughly 2 days (floor of 5 × 4/7). This keeps scoring fair without blocking your goal on a week you could never fully complete."	Fair start mid-week	"If you add a habit mid-week, your first partial week uses a smaller target so it stays fair.
+
+Example: starting Thursday with a 5-day goal might ask ~2 days that week."	
+CA2	how the consistency app works	tier_tutorial_done	Consistency app — habit tiers		Core and growth habits	Core habits must all qualify for a closed week to count toward your % and weekly treats; growth habits add pot money when they qualify but never block the week. In recovery (rolling % below that goal’s consistency floor), only core habits add £ to the pot; growth adds £0 until rolling % reaches the floor again. Each goal’s floor is set in Add/Edit goal (default often 80%).	Core and growth habits	"Core habits are your must-do habits: when a week closes, they all need to qualify so the week counts on your score and for your treat.
+
+Growth habits add jar money when you do them — they never block the week.
+
+In recovery (below your floor), only core adds jar money until your score climbs back; growth waits. A grown-up can help with the numbers."	Core and growth habits	Core habits must all qualify for a closed week to count toward your % and weekly treats; growth habits add pot money when they qualify but never block the week. In recovery (rolling % below that goal’s consistency floor), only core habits add £ to the pot; growth adds £0 until rolling % reaches the floor again. Each goal’s floor is set in Add/Edit goal (default often 80%).	Core and growth habits	"Core habits are your must-do habits: when a week closes, they all need to qualify so the week counts on your score and for your treat.
+
+Growth habits add jar money when you do them — they never block the week.
+
+In recovery (below your floor), only core adds jar money until your score climbs back; growth waits. A grown-up can help with the numbers."	
+NH1	molecules and mood	habit_added	Lieberman & Long; Lembke (overview)	https://www.basicbooks.com/titles/daniel-z-lieberman-md/the-molecule-of-more/9781541692273/	Dopamine is more “go” than “ahh”	"Popular books like “The Molecule of More” and “Dopamine Nation” stress one idea: much of what people call “reward” is wanting and momentum, not the cozy feeling after a good meal.
+
+Chasing the next tick is dopamine-heavy; deep rest after is often other chemistry."	“Reward” chemistry is tricky	"A lot of what people call “reward” is wanting and go-go energy, not only cosy afterglow.
+
+Chasing the next tick uses different chemistry than deep rest."	Dopamine is more “go” than “ahh”	"Popular books like “The Molecule of More” and “Dopamine Nation” stress one idea: much of what people call “reward” is wanting and momentum, not the cozy feeling after a good meal.
+
+Chasing the next tick is dopamine-heavy; deep rest after is often other chemistry."	“Reward” chemistry is tricky	"A lot of what people call “reward” is wanting and go-go energy, not only cosy afterglow.
+
+Chasing the next tick uses different chemistry than deep rest."	
+NH2	molecules and mood	week_2	Lieberman & Long — The Molecule of More	https://www.penguinrandomhouse.com/books/622663/the-molecule-of-more-by-daniel-z-lieberman-md-and-michael-e-long/	Two styles of dopamine, one you	"Lieberman and Long describe a “here-and-now” chemical chorus and a “future-and-possible” dopamine track that loves novelty and goals — both matter.
+
+Balance is the game: enough future-pull to plan, enough present chemistry to enjoy arriving."	Two dopamine flavours	"Writers describe “here-and-now” chemistry and “future-and-maybe” chemistry — both matter.
+
+Balance planning with enjoying the moment."	Two styles of dopamine, one you	"Lieberman and Long describe a “here-and-now” chemical chorus and a “future-and-possible” dopamine track that loves novelty and goals — both matter.
+
+Balance is the game: enough future-pull to plan, enough present chemistry to enjoy arriving."	Two dopamine flavours	"Writers describe “here-and-now” chemistry and “future-and-maybe” chemistry — both matter.
+
+Balance planning with enjoying the moment."	
+NH3	molecules and mood	week_participation	Schultz et al.; Lieberman & Long (popular synthesis)	https://doi.org/10.1126/science.275.5306.1593	Why streaks feel magnetic	"Dopamine-related circuits learn from surprises and progress signals — “better than expected” keeps attention. That is why visible streaks and near-complete bars tug harder than abstract goals.
+
+You are not weak; you are using a loud channel wisely."	Why streaks tug	"Brains learn from surprises and progress signals.
+
+Visible streaks use a loud, honest channel — not a weakness."	Why streaks feel magnetic	"Dopamine-related circuits learn from surprises and progress signals — “better than expected” keeps attention. That is why visible streaks and near-complete bars tug harder than abstract goals.
+
+You are not weak; you are using a loud channel wisely."	Why streaks tug	"Brains learn from surprises and progress signals.
+
+Visible streaks use a loud, honest channel — not a weakness."	
+NH4	molecules and mood	red_to_amber	Lembke — Dopamine Nation	https://www.annalembke.com/dopamine-nation	Pleasure and pain share a balance beam	"Psychiatrist Anna Lembke argues endless easy hits — scrolls, snacks, buys — can tilt the brain toward needing more just to feel normal. Brief, chosen discomfort (effort, delay) resets the scale.
+
+Habit apps that add friction on purpose echo that clinical lesson gently."	Easy hits and balance	"Endless quick hits — scrolls, snacks — can tilt the brain toward needing more to feel normal.
+
+Chosen effort and breaks can reset the scale."	Pleasure and pain share a balance beam	"Psychiatrist Anna Lembke argues endless easy hits — scrolls, snacks, buys — can tilt the brain toward needing more just to feel normal. Brief, chosen discomfort (effort, delay) resets the scale.
+
+Habit apps that add friction on purpose echo that clinical lesson gently."	Easy hits and balance	"Endless quick hits — scrolls, snacks — can tilt the brain toward needing more to feel normal.
+
+Chosen effort and breaks can reset the scale."	
+NH5	molecules and mood	any	Carter — oxytocin & attachment (review)	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3183508/	Oxytocin is a trust hormone, not only a cuddle hormone	"Studies tie oxytocin to bonding cues: touch, warm voice, shared meals. It nudges social calm and “we” feelings.
+
+Accountability partners and family habits may ride social chemistry, not only willpower."	Oxytocin and trust	"Oxytocin links to bonding cues: touch, warm voices, shared meals.
+
+Family habits ride social chemistry, not only willpower."	Oxytocin is a trust hormone, not only a cuddle hormone	"Studies tie oxytocin to bonding cues: touch, warm voice, shared meals. It nudges social calm and “we” feelings.
+
+Accountability partners and family habits may ride social chemistry, not only willpower."	Oxytocin and trust	"Oxytocin links to bonding cues: touch, warm voices, shared meals.
+
+Family habits ride social chemistry, not only willpower."	
+NH6	molecules and mood	habit_added	Shamay-Tsoory & Abu-Akel — oxytocin context	https://pubmed.ncbi.nlm.nih.gov/24090464/	Oxytocin has more than one mood	"Researchers note context matters: the same hormone that supports closeness can sharpen feelings about “us versus them” in some settings.
+
+Kindness with boundaries stays wise — chemistry is not a morality tale."	Chemistry has moods	"The same hormone can nudge closeness or “us vs them” feelings depending on context.
+
+Kindness plus boundaries stays wise."	Oxytocin has more than one mood	"Researchers note context matters: the same hormone that supports closeness can sharpen feelings about “us versus them” in some settings.
+
+Kindness with boundaries stays wise — chemistry is not a morality tale."	Chemistry has moods	"The same hormone can nudge closeness or “us vs them” feelings depending on context.
+
+Kindness plus boundaries stays wise."	
+NH7	molecules and mood	week_4	NIH News in Health — serotonin	https://newsinhealth.nih.gov/2012/08/minding-mood	Serotonin is a stabiliser, not a smile pill	"Most brain serotonin does not come with simple labels. It helps regulate mood, sleep timing, and even gut signalling — a steadying hand, not a happy switch.
+
+Medication stories are separate from daily habits; both deserve nuance."	Serotonin steadies	"Serotonin helps mood, sleep timing, and even gut signals — a stabiliser, not a simple “happy switch.”
+
+Medicine stories are separate from daily habits."	Serotonin is a stabiliser, not a smile pill	"Most brain serotonin does not come with simple labels. It helps regulate mood, sleep timing, and even gut signalling — a steadying hand, not a happy switch.
+
+Medication stories are separate from daily habits; both deserve nuance."	Serotonin steadies	"Serotonin helps mood, sleep timing, and even gut signals — a stabiliser, not a simple “happy switch.”
+
+Medicine stories are separate from daily habits."	
+NH8	molecules and mood	week_participation	Harvard Health — exercise, light & mood	https://www.health.harvard.edu/mind-and-mood/serotonin-the-natural-mood-booster	Daylight, movement, and calm chemistry	"Exercise and outdoor light are linked to better mood and sleep in large studies — serotonin-related pathways are part of the story, alongside many other systems.
+
+A walk is low-tech support for a complicated brain."	Sun, move, mood	"Exercise and outdoor light link to better mood and sleep in big studies.
+
+A walk is simple support for a complicated brain."	Daylight, movement, and calm chemistry	"Exercise and outdoor light are linked to better mood and sleep in large studies — serotonin-related pathways are part of the story, alongside many other systems.
+
+A walk is low-tech support for a complicated brain."	Sun, move, mood	"Exercise and outdoor light link to better mood and sleep in big studies.
+
+A walk is simple support for a complicated brain."	
+NH9	molecules and mood	any	Endocrine Society — prolactin	https://www.endocrine.org/patient-engagement/endocrine-library/prolactin	Prolactin: the afterglow manager	"After intense pleasure or orgasm, prolactin often rises — part of why excitement eases and the body pivots toward rest. It is normal biology, not failure.
+
+Understanding the cooldown helps you plan recovery, not judge it."	After big excitement	"After very intense fun, the body shifts toward calm chemistry — that is normal biology.
+
+Understanding cooldown helps you plan rest, not worry."	Prolactin: the afterglow manager	"After intense pleasure, prolactin often rises — part of why excitement eases and the body shifts toward rest. It’s ordinary biology, not a failure of willpower.
+
+Knowing about the cooldown helps you plan recovery instead of judging it."	After big excitement	"After very intense fun, the body shifts toward calm chemistry — that is normal biology.
+
+Understanding cooldown helps you plan rest, not worry."	Softened the explicit wording (dropped 'or orgasm') to match the app's calm, broadly-suitable tone.
+NH10	molecules and mood	week_4	Torner & Neumann — prolactin review	https://pubmed.ncbi.nlm.nih.gov/17920849/	Prolactin shows up for caregivers too	"Hormone research links prolactin to nurturing behaviours in many mammals — milk production in some contexts and caregiving tone more broadly.
+
+Bodies reward tending others with quiet chemistry."	Caring and chemistry	"Hormone research ties prolactin to nurturing behaviours in many mammals.
+
+Bodies quietly reward caring for others."	Prolactin shows up for caregivers too	"Hormone research links prolactin to nurturing behaviours in many mammals — milk production in some contexts and caregiving tone more broadly.
+
+Bodies reward tending others with quiet chemistry."	Caring and chemistry	"Hormone research ties prolactin to nurturing behaviours in many mammals.
+
+Bodies quietly reward caring for others."	
+NH11	molecules and mood	week_8	Sapolsky — Behave	https://www.penguinrandomhouse.com/books/317851/behave-by-robert-m-sapolsky/	No molecule works alone	"Sapolsky’s “Behave” walks one behaviour through genes, hormones, context, and culture — dopamine, serotonin, oxytocin, and more act in concert like instruments, not soloists.
+
+When you change a habit, you are conducting the whole band slowly."	No chemical works alone	"One behaviour involves genes, hormones, context, and culture together — like a band, not one instrument.
+
+Changing a habit slowly conducts the whole band."	No molecule works alone	"Sapolsky’s “Behave” walks one behaviour through genes, hormones, context, and culture — dopamine, serotonin, oxytocin, and more act in concert like instruments, not soloists.
+
+When you change a habit, you are conducting the whole band slowly."	No chemical works alone	"One behaviour involves genes, hormones, context, and culture together — like a band, not one instrument.
+
+Changing a habit slowly conducts the whole band."	
+NH12	molecules and mood	habit_added	Lembke; Lieberman & Long	https://www.penguinrandomhouse.com/books/667510/dopamine-nation-by-anna-lembke-md/	Books beat doom-scrolling for the same circuits	"Writers like Lembke and Lieberman describe how cheap digital hits train dopamine shortcuts. Swapping some scroll time for long-form explanations rebuilds patience — the same patience habits need.
+
+This app’s slower rewards are a cousin of that swap."	Books vs endless scrolls	"Cheap digital hits train shortcuts; longer reading rebuilds patience.
+
+This app’s slower rewards echo that gentler pace."	Books beat doom-scrolling for the same circuits	"Writers like Lembke and Lieberman describe how cheap digital hits train dopamine shortcuts. Swapping some scroll time for long-form explanations rebuilds patience — the same patience habits need.
+
+This app’s slower rewards are a cousin of that swap."	Books vs endless scrolls	"Cheap digital hits train shortcuts; longer reading rebuilds patience.
+
+This app’s slower rewards echo that gentler pace."	
+MX1	consistency	mastery_tier_1	Lally et al. — habit formation (overview)	https://pubmed.ncbi.nlm.nih.gov/19827987/	Mastery I — rhythm holds	"Research on habit formation shows “automaticity” emerges over weeks to months, with wide individual differences — not a single fixed number for everyone.
+
+Earning this tier means your logged behaviour met the bar over roughly a month of calendar days for this habit — celebrate showing up."			Mastery I — rhythm holds	"Research on habit formation shows “automaticity” emerges over weeks to months, with wide individual differences — not a single fixed number for everyone.
+
+Earning this tier means your logged behaviour met the bar over roughly a month of calendar days for this habit — celebrate showing up."			
+MX2	consistency	mastery_tier_2	Wood & Neal — habits (overview)	https://pubmed.ncbi.nlm.nih.gov/17685980/	Mastery II — deeper pattern	"As windows lengthen, off-days age out of the lookback while you keep accumulating proof you can return.
+
+This tier is about sustaining the pattern on the Log across roughly two months of calendar days."			Mastery II — deeper pattern	"As windows lengthen, off-days age out of the lookback while you keep accumulating proof you can return.
+
+This tier is about sustaining the pattern on the Log across roughly two months of calendar days."			
+MX3	consistency	mastery_tier_3	Consistency — mastery framing		Mastery III — you own this here	"Meeting a high bar over the longest mastery window (calendar days) in this app is rare air — you have built real consistency with this habit here.
+
+Consider banking it for now and revisiting in 6–12 months if you want to reinforce it again."			Mastery III — you own this here	"Meeting a high bar over the longest mastery window (calendar days) in this app is rare air — you have built real consistency with this habit here.
+
+Consider banking it for now and revisiting in 6–12 months if you want to reinforce it again."			
+MX4	consistency	mastery_tier_4	Consistency — legendary framing		Legendary Maintenance — back on purpose	A long pause after mastery is normal life. Choosing to return and meet the maintenance bar shows the habit is still yours — a deliberate reunion, not a rescue mission.			Legendary Maintenance — back on purpose	A long pause after mastery is normal life. Choosing to return and meet the maintenance bar shows the habit is still yours — a deliberate reunion, not a rescue mission.			
+MX5	consistency	mastery_tier_5	Consistency — timeless framing		Timeless —still showing up	Years later, the signal is not perfection. It is that you came back and let the weeks add up again — quiet proof that the identity stuck.			Timeless —still showing up	Years later, the signal is not perfection. It is that you came back and let the weeks add up again — quiet proof that the identity stuck.			
+MX6	consistency	mastery_tier_6	Consistency — eternal framing		Eternal — depth over drama	Half a decade is enough seasons to fail, wander, and restart. Earning this means the pattern survived real life — not a streak fantasy.			Eternal — depth over drama	Half a decade is enough seasons to fail, wander, and restart. Earning this means the pattern survived real life — not a streak fantasy.			
+MX7	consistency	mastery_tier_7	Consistency — immortal framing		Immortal — a lifetime stitch	A decade marker is as much about values as behaviour: some practices deserve to stay loosely tethered across everything else that changes.			Immortal — a lifetime stitch	A decade marker is as much about values as behaviour: some practices deserve to stay loosely tethered across everything else that changes.			
+BK_SM1	books	habit_added	Jean Piaget — developmental psychology; Gabor Maté, Scattered Minds	https://openlibrary.org/books/OL7695028M/Scattered_Minds	Only now and not-yet	"For a small child, time has two settings: this moment, and everything else — which feels like infinity. That’s not immaturity. It’s how the brain is wired before it learns to feel the distance between today and next week.
+
+Habits are how you train that distance to feel real."			Only now and not-yet	"For a small child, time has two settings: this moment, and everything else — which feels like infinity. That’s not immaturity. It’s how the brain is wired before it learns to feel the distance between today and next week.
+
+Habits are how you train that distance to feel real."			
+BK_SM2	books	week_2	Jean Piaget; Gabor Maté, Scattered Minds	https://openlibrary.org/books/OL7695028M/Scattered_Minds	Wishing doesn’t make it so	"The young brain defaults to magical thinking — want something hard enough and it arrives. Most adults still carry a version of this around goals.
+
+The system you’re building here is the direct answer to that: small repeated actions, not intention."			Wishing doesn’t make it so	"The young brain defaults to magical thinking — want something hard enough and it arrives. Most adults still carry a version of this around goals.
+
+The system you’re building here is the direct answer to that: small repeated actions, not intention."			
+BK_SM3	books	habit_added	Jean Piaget — cognitive development; Gabor Maté, Scattered Minds	https://openlibrary.org/books/OL7695028M/Scattered_Minds	Time is learned, not given	"No one is born understanding that today’s choices shape next week. That link — cause, then effect, across time — is something the brain constructs gradually. In some people that construction takes longer.
+
+That’s not a deficit. It’s just the starting point."			Time is learned, not given	"No one is born understanding that today’s choices shape next week. That link — cause, then effect, across time — is something the brain constructs gradually. In some people that construction takes longer.
+
+That’s not a deficit. It’s just the starting point."			
+BK_SM4	books	week_4	Jean Piaget — preoperational stage; Gabor Maté, Scattered Minds	https://openlibrary.org/books/OL7695028M/Scattered_Minds	Seven is when time clicks	"Piaget found that children don’t have a full grasp of time until around age seven. Before that, duration and consequence are genuinely hard to feel — not a behaviour choice.
+
+For some brains, external structure does what that internal clock hasn’t fully built yet."			Seven is when time clicks	"Piaget found that children don’t have a full grasp of time until around age seven. Before that, duration and consequence are genuinely hard to feel — not a behaviour choice.
+
+For some brains, external structure does what that internal clock hasn’t fully built yet."			
+BK_SM5	books	week_4	Jean Piaget — preoperational stage; Gabor Maté, Scattered Minds	https://openlibrary.org/books/OL7695028M/Scattered_Minds	You can’t bend time by wanting to	"Piaget observed that young children believe they can stop, speed up, or slow time down. That instinct doesn’t always fully leave. If deadlines feel like suggestions and schedules seem to shift around you — that’s the same wiring, older.
+
+Structure isn’t a workaround. It’s the actual solution."			You can’t bend time by wanting to	"Piaget observed that young children believe they can stop, speed up, or slow time down. That instinct doesn’t always fully leave. If deadlines feel like suggestions and schedules seem to shift around you — that’s the same wiring, older.
+
+Structure isn’t a workaround. It’s the actual solution."			

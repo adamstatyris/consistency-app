@@ -1,11 +1,11 @@
 /* Service worker: fetch pass-through + Web Push only.
  * Scheduled reminders are delivered via Supabase Edge (push) — no Periodic Background Sync snapshot.
  */
-var CONSISTENCY_SW_CACHE = 'consistency-sw-v9';
+var CONSISTENCY_SW_CACHE = 'consistency-sw-v12';
 
 function notifIconUrl() {
   try {
-    return new URL('icons/icon-192.png?v=3', self.registration.scope || self.location).href;
+    return new URL('icons/icon-192.png?v=4', self.registration.scope || self.location).href;
   } catch (e) {
     return undefined;
   }
@@ -40,7 +40,7 @@ self.addEventListener('fetch', function (e) {
 });
 
 self.addEventListener('push', function (event) {
-  var title = 'Consistency';
+  var title = 'Evolve';
   var body = '';
   var tag = 'consistency-push';
   var icon = notifIconUrl();

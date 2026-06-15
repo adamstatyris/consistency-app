@@ -1,0 +1,30 @@
+{
+  "_README": "User-curated insight rewrites. Run: node tools/apply-insights-proposed.mjs",
+
+  "ME1": {
+    "adult_body": "Classic decision research found people dislike losing about twice as much as they enjoy gaining the same amount. A clear \u201cfloor\u201d puts that to work: protecting progress motivates more than a vague \u201cdo better.\u201d\n\nBelow the floor you\u2019re in recovery: only core habits add to the pot, and a further drop resets it. This way you can focus on Core habits and to no further drops to protect your pot."
+  },
+  "ME6": {
+    "adult_body": "Researchers boosted gym visits by saving an addictive audiobook for treadmill time only. Your weekly treat works the same way: it arrives because you met your weekly commitment, so the fun and the habit stay linked.\n\nA reward you earned tends to stick in memory longer than a reward you simply took."
+  },
+  "ME7": {
+    "adult_body": "Give someone a random mug and they suddenly price it like treasure. Streaks and pots inherit that quirk \u2014 losing ground stings because it feels like giving something up.\n\nThe app treats that feeling as leverage to strengthen your willpower even in difficult weeks."
+  },
+  "ME10": {
+    "adult_body": "Brain cells learn from \u201chappy/interesting surprises than expected\u201d moments. In-app discovered insights like this one are a mild version of that \u2014 something to learn from while you stay mildly excited for the next one.\n\nSmall novelty can keep attention awake when it stays subtle."
+  },
+  "NH9": {
+    "adult_body": "After intense pleasure, prolactin often rises \u2014 part of why excitement eases and the body shifts toward rest. It\u2019s ordinary biology, not a failure of willpower or loss of interest.\n\nKnowing about the cooldown helps you plan recovery instead of judging it.",
+    "kid_body": "After very intense fun, the body shifts toward calmer chemical state \u2014 that is normal biology.\n\nUnderstanding cooldown helps you plan rest, not worry."
+  },
+  "I50": {
+    "adult_body": "Industry data suggests only a small share of people who download habit apps are still active two months later. By logging here you\u2019re already on the uncommon side of that curve.\n\nThat\u2019s the structure you built doing its job \u2014 not luck."
+  },
+  "I22": {
+    "adult_title": "Earlier eating, happier metabolism",
+    "adult_body": "When you eat matters as well as what you eat.\nIn trials, earlier eating tends to suit metabolism better than late eating."
+  },
+  "I4": {
+    "adult_body": "Ten minutes of walking, cycling, or anything that gets you moving tends to clear the mental fog fairly reliably. It\u2019s one of the more reproducible findings in cognitive research.\n\nYou don\u2019t need a full workout session. You just need to move."
+  }
+}

@@ -1,337 +1,448 @@
 id	category	variant	adult	kid	html
 insight.adult.I1.title	insights_adult		Sleep helps memories stick		no
-insight.adult.I1.body	insights_adult		Your brain files the day while you sleep. Skip it too often and things stop sticking u2014 meetings, names, where you left your keys.nnConsistent sleep beats one heroic ten-hour catch-up.		no
+insight.adult.I1.body	insights_adult		Your brain files the day while you sleep. Skip it too often and things stop sticking — meetings, names, where you left your keys.\n\nConsistent sleep beats one heroic ten-hour catch-up.		no
 insight.adult.I1.sourceText	insights_adult		Walker — Why We Sleep (overview)		no
+insight.adult.I1.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/		no
 insight.adult.I2.title	insights_adult		Your body likes a rhythm		no
-insight.adult.I2.body	insights_adult		Light, meals, and bedtime all tell your body what time it is. Send mixed signals and your mood and focus will let you know about it.nnA dull wind-down routine is actually doing a lot of work.		no
+insight.adult.I2.body	insights_adult		Light, meals, and bedtime all tell your body what time it is. Send mixed signals and your mood and focus will let you know about it.\n\nA dull wind-down routine is actually doing a lot of work.		no
 insight.adult.I2.sourceText	insights_adult		NIH — circadian health		no
+insight.adult.I2.sourceUrl	insights_adult		https://www.nih.gov/news-events/nih-research-matters/understanding-circadian-rhythm-sleep		no
 insight.adult.I3.title	insights_adult		Late calories, fussier blood sugar		no
-insight.adult.I3.body	insights_adult		Eating a big meal late at night tends to make blood-sugar control harder u2014 even if the total calories are identical to an earlier meal.nnItu2019s not about willpower. Itu2019s just how the body prefers its schedule.		no
+insight.adult.I3.body	insights_adult		Eating a big meal late at night tends to make blood-sugar control harder — even if the total calories are identical to an earlier meal.\n\nIt’s not about willpower. It’s just how the body prefers its schedule.		no
 insight.adult.I3.sourceText	insights_adult		Baron et al., 2013		no
+insight.adult.I3.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/23997356/		no
 insight.adult.I4.title	insights_adult		Movement sharpens thinking		no
-insight.adult.I4.body	insights_adult		Ten minutes of walking, cycling, or anything that gets you moving tends to clear the mental fog fairly reliably. Itu2019s one of the more reproducible findings in cognitive research.nnYou donu2019t need a full session. You just need to move.		no
+insight.adult.I4.body	insights_adult		Ten minutes of walking, cycling, or anything that gets you moving tends to clear the mental fog fairly reliably. It’s one of the more reproducible findings in cognitive research.\n\nYou don’t need a full workout session. You just need to move.		no
 insight.adult.I4.sourceText	insights_adult		Hillman et al. — exercise & cognition		no
+insight.adult.I4.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/		no
 insight.adult.I5.title	insights_adult		Piggyback on what you already do		no
-insight.adult.I5.body	insights_adult		u201cAfter I make coffee, I do two minutes of stretching.u201d The existing habit does the reminding u2014 you donu2019t have to remember anything new.nnSmall links are more durable than big resolutions.		no
+insight.adult.I5.body	insights_adult		“After I make coffee, I do two minutes of stretching.” The existing habit does the reminding — you don’t have to remember anything new.\n\nSmall links are more durable than big resolutions.		no
 insight.adult.I5.sourceText	insights_adult		Lally et al. — habit formation		no
-insight.adult.I6.title	insights_adult		u201cIf this, then thatu201d really works		no
-insight.adult.I6.body	insights_adult		u201cIf itu2019s Tuesday at 7pm, I go to the gymu201d outperforms u201cI should exercise moreu201d every time. Specificity removes the daily decision.nnWriting the when and where is most of the work done.		no
+insight.adult.I5.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/19827987/		no
+insight.adult.I6.title	insights_adult		“If this, then that” really works		no
+insight.adult.I6.body	insights_adult		“If it’s Tuesday at 7pm, I go to the gym” outperforms “I should exercise more” every time. Specificity removes the daily decision.\n\nWriting the when and where is most of the work done.		no
 insight.adult.I6.sourceText	insights_adult		Gollwitzer — implementation intentions		no
+insight.adult.I6.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/10620504/		no
 insight.adult.I7.title	insights_adult		Why checking a box feels good		no
-insight.adult.I7.body	insights_adult		Your brain pays attention to better-than-expected outcomes. A small visible win u2014 a tick, a streak u2014 registers as one. Thatu2019s not shallow; itu2019s just how learning works.nnAim that wiring at things worth repeating.		no
+insight.adult.I7.body	insights_adult		Your brain pays attention to better-than-expected outcomes. A small visible win — a tick, a streak — registers as one. That’s not shallow; it’s just how learning works.\n\nAim that wiring at things worth repeating.		no
 insight.adult.I7.sourceText	insights_adult		Schultz — reward learning (overview)		no
+insight.adult.I7.sourceUrl	insights_adult		https://www.ncbi.nlm.nih.gov/books/NBK10921/		no
 insight.adult.I8.title	insights_adult		When time feels slippery		no
-insight.adult.I8.body	insights_adult		Some brains genuinely struggle to feel how long things take without external cues. Calendars, alarms, and timers arenu2019t crutches u2014 theyu2019re just the right tool for that particular wiring.nnVague plans fail specific people. Specificity is the fix.		no
+insight.adult.I8.body	insights_adult		Some brains genuinely struggle to feel how long things take without external cues. Calendars, alarms, and timers aren’t crutches — they’re just the right tool for that particular wiring.\n\nVague plans fail specific people. Specificity is the fix.		no
 insight.adult.I8.sourceText	insights_adult		Barkley — ADHD & time		no
+insight.adult.I8.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/21299070/		no
 insight.adult.I9.title	insights_adult		Beating yourself up is expensive		no
-insight.adult.I9.body	insights_adult		Research is pretty consistent: self-criticism after a slip makes quitting more likely, not less. A calm restart keeps more people going long-term.nnFlat tyre. Fix it. Drive on.		no
+insight.adult.I9.body	insights_adult		Research is pretty consistent: self-criticism after a slip makes quitting more likely, not less. A calm restart keeps more people going long-term.\n\nFlat tyre. Fix it. Drive on.		no
 insight.adult.I9.sourceText	insights_adult		Neff — self-compassion research		no
+insight.adult.I9.sourceUrl	insights_adult		https://self-compassion.org/		no
 insight.adult.I10.title	insights_adult		Paper as a pressure valve		no
-insight.adult.I10.body	insights_adult		Writing about tangled thoughts for a few minutes consistently reduces rumination in study after study. Youu2019re not trying to write well u2014 youu2019re just clearing the inbox.nnMessy notes count. Full sentences not required.		no
+insight.adult.I10.body	insights_adult		Writing about tangled thoughts for a few minutes consistently reduces rumination in study after study. You’re not trying to write well — you’re just clearing the inbox.\n\nMessy notes count. Full sentences not required.		no
 insight.adult.I10.sourceText	insights_adult		Pennebaker — expressive writing		no
+insight.adult.I10.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/		no
 insight.adult.I11.title	insights_adult		Reading grows your words		no
-insight.adult.I11.body	insights_adult		Regular readers carry larger vocabularies even when their formal education looks identical on paper. Fifteen quiet minutes a day compounds over years.nnSpeed-reading trophies optional.		no
+insight.adult.I11.body	insights_adult		Regular readers carry larger vocabularies even when their formal education looks identical on paper. Fifteen quiet minutes a day compounds over years.\n\nSpeed-reading trophies optional.		no
 insight.adult.I11.sourceText	insights_adult		Cunningham & Stanovich		no
+insight.adult.I11.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/		no
 insight.adult.I12.title	insights_adult		Meditation as attention gym		no
-insight.adult.I12.body	insights_adult		Mindfulness practice produces modest but reliable gains on attention measures u2014 not magic, just practice applied to a specific skill.nnShort and daily beats long and occasional.		no
+insight.adult.I12.body	insights_adult		Mindfulness practice produces modest but reliable gains on attention measures — not magic, just practice applied to a specific skill.\n\nShort and daily beats long and occasional.		no
 insight.adult.I12.sourceText	insights_adult		Tang et al. — mindfulness reviews		no
+insight.adult.I12.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/		no
 insight.adult.I13.title	insights_adult		Little and often wins		no
-insight.adult.I13.body	insights_adult		Spreading practice across days beats cramming it all into one session u2014 for skills, facts, and habits alike. Your brain consolidates better with gaps in between.nnShow up regularly. Let the gaps do half the work.		no
+insight.adult.I13.body	insights_adult		Spreading practice across days beats cramming it all into one session — for skills, facts, and habits alike. Your brain consolidates better with gaps in between.\n\nShow up regularly. Let the gaps do half the work.		no
 insight.adult.I13.sourceText	insights_adult		Cepeda et al. — spacing effect		no
+insight.adult.I13.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/		no
 insight.adult.I14.title	insights_adult		Who you think you are matters		no
-insight.adult.I14.body	insights_adult		People who say u201cIu2019m someone who exercisesu201d stick with it longer than people who say u201cIu2019m trying to exercise more.u201d Identity outruns motivation.nnThe story you tell on good days is the voice you hear on hard ones.		no
+insight.adult.I14.body	insights_adult		People who say “I’m someone who exercises” stick with it longer than people who say “I’m trying to exercise more.” Identity outruns motivation.\n\nThe story you tell on good days is the voice you hear on hard ones.		no
 insight.adult.I14.sourceText	insights_adult		Identity & habits (research reviews)		no
+insight.adult.I14.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/		no
 insight.adult.I15.title	insights_adult		Make the good thing easier		no
-insight.adult.I15.body	insights_adult		Shoes by the door. Gym bag already packed. Water bottle already filled. Environment design consistently beats willpower when youu2019re tired.nnReduce friction. Future-you will be grateful.		no
+insight.adult.I15.body	insights_adult		Shoes by the door. Gym bag already packed. Water bottle already filled. Environment design consistently beats willpower when you’re tired.\n\nReduce friction. Future-you will be grateful.		no
 insight.adult.I15.sourceText	insights_adult		Wood & Neal — habits		no
+insight.adult.I15.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/17685980/		no
 insight.adult.I16.title	insights_adult		Other people help you show up		no
-insight.adult.I16.body	insights_adult		Knowing someone is loosely watching u2014 a friend, a partner, a group chat u2014 reliably nudges follow-through. You donu2019t need a coach.nnSometimes one text buddy is enough.		no
+insight.adult.I16.body	insights_adult		Knowing someone is loosely watching — a friend, a partner, a group chat — reliably nudges follow-through. You don’t need a coach.\n\nSometimes one text buddy is enough.		no
 insight.adult.I16.sourceText	insights_adult		Health behaviour trials (overview)		no
+insight.adult.I16.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/		no
 insight.adult.I17.title	insights_adult		Stress loves the old playlist		no
-insight.adult.I17.body	insights_adult		Under pressure, the brain defaults to its most familiar routines u2014 fast. If those routines are good ones, great. If not, stress will find that out quickly.nnSimplify the plan before stress does it for you.		no
+insight.adult.I17.body	insights_adult		Under pressure, the brain defaults to its most familiar routines — fast. If those routines are good ones, great. If not, stress will find that out quickly.\n\nSimplify the plan before stress does it for you.		no
 insight.adult.I17.sourceText	insights_adult		Schwabe & Wolf — stress & habits		no
+insight.adult.I17.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/		no
 insight.adult.I18.title	insights_adult		Sleep debt hits your brakes		no
-insight.adult.I18.body	insights_adult		The first thing poor sleep dulls is your ability to pause before reacting. Everything gets louder, smaller decisions feel bigger.nnProtecting sleep is protecting your judgement u2014 not a soft priority.		no
+insight.adult.I18.body	insights_adult		The first thing poor sleep dulls is your ability to pause before reacting. Everything gets louder, smaller decisions feel bigger.\n\nProtecting sleep is protecting your judgement — not a soft priority.		no
 insight.adult.I18.sourceText	insights_adult		Killgore — sleep & cognition		no
+insight.adult.I18.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/		no
 insight.adult.I19.title	insights_adult		Two minutes of moving counts		no
-insight.adult.I19.body	insights_adult		Short breaks from sitting improve energy ratings and help blood-sugar regulation after long desk stretches. The bar is genuinely low.nnStand up, walk to the kitchen, come back. That counts.		no
+insight.adult.I19.body	insights_adult		Short breaks from sitting improve energy ratings and help blood-sugar regulation after long desk stretches. The bar is genuinely low.\n\nStand up, walk to the kitchen, come back. That counts.		no
 insight.adult.I19.sourceText	insights_adult		Owen et al. — sitting breaks		no
+insight.adult.I19.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/		no
 insight.adult.I20.title	insights_adult		Habits feel automatic slowly		no
-insight.adult.I20.body	insights_adult		Real-world studies put habit formation at weeks to months, not the famous 21 days. Early repetitions are the investment. Ease is what you get later.nnYouu2019re not slow. Youu2019re just early.		no
+insight.adult.I20.body	insights_adult		Real-world studies put habit formation at weeks to months, not the famous 21 days. Early repetitions are the investment. Ease is what you get later.\n\nYou’re not slow. You’re just early.		no
 insight.adult.I20.sourceText	insights_adult		Lally et al.		no
+insight.adult.I20.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/19827987/		no
 insight.adult.I21.title	insights_adult		Skills can grow		no
-insight.adult.I21.body	insights_adult		People who treat ability as buildable come back after setbacks more readily than those who see it as fixed. A bad week is noise, not a ceiling.nnThe only thing a slip proves is that youu2019re still in the game.		no
+insight.adult.I21.body	insights_adult		People who treat ability as buildable come back after setbacks more readily than those who see it as fixed. A bad week is noise, not a ceiling.\n\nThe only thing a slip proves is that you’re still in the game.		no
 insight.adult.I21.sourceText	insights_adult		Dweck — mindset research		no
-insight.adult.I22.title	insights_adult		Earlier eating, calmer numbers		no
-insight.adult.I22.body	insights_adult		Shifting the bulk of eating earlier in the day consistently shows better metabolic patterns in trials. Same food, different clock.nnTiming is a lever. Not a moral position.		no
+insight.adult.I21.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/		no
+insight.adult.I22.title	insights_adult		Earlier eating, happier metabolism		no
+insight.adult.I22.body	insights_adult		When you eat matters as well as what you eat.\nIn trials, earlier eating tends to suit metabolism better than late eating.		no
 insight.adult.I22.sourceText	insights_adult		Sutton et al.		no
+insight.adult.I22.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/28469135/		no
 insight.adult.I23.title	insights_adult		Muscles pay rent on independence		no
-insight.adult.I23.body	insights_adult		Strength training supports bones, metabolism, and your ability to carry your own shopping decades from now. Two sessions a week is a legitimate longevity habit.nnNot about aesthetics. About function.		no
+insight.adult.I23.body	insights_adult		Strength training supports bones, metabolism, and your ability to carry your own shopping decades from now. Two sessions a week is a legitimate longevity habit.\n\nNot about aesthetics. About function.		no
 insight.adult.I23.sourceText	insights_adult		Westcott — resistance training		no
+insight.adult.I23.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/		no
 insight.adult.I24.title	insights_adult		One block, one job		no
-insight.adult.I24.body	insights_adult		Every task switch leaves residual mental noise that slows down whatever comes next. Protecting a block of uninterrupted time isnu2019t a luxury u2014 itu2019s how actual deep work gets done.nnBatch the similar stuff. Guard the focused time.		no
+insight.adult.I24.body	insights_adult		Every task switch leaves residual mental noise that slows down whatever comes next. Protecting a block of uninterrupted time isn’t a luxury — it’s how actual deep work gets done.\n\nBatch the similar stuff. Guard the focused time.		no
 insight.adult.I24.sourceText	insights_adult		Newport — deep work / cognitive load		no
+insight.adult.I24.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/		no
 insight.adult.I25.title	insights_adult		A gap is not a verdict		no
-insight.adult.I25.body	insights_adult		Missing once doesnu2019t erase progress. Shame spirals do. The quickest recovery is the next small win u2014 not a Monday restart ceremony.nnComebacks count as data too.		no
+insight.adult.I25.body	insights_adult		Missing once doesn’t erase progress. Shame spirals do. The quickest recovery is the next small win — not a Monday restart ceremony.\n\nComebacks count as data too.		no
 insight.adult.I25.sourceText	insights_adult		Norcross — change maintenance		no
+insight.adult.I25.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/		no
 insight.adult.I26.title	insights_adult		Screens and sleepy chemistry		no
-insight.adult.I26.body	insights_adult		Evening light from phones delays melatonin u2014 the signal that tells your body itu2019s time to wind down. Your brain canu2019t quite tell a screen from a sunny window.nnDimming helps. Distance helps more.		no
+insight.adult.I26.body	insights_adult		Evening light from phones delays melatonin — the signal that tells your body it’s time to wind down. Your brain can’t quite tell a screen from a sunny window.\n\nDimming helps. Distance helps more.		no
 insight.adult.I26.sourceText	insights_adult		Chang et al.		no
+insight.adult.I26.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/25588408/		no
 insight.adult.I27.title	insights_adult		Thirst sneaks into focus		no
-insight.adult.I27.body	insights_adult		Mild dehydration u2014 the kind where you donu2019t feel particularly thirsty u2014 is enough to measurably dent concentration and mood. Most people walk around in it.nnFull water bottle on the desk. Boring and effective.		no
+insight.adult.I27.body	insights_adult		Mild dehydration — the kind where you don’t feel particularly thirsty — is enough to measurably dent concentration and mood. Most people walk around in it.\n\nFull water bottle on the desk. Boring and effective.		no
 insight.adult.I27.sourceText	insights_adult		Armstrong et al.		no
+insight.adult.I27.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/21736786/		no
 insight.adult.I28.title	insights_adult		Walk, then think		no
-insight.adult.I28.body	insights_adult		People consistently generate more ideas while walking than sitting still. If youu2019re stuck, a lap around the block is not procrastination.nnMove first. Judge the ideas when youu2019re back.		no
+insight.adult.I28.body	insights_adult		People consistently generate more ideas while walking than sitting still. If you’re stuck, a lap around the block is not procrastination.\n\nMove first. Judge the ideas when you’re back.		no
 insight.adult.I28.sourceText	insights_adult		Oppezzo & Schwartz		no
+insight.adult.I28.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/		no
 insight.adult.I29.title	insights_adult		Pedal power and the heart		no
-insight.adult.I29.body	insights_adult		Large studies show people who cycle to work have meaningfully lower heart disease rates than those who drive the same route.nnNo lycra required.		no
+insight.adult.I29.body	insights_adult		Large studies show people who cycle to work have meaningfully lower heart disease rates than those who drive the same route.\n\nNo lycra required.		no
 insight.adult.I29.sourceText	insights_adult		Celis-Morales et al., 2017		no
+insight.adult.I29.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/28360066/		no
 insight.adult.I30.title	insights_adult		Ink beats hope		no
-insight.adult.I30.body	insights_adult		Writing a goal down with a concrete plan consistently outperforms keeping it in your head. The act of writing it forces enough specificity to make it real.nnPaper is cheap accountability.		no
+insight.adult.I30.body	insights_adult		Writing a goal down with a concrete plan consistently outperforms keeping it in your head. The act of writing it forces enough specificity to make it real.\n\nPaper is cheap accountability.		no
 insight.adult.I30.sourceText	insights_adult		Matthews — goal writing		no
+insight.adult.I30.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/		no
 insight.adult.I31.title	insights_adult		Tasks leave echoes		no
-insight.adult.I31.body	insights_adult		Switch tasks before finishing a thought and part of your brain stays on the old one. That leftover hum makes the new task harder than it actually is.nnJot a quick note before you jump. Costs ten seconds.		no
+insight.adult.I31.body	insights_adult		Switch tasks before finishing a thought and part of your brain stays on the old one. That leftover hum makes the new task harder than it actually is.\n\nJot a quick note before you jump. Costs ten seconds.		no
 insight.adult.I31.sourceText	insights_adult		Leroy — attention residue		no
+insight.adult.I31.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/		no
 insight.adult.I32.title	insights_adult		Start so small it feels silly		no
-insight.adult.I32.body	insights_adult		u201cTwo push-upsu201d beats u201cget fitu201d because itu2019s impossible to argue with. The first step should have no resistance at all.nnWin first. Scale later.		no
+insight.adult.I32.body	insights_adult		“Two push-ups” beats “get fit” because it’s impossible to argue with. The first step should have no resistance at all.\n\nWin first. Scale later.		no
 insight.adult.I32.sourceText	insights_adult		Fogg — Tiny Habits		no
+insight.adult.I32.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/		no
 insight.adult.I33.title	insights_adult		Rest is part of the program		no
-insight.adult.I33.body	insights_adult		Adaptation happens during recovery, not during effort. Skipping rest doesnu2019t add progress u2014 it just delays it and increases the chance something breaks.nnSchedule it. Treat it like a set.		no
+insight.adult.I33.body	insights_adult		Adaptation happens during recovery, not during effort. Skipping rest doesn’t add progress — it just delays it and increases the chance something breaks.\n\nSchedule it. Treat it like a set.		no
 insight.adult.I33.sourceText	insights_adult		Sports medicine consensus		no
+insight.adult.I33.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/		no
 insight.adult.I34.title	insights_adult		Kids feel steady rhythms		no
-insight.adult.I34.body	insights_adult		Children in households with predictable routines show calmer and healthier patterns across multiple measures of wellbeing. Not rigid u2014 just consistent.nnYouu2019re building a felt sense of safety. Thatu2019s the whole point.		no
+insight.adult.I34.body	insights_adult		Children in households with predictable routines show calmer and healthier patterns across multiple measures of wellbeing. Not rigid — just consistent.\n\nYou’re building a felt sense of safety. That’s the whole point.		no
 insight.adult.I34.sourceText	insights_adult		Fiese et al.		no
+insight.adult.I34.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/		no
 insight.adult.I35.title	insights_adult		Watching spending changes it		no
-insight.adult.I35.body	insights_adult		Just logging purchases u2014 without any budget lecture attached u2014 tends to reduce discretionary spending on its own. Awareness does most of the work.nnThe log is the intervention.		no
+insight.adult.I35.body	insights_adult		Just logging purchases — without any budget lecture attached — tends to reduce discretionary spending on its own. Awareness does most of the work.\n\nThe log is the intervention.		no
 insight.adult.I35.sourceText	insights_adult		Behavioural finance reviews		no
+insight.adult.I35.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/		no
 insight.adult.I36.title	insights_adult		Consistency is a muscle		no
-insight.adult.I36.body	insights_adult		Self-control is not a fixed gift — it trains like anything else. Each time you follow through, the next start gets a little easier to reach.nnYou are not faking discipline; you are collecting receipts.		no
+insight.adult.I36.body	insights_adult		Self-control is not a fixed gift — it trains like anything else. Each time you follow through, the next start gets a little easier to reach.\n\nYou are not faking discipline; you are collecting receipts.		no
 insight.adult.I36.sourceText	insights_adult		Baumeister & Vohs — self-regulation		no
+insight.adult.I36.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/17068127/		no
 insight.adult.I37.title	insights_adult		“I cannot” often arrives early		no
-insight.adult.I37.body	insights_adult		Sports science shows people often feel maxed out while their body still has a large reserve. The brain yells “stop” before the tank is empty.nnOn a brutal habit day, slow down — but question the story that you have nothing left.		no
+insight.adult.I37.body	insights_adult		Sports science shows people often feel maxed out while their body still has a large reserve. The brain yells “stop” before the tank is empty.\n\nOn a brutal habit day, slow down — but question the story that you have nothing left.		no
 insight.adult.I37.sourceText	insights_adult		Marcora et al.		no
+insight.adult.I37.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/19131043/		no
 insight.adult.I38.title	insights_adult		Tools are not cheating		no
-insight.adult.I38.body	insights_adult		Some nervous systems need louder outside cues — calendars, lists, apps — to feel time and reward fairly. That is biology, not laziness.nnUse the scaffolding that lets you live the life you chose.		no
+insight.adult.I38.body	insights_adult		Some nervous systems need louder outside cues — calendars, lists, apps — to feel time and reward fairly. That is biology, not laziness.\n\nUse the scaffolding that lets you live the life you chose.		no
 insight.adult.I38.sourceText	insights_adult		Barkley — executive function		no
+insight.adult.I38.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/22541441/		no
 insight.adult.I39.title	insights_adult		The brain loves any win		no
-insight.adult.I39.body	insights_adult		The same circuits that light up for a gold star can light up for a workout or a slot machine. Healthy systems borrow that wiring on purpose.nnDirection matters more than the fact that chemistry notices.		no
+insight.adult.I39.body	insights_adult		The same circuits that light up for a gold star can light up for a workout or a slot machine. Healthy systems borrow that wiring on purpose.\n\nDirection matters more than the fact that chemistry notices.		no
 insight.adult.I39.sourceText	insights_adult		Berridge & Robinson — wanting vs liking		no
+insight.adult.I39.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/9580132/		no
 insight.adult.I40.title	insights_adult		Focus is a bundle of skills		no
-insight.adult.I40.body	insights_adult		Planning, starting, sticking, and switching are related but separate mental skills. They differ between people and can improve with practice.nnEvery steady week is quiet training for all of them.		no
+insight.adult.I40.body	insights_adult		Planning, starting, sticking, and switching are related but separate mental skills. They differ between people and can improve with practice.\n\nEvery steady week is quiet training for all of them.		no
 insight.adult.I40.sourceText	insights_adult		Miyake et al. — executive function		no
+insight.adult.I40.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/10945922/		no
 insight.adult.I41.title	insights_adult		Surprise keeps attention awake		no
-insight.adult.I41.body	insights_adult		When rewards arrive on an unpredictable rhythm, behaviour tends to stick harder than with a clockwork prize — that is old psychology lab wisdom.nnRandom insights here echo mild curiosity — separate from your weekly treats and pot rules, not an extra game layered on top.		no
+insight.adult.I41.body	insights_adult		When rewards arrive on an unpredictable rhythm, behaviour tends to stick harder than with a clockwork prize — that is old psychology lab wisdom.\n\nRandom insights here echo mild curiosity — separate from your weekly treats and pot rules, not an extra game layered on top.		no
 insight.adult.I41.sourceText	insights_adult		Skinner — schedules of reinforcement (textbooks)		no
+insight.adult.I41.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/28176700/		no
 insight.adult.I42.title	insights_adult		Being watched helps, even quietly		no
-insight.adult.I42.body	insights_adult		Knowing someone else knows your goal nudges follow-through even if they never comment.nnPick an audience you trust; visibility is the tool.		no
+insight.adult.I42.body	insights_adult		Knowing someone else knows your goal nudges follow-through even if they never comment.\n\nPick an audience you trust; visibility is the tool.		no
 insight.adult.I42.sourceText	insights_adult		Zentall — social facilitation		no
+insight.adult.I42.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/22462781/		no
 insight.adult.I43.title	insights_adult		Time sense varies		no
-insight.adult.I43.body	insights_adult		Some people honestly mis-feel how long tasks take without clocks and reminders. That is not a character flaw — it is a mismatch between brain and vague plans.nnConcrete times and places are the kind fix.		no
+insight.adult.I43.body	insights_adult		Some people honestly mis-feel how long tasks take without clocks and reminders. That is not a character flaw — it is a mismatch between brain and vague plans.\n\nConcrete times and places are the kind fix.		no
 insight.adult.I43.sourceText	insights_adult		Barkley — time estimation		no
+insight.adult.I43.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/21299070/		no
 insight.adult.I44.title	insights_adult		Spell it out		no
-insight.adult.I44.body	insights_adult		“If X happens, I will do Y” plans routinely beat “I will try harder” in study after study.nnThe sentence is the intervention.		no
+insight.adult.I44.body	insights_adult		“If X happens, I will do Y” plans routinely beat “I will try harder” in study after study.\n\nThe sentence is the intervention.		no
 insight.adult.I44.sourceText	insights_adult		Gollwitzer		no
+insight.adult.I44.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/10620504/		no
 insight.adult.I45.title	insights_adult		Motivation is a fair-weather friend		no
-insight.adult.I45.body	insights_adult		Rooms, layouts, and visible cues predict doing the habit better than how motivated you felt that morning.nnDesign for Tuesday-you, not Sunday-night-you.		no
+insight.adult.I45.body	insights_adult		Rooms, layouts, and visible cues predict doing the habit better than how motivated you felt that morning.\n\nDesign for Tuesday-you, not Sunday-night-you.		no
 insight.adult.I45.sourceText	insights_adult		Wood & Neal		no
+insight.adult.I45.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/17685980/		no
 insight.adult.I46.title	insights_adult		We copy the crowd		no
-insight.adult.I46.body	insights_adult		People often follow what they think peers do, sometimes more than their private values say.nnUse that wisely: find a group where the normal thing is showing up.		no
+insight.adult.I46.body	insights_adult		People often follow what they think peers do, sometimes more than their private values say.\n\nUse that wisely: find a group where the normal thing is showing up.		no
 insight.adult.I46.sourceText	insights_adult		Cialdini — influence		no
+insight.adult.I46.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/11272398/		no
 insight.adult.I47.title	insights_adult		Attention differences are common		no
-insight.adult.I47.body	insights_adult		A noticeable slice of adults meet criteria for attention-deficit conditions; many never get a label but still benefit from structure.nnIf a system helps you function, that is the outcome that counts.		no
+insight.adult.I47.body	insights_adult		A noticeable slice of adults meet criteria for attention-deficit conditions; many never get a label but still benefit from structure.\n\nIf a system helps you function, that is the outcome that counts.		no
 insight.adult.I47.sourceText	insights_adult		Faraone et al.		no
+insight.adult.I47.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/33501530/		no
 insight.adult.I48.title	insights_adult		Structure soothes		no
-insight.adult.I48.body	insights_adult		Having several small dependable habits correlates with life satisfaction even when the habits themselves are humble.nnRhythm is its own kind of rest.		no
+insight.adult.I48.body	insights_adult		Having several small dependable habits correlates with life satisfaction even when the habits themselves are humble.\n\nRhythm is its own kind of rest.		no
 insight.adult.I48.sourceText	insights_adult		Fleeson — trait consistency		no
+insight.adult.I48.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/15301630/		no
 insight.adult.I49.title	insights_adult		Fresh starts are real		no
-insight.adult.I49.body	insights_adult		People restart goals more often after Mondays, month beginnings, or birthdays — “temporal landmarks” in the research.nnA Wednesday miss is not a season finale; Thursday can be episode two.		no
+insight.adult.I49.body	insights_adult		People restart goals more often after Mondays, month beginnings, or birthdays — “temporal landmarks” in the research.\n\nA Wednesday miss is not a season finale; Thursday can be episode two.		no
 insight.adult.I49.sourceText	insights_adult		Milkman & Dai		no
+insight.adult.I49.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/24434240/		no
 insight.adult.I50.title	insights_adult		You beat the averages		no
-insight.adult.I50.body	insights_adult		Industry data suggests only a sliver of people who download habit apps are still active two months later. Logging here already puts you on the uncommon side of the curve.nnCredit the structure you built, not luck.		no
+insight.adult.I50.body	insights_adult		Industry data suggests only a small share of people who download habit apps are still active two months later. By logging here you’re already on the uncommon side of that curve.\n\nThat’s the structure you built doing its job — not luck.		no
 insight.adult.I50.sourceText	insights_adult		Mixpanel — app retention		no
+insight.adult.I50.sourceUrl	insights_adult		https://mixpanel.com/blog/		no
 insight.adult.F1.title	insights_adult		Snooze is a human specialty		no
-insight.adult.F1.body	insights_adult		Plenty of animals wake on cue, but only humans set an alarm, understand what it means, and then debate whether nine more minutes is “strategic rest.”nnThe snooze button is a tiny comedy about self-control every morning.		no
+insight.adult.F1.body	insights_adult		Plenty of animals wake on cue, but only humans set an alarm, understand what it means, and then debate whether nine more minutes is “strategic rest.”\n\nThe snooze button is a tiny comedy about self-control every morning.		no
 insight.adult.F1.sourceText	insights_adult		Sleep Foundation		no
+insight.adult.F1.sourceUrl	insights_adult		https://www.sleepfoundation.org/		no
 insight.adult.F2.title	insights_adult		You will sleep for years		no
-insight.adult.F2.body	insights_adult		Over a life, sleep adds up to decades — more than many mortgages last. Unlike a mortgage, good sleep pays you back in mood and focus.nnTreat the mattress like infrastructure, not luxury.		no
+insight.adult.F2.body	insights_adult		Over a life, sleep adds up to decades — more than many mortgages last. Unlike a mortgage, good sleep pays you back in mood and focus.\n\nTreat the mattress like infrastructure, not luxury.		no
 insight.adult.F2.sourceText	insights_adult		Sleep Foundation		no
+insight.adult.F2.sourceUrl	insights_adult		https://www.sleepfoundation.org/how-sleep-works/how-much-sleep-do-we-need		no
 insight.adult.F3.title	insights_adult		The liver keeps its own clock		no
-insight.adult.F3.body	insights_adult		Roughly one standard drink per hour is what typical livers clear — coffee, cold showers, and pep talks do not speed the chemistry.nnPatience is the only life hack here.		no
+insight.adult.F3.body	insights_adult		Roughly one standard drink per hour is what typical livers clear — coffee, cold showers, and pep talks do not speed the chemistry.\n\nPatience is the only life hack here.		no
 insight.adult.F3.sourceText	insights_adult		NHS — alcohol		no
+insight.adult.F3.sourceUrl	insights_adult		https://www.nhs.uk/live-well/alcohol-advice/		no
 insight.adult.F4.title	insights_adult		Eleven days awake (please do not try)		no
-insight.adult.F4.body	insights_adult		A famous 1964 stunt stayed awake for eleven days under medical watch. He recovered — and said never again.nnYour late reel session is not that experiment, but it rhymes.		no
+insight.adult.F4.body	insights_adult		A famous 1964 stunt stayed awake for eleven days under medical watch. He recovered — and said never again.\n\nYour late reel session is not that experiment, but it rhymes.		no
 insight.adult.F4.sourceText	insights_adult		Guinness / Gardner record		no
+insight.adult.F4.sourceUrl	insights_adult		https://www.guinnessworldrecords.com/		no
 insight.adult.F5.title	insights_adult		January gyms, March quiet		no
-insight.adult.F5.body	insights_adult		Gyms spike in early January, then quiet down by February. March regulars rarely have more “motivation” — they have a plan that survived February.nnSystems beat vibes.		no
+insight.adult.F5.body	insights_adult		Gyms spike in early January, then quiet down by February. March regulars rarely have more “motivation” — they have a plan that survived February.\n\nSystems beat vibes.		no
 insight.adult.F5.sourceText	insights_adult		Industry surveys (e.g. Statista)		no
+insight.adult.F5.sourceUrl	insights_adult		https://www.statista.com/		no
 insight.adult.F6.title	insights_adult		The body moves before the story		no
-insight.adult.F6.body	insights_adult		Classic lab work found brain activity shifting before people reported a conscious choice to move. Much of life is noticing yourself mid-habit.nnAutomatic is not the enemy — it is the finish line.		no
+insight.adult.F6.body	insights_adult		Classic lab work found brain activity shifting before people reported a conscious choice to move. Much of life is noticing yourself mid-habit.\n\nAutomatic is not the enemy — it is the finish line.		no
 insight.adult.F6.sourceText	insights_adult		Libet et al., 1983		no
+insight.adult.F6.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/6875817/		no
 insight.adult.F7.title	insights_adult		Made beds, clearer heads		no
-insight.adult.F7.body	insights_adult		People who make the bed often report feeling more on top of the day. Causation is fuzzy; the easy win is not.nnTwo minutes for a visible “already done” badge.		no
+insight.adult.F7.body	insights_adult		People who make the bed often report feeling more on top of the day. Causation is fuzzy; the easy win is not.\n\nTwo minutes for a visible “already done” badge.		no
 insight.adult.F7.sourceText	insights_adult		Popular psychology summaries		no
+insight.adult.F7.sourceUrl	insights_adult		https://www.psychologytoday.com/		no
 insight.adult.F8.title	insights_adult		Phones trained you well		no
-insight.adult.F8.body	insights_adult		Some surveys find phones checked nearly a hundred times a day — tiny hits of novelty all waking hours.nnIf your habit app feels sticky, you are competing with world-class designers. Fair fight.		no
+insight.adult.F8.body	insights_adult		Some surveys find phones checked nearly a hundred times a day — tiny hits of novelty all waking hours.\n\nIf your habit app feels sticky, you are competing with world-class designers. Fair fight.		no
 insight.adult.F8.sourceText	insights_adult		Asurion survey		no
+insight.adult.F8.sourceUrl	insights_adult		https://www.asurion.com/connect/news/tech-usage/		no
 insight.adult.F9.title	insights_adult		Miles and pastries		no
-insight.adult.F9.body	insights_adult		A mile of jogging burns less energy than a fancy pastry contains — annoying math, true math.nnStill worth it for heart, mood, and bones; health is not a spreadsheet duel.		no
+insight.adult.F9.body	insights_adult		A mile of jogging burns less energy than a fancy pastry contains — annoying math, true math.\n\nStill worth it for heart, mood, and bones; health is not a spreadsheet duel.		no
 insight.adult.F9.sourceText	insights_adult		Harvard Health — activity & calories		no
+insight.adult.F9.sourceUrl	insights_adult		https://www.health.harvard.edu/diet-and-weight-loss/calories-burned-in-30-minutes-for-people-of-three-different-weights		no
 insight.adult.F10.title	insights_adult		Deadline used to be literal		no
-insight.adult.F10.body	insights_adult		“Deadline” once meant a line prisoners could not cross — serious consequences. Now it means spreadsheets.nnYour Week still has a firm line here: logging for that Mon–Sun row locks at midnight Sunday (local time) — gentler stakes, same human love of a boundary.		no
+insight.adult.F10.body	insights_adult		“Deadline” once meant a line prisoners could not cross — serious consequences. Now it means spreadsheets.\n\nYour Week still has a firm line here: logging for that Mon–Sun row locks at midnight Sunday (local time) — gentler stakes, same human love of a boundary.		no
 insight.adult.F10.sourceText	insights_adult		Merriam-Webster — word history		no
+insight.adult.F10.sourceUrl	insights_adult		https://www.merriam-webster.com/words-at-play/the-history-of-deadline		no
 insight.adult.F11.title	insights_adult		Judges and lunch breaks		no
-insight.adult.F11.body	insights_adult		A well-known study found judges’ leniency dipped before meal breaks and rose after — probably fatigue and timing, not cruelty.nnYour 4pm self is not morally worse; just depleted.		no
+insight.adult.F11.body	insights_adult		A well-known study found judges’ leniency dipped before meal breaks and rose after — probably fatigue and timing, not cruelty.\n\nYour 4pm self is not morally worse; just depleted.		no
 insight.adult.F11.sourceText	insights_adult		Danziger et al., 2011		no
+insight.adult.F11.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/21482790/		no
 insight.adult.F12.title	insights_adult		Not twenty-one days flat		no
-insight.adult.F12.body	insights_adult		The “three-week habit” story came from a surgeon’s guess decades ago. Real studies show weeks to many months depending on the habit and the person.nnYou are not behind — you are on a real curve.		no
+insight.adult.F12.body	insights_adult		The “three-week habit” story came from a surgeon’s guess decades ago. Real studies show weeks to many months depending on the habit and the person.\n\nYou are not behind — you are on a real curve.		no
 insight.adult.F12.sourceText	insights_adult		Lally et al.		no
+insight.adult.F12.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/19827987/		no
 insight.adult.F13.title	insights_adult		Lifetime mileage		no
-insight.adult.F13.body	insights_adult		Average humans walk enough miles in a life to circle Earth several times — mostly in small trips.nnThe “extra” walks for health are a rounding error that still changes risk.		no
+insight.adult.F13.body	insights_adult		Average humans walk enough miles in a life to circle Earth several times — mostly in small trips.\n\nThe “extra” walks for health are a rounding error that still changes risk.		no
 insight.adult.F13.sourceText	insights_adult		APMA — walking facts		no
+insight.adult.F13.sourceUrl	insights_adult		https://www.apma.org/		no
 insight.adult.F14.title	insights_adult		Bike commuters, calmer hearts		no
-insight.adult.F14.body	insights_adult		Big studies link cycling to work with much lower heart-disease risk than driving the same route.nnLycra optional; pedals sufficient.		no
+insight.adult.F14.body	insights_adult		Big studies link cycling to work with much lower heart-disease risk than driving the same route.\n\nLycra optional; pedals sufficient.		no
 insight.adult.F14.sourceText	insights_adult		Celis-Morales et al., 2017		no
+insight.adult.F14.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/28360066/		no
 insight.adult.F15.title	insights_adult		Kids are kettlebells		no
-insight.adult.F15.body	insights_adult		Muscles do not care if the weight has opinions. Carrying a toddler upstairs still counts as load.nnParenting: accidental gym.		no
+insight.adult.F15.body	insights_adult		Muscles do not care if the weight has opinions. Carrying a toddler upstairs still counts as load.\n\nParenting: accidental gym.		no
 insight.adult.F15.sourceText	insights_adult		Strength training primers		no
+insight.adult.F15.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/		no
 insight.adult.F16.title	insights_adult		Ancient life expectancy math		no
-insight.adult.F16.body	insights_adult		Roman “average lifespan ~35” mostly reflects child deaths. Adults who survived childhood often reached their sixties and seventies.nnAverages hide different stories.		no
+insight.adult.F16.body	insights_adult		Roman “average lifespan ~35” mostly reflects child deaths. Adults who survived childhood often reached their sixties and seventies.\n\nAverages hide different stories.		no
 insight.adult.F16.sourceText	insights_adult		Historical demography		no
+insight.adult.F16.sourceUrl	insights_adult		https://en.wikipedia.org/wiki/Roman_demography		no
 insight.adult.F17.title	insights_adult		Your body rebuilds itself		no
-insight.adult.F17.body	insights_adult		Most cells replace on a multi-year rhythm — you are a slow ship of Theseus.nnToday’s habits feed tomorrow’s replacement crew.		no
+insight.adult.F17.body	insights_adult		Most cells replace on a multi-year rhythm — you are a slow ship of Theseus.\n\nToday’s habits feed tomorrow’s replacement crew.		no
 insight.adult.F17.sourceText	insights_adult		BBC Future		no
+insight.adult.F17.sourceUrl	insights_adult		https://www.bbc.com/future/article/20210907-how-often-does-the-human-body-replace-itself		no
 insight.adult.F18.title	insights_adult		Procrastination protects feelings		no
-insight.adult.F18.body	insights_adult		Putting things off often dodges boredom, anxiety, or shame — not a calendar glitch.nnName the feeling, shrink the task, start ugly.		no
+insight.adult.F18.body	insights_adult		Putting things off often dodges boredom, anxiety, or shame — not a calendar glitch.\n\nName the feeling, shrink the task, start ugly.		no
 insight.adult.F18.sourceText	insights_adult		Sirois & Pychyl		no
+insight.adult.F18.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/24126546/		no
 insight.adult.F19.title	insights_adult		Stress whispers “eat dense”		no
-insight.adult.F19.body	insights_adult		Long-term stress nudges appetite toward quick calories — an old survival script.nnNot weakness; wiring you can plan around.		no
+insight.adult.F19.body	insights_adult		Long-term stress nudges appetite toward quick calories — an old survival script.\n\nNot weakness; wiring you can plan around.		no
 insight.adult.F19.sourceText	insights_adult		Dallman et al.		no
+insight.adult.F19.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/14583744/		no
 insight.adult.F20.title	insights_adult		Cute aggression is normal		no
-insight.adult.F20.body	insights_adult		That urge to squeeze a puppy? Researchers gave it a name: cute aggression. Harmless, common, weirdly sweet.nnTotally unrelated to your streak — just a smile break.		no
+insight.adult.F20.body	insights_adult		That urge to squeeze a puppy? Researchers gave it a name: cute aggression. Harmless, common, weirdly sweet.\n\nTotally unrelated to your streak — just a smile break.		no
 insight.adult.F20.sourceText	insights_adult		Aragón et al., 2015		no
+insight.adult.F20.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/26312674/		no
 insight.adult.ME1.title	insights_adult		Losses feel louder than wins		no
-insight.adult.ME1.body	insights_adult		Classic decision research found people hate losing about twice as much as they enjoy gaining the same amount. A clear “floor” uses that honesty: protecting progress hits different emotional notes than a vague “do better.”nnThe app names the stakes so your attention has somewhere real to stand.nnBelow the floor, recovery keeps rules transparent — core-only pot accrual and strict-drop resets — all explicit, with no random layer on top of your treats or pot.		no
+insight.adult.ME1.body	insights_adult		Classic decision research found people dislike losing about twice as much as they enjoy gaining the same amount. A clear “floor” puts that to work: protecting progress motivates more than a vague “do better.”\n\nBelow the floor you’re in recovery: only core habits add to the pot, and a further drop resets it. This way you can focus on Core habits and to no further drops to protect your pot.		no
 insight.adult.ME1.sourceText	insights_adult		Kahneman & Tversky — prospect theory		no
+insight.adult.ME1.sourceUrl	insights_adult		https://doi.org/10.2307/1914183		no
 insight.adult.ME2.title	insights_adult		Locking money on purpose works		no
-insight.adult.ME2.body	insights_adult		In real-world trials, savers who chose accounts that locked funds until a date often built bigger balances than people left totally free — even when freedom sounds nicer.nnA named pot is a soft version of that contract with yourself.		no
+insight.adult.ME2.body	insights_adult		In real-world trials, savers who chose accounts that locked funds until a date often built bigger balances than people left totally free — even when freedom sounds nicer.\n\nA named pot is a soft version of that contract with yourself.		no
 insight.adult.ME2.sourceText	insights_adult		Ashraf, Karlan & Yin — commitment savings		no
+insight.adult.ME2.sourceUrl	insights_adult		https://doi.org/10.1162/qjec.2006.121.2.635		no
 insight.adult.ME3.title	insights_adult		The last steps feel fastest		no
-insight.adult.ME3.body	insights_adult		Coffee-shop studies showed people speed up purchases as a free-drink card nears full — effort rises near the finish. A filling progress bar borrows the same nudge.nnClose targets feel magnetic; use that instead of guilt.		no
+insight.adult.ME3.body	insights_adult		Coffee-shop studies showed people speed up purchases as a free-drink card nears full — effort rises near the finish. A filling progress bar borrows the same nudge.\n\nClose targets feel magnetic; use that instead of guilt.		no
 insight.adult.ME3.sourceText	insights_adult		Kivetz, Urminsky & Zheng		no
+insight.adult.ME3.sourceUrl	insights_adult		https://doi.org/10.1509/jmkr.43.1.39		no
 insight.adult.ME4.title	insights_adult		Now-you and later-you disagree		no
-insight.adult.ME4.body	insights_adult		Economists model a pattern many people feel: distant rewards shrink in our minds while tonight’s treat grows huge. Pairing a small weekly win with a slow pot feeds both versions of you.nnStructure ends the argument instead of moralising it.		no
+insight.adult.ME4.body	insights_adult		Economists model a pattern many people feel: distant rewards shrink in our minds while tonight’s treat grows huge. Pairing a small weekly win with a slow pot feeds both versions of you.\n\nStructure ends the argument instead of moralising it.		no
 insight.adult.ME4.sourceText	insights_adult		Laibson — present bias (QJE)		no
+insight.adult.ME4.sourceUrl	insights_adult		https://doi.org/10.1162/003355397555253		no
 insight.adult.ME5.title	insights_adult		Checking boxes is real medicine		no
-insight.adult.ME5.body	insights_adult		A giant review of health programmes found keeping track of behaviour — food, steps, sleep — was one of the strongest ingredients that made interventions work.nnYour taps are not theatre; they are a proven behaviour-change tool.		no
+insight.adult.ME5.body	insights_adult		A giant review of health programmes found keeping track of behaviour — food, steps, sleep — was one of the strongest ingredients that made interventions work.\n\nYour taps are not theatre; they are a proven behaviour-change tool.		no
 insight.adult.ME5.sourceText	insights_adult		Michie et al. — behaviour change techniques		no
+insight.adult.ME5.sourceUrl	insights_adult		https://doi.org/10.1037/a0016136		no
 insight.adult.ME6.title	insights_adult		Earn the fun, enjoy it harder		no
-insight.adult.ME6.body	insights_adult		Researchers boosted gym visits by pairing addictive audiobooks with treadmill time only. Your weekly treat after qualifying is the same bargain: joy rides on the habit, not beside it.nnPleasure with a gate stays memorable longer.		no
+insight.adult.ME6.body	insights_adult		Researchers boosted gym visits by saving an addictive audiobook for treadmill time only. Your weekly treat works the same way: it arrives because you met your weekly commitment, so the fun and the habit stay linked.\n\nA reward you earned tends to stick in memory longer than a reward you simply took.		no
 insight.adult.ME6.sourceText	insights_adult		Milkman, Minson & Volpp		no
+insight.adult.ME6.sourceUrl	insights_adult		https://doi.org/10.1287/mnsc.2013.1784		no
 insight.adult.ME7.title	insights_adult		Progress feels like property		no
-insight.adult.ME7.body	insights_adult		Give someone a random mug and they suddenly price it like treasure. Streaks and pots inherit that quirk — losing ground stings because it feels like giving something up.nnThe design respects that feeling instead of pretending you are a spreadsheet.		no
+insight.adult.ME7.body	insights_adult		Give someone a random mug and they suddenly price it like treasure. Streaks and pots inherit that quirk — losing ground stings because it feels like giving something up.\n\nThe app treats that feeling as leverage to strengthen your willpower even in difficult weeks.		no
 insight.adult.ME7.sourceText	insights_adult		Kahneman, Knetsch & Thaler — endowment effect		no
+insight.adult.ME7.sourceUrl	insights_adult		https://doi.org/10.1086/261737		no
 insight.adult.ME8.title	insights_adult		The screen is a thermostat		no
-insight.adult.ME8.body	insights_adult		Self-regulation theories say we compare “where I am” to “where I want to be,” then adjust. Colours, chips, and week rows are that comparison made friendly.nnYou get direction without drowning in shame.		no
+insight.adult.ME8.body	insights_adult		Self-regulation theories say we compare “where I am” to “where I want to be,” then adjust. Colours, chips, and week rows are that comparison made friendly.\n\nYou get direction without drowning in shame.		no
 insight.adult.ME8.sourceText	insights_adult		Carver & Scheier — control theory		no
+insight.adult.ME8.sourceUrl	insights_adult		https://doi.org/10.1037/0033-2909.92.1.111		no
 insight.adult.ME9.title	insights_adult		Labels change spending in your head		no
-insight.adult.ME9.body	insights_adult		People treat “holiday money” and “bill money” as if they are not interchangeable — even when the bank account is one. Separate goal pots ride that habit so wins stay attached to their story.nnCompartmentalising can be a feature.		no
+insight.adult.ME9.body	insights_adult		People treat “holiday money” and “bill money” as if they are not interchangeable — even when the bank account is one. Separate goal pots ride that habit so wins stay attached to their story.\n\nCompartmentalising can be a feature.		no
 insight.adult.ME9.sourceText	insights_adult		Thaler — mental accounting		no
+insight.adult.ME9.sourceUrl	insights_adult		https://doi.org/10.1002/(SICI)1099-0771(199909)12:3%3C183::AID-BDM318%3E3.0.CO;2-F		no
 insight.adult.ME10.title	insights_adult		Little surprises, steady attention		no
-insight.adult.ME10.body	insights_adult		Brain studies show cells that learn from “better than expected” moments. A pop-up fact you did not schedule is a mild version of that — curiosity without turning insights into a wager.nnSmall novelty can support focus when kept kind.		no
+insight.adult.ME10.body	insights_adult		Brain cells learn from “happy/interesting surprises than expected” moments. In-app discovered insights like this one are a mild version of that — something to learn from while you stay mildly excited for the next one.\n\nSmall novelty can keep attention awake when it stays subtle.		no
 insight.adult.ME10.sourceText	insights_adult		Schultz, Dayan & Montague — reward learning		no
+insight.adult.ME10.sourceUrl	insights_adult		https://doi.org/10.1126/science.275.5306.1593		no
 insight.adult.ME11.title	insights_adult		Green means online		no
 insight.adult.ME11.body	insights_adult		The green pill around your name shows that you are currently online. When it's grey it means that you have lost connection, but your data will keep being saved on your device until next sync.		no
 insight.adult.ME11.sourceText	insights_adult		Consistency app — online / offline indicator		no
+insight.adult.ME11.sourceUrl	insights_adult				no
 insight.adult.RG1.title	insights_adult		From red to green		no
-insight.adult.RG1.body	insights_adult		When consistency jumps straight from struggling to solid, it usually means several closed weeks lined up behind the number — not one fluke week.nnLet the colour change be a quiet “keep going,” not pressure to be perfect next week.		no
+insight.adult.RG1.body	insights_adult		When consistency jumps straight from struggling to solid, it usually means several closed weeks lined up behind the number — not one fluke week.\n\nLet the colour change be a quiet “keep going,” not pressure to be perfect next week.		no
 insight.adult.RG1.sourceText	insights_adult		Consistency app — tier colours		no
+insight.adult.RG1.sourceUrl	insights_adult				no
 insight.adult.MY1.title	insights_adult		Month on track		no
-insight.adult.MY1.body	insights_adult		Early in a month, people often lean on fresh-start energy. Research on “temporal landmarks” shows Mondays and month beginnings nudge new attempts without needing a dramatic reboot.nnIf your goals sit in the steady band, you are allowed to ride that gentle tailwind.		no
+insight.adult.MY1.body	insights_adult		Early in a month, people often lean on fresh-start energy. Research on “temporal landmarks” shows Mondays and month beginnings nudge new attempts without needing a dramatic reboot.\n\nIf your goals sit in the steady band, you are allowed to ride that gentle tailwind.		no
 insight.adult.MY1.sourceText	insights_adult		Milkman & Dai — fresh starts		no
+insight.adult.MY1.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/24434240/		no
 insight.adult.MY2.title	insights_adult		Year, same lane		no
-insight.adult.MY2.body	insights_adult		Big studies on habits stress boring repetition over hero weeks. A new calendar year is just another Monday in a longer chain — useful if it helps you show up, not if it becomes all-or-nothing.nnSteady beats dramatic when the year gets noisy.		no
+insight.adult.MY2.body	insights_adult		Big studies on habits stress boring repetition over hero weeks. A new calendar year is just another Monday in a longer chain — useful if it helps you show up, not if it becomes all-or-nothing.\n\nSteady beats dramatic when the year gets noisy.		no
 insight.adult.MY2.sourceText	insights_adult		Wood & Neal — habits (overview)		no
+insight.adult.MY2.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/17685980/		no
 insight.adult.CB1.title	insights_adult		You came back		no
-insight.adult.CB1.body	insights_adult		Maintenance research keeps repeating one lesson: slips are normal; re-entry predicts long-term change more than a spotless streak.nnOpening the log again after a rough week is already the behaviour scientists care about.		no
+insight.adult.CB1.body	insights_adult		Maintenance research keeps repeating one lesson: slips are normal; re-entry predicts long-term change more than a spotless streak.\n\nOpening the log again after a rough week is already the behaviour scientists care about.		no
 insight.adult.CB1.sourceText	insights_adult		Norcross — change maintenance		no
+insight.adult.CB1.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/		no
 insight.adult.CA1.title	insights_adult		Habits added mid-week get a fair start		no
-insight.adult.CA1.body	insights_adult		If you add a habit on a day other than Monday, that first partial week uses proportional targets — your threshold is scaled down based on how many days remain in the week.nnFor example, if your goal is 5 days per week and you start on Thursday, you only need to hit roughly 2 days (floor of 5 × 4/7). This keeps scoring fair without blocking your goal on a week you could never fully complete.		no
+insight.adult.CA1.body	insights_adult		If you add a habit on a day other than Monday, that first partial week uses proportional targets — your threshold is scaled down based on how many days remain in the week.\n\nFor example, if your goal is 5 days per week and you start on Thursday, you only need to hit roughly 2 days (floor of 5 × 4/7). This keeps scoring fair without blocking your goal on a week you could never fully complete.		no
 insight.adult.CA1.sourceText	insights_adult		Consistency — week & habit rules		no
+insight.adult.CA1.sourceUrl	insights_adult				no
 insight.adult.CA2.title	insights_adult		Core and growth habits		no
 insight.adult.CA2.body	insights_adult		Core habits must all qualify for a closed week to count toward your % and weekly treats; growth habits add pot money when they qualify but never block the week. In recovery (rolling % below that goal’s consistency floor), only core habits add £ to the pot; growth adds £0 until rolling % reaches the floor again. Each goal’s floor is set in Add/Edit goal (default often 80%).		no
 insight.adult.CA2.sourceText	insights_adult		Consistency app — habit tiers		no
+insight.adult.CA2.sourceUrl	insights_adult				no
 insight.adult.NH1.title	insights_adult		Dopamine is more “go” than “ahh”		no
-insight.adult.NH1.body	insights_adult		Popular books like “The Molecule of More” and “Dopamine Nation” stress one idea: much of what people call “reward” is wanting and momentum, not the cozy feeling after a good meal.nnChasing the next tick is dopamine-heavy; deep rest after is often other chemistry.		no
+insight.adult.NH1.body	insights_adult		Popular books like “The Molecule of More” and “Dopamine Nation” stress one idea: much of what people call “reward” is wanting and momentum, not the cozy feeling after a good meal.\n\nChasing the next tick is dopamine-heavy; deep rest after is often other chemistry.		no
 insight.adult.NH1.sourceText	insights_adult		Lieberman & Long; Lembke (overview)		no
+insight.adult.NH1.sourceUrl	insights_adult		https://www.basicbooks.com/titles/daniel-z-lieberman-md/the-molecule-of-more/9781541692273/		no
 insight.adult.NH2.title	insights_adult		Two styles of dopamine, one you		no
-insight.adult.NH2.body	insights_adult		Lieberman and Long describe a “here-and-now” chemical chorus and a “future-and-possible” dopamine track that loves novelty and goals — both matter.nnBalance is the game: enough future-pull to plan, enough present chemistry to enjoy arriving.		no
+insight.adult.NH2.body	insights_adult		Lieberman and Long describe a “here-and-now” chemical chorus and a “future-and-possible” dopamine track that loves novelty and goals — both matter.\n\nBalance is the game: enough future-pull to plan, enough present chemistry to enjoy arriving.		no
 insight.adult.NH2.sourceText	insights_adult		Lieberman & Long — The Molecule of More		no
+insight.adult.NH2.sourceUrl	insights_adult		https://www.penguinrandomhouse.com/books/622663/the-molecule-of-more-by-daniel-z-lieberman-md-and-michael-e-long/		no
 insight.adult.NH3.title	insights_adult		Why streaks feel magnetic		no
-insight.adult.NH3.body	insights_adult		Dopamine-related circuits learn from surprises and progress signals — “better than expected” keeps attention. That is why visible streaks and near-complete bars tug harder than abstract goals.nnYou are not weak; you are using a loud channel wisely.		no
+insight.adult.NH3.body	insights_adult		Dopamine-related circuits learn from surprises and progress signals — “better than expected” keeps attention. That is why visible streaks and near-complete bars tug harder than abstract goals.\n\nYou are not weak; you are using a loud channel wisely.		no
 insight.adult.NH3.sourceText	insights_adult		Schultz et al.; Lieberman & Long (popular synthesis)		no
+insight.adult.NH3.sourceUrl	insights_adult		https://doi.org/10.1126/science.275.5306.1593		no
 insight.adult.NH4.title	insights_adult		Pleasure and pain share a balance beam		no
-insight.adult.NH4.body	insights_adult		Psychiatrist Anna Lembke argues endless easy hits — scrolls, snacks, buys — can tilt the brain toward needing more just to feel normal. Brief, chosen discomfort (effort, delay) resets the scale.nnHabit apps that add friction on purpose echo that clinical lesson gently.		no
+insight.adult.NH4.body	insights_adult		Psychiatrist Anna Lembke argues endless easy hits — scrolls, snacks, buys — can tilt the brain toward needing more just to feel normal. Brief, chosen discomfort (effort, delay) resets the scale.\n\nHabit apps that add friction on purpose echo that clinical lesson gently.		no
 insight.adult.NH4.sourceText	insights_adult		Lembke — Dopamine Nation		no
+insight.adult.NH4.sourceUrl	insights_adult		https://www.annalembke.com/dopamine-nation		no
 insight.adult.NH5.title	insights_adult		Oxytocin is a trust hormone, not only a cuddle hormone		no
-insight.adult.NH5.body	insights_adult		Studies tie oxytocin to bonding cues: touch, warm voice, shared meals. It nudges social calm and “we” feelings.nnAccountability partners and family habits may ride social chemistry, not only willpower.		no
+insight.adult.NH5.body	insights_adult		Studies tie oxytocin to bonding cues: touch, warm voice, shared meals. It nudges social calm and “we” feelings.\n\nAccountability partners and family habits may ride social chemistry, not only willpower.		no
 insight.adult.NH5.sourceText	insights_adult		Carter — oxytocin & attachment (review)		no
+insight.adult.NH5.sourceUrl	insights_adult		https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3183508/		no
 insight.adult.NH6.title	insights_adult		Oxytocin has more than one mood		no
-insight.adult.NH6.body	insights_adult		Researchers note context matters: the same hormone that supports closeness can sharpen feelings about “us versus them” in some settings.nnKindness with boundaries stays wise — chemistry is not a morality tale.		no
+insight.adult.NH6.body	insights_adult		Researchers note context matters: the same hormone that supports closeness can sharpen feelings about “us versus them” in some settings.\n\nKindness with boundaries stays wise — chemistry is not a morality tale.		no
 insight.adult.NH6.sourceText	insights_adult		Shamay-Tsoory & Abu-Akel — oxytocin context		no
+insight.adult.NH6.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/24090464/		no
 insight.adult.NH7.title	insights_adult		Serotonin is a stabiliser, not a smile pill		no
-insight.adult.NH7.body	insights_adult		Most brain serotonin does not come with simple labels. It helps regulate mood, sleep timing, and even gut signalling — a steadying hand, not a happy switch.nnMedication stories are separate from daily habits; both deserve nuance.		no
+insight.adult.NH7.body	insights_adult		Most brain serotonin does not come with simple labels. It helps regulate mood, sleep timing, and even gut signalling — a steadying hand, not a happy switch.\n\nMedication stories are separate from daily habits; both deserve nuance.		no
 insight.adult.NH7.sourceText	insights_adult		NIH News in Health — serotonin		no
+insight.adult.NH7.sourceUrl	insights_adult		https://newsinhealth.nih.gov/2012/08/minding-mood		no
 insight.adult.NH8.title	insights_adult		Daylight, movement, and calm chemistry		no
-insight.adult.NH8.body	insights_adult		Exercise and outdoor light are linked to better mood and sleep in large studies — serotonin-related pathways are part of the story, alongside many other systems.nnA walk is low-tech support for a complicated brain.		no
+insight.adult.NH8.body	insights_adult		Exercise and outdoor light are linked to better mood and sleep in large studies — serotonin-related pathways are part of the story, alongside many other systems.\n\nA walk is low-tech support for a complicated brain.		no
 insight.adult.NH8.sourceText	insights_adult		Harvard Health — exercise, light & mood		no
+insight.adult.NH8.sourceUrl	insights_adult		https://www.health.harvard.edu/mind-and-mood/serotonin-the-natural-mood-booster		no
 insight.adult.NH9.title	insights_adult		Prolactin: the afterglow manager		no
-insight.adult.NH9.body	insights_adult		After intense pleasure or orgasm, prolactin often rises — part of why excitement eases and the body pivots toward rest. It is normal biology, not failure.nnUnderstanding the cooldown helps you plan recovery, not judge it.		no
+insight.adult.NH9.body	insights_adult		After intense pleasure, prolactin often rises — part of why excitement eases and the body shifts toward rest. It’s ordinary biology, not a failure of willpower or loss of interest.\n\nKnowing about the cooldown helps you plan recovery instead of judging it.		no
 insight.adult.NH9.sourceText	insights_adult		Endocrine Society — prolactin		no
+insight.adult.NH9.sourceUrl	insights_adult		https://www.endocrine.org/patient-engagement/endocrine-library/prolactin		no
 insight.adult.NH10.title	insights_adult		Prolactin shows up for caregivers too		no
-insight.adult.NH10.body	insights_adult		Hormone research links prolactin to nurturing behaviours in many mammals — milk production in some contexts and caregiving tone more broadly.nnBodies reward tending others with quiet chemistry.		no
+insight.adult.NH10.body	insights_adult		Hormone research links prolactin to nurturing behaviours in many mammals — milk production in some contexts and caregiving tone more broadly.\n\nBodies reward tending others with quiet chemistry.		no
 insight.adult.NH10.sourceText	insights_adult		Torner & Neumann — prolactin review		no
+insight.adult.NH10.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/17920849/		no
 insight.adult.NH11.title	insights_adult		No molecule works alone		no
-insight.adult.NH11.body	insights_adult		Sapolsky’s “Behave” walks one behaviour through genes, hormones, context, and culture — dopamine, serotonin, oxytocin, and more act in concert like instruments, not soloists.nnWhen you change a habit, you are conducting the whole band slowly.		no
+insight.adult.NH11.body	insights_adult		Sapolsky’s “Behave” walks one behaviour through genes, hormones, context, and culture — dopamine, serotonin, oxytocin, and more act in concert like instruments, not soloists.\n\nWhen you change a habit, you are conducting the whole band slowly.		no
 insight.adult.NH11.sourceText	insights_adult		Sapolsky — Behave		no
+insight.adult.NH11.sourceUrl	insights_adult		https://www.penguinrandomhouse.com/books/317851/behave-by-robert-m-sapolsky/		no
 insight.adult.NH12.title	insights_adult		Books beat doom-scrolling for the same circuits		no
-insight.adult.NH12.body	insights_adult		Writers like Lembke and Lieberman describe how cheap digital hits train dopamine shortcuts. Swapping some scroll time for long-form explanations rebuilds patience — the same patience habits need.nnThis app’s slower rewards are a cousin of that swap.		no
+insight.adult.NH12.body	insights_adult		Writers like Lembke and Lieberman describe how cheap digital hits train dopamine shortcuts. Swapping some scroll time for long-form explanations rebuilds patience — the same patience habits need.\n\nThis app’s slower rewards are a cousin of that swap.		no
 insight.adult.NH12.sourceText	insights_adult		Lembke; Lieberman & Long		no
+insight.adult.NH12.sourceUrl	insights_adult		https://www.penguinrandomhouse.com/books/667510/dopamine-nation-by-anna-lembke-md/		no
 insight.adult.MX1.title	insights_adult		Mastery I — rhythm holds		no
-insight.adult.MX1.body	insights_adult		Research on habit formation shows “automaticity” emerges over weeks to months, with wide individual differences — not a single fixed number for everyone.nnEarning this tier means your logged behaviour met the bar over roughly a month of calendar days for this habit — celebrate showing up.		no
+insight.adult.MX1.body	insights_adult		Research on habit formation shows “automaticity” emerges over weeks to months, with wide individual differences — not a single fixed number for everyone.\n\nEarning this tier means your logged behaviour met the bar over roughly a month of calendar days for this habit — celebrate showing up.		no
 insight.adult.MX1.sourceText	insights_adult		Lally et al. — habit formation (overview)		no
+insight.adult.MX1.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/19827987/		no
 insight.adult.MX2.title	insights_adult		Mastery II — deeper pattern		no
-insight.adult.MX2.body	insights_adult		As windows lengthen, off-days age out of the lookback while you keep accumulating proof you can return.nnThis tier is about sustaining the pattern on the Log across roughly two months of calendar days.		no
+insight.adult.MX2.body	insights_adult		As windows lengthen, off-days age out of the lookback while you keep accumulating proof you can return.\n\nThis tier is about sustaining the pattern on the Log across roughly two months of calendar days.		no
 insight.adult.MX2.sourceText	insights_adult		Wood & Neal — habits (overview)		no
+insight.adult.MX2.sourceUrl	insights_adult		https://pubmed.ncbi.nlm.nih.gov/17685980/		no
 insight.adult.MX3.title	insights_adult		Mastery III — you own this here		no
-insight.adult.MX3.body	insights_adult		Meeting a high bar over the longest mastery window (calendar days) in this app is rare air — you have built real consistency with this habit here.nnConsider banking it for now and revisiting in 6–12 months if you want to reinforce it again.		no
+insight.adult.MX3.body	insights_adult		Meeting a high bar over the longest mastery window (calendar days) in this app is rare air — you have built real consistency with this habit here.\n\nConsider banking it for now and revisiting in 6–12 months if you want to reinforce it again.		no
 insight.adult.MX3.sourceText	insights_adult		Consistency — mastery framing		no
+insight.adult.MX3.sourceUrl	insights_adult				no
 insight.adult.MX4.title	insights_adult		Legendary Maintenance — back on purpose		no
 insight.adult.MX4.body	insights_adult		A long pause after mastery is normal life. Choosing to return and meet the maintenance bar shows the habit is still yours — a deliberate reunion, not a rescue mission.		no
 insight.adult.MX4.sourceText	insights_adult		Consistency — legendary framing		no
+insight.adult.MX4.sourceUrl	insights_adult				no
 insight.adult.MX5.title	insights_adult		Timeless —still showing up		no
 insight.adult.MX5.body	insights_adult		Years later, the signal is not perfection. It is that you came back and let the weeks add up again — quiet proof that the identity stuck.		no
 insight.adult.MX5.sourceText	insights_adult		Consistency — timeless framing		no
+insight.adult.MX5.sourceUrl	insights_adult				no
 insight.adult.MX6.title	insights_adult		Eternal — depth over drama		no
 insight.adult.MX6.body	insights_adult		Half a decade is enough seasons to fail, wander, and restart. Earning this means the pattern survived real life — not a streak fantasy.		no
 insight.adult.MX6.sourceText	insights_adult		Consistency — eternal framing		no
+insight.adult.MX6.sourceUrl	insights_adult				no
 insight.adult.MX7.title	insights_adult		Immortal — a lifetime stitch		no
 insight.adult.MX7.body	insights_adult		A decade marker is as much about values as behaviour: some practices deserve to stay loosely tethered across everything else that changes.		no
 insight.adult.MX7.sourceText	insights_adult		Consistency — immortal framing		no
+insight.adult.MX7.sourceUrl	insights_adult				no
 insight.adult.BK_SM1.title	insights_adult		Only now and not-yet		no
-insight.adult.BK_SM1.body	insights_adult		For a small child, time has two settings: this moment, and everything else u2014 which feels like infinity. Thatu2019s not immaturity. Itu2019s how the brain is wired before it learns to feel the distance between today and next week.nnHabits are how you train that distance to feel real.		no
-insight.adult.BK_SM1.sourceText	insights_adult		Jean Piaget u2014 developmental psychology; Gabor Matu00e9, Scattered Minds		no
-insight.adult.BK_SM2.title	insights_adult		Wishing doesnu2019t make it so		no
-insight.adult.BK_SM2.body	insights_adult		The young brain defaults to magical thinking u2014 want something hard enough and it arrives. Most adults still carry a version of this around goals.nnThe system youu2019re building here is the direct answer to that: small repeated actions, not intention.		no
-insight.adult.BK_SM2.sourceText	insights_adult		Jean Piaget; Gabor Matu00e9, Scattered Minds		no
+insight.adult.BK_SM1.body	insights_adult		For a small child, time has two settings: this moment, and everything else — which feels like infinity. That’s not immaturity. It’s how the brain is wired before it learns to feel the distance between today and next week.\n\nHabits are how you train that distance to feel real.		no
+insight.adult.BK_SM1.sourceText	insights_adult		Jean Piaget — developmental psychology; Gabor Maté, Scattered Minds		no
+insight.adult.BK_SM1.sourceUrl	insights_adult		https://openlibrary.org/books/OL7695028M/Scattered_Minds		no
+insight.adult.BK_SM2.title	insights_adult		Wishing doesn’t make it so		no
+insight.adult.BK_SM2.body	insights_adult		The young brain defaults to magical thinking — want something hard enough and it arrives. Most adults still carry a version of this around goals.\n\nThe system you’re building here is the direct answer to that: small repeated actions, not intention.		no
+insight.adult.BK_SM2.sourceText	insights_adult		Jean Piaget; Gabor Maté, Scattered Minds		no
+insight.adult.BK_SM2.sourceUrl	insights_adult		https://openlibrary.org/books/OL7695028M/Scattered_Minds		no
 insight.adult.BK_SM3.title	insights_adult		Time is learned, not given		no
-insight.adult.BK_SM3.body	insights_adult		No one is born understanding that todayu2019s choices shape next week. That link u2014 cause, then effect, across time u2014 is something the brain constructs gradually. In some people that construction takes longer.nnThatu2019s not a deficit. Itu2019s just the starting point.		no
-insight.adult.BK_SM3.sourceText	insights_adult		Jean Piaget u2014 cognitive development; Gabor Matu00e9, Scattered Minds		no
+insight.adult.BK_SM3.body	insights_adult		No one is born understanding that today’s choices shape next week. That link — cause, then effect, across time — is something the brain constructs gradually. In some people that construction takes longer.\n\nThat’s not a deficit. It’s just the starting point.		no
+insight.adult.BK_SM3.sourceText	insights_adult		Jean Piaget — cognitive development; Gabor Maté, Scattered Minds		no
+insight.adult.BK_SM3.sourceUrl	insights_adult		https://openlibrary.org/books/OL7695028M/Scattered_Minds		no
 insight.adult.BK_SM4.title	insights_adult		Seven is when time clicks		no
-insight.adult.BK_SM4.body	insights_adult		Piaget found that children donu2019t have a full grasp of time until around age seven. Before that, duration and consequence are genuinely hard to feel u2014 not a behaviour choice.nnFor some brains, external structure does what that internal clock hasnu2019t fully built yet.		no
-insight.adult.BK_SM4.sourceText	insights_adult		Jean Piaget u2014 preoperational stage; Gabor Matu00e9, Scattered Minds		no
-insight.adult.BK_SM5.title	insights_adult		You canu2019t bend time by wanting to		no
-insight.adult.BK_SM5.body	insights_adult		Piaget observed that young children believe they can stop, speed up, or slow time down. That instinct doesnu2019t always fully leave. If deadlines feel like suggestions and schedules seem to shift around you u2014 thatu2019s the same wiring, older.nnStructure isnu2019t a workaround. Itu2019s the actual solution.		no
-insight.adult.BK_SM5.sourceText	insights_adult		Jean Piaget u2014 preoperational stage; Gabor Matu00e9, Scattered Minds		no
+insight.adult.BK_SM4.body	insights_adult		Piaget found that children don’t have a full grasp of time until around age seven. Before that, duration and consequence are genuinely hard to feel — not a behaviour choice.\n\nFor some brains, external structure does what that internal clock hasn’t fully built yet.		no
+insight.adult.BK_SM4.sourceText	insights_adult		Jean Piaget — preoperational stage; Gabor Maté, Scattered Minds		no
+insight.adult.BK_SM4.sourceUrl	insights_adult		https://openlibrary.org/books/OL7695028M/Scattered_Minds		no
+insight.adult.BK_SM5.title	insights_adult		You can’t bend time by wanting to		no
+insight.adult.BK_SM5.body	insights_adult		Piaget observed that young children believe they can stop, speed up, or slow time down. That instinct doesn’t always fully leave. If deadlines feel like suggestions and schedules seem to shift around you — that’s the same wiring, older.\n\nStructure isn’t a workaround. It’s the actual solution.		no
+insight.adult.BK_SM5.sourceText	insights_adult		Jean Piaget — preoperational stage; Gabor Maté, Scattered Minds		no
+insight.adult.BK_SM5.sourceUrl	insights_adult		https://openlibrary.org/books/OL7695028M/Scattered_Minds		no
 insight.kid.I1.title	insights_kid			Sleep helps you remember	no
 insight.kid.I1.body	insights_kid			When you sleep, your brain sorts the day — a bit like tidying your room.\n\nIf you miss sleep a lot, remembering gets harder. A usual bedtime beats one huge catch-up night.	no
 insight.kid.I1.sourceText	insights_kid			Science link (grown-ups)	no
@@ -626,7 +737,7 @@ insight.kid.NH8.body	insights_kid			Exercise and outdoor light link to better mo
 insight.kid.NH8.sourceText	insights_kid			Science link (grown-ups)	no
 insight.kid.NH8.blogText	insights_kid			Blog for grown-ups	no
 insight.kid.NH9.title	insights_kid			After big excitement	no
-insight.kid.NH9.body	insights_kid			After very intense fun, the body shifts toward calm chemistry — that is normal biology.\n\nUnderstanding cooldown helps you plan rest, not worry.	no
+insight.kid.NH9.body	insights_kid			After very intense fun, the body shifts toward calmer chemical state — that is normal biology.\n\nUnderstanding cooldown helps you plan rest, not worry.	no
 insight.kid.NH9.sourceText	insights_kid			Science link (grown-ups)	no
 insight.kid.NH9.blogText	insights_kid			Blog for grown-ups	no
 insight.kid.NH10.title	insights_kid			Caring and chemistry	no
@@ -648,6 +759,12 @@ settings.dynamic.settingsAccountAnonNote	settings_kid_toggle		Without sign-in, y
 settings.dynamic.settingsAccountCloudLabel	settings_kid_toggle		Sync this device with the cloud (upload full app data for your account)	Cloud sync (grown-up): keep this device matched with your online account — uploads the full app for your signed-in account.	no
 settings.dynamic.settingsAdvancedBackupHeading	settings_kid_toggle		Manual backup & restore	Save / add a backup file	no
 settings.dynamic.settingsAboutBlurb	settings_kid_toggle		A personal habit-tracking tool built around weekly consistency. Made for those who want to meet their better self and keep it.	A friendly habit app for weekly habits. For anyone who wants to meet their better self and keep it.	no
+settings.dynamic.settingsPreferencesIntro	settings_kid_toggle		Profile-specific options. Kid profiles can switch extra reminder and animation behaviour here.	Kid extras: fun animations, and (with a grown-up) whether habits can ring at special times.	no
+settings.dynamic.lblKidAnimationsSettings	settings_kid_toggle		Animations	Fun animations	no
+settings.dynamic.lblKidHabitTimeRemindersHeading	settings_kid_toggle		Habit time reminders	Habit time reminders	no
+settings.dynamic.kidHabitTimeRemindersHelp	settings_kid_toggle		When this is on, you can set clock times for each habit (with a grown-up’s help). Turn it off to only get gentle week reminders — not a ping at a special time for each habit.	When this is on, you can set clock times for each habit (with a grown-up’s help). Turn it off to only get gentle week reminders — not a ping at a special time for each habit.	no
+settings.dynamic.lblKidHabitTimeReminders	settings_kid_toggle		Allow clock-time reminders per habit	Allow clock-time reminders per habit	no
+settings.dynamic.settingsPreferencesAdultNote	settings_kid_toggle		No extra preferences for this profile. Switch to a kid profile to adjust animations and per-habit reminder times.		no
 settings.dynamic.importProfileSectionLabel	settings_kid_toggle		Profiles to add from file	People to add from the file	no
 settings.dynamic.lblSettingsDisplayName	settings_kid_toggle		Display name	Your name	no
 settings.dynamic.advancedCloudHistoryHeading	settings_kid_toggle		Automatic cloud backups	Cloud backups (automatic)	no
@@ -666,7 +783,7 @@ settings.dynamic.startFreshConfirmCancelBtn	settings_kid_toggle		Cancel	Go back	
 settings.dynamic.startFreshConfirmOkBtn	settings_kid_toggle		Continue	Yes, clear online	no
 settings.dynamic.settingsAdvancedExportNote.html	settings_kid_toggle		Save your data locally. Import only adds the profiles you pick from the file as new profiles — nothing already on this device is overwritten.	Save your data on this device. Import only <strong>adds</strong> the people you tick from the file as <strong>new</strong> profiles — nothing already here is overwritten.	yes
 settings.dynamic.importBackupWarnLine.html	settings_kid_toggle		This only <strong>adds</strong> copies of the profiles you choose. Existing profiles on this device are left exactly as they are (including when an ID in the file already exists — that import gets a new ID).	This only <strong>adds</strong> profile copies you choose. Everything already on this device stays the same (even if an ID in the file exists — that copy gets a new ID).	yes
-settings.dynamic.settingsHelpIntro.html	settings_kid_toggle		Browse insights, open Tips for the full reference, or replay orientation tours below. <strong>About</strong> has the app blurb.	See fun facts you collected, read Tips, or replay the intro, tab tour, or guides below. Cloud backups and backup files are under <strong>Advanced</strong>; <strong>About</strong> is the last tab.	yes
+settings.dynamic.settingsHelpIntro.html	settings_kid_toggle		Browse insights, open Tips for the full reference, or replay orientation tours below. <strong>About</strong> has the app blurb.	See fun facts you collected, read Tips, or replay the intro, tab tour, or guides below. Kid animation &amp; habit reminder style live under <strong>Preferences</strong>. Cloud backups and backup files are under <strong>Advanced</strong>; <strong>About</strong> is the last tab.	yes
 settings.dynamic.advancedCloudHistoryIntro.html	settings_kid_toggle		These two buttons are the latest two rolling cloud snapshots (updated nightly on the server). Tap one to revert if your data looks off (you confirm first).	Two rolling cloud snapshots (like "yesterday" and "two days ago"). Tap one to go back if something looks wrong (confirm with a grown-up).	yes
 onboarding.wizard.wizard.adult.brandSub	onboarding_wizard	adult	The app that helps you discover, build, and become your better self.		no
 onboarding.wizard.wizard.adult.step0.title	onboarding_wizard	adult	Welcome		no
@@ -692,7 +809,7 @@ onboarding.intro.adult.brandTitle	onboarding_intro	adult	How it works		no
 onboarding.intro.adult.brandSub	onboarding_intro	adult	A few things worth knowing before you start.		no
 onboarding.intro.adult.steps[0].title	onboarding_intro	adult	Three mechanisms		no
 onboarding.intro.adult.steps[0].html	onboarding_intro	adult	<p style="margin:0 0 var(--s3)">This app helps you build consistency for everything you struggle with until now, using three mechanisms:</p><ul><li><strong>Goal</strong> — long-term rewards so you keep your eyes on what you are saving for.</li><li><strong>Weekly treat</strong> — short-term rewards so you feel the win often.</li><li><strong>Consistency</strong> — a streak you will want to keep going.</li></ul>		yes
-onboarding.intro.adult.steps[1].title	onboarding_intro	adult	Consistency		no
+onboarding.intro.adult.steps[1].title	onboarding_intro	adult	Evolve		no
 onboarding.intro.adult.steps[1].html	onboarding_intro	adult	<p style="margin:0 0 var(--s3)"><strong>Consistency</strong> is built on mundane repetition. But this app makes it interesting and fun. Life is neither easy nor perfect, but we think it’s OK to be on top of things at least <strong>80%</strong> of the time.</p>		yes
 onboarding.intro.adult.steps[2].title	onboarding_intro	adult	Qualify		no
 onboarding.intro.adult.steps[2].html	onboarding_intro	adult	<p style="margin:0"><strong>Qualify</strong> your week to remain <strong>Consistent</strong> for 80% of your tracking time and you can reap your <strong>big Goal</strong> reward, on top of building the good habits you really need.</p>		yes
@@ -702,7 +819,7 @@ onboarding.intro.kid.brandTitle	onboarding_intro	kid		How it works	no
 onboarding.intro.kid.brandSub	onboarding_intro	kid		A few things worth knowing before you start.	no
 onboarding.intro.kid.steps[0].title	onboarding_intro	kid		Three helpers	no
 onboarding.intro.kid.steps[0].html	onboarding_intro	kid		<p style="margin:0 0 var(--s3)">This app uses three ideas:</p><ul><li>A big <strong>Goal</strong> to save for.</li><li>A small weekly <strong>Treat</strong> when you do well.</li><li>A <strong>Consistency</strong> streak you want to protect.</li></ul><p style="margin:0">Ask a grown-up if a sentence feels tricky.</p>	yes
-onboarding.intro.kid.steps[1].title	onboarding_intro	kid		Consistency	no
+onboarding.intro.kid.steps[1].title	onboarding_intro	kid		Evolve	no
 onboarding.intro.kid.steps[1].html	onboarding_intro	kid		<p style="margin:0 0 var(--s3)"><strong>Consistency</strong> means showing up again and again. This app tries to make that feel fair and a bit fun. Aim to be on track most weeks — grown-ups often use about <strong>80%</strong> as a guide.</p>	yes
 onboarding.intro.kid.steps[2].title	onboarding_intro	kid		Qualify	no
 onboarding.intro.kid.steps[2].html	onboarding_intro	kid		<p style="margin:0">When your week <strong>qualifies</strong>, you stay <strong>Consistent</strong> over your tracked weeks and move toward your big <strong>Goal</strong> while building habits.</p>	yes
@@ -876,17 +993,6 @@ habitPreset.rel_rest.label	habit_preset		Rest day or intentional pause		no
 habitPreset.rel_rest.title	habit_preset		Rest or pause day		no
 habitPreset.rel_fasting.label	habit_preset		Observance day (e.g. fasting)		no
 habitPreset.rel_fasting.title	habit_preset		Observance day kept		no
-rewardPreset[0]	reward_presets		Badminton		no
-rewardPreset[1]	reward_presets		Cinema		no
-rewardPreset[2]	reward_presets		Gaming session		no
-rewardPreset[3]	reward_presets		Massage		no
-rewardPreset[4]	reward_presets		Takeaway		no
-rewardPreset[5]	reward_presets		Coffee out		no
-rewardPreset[6]	reward_presets		Book time		no
-rewardPreset[7]	reward_presets		Sauna		no
-rewardPreset[8]	reward_presets		Family outing		no
-rewardPreset[9]	reward_presets		New gadget time		no
-rewardPreset[10]	reward_presets		Custom		no
 uiPalette.neutral.label	ui_palette		Slate		no
 uiPalette.neutral.sub	ui_palette		Neutral & calm		no
 uiPalette.navy.label	ui_palette		Navy		no

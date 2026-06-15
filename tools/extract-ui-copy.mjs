@@ -33,7 +33,19 @@ function readQuotedFields(line) {
     while (i < s.length) {
       const c = s[i];
       if (c === '\\' && i + 1 < s.length) {
-        buf += s[i + 1];
+        const n = s[i + 1];
+        if (n === 'n') { buf += '\n'; i += 2; continue; }
+        if (n === 'r') { buf += '\r'; i += 2; continue; }
+        if (n === 't') { buf += '\t'; i += 2; continue; }
+        if (n === "'") { buf += "'"; i += 2; continue; }
+        if (n === '"') { buf += '"'; i += 2; continue; }
+        if (n === '\\') { buf += '\\'; i += 2; continue; }
+        if (n === 'u' && /^[0-9a-fA-F]{4}/.test(s.slice(i + 2, i + 6))) {
+          buf += String.fromCodePoint(parseInt(s.slice(i + 2, i + 6), 16));
+          i += 6;
+          continue;
+        }
+        buf += n;
         i += 2;
         continue;
       }
@@ -282,6 +294,16 @@ function main() {
       insight_id: row.id,
       field: 'sourceText',
       adult: row.sourceText,
+      kid: null,
+      html: false,
+      meta: { category: row.category, triggerType: row.triggerType },
+    });
+    catalog.entries.push({
+      id: `insight.adult.${row.id}.sourceUrl`,
+      category: 'insights_adult',
+      insight_id: row.id,
+      field: 'sourceUrl',
+      adult: row.sourceUrl,
       kid: null,
       html: false,
       meta: { category: row.category, triggerType: row.triggerType },
