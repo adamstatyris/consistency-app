@@ -1,0 +1,31 @@
+---
+description: Evolve app UX conventions and recent fixes — reference when editing Manage, Home, or goal editor
+globs: index.html, manifest.webmanifest
+alwaysApply: false
+---
+
+# Evolve UX fixes (reference)
+
+## Manage → Habits
+- Edit control uses **pencil icon**; lock uses **grey ✓** (not the word "Lock").
+- Habit cards: core habits sort before growth; toggle only (no "Active" label), bottom-right; confirm before sending to Saved habits.
+- Deactivating a habit must **not** change locked-week consistency or Log entries — `trackerHabitsForWeekOffset()` keeps archived habits visible on ended weeks with data.
+- Hint when locked: "Press the toggle to Deactivate and Save your custom habits."
+
+## Manage → Saved habits
+- Same card template as active habits (tier pill, mastery badge, toggle + × bottom-right).
+- Subline: "Press × to completely delete a past habit."
+
+## Goal editor
+- Point-based goals: **Weekly treat budget** shows only when the selected treat is not in `REWARD_BANDS.free`.
+- Free treats: Extra screen time, Family game night, Park walk, Library visit, Homemade treat, Choose a movie, Story time bonus, Craft afternoon, Bike ride, Stargazing.
+
+## Home overview
+- Goal % circles (max 3 active goals); no "+ Add Goal" in overview card.
+- Card order: Overview → Did you know → Your week → Goal details → Week history (chevron › on summary).
+
+## Limits
+- `MAX_ACTIVE_GOALS = 3`; warn on adding 3rd; block 4th.
+
+## Orientation
+- Portrait only: `manifest.webmanifest` `orientation: portrait` + meta `screen-orientation`.
