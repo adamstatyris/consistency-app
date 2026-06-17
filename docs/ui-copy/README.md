@@ -1,4 +1,4 @@
-# UI copy catalog (Consistency app)
+# UI copy catalog (Evolve)
 
 This folder holds an **export of user-visible strings** from `index.html` so you can edit them in a spreadsheet or with another LLM, then merge improvements back into the codebase.
 
@@ -48,7 +48,7 @@ If you need those in the same pipeline, extend `tools/extract-ui-copy.mjs` or ad
 
 ## Prompt for the *editing* AI (copy everything below this line)
 
-You are editing **user-facing copy** for **Consistency**, a browser-based weekly habit tracker.
+You are editing **user-facing copy** for **Evolve**, a browser-based weekly habit tracker.
 
 ### Product context
 

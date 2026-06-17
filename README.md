@@ -126,21 +126,21 @@ git push
 
 - Single-file architecture is intentional for now (deploy simplicity, easy backups).
 - GitHub repo: [`evolve-app`](https://github.com/adamstatyris/evolve-app) (formerly `consistency-app`)
-- Persistent state lives in `localStorage` under key `consistency-app-v4` (kept for backward compatibility with existing installs).
+- Persistent state lives in `localStorage` under key `evolve-app` (migrated automatically from legacy `consistency-app-v4` on first load).
 - Per-profile data is namespaced inside `ROOT.profiles`.
 - All UI strings have an adult voice and a kid voice (ages 0ÔÇô8) ÔÇö keep both in sync when editing.
 - Onboarding follows "Approach D": short intro ÔåÆ milestone steppers triggered by user actions.
 
 ## Auth notes (Supabase)
 
-- **Google account picker says ÔÇ£Log in toÔÇØ + a long random-looking string** ÔÇö That text is **not** controlled in `index.html`. Google takes it from the **OAuth consent screen** (and the OAuth client) backing your sign-in. To show a friendly name (e.g. **Consistency app**):
+- **Google account picker says ÔÇ£Log in toÔÇØ + a long random-looking string** ÔÇö That text is **not** controlled in `index.html`. Google takes it from the **OAuth consent screen** (and the OAuth client) backing your sign-in. To show a friendly name (e.g. **Evolve**):
   1. In [Google Cloud Console](https://console.cloud.google.com/) use the **same Google Cloud project** where the **Web client ID** is registered that you entered in Supabase (see next bullet).
   2. Go to **APIs & Services ÔåÆ OAuth consent screen**.
-  3. Set **App name** to `Consistency app` (or `Consistency`). Save.  
+  3. Set **App name** to `Evolve` (or `Evolve app`). Save.  
      Optional: add **App logo**, **support email**, and **developer contact** ÔÇö required if you move beyond ÔÇ£TestingÔÇØ or widen audience.
   4. In [Supabase](https://supabase.com/dashboard) open **Authentication ÔåÆ Providers ÔåÆ Google**: use your own **Client ID** and **Client Secret** from that Cloud project (see [Google sign-in with Supabase](https://supabase.com/docs/guides/auth/social-login/auth-google)). If you only use SupabaseÔÇÖs pre-filled Google keys, branding is limited; **custom credentials** + consent screen above are what make the picker show your name.
 - **Sign-in** uses [Supabase Auth](https://supabase.com/docs/guides/auth) with `flowType: 'implicit'` so **magic-link emails work when opened from another device or mail app** (PKCE requires the same browser session that requested the link).
-- **Email ÔÇ£FromÔÇØ (e.g. ÔÇ£Supabase AuthÔÇØ)** ÔÇö On the default host, Supabase sends from their infrastructure. To show **ÔÇ£ConsistencyÔÇØ** or **ÔÇ£S-Sence LabsÔÇØ** as the sender, add **custom SMTP** in the Supabase dashboard (**Project ÔåÆ Settings ÔåÆ Auth ÔåÆ SMTP Settings**), then set your **sender name** and **from address** (use a domain you control, e.g. `noreply@yourdomain.com`, with SPF/DKIM as your provider requires). You can also edit **Authentication ÔåÆ Email Templates** for subject/body copy.
+- **Email ÔÇ£FromÔÇØ (e.g. ÔÇ£Supabase AuthÔÇØ)** ÔÇö On the default host, Supabase sends from their infrastructure. To show **ÔÇ£EvolveÔÇØ** or **ÔÇ£Essence LabsÔÇØ** as the sender, add **custom SMTP** in the Supabase dashboard (**Project ÔåÆ Settings ÔåÆ Auth ÔåÆ SMTP Settings**), then set your **sender name** and **from address** (use a domain you control, e.g. `noreply@yourdomain.com`, with SPF/DKIM as your provider requires). You can also edit **Authentication ÔåÆ Email Templates** for subject/body copy.
 - **Redirect URLs** must include your production site and local dev (e.g. `https://your-project.pages.dev/**` and `http://localhost:*/**`).
 - **Magic link email (centered layout)** ÔÇö In **Authentication ÔåÆ Email Templates**, open the **Magic Link** template and replace the body with HTML like below. Put **`{{ .ConfirmationURL }}`** only in the `href` of the button and in the fallback line (Supabase expands it to the full verify URL). The layout uses nested tables so it stays centered in Gmail and Outlook.
 
@@ -159,7 +159,7 @@ git push
         <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:480px;margin:0 auto;background:#ffffff;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.08);">
           <tr>
             <td align="center" style="padding:28px 24px 8px;font-size:20px;font-weight:600;color:#111827;">
-              Sign in to Consistency
+              Sign in to Evolve
             </td>
           </tr>
           <tr>
@@ -170,7 +170,7 @@ git push
           <tr>
             <td align="center" style="padding:0 24px 28px;">
               <a href="{{ .ConfirmationURL }}" style="display:inline-block;padding:14px 28px;background:#2563eb;color:#ffffff !important;text-decoration:none;border-radius:8px;font-weight:600;font-size:15px;">
-                Open Consistency
+                Open Evolve
               </a>
             </td>
           </tr>
@@ -194,7 +194,7 @@ git push
 ```
 
 - **Magic link ÔÇ£rate limitÔÇØ** ÔÇö Supabase caps how many OTP/magic-link emails can be sent per hour (see [Auth rate limits](https://supabase.com/docs/guides/auth/rate-limits)). Heavy testing triggers this quickly; wait ~1 hour, use Google sign-in, or raise limits / use **custom SMTP** on a paid tier.
-- **Link opens the site but you stay logged out** ÔÇö The fragment `#access_token=ÔÇª` must stay on the URL until the Supabase client ingests it. Older builds stripped it too early (a race with `getSession()`). Current `index.html` retries session detection briefly and only then clears the address bar; redeploy if you still see this after clicking **Open Consistency**.
+- **Link opens the site but you stay logged out** ÔÇö The fragment `#access_token=ÔÇª` must stay on the URL until the Supabase client ingests it. Older builds stripped it too early (a race with `getSession()`). Current `index.html` retries session detection briefly and only then clears the address bar; redeploy if you still see this after clicking **Open Evolve**.
 
 ## Cloud sync (Phase D)
 

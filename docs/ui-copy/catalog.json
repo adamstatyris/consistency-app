@@ -2777,7 +2777,7 @@
       "category": "insights_adult",
       "insight_id": "F4",
       "field": "body",
-      "adult": "A famous 1964 stunt stayed awake for eleven days under medical watch. He recovered — and said never again.\n\nYour late reel session is not that experiment, but it rhymes.",
+      "adult": "In 1964, a 17-year-old stayed awake for 11 days as a supervised science stunt — still the longest documented wakefulness on record. Doctors monitored him the whole time; he slept normally afterward and later said he would never do it again.\n\nSleep is not optional. Even a few short nights add up faster than you can power through.",
       "kid": null,
       "html": false,
       "meta": {
@@ -4233,7 +4233,7 @@
       "category": "insights_adult",
       "insight_id": "RG1",
       "field": "body",
-      "adult": "When consistency jumps straight from struggling to solid, it usually means several closed weeks lined up behind the number — not one fluke week.\n\nLet the colour change be a quiet “keep going,” not pressure to be perfect next week.",
+      "adult": "When you improve your consistency across weeks, it's reflected on your Consistency %. The colour change means keep doing what you are doing. Don't chase perfection, that is not a lasting change.",
       "kid": null,
       "html": false,
       "meta": {
@@ -4493,7 +4493,7 @@
       "category": "insights_adult",
       "insight_id": "CA2",
       "field": "body",
-      "adult": "Core habits must all qualify for a closed week to count toward your % and weekly treats; growth habits add pot money when they qualify but never block the week. In recovery (rolling % below that goal’s consistency floor), only core habits add £ to the pot; growth adds £0 until rolling % reaches the floor again. Each goal’s floor is set in Add/Edit goal (default often 80%).",
+      "adult": "Core habits must all qualify for a closed week to count toward your % and weekly treats; growth habits add pot money when they qualify but never block the week. In recovery (rolling % below the 80% consistency floor), only core habits add £ to the pot; growth adds £0 until rolling % reaches the floor again.",
       "kid": null,
       "html": false,
       "meta": {
@@ -7381,7 +7381,7 @@
       "insight_id": "F4",
       "field": "body",
       "adult": null,
-      "kid": "A famous stunt stayed awake eleven days with doctors watching. He said never again.\n\nDo not try this — your sleep matters.",
+      "kid": "In 1964, a teenager stayed awake eleven days while doctors watched — a science stunt, not something to copy.\n\nHe slept normally after and said never again. Your sleep matters every night.",
       "html": false,
       "source_part": "_INSIGHT_KID_PART3"
     },
@@ -9576,7 +9576,7 @@
     {
       "id": "habitTierTutorial.adult.body",
       "category": "habit_editor_tour",
-      "adult": "<strong>Core</strong> — Every core habit must qualify in a week for that week to count as on track.<br><br><strong>Growth</strong> — Both core and growth habits add money to your pots at the end of the week when they qualify.<br><br><strong>Recovery mode</strong> — When your consistency % drops below the floor, only core habits add to your pot until you recover (more on this later).",
+      "adult": "<strong>Core</strong> — Every core habit must qualify in a week for that week to count as on track.<br><br><strong>Growth</strong> — Both core and growth habits add money to your pots at the end of the week when they qualify.<br><br><strong>Recovery mode</strong> — When your consistency % drops below the 80% floor, only core habits add to your pot until you recover (more on this later).",
       "kid": null,
       "html": true
     },
@@ -9591,7 +9591,7 @@
       "id": "habitTierTutorial.kid.body",
       "category": "habit_editor_tour",
       "adult": null,
-      "kid": "Core habits are the big “must-do” ones for a goal. After a week closes, every core habit for that goal needs to qualify so that week counts on your score circle and for your weekly treat.\n\nGrowth habits are extra helpful habits. When they qualify, they add jar money — but missing them never blocks the week from counting.\n\nRecovery means your rolling score dropped below your floor (grown-ups pick the number per goal; it is often around 80%). Then only core habits add jar money until your score climbs back to the floor; growth habits wait and add £0 so you focus on the must-dos first.\n\nAsk a grown-up to open Tips in Settings if you want the longer friendly guide.",
+      "kid": "Core habits are the big “must-do” ones for a goal. After a week closes, every core habit for that goal needs to qualify so that week counts on your score circle and for your weekly treat.\n\nGrowth habits are extra helpful habits. When they qualify, they add jar money — but missing them never blocks the week from counting.\n\nRecovery means your rolling score dropped below the 80% floor. Then only core habits add jar money until your score climbs back — growth habits wait.\n\nAsk a grown-up to open Tips in Settings if you want the longer friendly guide.",
       "html": true
     },
     {
