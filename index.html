@@ -625,21 +625,23 @@ select#hTier.habit-tier-select-expanded{min-height:4.25rem;border-radius:var(--r
 .auth-gate-sent-email{display:inline-block;font-weight:700;color:var(--text);word-break:break-all}
 .auth-gate-hint{margin:0;font-size:var(--xs);color:var(--text-faint);line-height:1.55}
 @media(max-height:640px){.auth-gate-card{padding:var(--s4);gap:var(--s2)}.auth-gate-heading{font-size:var(--lg)}}
-/* ---- Auth splash: 3-second branded intro shown only to non-signed-in users ---- */
-.auth-splash{position:fixed;inset:0;z-index:11500;background:var(--bg);display:none;flex-direction:column;align-items:center;justify-content:space-between;padding:var(--s8) var(--s4) var(--s5);text-align:center}
+/* ---- Auth splash: branded intro shown only to non-signed-in users (above gate until fade) ---- */
+.auth-splash{position:fixed;inset:0;z-index:12500;background:var(--bg);display:none;flex-direction:column;align-items:center;justify-content:space-between;padding:var(--s8) var(--s4) var(--s5);text-align:center;color:#16202b}
+[data-theme="dark"] .auth-splash{color:#eaf1f8}
 .auth-splash.is-visible{display:flex}
 /* Opacity-only fade leaves the layer above .auth-gate (older z-index) and still receiving taps on some Android/MIUI WebViews — dead sign-in buttons. */
 .auth-splash.is-fading{opacity:0;transition:opacity .4s ease;pointer-events:none!important}
-.auth-splash-stack{display:flex;flex-direction:column;align-items:center;gap:var(--s5);flex:1;justify-content:center;width:100%}
+.auth-splash-stack{display:flex;flex-direction:column;align-items:center;gap:var(--s5);flex:1;justify-content:center;width:100%;position:relative;z-index:1}
 .auth-splash-mark{width:120px;height:120px;border-radius:32px;display:grid;place-items:center;background:#fff;border:1px solid var(--border);box-shadow:0 18px 48px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.6);opacity:0;animation:splash-mark-in .6s ease-out 0s 1 forwards,splash-mark-pulse 1.6s ease-in-out .6s infinite}
 .auth-splash-mark .evolve-mark{width:84%;height:84%}
-.auth-splash-wordmark{font-size:clamp(2rem,7vw,2.6rem);font-weight:800;color:var(--text,#16202b);letter-spacing:-.02em;opacity:1;transform:translateY(8px);animation:splash-text-in .6s ease-out .7s forwards}
-.auth-splash-tagline{font-size:var(--md);color:var(--text-muted,#61707f);font-weight:500;line-height:1.45;max-width:28ch;opacity:1;transform:translateY(8px);animation:splash-text-in .6s ease-out 1.4s forwards}
-.auth-splash-signature{font-size:var(--xs);color:var(--text-faint,#91a0ae);letter-spacing:.04em;font-weight:600;opacity:1;transform:translateY(8px);animation:splash-text-in .6s ease-out 2.1s forwards}
+.auth-splash-wordmark{margin:0;font-size:clamp(2rem,7vw,2.6rem);font-weight:800;color:inherit;line-height:1.1;letter-spacing:-.02em}
+.auth-splash-tagline{margin:0;font-size:var(--sm);color:#61707f;font-weight:500;line-height:1.45;max-width:28ch}
+[data-theme="dark"] .auth-splash-tagline{color:#95a4b3}
+.auth-splash-signature{margin:0;font-size:var(--xs);color:#91a0ae;letter-spacing:.04em;font-weight:600;position:relative;z-index:1}
+[data-theme="dark"] .auth-splash-signature{color:#66717d}
 @keyframes splash-mark-in{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
 @keyframes splash-mark-pulse{0%,100%{transform:scale(1);box-shadow:0 0 32px var(--blue-glow),0 0 60px color-mix(in srgb,var(--blue) 28%, transparent)}50%{transform:scale(1.06);box-shadow:0 0 56px var(--blue-glow),0 0 110px color-mix(in srgb,var(--blue) 50%, transparent)}}
-@keyframes splash-text-in{from{transform:translateY(8px)}to{transform:translateY(0)}}
-@media(prefers-reduced-motion:reduce){.auth-splash-mark{animation:splash-mark-in .2s ease-out 0s 1 forwards;opacity:1}.auth-splash-wordmark,.auth-splash-tagline,.auth-splash-signature{animation:none;opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.auth-splash-mark{animation:splash-mark-in .2s ease-out 0s 1 forwards;opacity:1}}
 .metric-row{display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap;margin-top:var(--s3);padding-top:var(--s3);border-top:1px solid var(--divider)}
 .metric-num,.finput,.fselect,.ftextarea{width:100%;padding:var(--s3);border-radius:var(--r-md);background:var(--surface-3);border:1px solid var(--border)}
 .metric-num{width:110px;text-align:center}
@@ -1079,10 +1081,10 @@ select#hTier.habit-tier-select-expanded{min-height:4.25rem;border-radius:var(--r
 <div id="authSplash" class="auth-splash" aria-hidden="true">
   <div class="auth-splash-stack">
     <div class="auth-splash-mark"><svg class="evolve-mark" aria-hidden="true"><use class="evolve-mark-use evolve-mark-use--light" href="#evolveMark"></use><use class="evolve-mark-use evolve-mark-use--dark" href="#evolveMarkDark"></use></svg></div>
-    <div class="auth-splash-wordmark">Evolve</div>
-    <div class="auth-splash-tagline">with consistency</div>
+    <h1 class="auth-splash-wordmark">Evolve</h1>
+    <p class="auth-splash-tagline">with consistency</p>
   </div>
-  <div class="auth-splash-signature">S-Sence Labs</div>
+  <p class="auth-splash-signature">S-Sence Labs</p>
 </div>
 <div id="syncIssueBanner" class="sync-issue-banner" hidden role="alert" aria-live="assertive">
   <p class="sync-issue-banner__text" id="syncIssueBannerText"></p>
@@ -5025,7 +5027,8 @@ function authSetBusy(busy){_authBusy=!!busy;['authGoogleBtn','authMagicBtn','aut
 function authSendMagicLinkFromGate(){const el=document.getElementById('authGateEmail');if(!el)return;authSendMagicLink(el.value,{onSent:showAuthGateSent});}
 function showAuthGateSent(email){const a=document.getElementById('authGateViewSignIn');const b=document.getElementById('authGateViewSent');const lbl=document.getElementById('authGateSentEmail');if(lbl)lbl.textContent=email||'';if(a)a.hidden=true;if(b)b.hidden=false;}
 function authGateBackToSignIn(){const a=document.getElementById('authGateViewSignIn');const b=document.getElementById('authGateViewSent');if(b)b.hidden=true;if(a)a.hidden=false;const el=document.getElementById('authGateEmail');if(el){try{el.focus();el.select();}catch(_){}}}
-function syncAuthGate(){const gate=document.getElementById('authGate');if(!gate)return;if(authGateSessionPresent()){if(typeof window!=='undefined'){if(window.__authGateRevealTimer){try{clearTimeout(window.__authGateRevealTimer);}catch(_){}window.__authGateRevealTimer=null;}if(window.__authSplashFadeTimer){try{clearTimeout(window.__authSplashFadeTimer);}catch(_){}window.__authSplashFadeTimer=null;}}gate.classList.remove('is-visible');authGateBackToSignIn();const splash=document.getElementById('authSplash');if(splash){splash.classList.remove('is-visible');splash.classList.remove('is-fading');splash.style.pointerEvents='';}scheduleHeaderBrandMarkTheme();}else{resetHeaderBrandMarkTheme();if(authUrlHasPendingCallback())return;gate.classList.add('is-visible');}}
+function authSplashBlocksGate(){const sp=document.getElementById('authSplash');return !!(sp&&sp.classList.contains('is-visible')&&!sp.classList.contains('is-fading'));}
+function syncAuthGate(){const gate=document.getElementById('authGate');if(!gate)return;if(authGateSessionPresent()){if(typeof window!=='undefined'){if(window.__authGateRevealTimer){try{clearTimeout(window.__authGateRevealTimer);}catch(_){}window.__authGateRevealTimer=null;}if(window.__authSplashFadeTimer){try{clearTimeout(window.__authSplashFadeTimer);}catch(_){}window.__authSplashFadeTimer=null;}}gate.classList.remove('is-visible');authGateBackToSignIn();const splash=document.getElementById('authSplash');if(splash){splash.classList.remove('is-visible');splash.classList.remove('is-fading');splash.style.pointerEvents='';}scheduleHeaderBrandMarkTheme();}else{resetHeaderBrandMarkTheme();if(authUrlHasPendingCallback())return;if(authSplashBlocksGate()){gate.classList.remove('is-visible');return;}gate.classList.add('is-visible');}}
 async function authRefresh(){if(!_supa)return null;try{const r=await _supa.auth.getSession();_authSession=(r&&r.data)?r.data.session:null;}catch(e){_authSession=null;} if(_authSession){_offlineShadowUser=null;authDeviceTrustWrite(_authSession);return _authSession;} if(authApplyOfflineShadowIfNeeded())return null;return null;}
 function persistAuthDisplayNameFromAccountIfEmpty(){if(!S||!S.user||!S.user.setupDone)return;const u=authCurrentUser();if(!u)return;if((S.user.name||'').trim())return;const s=authSuggestedName();if(!s)return;S.user.name=s;syncActiveProfileMetaNameFromDisplayName();save();const su=document.getElementById('sUserName');if(su)su.value=s;if(typeof renderHeader==='function')renderHeader();}
 function prefillNameFromAuth(){try{applyAuthFirstNameToProfileIfNeeded();persistAuthDisplayNameFromAccountIfEmpty();syncSetupNameRowVisibility();const suggested=authSuggestedName();if(!suggested)return;const sn=document.getElementById('setupName');if(sn&&!sn.value)sn.value=suggested;const su=document.getElementById('sUserName');if(su&&!su.value)su.value=suggested;}catch(_){}}
