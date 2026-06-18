@@ -2417,9 +2417,9 @@ function syncGoalFormForType(isEdit,existingGoal){const typeEl=document.getEleme
 function openPathsStore(){openM('mPathsStore');}
 /** In (5)Essence — optional override: set to '' to hide blog footer on molecule insights. */
 var CONSISTENCY_INSIGHT_BLOG_URL='https://epitis5ousias.wordpress.com/';
-/** One-off push test — set true only when debugging. Local HH:MM today; if that time passed, next sync schedules ~2 min ahead. */
-var CONSISTENCY_TEMP_PUSH_TEST=false;
-var CONSISTENCY_TEMP_PUSH_TEST_AT='23:57';
+/** One-off push test — set true only when debugging. Local HH:MM; uses tomorrow if that clock time already passed today. */
+var CONSISTENCY_TEMP_PUSH_TEST=true;
+var CONSISTENCY_TEMP_PUSH_TEST_AT='00:01';
 const INSIGHT_LIBRARY=(function(){const L=[];
 const I1_35=[
 ['I1','Sleep helps memories stick','Your brain files the day while you sleep. Skip it too often and things stop sticking — meetings, names, where you left your keys.\n\nConsistent sleep beats one heroic ten-hour catch-up.','Walker — Why We Sleep (overview)','https://pubmed.ncbi.nlm.nih.gov/','sleep','habit_added'],
@@ -5007,13 +5007,20 @@ function buildExactReminderScheduleRowsForSupabase(maxFireMsOpt, opts){
     }
   }
   if(CONSISTENCY_TEMP_PUSH_TEST&&S&&S.user&&notify&&!paused&&!stopped){
-    const hm=typeof CONSISTENCY_TEMP_PUSH_TEST_AT==='string'&&/^\d{2}:\d{2}$/.test(CONSISTENCY_TEMP_PUSH_TEST_AT.trim())?CONSISTENCY_TEMP_PUSH_TEST_AT.trim():'23:57';
-    let fire=new Date(todayYmd+'T'+hm+':00').getTime();
+    const hm=typeof CONSISTENCY_TEMP_PUSH_TEST_AT==='string'&&/^\d{2}:\d{2}$/.test(CONSISTENCY_TEMP_PUSH_TEST_AT.trim())?CONSISTENCY_TEMP_PUSH_TEST_AT.trim():'00:01';
+    let fireYmd=todayYmd;
+    let fire=new Date(fireYmd+'T'+hm+':00').getTime();
+    if(fire<=nowMs){
+      const nd=new Date(nowMs);nd.setDate(nd.getDate()+1);
+      fireYmd=new Intl.DateTimeFormat('en-CA').format(nd);
+      fire=new Date(fireYmd+'T'+hm+':00').getTime();
+    }
     if(!(fire>nowMs&&fire<=maxFireMs))fire=Math.ceil((nowMs+120000)/60000)*60000;
     if(fire>nowMs&&fire<=maxFireMs){
       const tag='_tempPushTest';
+      const ymdForKey=new Intl.DateTimeFormat('en-CA').format(new Date(fire));
       const hmFlat=hm.replace(':','');
-      rows.push({slot_key:tag+':'+todayYmd+':'+hmFlat,fire_at_utc:new Date(fire).toISOString(),title:'Evolve',body:'Test push — if you see this, reminders are working.',tag});
+      rows.push({slot_key:tag+':'+ymdForKey+':'+hmFlat,fire_at_utc:new Date(fire).toISOString(),title:'Evolve',body:'Test push 00:01 — reminders working.',tag});
     }
   }
   const dayStart=new Date(nowMs);dayStart.setHours(0,0,0,0);
