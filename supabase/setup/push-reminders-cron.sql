@@ -31,7 +31,8 @@ select cron.schedule(
       'Content-Type', 'application/json',
       'x-cron-secret', 'REPLACE_WITH_YOUR_CRON_SECRET'
     ),
-    body := '{}'::jsonb
+    body := '{}'::jsonb,
+    timeout_milliseconds := 15000
   ) as request_id;
   $$
 );

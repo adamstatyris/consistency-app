@@ -4693,7 +4693,7 @@ async function renderReminderDebugTab(){
   });
   rowsOut.sort(function(a,b){return new Date(a.fire_at_utc)-new Date(b.fire_at_utc);});
   if(meta){
-    meta.textContent='Table = preview (as if reminders on, not paused). Live sync rows: '+liveRows.length+'. Preview rows: '+previewRows.length+'. Server: '+(srvRows?srvRows.length:0)+' ('+pending.length+' pending, '+overdue.length+' overdue). Subs: '+(pushErr?'err':pushSubs.length)+'. Profile reminders: '+(notifyOn?'on':'off')+'. Permission: '+perm+(srvErr?' · '+srvErr:'')+(pushErr?' · '+pushErr:'');
+    meta.textContent='Live sync rows (what Sync now uploads): '+liveRows.length+'. Preview rows (ignores pause/off for planning): '+previewRows.length+'. Server: '+(srvRows?srvRows.length:0)+' ('+pending.length+' pending, '+overdue.length+' overdue). Subs: '+(pushErr?'err':pushSubs.length)+'. Profile reminders: '+(notifyOn?'on':'off')+'. Permission: '+perm+(srvErr?' · '+srvErr:'')+(pushErr?' · '+pushErr:'');
   }
   if(!rowsOut.length){
     mount.innerHTML='<p class="small-note">No preview rows in the next 7 days. Add habits with daily reminder times, or check a profile with data.</p>';
@@ -4968,27 +4968,18 @@ function buildExactReminderScheduleRowsForSupabase(maxFireMsOpt, opts){
       const growth=habits.filter(h=>habitEffectiveTier(h,wk)==='growth');
       const coreUn=cores.some(h=>!habitHasLogForDayIndex(h,wk,di));
       const growthUn=growth.some(h=>!habitHasLogForDayIndex(h,wk,di));
-      const dow=new Date(nowMs).getDay();
-      if(debugPreview){
-        let c=new Date(nowMs);c.setHours(0,0,0,0);
-        const endCap=new Date(maxFireMs);
-        while(c.getTime()<=endCap.getTime()){
-          if(c.getDay()===0){
-            const ymd=isoDate(c);
-            add(ymd,'10:00','sun_m',"It's Sunday — your week locks at midnight. Make sure everything's logged.");
-            add(ymd,'13:00','sun_mid','Midday Sunday — week locks at midnight. Anything still open?');
-            add(ymd,'15:00','sun_a','A few hours left before your week locks. Any missing entries?');
-            add(ymd,'18:00','sun_ev','Early evening — your week locks at midnight. Time to check the log.');
-            add(ymd,'20:00','sun_e','Last chance — your week locks in a few hours.');
-          }
-          c.setDate(c.getDate()+1);
+      let c=new Date(nowMs);c.setHours(0,0,0,0);
+      const endCap=new Date(maxFireMs);
+      while(c.getTime()<=endCap.getTime()){
+        if(c.getDay()===0){
+          const ymd=isoDate(c);
+          add(ymd,'10:00','sun_m',"It's Sunday — your week locks at midnight. Make sure everything's logged.");
+          add(ymd,'13:00','sun_mid','Midday Sunday — week locks at midnight. Anything still open?');
+          add(ymd,'15:00','sun_a','A few hours left before your week locks. Any missing entries?');
+          add(ymd,'18:00','sun_ev','Early evening — your week locks at midnight. Time to check the log.');
+          add(ymd,'20:00','sun_e','Last chance — your week locks in a few hours.');
         }
-      }else if(dow===0){
-        add(todayYmd,'10:00','sun_m',"It's Sunday — your week locks at midnight. Make sure everything's logged.");
-        add(todayYmd,'13:00','sun_mid','Midday Sunday — week locks at midnight. Anything still open?');
-        add(todayYmd,'15:00','sun_a','A few hours left before your week locks. Any missing entries?');
-        add(todayYmd,'18:00','sun_ev','Early evening — your week locks at midnight. Time to check the log.');
-        add(todayYmd,'20:00','sun_e','Last chance — your week locks in a few hours.');
+        c.setDate(c.getDate()+1);
       }
       if(coreUn||growthUn){
         add(todayYmd,'14:00','habits_day','Some habits are not logged yet today — open Evolve when you can.');

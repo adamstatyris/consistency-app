@@ -289,13 +289,18 @@ export function buildReminderScheduleRowsFromRoot(
     const growth = habits.filter((h) => habitEffectiveTierZ(S, nowMs, tz, h, wk) === 'growth')
     const coreUn = cores.some((h) => !habitHasLogForDayIndexZ(S, h, wk, di))
     const growthUn = growth.some((h) => !habitHasLogForDayIndexZ(S, h, wk, di))
-    const dow = jsDayOfWeek(nowMs, tz)
-    if (dow === 0) {
-      addRow(todayYmd, '10:00', 'sun_m', "It's Sunday — your week locks at midnight. Make sure everything's logged.")
-      addRow(todayYmd, '13:00', 'sun_mid', 'Midday Sunday — week locks at midnight. Anything still open?')
-      addRow(todayYmd, '15:00', 'sun_a', 'A few hours left before your week locks. Any missing entries?')
-      addRow(todayYmd, '18:00', 'sun_ev', 'Early evening — your week locks at midnight. Time to check the log.')
-      addRow(todayYmd, '20:00', 'sun_e', 'Last chance — your week locks in a few hours.')
+    let c = DateTime.fromMillis(nowMs, { zone: tz }).startOf('day')
+    const endCap = DateTime.fromMillis(maxFireMs, { zone: tz })
+    while (c <= endCap) {
+      if (c.weekday === 7) {
+        const ymd = c.toISODate()!
+        addRow(ymd, '10:00', 'sun_m', "It's Sunday — your week locks at midnight. Make sure everything's logged.")
+        addRow(ymd, '13:00', 'sun_mid', 'Midday Sunday — week locks at midnight. Anything still open?')
+        addRow(ymd, '15:00', 'sun_a', 'A few hours left before your week locks. Any missing entries?')
+        addRow(ymd, '18:00', 'sun_ev', 'Early evening — your week locks at midnight. Time to check the log.')
+        addRow(ymd, '20:00', 'sun_e', 'Last chance — your week locks in a few hours.')
+      }
+      c = c.plus({ days: 1 })
     }
     if (coreUn || growthUn) {
       addRow(todayYmd, '14:00', 'habits_day', 'Some habits are not logged yet today — open Consistency when you can.')
