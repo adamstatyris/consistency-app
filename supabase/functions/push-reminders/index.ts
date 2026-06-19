@@ -64,6 +64,25 @@ function emojiForHabitReminder(root: Root | null, tag: string): string {
   return ''
 }
 
+function emojiFromGeneralReminderTag(tag: string): string {
+  const t = String(tag || '').trim()
+  if (t === 'habits_day') return '✅'
+  if (t === 'habits_morning') return '☀️'
+  if (t.startsWith('sun_')) return '🗓️'
+  if (t === '_tempPushTest') return '🔔'
+  return ''
+}
+
+function emojiForPushReminder(root: Root | null, tag: string): string {
+  const t = String(tag || '')
+  if (t.startsWith('hrd:')) {
+    const fromTag = emojiFromHabitReminderTag(t)
+    if (fromTag) return fromTag
+    return emojiForHabitReminder(root, t)
+  }
+  return emojiFromGeneralReminderTag(t)
+}
+
 async function loadUserRoot(
   supa: ReturnType<typeof createClient>,
   userId: string,
@@ -122,14 +141,16 @@ Deno.serve(async (req) => {
       if (!list.length) continue
 
       let iconEmoji = ''
-      if (String(row.tag || '').startsWith('hrd:')) {
-        iconEmoji = emojiFromHabitReminderTag(String(row.tag || ''))
-        if (!iconEmoji) {
+      if (row.tag) {
+        if (String(row.tag).startsWith('hrd:') && !emojiFromHabitReminderTag(String(row.tag))) {
           if (!rootCache.has(row.user_id)) {
             rootCache.set(row.user_id, await loadUserRoot(supa, row.user_id))
           }
-          iconEmoji = emojiForHabitReminder(rootCache.get(row.user_id) ?? null, String(row.tag || ''))
         }
+        iconEmoji = emojiForPushReminder(
+          rootCache.get(row.user_id) ?? null,
+          String(row.tag || ''),
+        )
       }
 
       const payload = JSON.stringify({

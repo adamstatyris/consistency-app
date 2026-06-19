@@ -1,7 +1,7 @@
 /* Service worker: Web Push only (no asset caching).
  * Do NOT intercept fetch — pass-through avoids Response.error() breaking PWA loads on flaky mobile networks.
  */
-var EVOLVE_SW_CACHE = 'evolve-sw-v79';
+var EVOLVE_SW_CACHE = 'evolve-sw-v80';
 
 var _brandIconDataUrl = null;
 var _emojiIconCache = Object.create(null);
@@ -97,6 +97,15 @@ function brandIconDataUrl() {
   });
 }
 
+function emojiFromGeneralReminderTag(tag) {
+  var t = String(tag || '').trim();
+  if (t === 'habits_day') return '✅';
+  if (t === 'habits_morning') return '☀️';
+  if (t.indexOf('sun_') === 0) return '🗓️';
+  if (t === '_tempPushTest') return '🔔';
+  return '';
+}
+
 function emojiFromReminderTag(tag) {
   var t = String(tag || '');
   if (t.indexOf('hrd:') !== 0) return '';
@@ -152,6 +161,7 @@ function emojiIconUrl(rawEmoji) {
 function resolveNotificationIcons(iconEmoji, tag) {
   var emoji = String(iconEmoji || '').trim();
   if (!emoji) emoji = emojiFromReminderTag(tag);
+  if (!emoji) emoji = emojiFromGeneralReminderTag(tag);
   var badge = brandBadgeUrl();
   if (!emoji) {
     return brandIconDataUrl().then(function (brand) {

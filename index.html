@@ -64,9 +64,7 @@
   --topbar-sticky-offset:78px;
   --tabs-strip-height:64px;
   --app-chrome-bottom:calc(var(--tabs-strip-height) + env(safe-area-inset-bottom, 0px));
-  /* Space below fixed topbar before first card — dashboard vs Log are tuned separately */
-  --dashboard-tab-top-gap:var(--s4);
-  --log-tab-top-gap:0;
+  /* Space below fixed topbar before first card on every tab */
   --panel-top-gap-default:var(--s4);
   --overlay-backdrop:rgba(6,10,18,.75);
 }
@@ -231,10 +229,6 @@ input,textarea,select,[contenteditable="true"]{user-select:text;-webkit-user-sel
 #mProfilePicker .profile-picker-modal--avatars-only .profile-tiles-grid{margin-top:0;padding-top:0}
 .top-actions{display:flex;gap:var(--s2);align-items:center;flex-wrap:wrap;justify-content:flex-end}
 .main{width:min(1160px,100%);margin:0 auto;padding:var(--topbar-sticky-offset) var(--s4) calc(var(--app-chrome-bottom) + var(--s12));min-width:0}
-/* Clear fixed topbar in .main; per-tab top gap is separate (dashboard ≠ log ≠ others) */
-#tab-dashboard{padding-top:var(--dashboard-tab-top-gap)}
-#tab-tracker{padding-top:var(--log-tab-top-gap)}
-#tab-manage{padding-top:var(--panel-top-gap-default)}
 .tab-notify-dot{position:absolute;top:1px;right:-2px;width:7px;height:7px;margin:0;border-radius:50%;background:var(--amber);border:1.5px solid var(--surface);vertical-align:unset;pointer-events:none}
 .habit-card.habit-card--log-collapsed .habit-expandhide{display:none}
 .habit-expand-toggle{cursor:pointer;user-select:none;-webkit-user-select:none}
@@ -411,7 +405,7 @@ html[data-theme="light"] .goals-tab-pill--cooldown.goals-tab-pill--growth{border
 .whats-new-float .wn-list{margin:0;padding-left:1.15rem}
 .whats-new-float .wn-list li{margin:.35em 0}
 .whats-new-float .wn-foot{margin:var(--s3) 0 0;font-size:var(--xs);color:var(--text-faint);line-height:1.5}
-.panel{position:relative;display:none;animation:fade .18s ease}
+.panel{position:relative;display:none;animation:fade .18s ease;padding-top:var(--panel-top-gap-default)}
 .panel.active{display:block}
 @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .card{background:linear-gradient(180deg,color-mix(in srgb,var(--surface) 97%, transparent),color-mix(in srgb,var(--surface-2) 92%, var(--surface) 8%));border:1px solid var(--border);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
