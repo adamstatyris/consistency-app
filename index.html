@@ -852,16 +852,21 @@ html.evolve-auth-intro body{overflow:hidden}
 .habit-preset-cat-toggle{font-size:8px;opacity:.5;transition:transform .2s ease;flex-shrink:0}
 .habit-preset-cat:not([open]) .habit-preset-cat-toggle{transform:rotate(-90deg)}
 .habit-preset-cat-body{padding:0 var(--s2) var(--s3);display:flex;flex-direction:column;gap:var(--s1)}
-.habit-reminder-details{margin-top:var(--s3)}
-.habit-reminder-summary-inner{display:flex;align-items:center;gap:var(--s2);flex:1;min-width:0}
+.habit-reminder-section{margin-top:var(--s3)}
+.habit-reminder-off-wrap{display:flex;align-items:center}
+.habit-reminder-toggle-mount{display:flex;align-items:center;gap:var(--s2);min-width:0}
+.habit-reminder-toggle-mount .hw-toggle{margin:0}
 .habit-reminder-summary-label{margin:0;font:inherit;font-weight:600;color:var(--text);cursor:pointer}
-#hReminderDetails .habit-preset-cat-body{align-items:flex-start}
-#hReminderDetails .habit-preset-cat-body > .fg{align-self:stretch;display:flex;flex-direction:column;align-items:flex-start;gap:var(--s1)}
-.habit-reminder-time-rows{display:flex;flex-direction:column;align-items:flex-start;gap:var(--s2);margin-top:var(--s3);width:100%}
+.habit-editor-reminders-card{padding:var(--s3) var(--s4);margin:0;display:flex;flex-direction:column;gap:var(--s3)}
+.habit-editor-reminders-card[hidden]{display:none!important}
+.habit-reminder-card-toggle-row{display:flex;align-items:center}
+.habit-reminder-card-body{display:flex;flex-direction:column;align-items:flex-start;gap:var(--s2);width:100%}
+.habit-reminder-card-body > .fg{align-self:stretch;display:flex;flex-direction:column;align-items:flex-start;gap:var(--s1)}
+.habit-reminder-time-rows{display:flex;flex-direction:column;align-items:flex-start;gap:var(--s2);margin-top:var(--s1);width:100%}
 .habit-reminder-time-row{display:flex;align-items:center;justify-content:flex-start;gap:var(--s2);flex-wrap:nowrap;width:100%;box-sizing:border-box}
 .habit-reminder-time-idx{font-size:var(--xs);color:var(--text-muted);width:1rem;flex-shrink:0;text-align:left}
 .habit-reminder-sep{font-weight:700;opacity:.6;flex-shrink:0}
-#hReminderDetails .habit-reminder-picker-btn.fselect.habit-reminder-sheet-select{
+#hReminderCard .habit-reminder-picker-btn.fselect.habit-reminder-sheet-select{
   box-sizing:border-box;
   width:max-content!important;
   max-width:none!important;
@@ -880,10 +885,10 @@ html.evolve-auth-intro body{overflow:hidden}
   -webkit-tap-highlight-color:transparent;
   touch-action:manipulation;
 }
-#hReminderDetails .habit-reminder-picker-btn.fselect.habit-reminder-sheet-select:disabled{opacity:.55;cursor:not-allowed}
-#hReminderDetails .habit-reminder-picker-btn.fselect.habit-reminder-sheet-select:focus-visible{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-bg)}
+#hReminderCard .habit-reminder-picker-btn.fselect.habit-reminder-sheet-select:disabled{opacity:.55;cursor:not-allowed}
+#hReminderCard .habit-reminder-picker-btn.fselect.habit-reminder-sheet-select:focus-visible{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-bg)}
 @media(max-width:420px){
-  #hReminderDetails .habit-reminder-picker-btn.fselect.habit-reminder-sheet-select{font-size:13px;line-height:1.38}
+  #hReminderCard .habit-reminder-picker-btn.fselect.habit-reminder-sheet-select{font-size:13px;line-height:1.38}
 }
 .habit-reminder-wheel-wrap{position:fixed;z-index:10040;min-width:0}
 .habit-reminder-wheel-panel{box-sizing:border-box;width:var(--habit-rem-wheel-w,4.5rem);padding:var(--s2);background:linear-gradient(180deg,var(--surface),color-mix(in srgb,var(--surface-2) 92%,var(--surface)));border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow-lg);overflow:hidden}
@@ -1005,7 +1010,6 @@ html.evolve-auth-intro body{overflow:hidden}
 #tab-tracker .habit-name-row .habit-name{flex:1;min-width:0}
 #tab-tracker .habit-name-row .mastery-badge{margin-left:auto;flex-shrink:0}
 .settings-kid-prefs-col{display:flex;flex-direction:column;gap:var(--s5)}
-.habit-reminder-summary-inner .hw-toggle{margin:0}
 @keyframes slide-out-right{from{transform:translateX(0);opacity:1}to{transform:translateX(110%);opacity:0}}
 .habit-card-exit{animation:slide-out-right .38s cubic-bezier(.4,0,1,1) forwards;pointer-events:none;}
 @media(prefers-reduced-motion:reduce){.tracker-swipe-inner{transition:none!important}}
@@ -1802,24 +1806,26 @@ html.evolve-auth-intro body{overflow:hidden}
         <input class="finput finput--compact" id="hCustomUnit" placeholder="e.g. chapters/week" oninput="refreshHabitEditorSummary()">
       </div>
     </div>
-    <details id="hReminderDetails" class="habit-preset-cat habit-reminder-details">
-      <summary class="habit-preset-cat-summary">
-        <span class="habit-reminder-summary-inner" onclick="event.preventDefault();event.stopPropagation();">
-          <button type="button" class="hw-toggle" id="hRemindersEnabled" onclick="event.stopPropagation();onHabitReminderToggleChange()" aria-pressed="false" role="switch" aria-label="Daily reminders">
+    <div id="hReminderSection" class="habit-reminder-section">
+      <div id="hReminderOffWrap" class="habit-reminder-off-wrap">
+        <div id="hReminderOffToggleMount" class="habit-reminder-toggle-mount">
+          <button type="button" class="hw-toggle" id="hRemindersEnabled" onclick="onHabitReminderToggleChange()" aria-pressed="false" role="switch" aria-label="Daily reminders">
             <span class="hw-toggle-track"><span class="hw-toggle-thumb"></span></span>
             <span class="hw-toggle-lbl habit-reminder-summary-label" id="hRemindersEnabledLabel">Daily reminders</span>
           </button>
-        </span>
-        <span class="habit-preset-cat-toggle" aria-hidden="true">▼</span>
-      </summary>
-      <div class="habit-preset-cat-body">
-        <div class="fg">
-          <label class="flabel" for="hReminderCount" id="hReminderCountLabel">How many per day?</label>
-          <button type="button" class="habit-reminder-picker-btn fselect habit-reminder-sheet-select habit-reminder-count" id="hReminderCount" data-value="1" aria-haspopup="dialog" aria-expanded="false" aria-label="How many reminders per day" onclick="openHabitReminderWheelPicker(this)">1</button>
         </div>
-        <div id="hReminderTimeRows" class="habit-reminder-time-rows" hidden></div>
       </div>
-    </details>
+      <div class="card config-card habit-editor-reminders-card glow-blue" id="hReminderCard" hidden>
+        <div id="hReminderOnToggleMount" class="habit-reminder-card-toggle-row"></div>
+        <div class="habit-reminder-card-body">
+          <div class="fg">
+            <label class="flabel" for="hReminderCount" id="hReminderCountLabel">How many per day?</label>
+            <button type="button" class="habit-reminder-picker-btn fselect habit-reminder-sheet-select habit-reminder-count" id="hReminderCount" data-value="1" aria-haspopup="dialog" aria-expanded="false" aria-label="How many reminders per day" onclick="openHabitReminderWheelPicker(this)">1</button>
+          </div>
+          <div id="hReminderTimeRows" class="habit-reminder-time-rows" hidden></div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="modal-footer" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--s2)">
     <button type="button" class="btn btn-ghost" onclick="closeM('mHabit')">Cancel</button>
@@ -2441,14 +2447,15 @@ function bindHabitReminderWheelOutsideClose(){if(window._habitReminderWheelOutsi
 function syncHabitReminderTimeRowsVisibility(){const root=document.getElementById('hReminderTimeRows');if(!root)return;if(!hbRemOn()){root.innerHTML='';root.hidden=true;return;}root.hidden=false;}
 function localHmFromDate(d){return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');}
 function notificationBodyForSavedHabit(h){const pk=findPresetKeyForSavedHabit(h);if(pk&&HABIT_PRESET_NOTIFY_BODY[pk])return HABIT_PRESET_NOTIFY_BODY[pk];const raw=(String(h.title||'Habit').trim()||'Habit');const safe=raw.replace(/"/g,"'");return 'Your "'+safe+'" needs your attention.';}
-function applyHabitReminderDefaultsFromPreset(presetKey){const editingId=document.getElementById('habitId')?.value;const det=document.getElementById('hReminderDetails');const en=document.getElementById('hRemindersEnabled');const cnt=document.getElementById('hReminderCount');if(!cnt)return;const def=presetKey&&presetKey!=='custom'?HABIT_PRESET_REMINDER_DEFAULTS[presetKey]:null;const rawC=def?def.c:1;setHabitReminderCountDisplay(Math.max(1,Math.min(HABIT_REMINDER_COUNT_MAX,rawC)));if(!editingId){if(en)setHbRemOn(false);if(det)det.open=false;}syncHabitReminderCountDisabled();const n=getHabitReminderCountFromSelect();const times=buildHabitReminderTimes(presetKey,n);if(hbRemOn()){renderHabitReminderTimeRows(times);}else{const root=document.getElementById('hReminderTimeRows');if(root){root.innerHTML='';root.hidden=true;}}syncHabitReminderKidsVisibility();}
-function hydrateHabitReminderEditorFromHabit(h){const en=document.getElementById('hRemindersEnabled');const cnt=document.getElementById('hReminderCount');const det=document.getElementById('hReminderDetails');if(!en||!cnt)return;const on=!!(h&&h.remindersEnabled);setHbRemOn(on);setHabitReminderCountDisplay(Math.max(1,Math.min(HABIT_REMINDER_COUNT_MAX,parseInt(h&&h.reminderCount,10)||1)));if(det)det.open=on;syncHabitReminderCountDisabled();const pk=findPresetKeyForSavedHabit(h);const rc=getHabitReminderCountFromSelect();let times=[];if(h&&Array.isArray(h.reminderTimes)&&h.reminderTimes.length){times=h.reminderTimes.map(normalizeHmToString).slice(0,rc);}while(times.length<rc){const full=buildHabitReminderTimes(pk,rc);times.push(full[times.length]||'12:00');}times=sortReminderTimesStringsChronological(times).slice(0,rc);if(on){renderHabitReminderTimeRows(times);}else{const root=document.getElementById('hReminderTimeRows');if(root){root.innerHTML='';root.hidden=true;}}syncHabitReminderKidsVisibility();}
+function applyHabitReminderDefaultsFromPreset(presetKey){const editingId=document.getElementById('habitId')?.value;const en=document.getElementById('hRemindersEnabled');const cnt=document.getElementById('hReminderCount');if(!cnt)return;const def=presetKey&&presetKey!=='custom'?HABIT_PRESET_REMINDER_DEFAULTS[presetKey]:null;const rawC=def?def.c:1;setHabitReminderCountDisplay(Math.max(1,Math.min(HABIT_REMINDER_COUNT_MAX,rawC)));if(!editingId){if(en)setHbRemOn(false);}syncHabitReminderCardVisibility();syncHabitReminderCountDisabled();const n=getHabitReminderCountFromSelect();const times=buildHabitReminderTimes(presetKey,n);if(hbRemOn()){renderHabitReminderTimeRows(times);}else{const root=document.getElementById('hReminderTimeRows');if(root){root.innerHTML='';root.hidden=true;}}syncHabitReminderKidsVisibility();}
+function hydrateHabitReminderEditorFromHabit(h){const en=document.getElementById('hRemindersEnabled');const cnt=document.getElementById('hReminderCount');if(!en||!cnt)return;const on=!!(h&&h.remindersEnabled);setHbRemOn(on);setHabitReminderCountDisplay(Math.max(1,Math.min(HABIT_REMINDER_COUNT_MAX,parseInt(h&&h.reminderCount,10)||1)));syncHabitReminderCardVisibility();syncHabitReminderCountDisabled();const pk=findPresetKeyForSavedHabit(h);const rc=getHabitReminderCountFromSelect();let times=[];if(h&&Array.isArray(h.reminderTimes)&&h.reminderTimes.length){times=h.reminderTimes.map(normalizeHmToString).slice(0,rc);}while(times.length<rc){const full=buildHabitReminderTimes(pk,rc);times.push(full[times.length]||'12:00');}times=sortReminderTimesStringsChronological(times).slice(0,rc);if(on){renderHabitReminderTimeRows(times);}else{const root=document.getElementById('hReminderTimeRows');if(root){root.innerHTML='';root.hidden=true;}}syncHabitReminderKidsVisibility();}
 function resetHabitReminderEditorForClone(){applyHabitReminderDefaultsFromPreset('custom');}
 function hbRemOn(){const en=document.getElementById('hRemindersEnabled');return !!(en&&en.classList.contains('hw-toggle')&&en.classList.contains('on'));}
 function setHbRemOn(on){const en=document.getElementById('hRemindersEnabled');if(!en||!en.classList.contains('hw-toggle'))return;en.classList.toggle('on',!!on);en.setAttribute('aria-pressed',on?'true':'false');}
 function syncHabitReminderCountDisabled(){const cnt=document.getElementById('hReminderCount');if(!cnt)return;const on=hbRemOn();cnt.disabled=!on;}
-function syncHabitReminderKidsVisibility(){const kid=typeof useKidsLanguage==='function'&&useKidsLanguage();const wrap=document.getElementById('hReminderDetails');if(wrap)wrap.style.display=(kid&&!kidHabitSpecificRemindersWanted())?'none':'';}
-function onHabitReminderToggleChange(){const en=document.getElementById('hRemindersEnabled');const det=document.getElementById('hReminderDetails');if(!en)return;const want=!hbRemOn();const finish=function(ok){if(!ok){setHbRemOn(false);if(det)det.open=false;}else{setHbRemOn(true);if(det)det.open=true;if(S&&S.user){ensureAppRemindersEnabled();save();scheduleServiceWorkerReminderSync();}}syncHabitReminderCountDisabled();updateHabitReminderPreview();};if(want){if(typeof Notification==='undefined'){setHbRemOn(false);alert((typeof useKidsLanguage==='function'&&useKidsLanguage())?'Reminders need a grown-up browser.':'This browser does not support notifications.');syncHabitReminderCountDisabled();updateHabitReminderPreview();return;}if(Notification.permission==='denied'){setHbRemOn(false);alert((typeof useKidsLanguage==='function'&&useKidsLanguage())?'Notifications are blocked. A grown-up can allow them in browser settings.':'Notifications are blocked for this site. Enable them in browser settings if you want reminders.');syncHabitReminderCountDisabled();updateHabitReminderPreview();return;}if(Notification.permission==='default'){Notification.requestPermission().then(function(p){finish(p==='granted');});return;}finish(true);return;}setHbRemOn(false);if(det)det.open=false;syncHabitReminderCountDisabled();updateHabitReminderPreview();}
+function syncHabitReminderCardVisibility(){const offWrap=document.getElementById('hReminderOffWrap');const card=document.getElementById('hReminderCard');const offMount=document.getElementById('hReminderOffToggleMount');const onMount=document.getElementById('hReminderOnToggleMount');const en=document.getElementById('hRemindersEnabled');const on=hbRemOn();if(card)card.hidden=!on;if(offWrap)offWrap.hidden=on;const target=on?onMount:offMount;if(en&&target&&en.parentElement!==target)target.appendChild(en);}
+function syncHabitReminderKidsVisibility(){const kid=typeof useKidsLanguage==='function'&&useKidsLanguage();const wrap=document.getElementById('hReminderSection');if(wrap)wrap.style.display=(kid&&!kidHabitSpecificRemindersWanted())?'none':'';}
+function onHabitReminderToggleChange(){const en=document.getElementById('hRemindersEnabled');if(!en)return;const want=!hbRemOn();const finish=function(ok){if(!ok){setHbRemOn(false);}else{setHbRemOn(true);if(S&&S.user){ensureAppRemindersEnabled();save();scheduleServiceWorkerReminderSync();}}syncHabitReminderCardVisibility();syncHabitReminderCountDisabled();updateHabitReminderPreview();};if(want){if(typeof Notification==='undefined'){setHbRemOn(false);syncHabitReminderCardVisibility();alert((typeof useKidsLanguage==='function'&&useKidsLanguage())?'Reminders need a grown-up browser.':'This browser does not support notifications.');syncHabitReminderCountDisabled();updateHabitReminderPreview();return;}if(Notification.permission==='denied'){setHbRemOn(false);syncHabitReminderCardVisibility();alert((typeof useKidsLanguage==='function'&&useKidsLanguage())?'Notifications are blocked. A grown-up can allow them in browser settings.':'Notifications are blocked for this site. Enable them in browser settings if you want reminders.');syncHabitReminderCountDisabled();updateHabitReminderPreview();return;}if(Notification.permission==='default'){Notification.requestPermission().then(function(p){finish(p==='granted');});return;}finish(true);return;}setHbRemOn(false);syncHabitReminderCardVisibility();syncHabitReminderCountDisabled();updateHabitReminderPreview();}
 function updateHabitReminderPreview(){const root=document.getElementById('hReminderTimeRows');if(!hbRemOn()){if(root){root.innerHTML='';root.hidden=true;}return;}const n=getHabitReminderCountFromSelect();const rowCount=root?root.querySelectorAll('.habit-reminder-time-row').length:0;if(rowCount!==n||rowCount===0)onHabitReminderCountChange();else syncHabitReminderTimeRowsVisibility();}
 const HABIT_PRESET_CATEGORY_LABELS={self_care:'Self-care',wellbeing:'Wellbeing',mindfulness:'Mindfulness',religion:'Faith & spirituality',hygiene:'Hygiene',social:'Social',exercise:'Exercise',creativity:'Creativity',work_study:'Work & study',home_space:'Home & space',finance:'Finance',other:'Other'};
 const HABIT_USER_CATEGORY_OPTIONS=[{v:'self_care',l:'Self-care'},{v:'wellbeing',l:'Wellbeing'},{v:'mindfulness',l:'Mindfulness'},{v:'religion',l:'Faith & spirituality'},{v:'hygiene',l:'Hygiene'},{v:'social',l:'Social'},{v:'exercise',l:'Exercise'},{v:'creativity',l:'Creativity'},{v:'work_study',l:'Work & study'},{v:'home_space',l:'Home & space'},{v:'finance',l:'Finance'},{v:'__custom__',l:'Custom category…'}];
