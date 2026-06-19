@@ -825,12 +825,15 @@ html.evolve-auth-intro body{overflow:hidden}
 .habit-editor-metrics-card{padding:var(--s3) var(--s4);margin:0}
 .habit-editor-metrics-card[hidden]{display:none!important}
 .habit-editor-metrics-row{display:flex;flex-wrap:wrap;gap:var(--s3);align-items:flex-end;justify-content:flex-start}
-.habit-editor-metrics-card .fg,.habit-editor-metrics-row .fg{margin:0;flex:0 0 auto;width:fit-content;max-width:100%;min-width:0;align-items:flex-start}
-.habit-editor-metrics-card .fg .flabel{align-self:stretch;white-space:normal;line-height:1.35}
-.habit-editor-metrics-row .finput--compact,.habit-editor-metrics-card .habit-editor-custom-unit .finput--compact,.habit-metric-pick-btn{box-sizing:border-box;min-height:2.5rem;font-size:inherit;line-height:1.35;align-self:flex-start;width:auto!important;min-width:2.75rem;max-width:100%;field-sizing:content}
-.habit-editor-metrics-row .fg--metric-threshold .finput,.habit-editor-metrics-row .fg--metric-pot .finput,.habit-editor-metrics-card .habit-editor-custom-unit .finput{width:auto!important;min-width:2.75rem;max-width:100%;field-sizing:content}
+.habit-editor-metrics-card .fg,.habit-editor-metrics-row .fg{margin:0;flex:0 0 auto;width:fit-content;max-width:100%;min-width:0;align-items:flex-start;gap:6px}
+.habit-editor-metrics-row .flabel,.habit-editor-metrics-card .fg .flabel{align-self:stretch;white-space:normal;font-size:var(--xs);font-weight:700;line-height:1.35;letter-spacing:normal;text-transform:none;color:var(--text-muted)}
+.habit-editor-metrics-row .finput--compact,.habit-editor-metrics-card .habit-editor-custom-unit .finput--compact,.habit-editor-metrics-row .habit-metric-pick-btn{box-sizing:border-box;min-height:2.5rem;padding:var(--s2) var(--s3);font-size:var(--base);line-height:1.35;align-self:flex-start;width:auto!important;max-width:100%;font-variant-numeric:tabular-nums}
+.habit-editor-metrics-row .fg--metric-threshold .finput,.habit-editor-metrics-row .fg--metric-pot .finput,.habit-editor-metrics-card .habit-editor-custom-unit .finput{min-width:4.75rem;field-sizing:fixed;text-align:center}
+.habit-editor-metrics-row .habit-metric-pick-btn{min-width:4.75rem;display:inline-flex;align-items:center;justify-content:flex-start;width:max-content!important}
+.habit-editor-metrics-row input[type=number]::-webkit-inner-spin-button,.habit-editor-metrics-row input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.habit-editor-metrics-row input[type=number]{-moz-appearance:textfield;appearance:textfield}
 .fg--metric-pick{position:relative;display:flex;flex-direction:column;align-items:flex-start}
-.habit-metric-pick-btn{display:inline-flex;align-items:center;justify-content:flex-start;width:max-content;max-width:100%;min-width:0;padding:var(--s2) var(--s3);text-align:left;cursor:pointer;white-space:nowrap;background:var(--surface-3);border:1px solid var(--border);border-radius:var(--r-md);color:var(--text);font:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.habit-metric-pick-btn{display:inline-flex;align-items:center;justify-content:flex-start;width:max-content;max-width:100%;padding:var(--s2) var(--s3);text-align:left;cursor:pointer;white-space:nowrap;background:var(--surface-3);border:1px solid var(--border);border-radius:var(--r-md);color:var(--text);font:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .habit-metric-pick-btn:hover,.habit-metric-pick-btn:focus-visible{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-bg);outline:none}
 .habit-editor-metric-native{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 .habit-metric-popover-wrap{position:fixed;z-index:10046;min-width:0;max-width:min(240px,calc(100vw - 16px))}
