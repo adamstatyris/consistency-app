@@ -2878,13 +2878,13 @@ function repairProfileMetaNamesFromUser(){if(!ROOT||!ROOT.profiles)return;if(!RO
 function syncActiveProfileMetaNameFromDisplayName(){if(!ROOT||!ROOT.activeProfileId)return;const pid=ROOT.activeProfileId;const v=(S.user&&String(S.user.name||'')).trim();if(!ROOT.profileMeta)ROOT.profileMeta={};if(!ROOT.profileMeta[pid])ROOT.profileMeta[pid]={};ROOT.profileMeta[pid].name=v||'Primary';}
 function migrate(){if(!ROOT||!ROOT.profiles)return;ensureAccountPlanTierOnRoot();repairProfileChildMetaFromDob();_prunedSleepCopyTestHabitThisMigrate=false;Object.keys(ROOT.profiles).forEach(pid=>migrateOneProfile(ROOT.profiles[pid]));repairProfileMetaNamesFromUser();if(_prunedSleepCopyTestHabitThisMigrate)try{save();}catch(e){}}
 function annotateProfilesForSave(){if(!ROOT||!ROOT.profiles)return;Object.values(ROOT.profiles).forEach(P=>{if(!P)return;normalizeProfileInsightsShape(P);P.insights.discoveredCount=(P.insights.unlocked||[]).length;P.insights.catalogSizeAtSave=INSIGHT_LIBRARY.length;});}
-function bumpRootSyncEditAt(){if(!ROOT)return;ROOT._sync=ROOT._sync&&typeof ROOT._sync==='object'?ROOT._sync:{};ROOT._sync.editAt=Date.now();if(ROOT._sync.cloudEnabled===undefined)ROOT._sync.cloudEnabled=true;}
+function bumpRootSyncEditAt(){if(!ROOT)return;ROOT._sync=ROOT._sync&&typeof ROOT._sync==='object'?ROOT._sync:{};if(!_cloudSyncBootstrapComplete&&typeof authGateSessionPresent==='function'&&authGateSessionPresent())return;ROOT._sync.editAt=Date.now();if(ROOT._sync.cloudEnabled===undefined)ROOT._sync.cloudEnabled=true;}
 let _saveTimer=null;let _saveOptsPending=null;if(!window.__evolveSaveFlushBound){window.__evolveSaveFlushBound=true;document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden')flushPendingSave();});}
 function flushSave(opts){opts=opts||{};if(!ROOT||!S)return;annotateProfilesForSave();try{if(S&&S.user){const tz=Intl.DateTimeFormat().resolvedOptions().timeZone;if(tz)S.user.reminderTimeZone=tz;}}catch(e){}if(!opts.fromCloudMerge)bumpRootSyncEditAt();const json=JSON.stringify(ROOT);try{localStorage.setItem(STORAGE_KEY,json);}catch(e){}if(cookieMirrorEnabled())try{persistToCookies(json);}catch(e){}if(!opts.fromCloudMerge)scheduleCloudPush();}
 function save(opts){opts=opts||{};if(opts.immediate||opts.fromCloudMerge){if(_saveTimer){clearTimeout(_saveTimer);_saveTimer=null;_saveOptsPending=null;}flushSave(opts);return;}_saveOptsPending=Object.assign(_saveOptsPending||{},opts);clearTimeout(_saveTimer);_saveTimer=setTimeout(function(){flushSave(_saveOptsPending||{});_saveOptsPending=null;_saveTimer=null;},300);}
 function flushPendingSave(){if(_saveTimer){clearTimeout(_saveTimer);_saveTimer=null;const o=_saveOptsPending||{};_saveOptsPending=null;flushSave(o);}}
 function seed(){if(!S)return;if(seedProfile(S))save();}
-let _cloudPushTimer=null;let _cloudPushInFlight=false;let _cloudSyncLastError=null;
+let _cloudPushTimer=null;let _cloudPushInFlight=false;let _cloudSyncLastError=null;let _cloudSyncBootstrapComplete=false;let _pendingCloudMergePayload=null;let _pendingCloudMergeUpdatedAt=null;
 function cloudSyncIsEnabled(){if(!ROOT)return false;if(!ROOT._sync||ROOT._sync.cloudEnabled===undefined)return true;return ROOT._sync.cloudEnabled!==false;}
 /** True when local data is still the default shell (no goals, no logged weeks) — e.g. incognito or fresh profile. Must not overwrite richer cloud row (last-write-wins timestamps wrongly favour local after seed()+save()). */
 function rootLooksLikeUnsyncedFreshShell(R){
@@ -2908,10 +2908,59 @@ function syncPayloadRichness(R){
   });
   return{profiles,weekKeys,activeGoals};
 }
-function remotePayloadLikelyMoreValuableThanLocalFreshShell(localRoot,remotePayload){
+function syncPayloadLogRichness(R){
+  if(!R||!R.profiles||typeof R.profiles!=='object')return 0;
+  let n=0;
+  Object.values(R.profiles).forEach(P=>{
+    if(!P||!P.weeks)return;
+    Object.values(P.weeks).forEach(w=>{
+      if(!w||!w.habitData)return;
+      Object.values(w.habitData).forEach(hd=>{
+        if(!hd)return;
+        if((hd.days||[]).some(d=>!!d))n+=1;
+        else if((hd.dayValues||[]).some(v=>(Number(v)||0)>0))n+=1;
+        else if((Number(hd.value)||0)>0)n+=1;
+      });
+    });
+  });
+  return n;
+}
+function remotePayloadLikelyMoreValuableThanLocal(localRoot,remotePayload){
   const loc=syncPayloadRichness(localRoot);
   const rem=syncPayloadRichness(remotePayload);
-  return rem.profiles>loc.profiles||rem.weekKeys>loc.weekKeys||rem.activeGoals>loc.activeGoals;
+  if(rem.profiles!==loc.profiles)return rem.profiles>loc.profiles;
+  if(rem.weekKeys!==loc.weekKeys)return rem.weekKeys>loc.weekKeys;
+  if(rem.activeGoals!==loc.activeGoals)return rem.activeGoals>loc.activeGoals;
+  return syncPayloadLogRichness(remotePayload)>syncPayloadLogRichness(localRoot);
+}
+function remotePayloadLikelyMoreValuableThanLocalFreshShell(localRoot,remotePayload){return remotePayloadLikelyMoreValuableThanLocal(localRoot,remotePayload);}
+function openFoundSavedDataModal(remotePayload,remoteUpdatedAtIso,staleDevice){
+  _pendingCloudMergePayload=remotePayload;
+  _pendingCloudMergeUpdatedAt=remoteUpdatedAtIso;
+  const kid=typeof useKidsLanguage==='function'&&useKidsLanguage();
+  const body=document.getElementById('foundSavedDataBody');
+  if(body){
+    if(staleDevice)body.textContent=kid?'This device has older data but your account has a newer save online. Bring back the online save or keep this device and overwrite online?':'This device has older data but your account has a newer save in the cloud. Restore from the cloud, or keep this device and overwrite what is online?';
+    else body.textContent=kid?'This device looks empty but your account has a save. What should we do?':'This device looks empty but your account has saved data. What would you like to do?';
+  }
+  openM('mFoundSavedData');
+}
+async function restoreFoundSavedDataFromCloud(){
+  closeM('mFoundSavedData');
+  try{
+    if(_pendingCloudMergePayload&&_pendingCloudMergeUpdatedAt){
+      const pl=_pendingCloudMergePayload,at=_pendingCloudMergeUpdatedAt;
+      _pendingCloudMergePayload=null;_pendingCloudMergeUpdatedAt=null;
+      applyCloudPullMerge(pl,at);
+      return;
+    }
+    const u=typeof authCurrentUser==='function'?authCurrentUser():null;
+    if(!u||!_supa)return;
+    const {data,error}=await _supa.from('user_state').select('payload,updated_at').eq('user_id',u.id).maybeSingle();
+    if(error)throw error;
+    if(!data||cloudSyncPayloadIsEmpty(data.payload))return;
+    applyCloudPullMerge(data.payload,data.updated_at);
+  }catch(e){console.warn('[sync] found-saved restore failed',e);}
 }
 function cloudSyncPayloadIsEmpty(pl){return!pl||typeof pl!=='object'||Object.keys(pl).length===0||!pl.storageVersion;}
 function applyCloudPullMerge(pl,remoteUpdatedAtIso){
@@ -3022,7 +3071,7 @@ function bindFoundSavedDataAndStartFreshModals(){
   const s=document.getElementById('foundSavedDataStartFreshBtn');
   const ok=document.getElementById('startFreshConfirmOkBtn');
   const cx=document.getElementById('startFreshConfirmCancelBtn');
-  if(r&&!r.dataset.bound){r.dataset.bound='1';r.addEventListener('click',function(){closeM('mFoundSavedData');void executeRestoreCloudBackupFromHistory(null,'','T-1',{});});}
+  if(r&&!r.dataset.bound){r.dataset.bound='1';r.addEventListener('click',function(){void restoreFoundSavedDataFromCloud();});}
   if(s&&!s.dataset.bound){s.dataset.bound='1';s.addEventListener('click',function(){openM('mStartFreshConfirm');});}
   if(ok&&!ok.dataset.bound){ok.dataset.bound='1';ok.addEventListener('click',function(){try{sessionStorage.setItem('intentionalReset','true');}catch(e){}closeM('mStartFreshConfirm');closeM('mFoundSavedData');setTimeout(function(){void cloudPushNow();},0);});}
   if(cx&&!cx.dataset.bound){cx.dataset.bound='1';cx.addEventListener('click',function(){closeM('mStartFreshConfirm');});}
@@ -3033,7 +3082,7 @@ function bindSkipSecondLockWarnModal(){
   if(g&&!g.dataset.bound){g.dataset.bound='1';g.addEventListener('click',function(){try{localStorage.setItem('skipConfirmWarningSeen','1');}catch(e){}closeM('mSkipSecondLockWarn');const el=document.getElementById('sSkipSecondLockConfirm');if(el&&S&&S.user){uiToggleSet(el,true);S.user.skipSecondLockConfirm=true;save();}});}
   if(k&&!k.dataset.bound){k.dataset.bound='1';k.addEventListener('click',function(){closeM('mSkipSecondLockWarn');const el=document.getElementById('sSkipSecondLockConfirm');if(el)uiToggleSet(el,false);});}
 }
-function scheduleCloudPush(){if(typeof authCurrentUser!=='function'||!authCurrentUser()||!cloudSyncIsEnabled())return;if(typeof _supa==='undefined'||!_supa)return;clearTimeout(_cloudPushTimer);_cloudPushTimer=setTimeout(()=>{_cloudPushTimer=null;void cloudPushNow();},2000);}
+function scheduleCloudPush(){if(!_cloudSyncBootstrapComplete&&typeof authGateSessionPresent==='function'&&authGateSessionPresent())return;if(typeof authCurrentUser!=='function'||!authCurrentUser()||!cloudSyncIsEnabled())return;if(typeof _supa==='undefined'||!_supa)return;clearTimeout(_cloudPushTimer);_cloudPushTimer=setTimeout(()=>{_cloudPushTimer=null;void cloudPushNow();},2000);}
 async function cloudPushNow(){
   const u=typeof authCurrentUser==='function'?authCurrentUser():null;
   if(!u||!_supa||!cloudSyncIsEnabled()){syncCloudSyncPanelUI();return;}
@@ -3062,9 +3111,11 @@ async function cloudPushNow(){
     const {data:remoteRow,error:fetchErr}=await _supa.from('user_state').select('payload,updated_at').eq('user_id',u.id).maybeSingle();
     if(fetchErr)throw fetchErr;
     const pl=remoteRow&&remoteRow.payload;
-    if(!intentional){
-      if(!cloudSyncPayloadIsEmpty(pl)&&rootLooksLikeUnsyncedFreshShell(ROOT)&&remotePayloadLikelyMoreValuableThanLocalFreshShell(ROOT,pl)){
-        openM('mFoundSavedData');
+    if(!intentional&&!cloudSyncPayloadIsEmpty(pl)){
+      const remoteWins=remotePayloadLikelyMoreValuableThanLocal(ROOT,pl);
+      const localWins=remotePayloadLikelyMoreValuableThanLocal(pl,ROOT);
+      if(remoteWins&&!localWins){
+        openFoundSavedDataModal(pl,remoteRow.updated_at,!rootLooksLikeUnsyncedFreshShell(ROOT));
         return;
       }
     }
@@ -3083,24 +3134,38 @@ async function cloudPushNow(){
 async function cloudSyncAfterAuthBootstrap(){
   clearTimeout(_cloudPushTimer);_cloudPushTimer=null;
   _cloudSyncLastError=null;
+  _cloudSyncBootstrapComplete=false;
   const u=typeof authCurrentUser==='function'?authCurrentUser():null;
-  if(!u||!_supa){syncCloudSyncPanelUI();if(typeof scheduleServiceWorkerReminderSync==='function')scheduleServiceWorkerReminderSync();return;}
-  if(!cloudSyncIsEnabled()){syncCloudSyncPanelUI();if(typeof scheduleServiceWorkerReminderSync==='function')scheduleServiceWorkerReminderSync();return;}
+  if(!u||!_supa){syncCloudSyncPanelUI();if(typeof scheduleServiceWorkerReminderSync==='function')scheduleServiceWorkerReminderSync();_cloudSyncBootstrapComplete=true;return;}
+  if(!cloudSyncIsEnabled()){syncCloudSyncPanelUI();if(typeof scheduleServiceWorkerReminderSync==='function')scheduleServiceWorkerReminderSync();_cloudSyncBootstrapComplete=true;return;}
   try{
     const {data,error}=await _supa.from('user_state').select('payload,updated_at').eq('user_id',u.id).maybeSingle();
     if(error)throw error;
     const pl=data&&data.payload;
-    if(!data||cloudSyncPayloadIsEmpty(pl)){await cloudPushNow();syncCloudSyncPanelUI();syncCloudHistoryPanel();if(typeof scheduleServiceWorkerReminderSync==='function')scheduleServiceWorkerReminderSync();return;}
+    if(!data||cloudSyncPayloadIsEmpty(pl)){await cloudPushNow();syncCloudSyncPanelUI();syncCloudHistoryPanel();if(typeof scheduleServiceWorkerReminderSync==='function')scheduleServiceWorkerReminderSync();_cloudSyncBootstrapComplete=true;return;}
     const remoteMs=new Date(data.updated_at).getTime();
     const localEdit=(ROOT._sync&&typeof ROOT._sync.editAt==='number')?ROOT._sync.editAt:0;
-    if(localEdit===remoteMs){syncCloudSyncPanelUI();syncCloudHistoryPanel();if(typeof scheduleServiceWorkerReminderSync==='function')scheduleServiceWorkerReminderSync();return;}
     const freshLocalShell=rootLooksLikeUnsyncedFreshShell(ROOT);
-    if(localEdit>remoteMs&&!freshLocalShell){await cloudPushNow();syncCloudSyncPanelUI();syncCloudHistoryPanel();if(typeof scheduleServiceWorkerReminderSync==='function')scheduleServiceWorkerReminderSync();return;}
-    applyCloudPullMerge(pl,data.updated_at);
+    const remoteWins=remotePayloadLikelyMoreValuableThanLocal(ROOT,pl);
+    const localWins=remotePayloadLikelyMoreValuableThanLocal(pl,ROOT);
+    if(localEdit===remoteMs&&!remoteWins&&!localWins){syncCloudSyncPanelUI();syncCloudHistoryPanel();if(typeof scheduleServiceWorkerReminderSync==='function')scheduleServiceWorkerReminderSync();_cloudSyncBootstrapComplete=true;return;}
+    if(remoteWins&&!localWins){
+      if(freshLocalShell)openFoundSavedDataModal(pl,data.updated_at,false);
+      else applyCloudPullMerge(pl,data.updated_at);
+    }else if(localWins&&!remoteWins){
+      await cloudPushNow();
+    }else if(localEdit<=remoteMs){
+      applyCloudPullMerge(pl,data.updated_at);
+    }else{
+      const bootBump=localEdit>=Date.now()-20000&&remoteMs<Date.now()-60000;
+      if(bootBump||freshLocalShell)applyCloudPullMerge(pl,data.updated_at);
+      else await cloudPushNow();
+    }
   }catch(e){
     _cloudSyncLastError=e;
     console.warn('[sync] pull failed',e);
   }
+  _cloudSyncBootstrapComplete=true;
   syncCloudSyncPanelUI();
   syncCloudHistoryPanel();
   if(typeof scheduleServiceWorkerReminderSync==='function')scheduleServiceWorkerReminderSync();
@@ -3294,7 +3359,7 @@ function topbarMoonIconHTML(){return '<svg class="topbar-icon" viewBox="0 0 24 2
 function syncThemeToggleIcon(btn,mode){if(!btn)return;btn.innerHTML=mode==='dark'?topbarMoonIconHTML():topbarSunIconHTML();}
 const THEME_COLOR_META={light:'#eef3f8',dark:'#0a1016'};
 function syncThemeColorMeta(mode){const c=THEME_COLOR_META[mode==='dark'?'dark':'light'];let m=document.querySelector('meta[name="theme-color"]');if(!m){m=document.createElement('meta');m.setAttribute('name','theme-color');document.head.appendChild(m);}m.setAttribute('content',c);}
-function applyThemeMode(mode,btn){const root=document.documentElement;root.setAttribute('data-theme',mode);syncThemeToggleIcon(btn,mode);syncThemeColorMeta(mode);if(S){S.theme=mode;save();}}
+function applyThemeMode(mode,btn){const root=document.documentElement;root.setAttribute('data-theme',mode);syncThemeToggleIcon(btn,mode);syncThemeColorMeta(mode);if(S){if(S.theme!==mode){S.theme=mode;save();}else S.theme=mode;}}
 function themeSwitchPrefersReducedMotion(){return typeof window!=='undefined'&&window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;}
 function runThemeSwitch(mode,btn){const root=document.documentElement;const commit=function(){root.classList.add('theme-switching');applyThemeMode(mode,btn);};const finish=function(){root.classList.remove('theme-switching');};if(!themeSwitchPrefersReducedMotion()&&typeof document.startViewTransition==='function'){const vt=document.startViewTransition(commit);if(vt&&vt.finished)vt.finished.then(finish,finish);else finish();return;}commit();requestAnimationFrame(function(){requestAnimationFrame(finish);});}
 function themeInit(){const btn=document.querySelector('[data-theme-toggle]');if(!S||!btn)return;let mode=S.theme||'light';applyThemeMode(mode,btn);applyUiPalette();btn.onclick=function(){mode=mode==='dark'?'light':'dark';runThemeSwitch(mode,btn);};}
